@@ -9,14 +9,45 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
     <script defer src="script.js"></script>
+<!-- add FontAwesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
     <title>Business Hub</title>
     <!-- css withing the style -->
+<!-- this is for burger menu toggle  -->
+    <script> document.addEventListener("DOMContentLoaded", function() {
+        const burgerMenu = document.querySelector(".burger-menu");
+        const menuOverlay = document.querySelector(".menu-overlay");
+    
+        burgerMenu.addEventListener("click", function() {
+            menuOverlay.classList.toggle("active");
+        });
+    });
+    </script>
+       <!-- this script for closing the burger menu with ✖ -->
+       <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const burgerMenu = document.querySelector(".burger-menu");
+            const menuOverlay = document.querySelector(".menu-overlay");
+            const closeButton = document.querySelector(".close-btn");
+    
+            // Open the menu when clicking the burger icon
+            burgerMenu.addEventListener("click", function() {
+                menuOverlay.classList.add("active"); // Ensure it opens correctly
+            });
+    
+            // Close the menu when clicking the close (X) button
+            closeButton.addEventListener("click", function() {
+                menuOverlay.classList.remove("active"); // Properly hides the overlay
+            });
+        });
+    </script>
     <style>
     body {
-            font-family: Arial, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif, Times, serif, sans-serif;
             margin: 0;
             padding: 0;
+            background-color: #FAF9F6; /* Light ivory color */
         }
 
         /* Header Styling 15 */
@@ -38,6 +69,7 @@
             width: 50px;
             margin-right: 10px;
         }
+        
 
         .business-text {
             font-size: 22px;
@@ -70,8 +102,21 @@
         .nav-links a:hover, .dropbtn:hover {
             border-bottom: 2px solid #EC522D;
         }
-     
 
+        /* Navbar 3D Effect - Making it Stand Out with a Stepped Edge Look */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            background-color: #FAF9F6;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3), 0 12px 25px rgba(0, 0, 0, 0.1); /* Adds a deeper 3D effect */
+            border-radius: 10px; /* Soft rounded edges */
+            position: relative;
+            z-index: 3;
+           
+        }
+      
 /* for the icons text I'll add them withing the picture */
         .icons { 
             display: flex;
@@ -125,7 +170,17 @@
         .dropdown:hover .dropdown-content {
             display: block;
         }
+ /* Hover effect for navbar icons (Search, Burger, Notification) */
+ .icons i {
+            padding: 5px;
+            transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+            border-radius: 5px;
+        }
 
+        .icons i:hover {
+            background-color: #EC522D;
+            color: white;
+        }
         /* Header Styling */
 
         /* Video Section Styling 2 */
@@ -243,6 +298,174 @@
             color: blue;
         }
           /* Footer Styling */
+          
+        /* Full-screen grey overlay when burger menu is clicked */
+        
+        .menu-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #232322;
+            transform: translateY(-100%);
+            transition: transform 0.5s ease-in-out;
+            z-index: 5;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start; /* Aligns menu items to the left */
+            padding: 50px;}
+
+        .menu-overlay.active {
+            transform: translateY(0);
+        }
+
+        /* Close button styling */
+        .close-btn {
+            border: none;
+            font-size: 24px;
+            font-weight: bold;
+            cursor: pointer;
+            padding: 10px;
+            border-radius: 5px;
+            position: absolute;
+            top: 15px;
+            right: 30px; /* Adjusted to move it left */
+            color: white;
+            background: transparent;
+        }
+          /* Menu Links Styling */
+          .menu-links {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            text-align: left; /* Ensures text is left-aligned */
+            width: 100%;
+            padding-left: 30px; /* Moves text to the left */
+        }
+
+        .menu-links a {
+            text-decoration: none;
+            color: white;
+            font-size: 22px;
+            font-weight: bold;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .menu-links a:hover {
+            transform: scale(1.02x);
+            color: #EC522D;
+        }
+
+        /* Styling for the Logo in the Grey Overlay */
+.menu-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    position: absolute;
+    top: 20px; /* Adjust this if needed */
+    left: 30px;
+}
+
+.menu-logo img {
+    width: 50px; /* Adjust size */
+    height: auto;
+    max-width: 100%;
+}
+
+.menu-logo .business-text {
+    font-size: 24px;
+    font-weight: bold;
+     color: #EC522D;
+     margin-right: -3px;  /* Reduces space between words */
+}
+
+
+.menu-logo .hub-text {
+    font-size: 24px;
+    font-weight: bold;
+    color:#5E2950;
+}
+
+/* Social Icons in grey page Styling */
+.social-icons {
+    position: absolute;
+    bottom: 20px;  /* Moves it up from the bottom */
+    right: 30px;  /* Moves it from the right */
+    display: flex;
+    gap: 15px;  /* Space between icons */
+}
+
+.social-icons a {
+    color: white; 
+    font-size: 20px;
+    transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+.social-icons a:hover {
+    transform: scale(1.2); /* Zoom effect */
+    color: #EC522D; /* Changes color on hover */
+}
+/* Search Popup Overlay */
+.search-popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+    z-index: 10;
+}
+
+/* Search Box */
+.search-container {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 50%;
+    max-width: 400px;
+}
+
+/* Search Input */
+.search-input {
+    flex: 1;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Close Button */
+.close-search {
+    border: none;
+    background: none;
+    font-size: 20px;
+    cursor: pointer;
+    color: red;
+    font-weight: bold;
+}
+
+/* Show Popup */
+.search-popup.active {
+    visibility: visible;
+    opacity: 1;
+}
+/* Blur effect when search bar is active */
+body.blur {
+    filter: blur(5px); /* Adjust blur intensity */
+    transition: filter 0.3s ease-in-out;
+}
+
     </style>
 </head>
 <body>
@@ -254,6 +477,7 @@
     <header class="navbar">
         <div class="logo-container">
             <img src="images/logo.png" alt="Business Hub Logo" class="logo">
+            
             <span class="business-text">Business </span>  <span class="hub-text"> Hub</span>
         </div>
         <nav class="nav-links">
@@ -276,10 +500,42 @@
         <div class="icons">
             <i class="fas fa-search search-icon" onclick="toggleSearchPopup()"></i>
             <i class="fas fa-bell notification-icon"></i>
-            <i class="fas fa-bars burger-menu" onclick="toggleMenu()"></i>
+            <i class="fas fa-bars burger-menu" ></i>
             <button class="sign-in">Sign in</button>
         </div>
+
     </header>
+    <!-- Grey Overlay Menu -->
+<div class="menu-overlay">
+   
+    <!-- Logo in the Grey Overlay Menu -->
+    <div class="menu-logo">
+        <img src="images/logo.png" alt="Business Hub Logo">
+        <span class="business-text">Business</span><span class="hub-text">Hub</span>
+    </div>
+    <button class="close-btn">✖</button>
+    <div class="menu-links">
+        <div class="halls-dropdown">
+            <a href="#">Halls </a>
+          
+        </div>
+        <a href="#">Departments</a>
+        <a href="#">Books Exchange</a>
+        <a href="#">Academic Staff</a>
+        <a href="#">GPA Calculator</a>
+        <a href="#">Graduate guide</a>
+        <a href="#">Wanna have fun ?</a>
+        <a href="#">Important Services nearby</a>
+    </div>
+</div>
+<!-- social media in grey page -->
+<div class="social-icons">
+    <a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
+    <a href="#" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+    <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+    <a href="#" target="_blank"><i class="fab fa-youtube"></i></a>
+</div>
+
   
     <!-- Video Section -->
     <section class="video-section">
@@ -297,9 +553,9 @@
                 <a href="#" class="icon-link"><img src="images/tree.png" alt="Icon 1"></a>
                </button><div class="icon-dropdown-content"> 
                     <a href="#">Management Information System</a>
-                    <a href="#">Public Administration</a>
-                    <a href="#">Economics of Business</a>
                     <a href="#">Business Administration</a>
+                    <a href="#">Economics of Business</a>
+                    <a href="#">Public Administration</a>
                     <a href="#">Finance</a>
                     <a href="#">Marketing</a>
                     <a href="#">Accounting</a>
@@ -310,9 +566,9 @@
                 <a href="#" class="icon-link"><img src="images/Books.png" alt="Icon 2"></a>
                 <div class="icon-dropdown-content">
                     <a href="#">Management Information System</a>
-                    <a href="#">Public Administration</a>
-                    <a href="#">Economics of Business</a>
                     <a href="#">Business Administration</a>
+                    <a href="#">Economics of Business</a>
+                    <a href="#">Public Administration</a>
                     <a href="#">Finance</a>
                     <a href="#">Marketing</a>
                     <a href="#">Accounting</a>
@@ -322,9 +578,9 @@
                 <a href="#" class="icon-link"><img src="images/courses.png" alt="Icon 3"></a>
                 <div class="icon-dropdown-content">
                     <a href="#">Management Information System</a>
-                    <a href="#">Public Administration</a>
-                    <a href="#">Economics of Business</a>
                     <a href="#">Business Administration</a>
+                    <a href="#">Economics of Business</a>
+                    <a href="#">Public Administration</a>
                     <a href="#">Finance</a>
                     <a href="#">Marketing</a>
                     <a href="#">Accounting</a>
@@ -338,8 +594,44 @@
             </div>
         </div>
     </section>
-          
 
+<!-- Search Bar Popup -->
+<div class="search-popup">
+    <div class="search-container">
+        <input type="text" class="search-input" placeholder="Search...">
+        <button class="close-search">✖</button>
+    </div>
+</div>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const searchIcon = document.querySelector(".fa-search");
+        const searchPopup = document.querySelector(".search-popup");
+        const closeSearch = document.querySelector(".close-search");
+
+        searchIcon.addEventListener("click", function () {
+            searchPopup.classList.add("active");
+        });
+
+        closeSearch.addEventListener("click", function () {
+            searchPopup.classList.remove("active");
+        });
+
+        // Close on outside click
+        searchPopup.addEventListener("click", function (e) {
+            if (e.target === searchPopup) {
+                searchPopup.classList.remove("active");
+            }
+        });
+    });
+</script>
+
+
+    </script>   
+    <!-- this small code to open the grey list -->
+ <div class="menu-overlay">
+        <button class="close-btn">✖</button>
+    </div>
+  
   
   
     <footer class="footer">
@@ -351,9 +643,9 @@
             </div>
             <div class="footer-middle">
                 <a href="#">Management Information System</a>
-                <a href="#">Public Administration</a>
-                <a href="#">Economics of Business</a>
                 <a href="#">Business Administration</a>
+                <a href="#">Economics of Business</a>
+                <a href="#">Public Administration</a>
                 <a href="#">Finance</a>
                 <a href="#">Marketing</a>
                 <a href="#">Accounting</a>
@@ -368,6 +660,7 @@
             </div>
         </div>
     </footer>
+ 
     
 </body>
 </html>
