@@ -4,196 +4,143 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Business Hub</title>
-    <link rel="stylesheet" href="styles.css">
-    <script defer src="script.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        /* Header Styling */
+        /* Add hover effect on icon dropdown links similar to sign-in button */
+        .icon-dropdown-content a, .dropdown-content a {
+            display: block;
+            padding: 10px;
+            text-decoration: none;
+            color: black;
+            transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+        }
+
+        .icon-dropdown-content a:hover, .dropdown-content a:hover {
+            background-color: #EC522D;
+            color: white;
+        }
+
+        /* Adjust icon positioning to float over the bottom of the video */
+        .icon-section {
+            display: flex;
+            justify-content: center;
+            margin: -30px 0 10px; /* Raised icons higher to overlap video */
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Navbar 3D Effect - Making it Stand Out with a Stepped Edge Look */
         .navbar {
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 15px 20px;
             background-color: #fff;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3), 0 12px 25px rgba(0, 0, 0, 0.1); /* Adds a deeper 3D effect */
+            border-radius: 10px; /* Soft rounded edges */
+            position: relative;
+            z-index: 3;
+            border-bottom: 4px solid rgba(0, 0, 0, 0.2); /* Creates a stepped shadow effect */
         }
 
-        .logo-container {
-            display: flex;
-            align-items: center;
+        /* Set Home Page Background Color */
+        body {
+            background-color: #FFFFF0; /* Light ivory color */
         }
 
-        .logo {
-            width: 50px;
-            margin-right: 10px;
-        }
-
-        .business-text {
-            font-size: 22px;
-            font-weight: bold;
-            color: #EC522D;
-            margin-right: 5px;
-        }
-
-        .hub-text {
-            font-size: 22px;
-            font-weight: bold;
-            color: #000;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 20px;
-        }
-
-        .nav-links a, .dropbtn {
-            text-decoration: none;
-            color: black;
-            font-size: 16px;
-            background: none;
-            border: none;
-            cursor: pointer;
+        /* Hover effect for navbar icons (Search, Burger, Notification) */
+        .icons i {
             padding: 5px;
-            transition: border-bottom 0.3s ease-in-out;
-        }
-
-        .nav-links a:hover, .dropbtn:hover {
-            border-bottom: 2px solid #EC522D;
-        }
-
-        .icons {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            font-size: 20px;
-            cursor: pointer;
-        }
-
-        .sign-in {
-            background: none;
-            border: 1px solid black;
-            padding: 5px 10px;
-            cursor: pointer;
-            font-size: 14px;
             transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+            border-radius: 5px;
         }
 
-        .sign-in:hover {
+        .icons i:hover {
             background-color: #EC522D;
             color: white;
         }
 
-        /* Icon Section Styling - Ensuring alignment and spacing */
-        .icon-section {
+        /* Add separator line between logo and title with proper spacing */
+        .logo-container {
             display: flex;
-            flex-direction: column;
             align-items: center;
-            margin: 20px 0 -10px;
+            gap: 10px; /* Adjust spacing between logo and text */
         }
 
-        .icon-container {
+        .logo-separator {
+            width: 2px;
+            height: 40px;
+            background-color: black;
+        }
+
+        /* Full-screen grey overlay when burger menu is clicked */
+        .menu-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(128, 128, 128, 0.9); /* Grey overlay */
+            transform: translateY(-100%);
+            transition: transform 0.5s ease-in-out;
+            z-index: 5;
             display: flex;
-            justify-content: center;
-            gap: 50px;
-            align-items: center;
+            justify-content: flex-end;
+            align-items: flex-start;
+            padding: 20px;
         }
 
-        .icon-item {
-            position: relative;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-            width: 120px;
+        .menu-overlay.active {
+            transform: translateY(0);
         }
 
-        .icon-link img {
-            width: 120px;
-            height: 120px;
-            transition: transform 0.3s ease-in-out;
-        }
-
-        .icon-link img:hover {
-            transform: scale(1.1);
-        }
-
-        /* Dropdown for Icons */
-        .icon-dropdown-content {
-            display: none;
-            position: absolute;
-            top: 100%;
-            left: 50%;
-            transform: translateX(-50%);
+        /* Close button styling */
+        .close-btn {
             background: white;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            border: none;
+            font-size: 24px;
+            font-weight: bold;
+            cursor: pointer;
             padding: 10px;
             border-radius: 5px;
-            width: 150px;
-        }
-
-        .icon-item:hover .icon-dropdown-content {
-            display: block;
         }
     </style>
 </head>
 <body>
-    <header class="navbar">
+    <nav class="navbar">
         <div class="logo-container">
-            <img src="images/logo.png" alt="Business Hub Logo" class="logo">
+            <img src="logo.png" alt="Business Hub Logo">
+            <div class="logo-separator"></div>
             <span class="business-text">Business</span> <span class="hub-text">Hub</span>
         </div>
-        <nav class="nav-links">
+        <div class="nav-links">
             <a href="#">Departments</a>
             <a href="#">Academic Staff</a>
             <a href="#">Halls</a>
             <a href="#">Books Exchange</a>
-        </nav>
+        </div>
         <div class="icons">
-            <i class="fas fa-search search-icon" onclick="toggleSearchPopup()"></i>
-            <i class="fas fa-bell notification-icon"></i>
-            <i class="fas fa-bars burger-menu" onclick="toggleMenu()"></i>
-            <button class="sign-in">Sign in</button>
+            <i class="fas fa-search"></i>
+            <i class="fas fa-bell"></i>
+            <i class="fas fa-bars burger-menu"></i>
         </div>
-    </header>
+    </nav>
+    <div class="menu-overlay">
+        <button class="close-btn">❌</button>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const burgerMenu = document.querySelector(".burger-menu");
+            const menuOverlay = document.querySelector(".menu-overlay");
+            const closeButton = document.querySelector(".close-btn");
 
-    <!-- Icon Section Below Video -->
-    <section class="icon-section">
-        <div class="icon-container">
-            <div class="icon-item">
-                <a href="#" class="icon-link"><img src="images/icon1.png" alt="Icon 1"></a>
-                <div class="icon-dropdown-content">
-                    <a href="#">Option 1</a>
-                    <a href="#">Option 2</a>
-                    <a href="#">Option 3</a>
-                </div>
-            </div>
-            <div class="icon-item">
-                <a href="#" class="icon-link"><img src="images/tree.png" alt="Icon 2"></a>
-                <button class="dropbtn"><i class="fas fa-caret-down"></i></button>
-                <div class="icon-dropdown-content">
-                    <a href="#">Option A</a>
-                    <a href="#">Option B</a>
-                    <a href="#">Option C</a>
-                    <a href="#">Option A</a>
-                    <a href="#">Option B</a>
-                    <a href="#">Option C</a>
-                </div>
-            </div>
-            <div class="icon-item">
-                <a href="#" class="icon-link"><img src="images/icon3.png" alt="Icon 3"></a>
-                <div class="icon-dropdown-content">
-                    <a href="#">Choice X</a>
-                    <a href="#">Choice Y</a>
-                    <a href="#">Choice Z</a>
-                </div>
-            </div>
-            <div class="icon-item">
-                <a href="#" class="icon-link"><img src="images/icon4.png" alt="Icon 4"></a>
-            </div>
-            <div class="icon-item">
-                <a href="#" class="icon-link"><img src="images/icon5.png" alt="Icon 5"></a>
-            </div>
-        </div>
-    </section>
+            burgerMenu.addEventListener("click", function() {
+                menuOverlay.classList.toggle("active");
+            });
+
+            closeButton.addEventListener("click", function() {
+                menuOverlay.classList.remove("active");
+            });
+        });
+    </script>
 </body>
 </html>
