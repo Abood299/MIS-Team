@@ -717,6 +717,65 @@ body.blur {
   cursor: pointer;
 }
 
+/* Notification center */
+.notification-container {
+  position: relative;
+  display: inline-block;
+}
+
+#notification-panel {
+  position: absolute;
+  top: 35px; /* Adjust based on your navbar height */
+  right: 0;
+  width: 300px;
+  background: white;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  overflow: hidden;
+  z-index: 2000;
+  display: none;
+}
+
+#notification-panel.show {
+  display: block;
+}
+
+.panel-header {
+  padding: 10px 15px;
+  background-color: #f1f1f1;
+  font-weight: bold;
+  border-bottom: 1px solid #ddd;
+}
+
+.notification-list {
+  list-style: none;
+  max-height: 300px;
+  overflow-y: auto;
+  padding: 0;
+  margin: 0;
+}
+
+.notification-item {
+  padding: 10px 15px;
+  border-bottom: 1px solid #eee;
+  font-size: 14px;
+  transition: background 0.3s;
+}
+
+.notification-item:hover {
+  background-color: #EC522D; /* Replace with your exact theme color if different */
+  color: white;
+  cursor: pointer;
+}
+
+
+.panel-footer {
+  padding: 10px 15px;
+  text-align: center;
+  background-color: #fafafa;
+  font-size: 13px;
+}
+/* the notification NEED to be mobile responsive */
 
     </style>
 </head>
@@ -762,7 +821,27 @@ body.blur {
         </nav>
         <div class="icons">
             <i class="fas fa-search search-icon" onclick="toggleSearchPopup()"></i>
-            <i class="fas fa-bell notification-icon"></i>
+
+<!-- Notifacation center code -->
+           <div class="notification-container">
+  <i id="notification-btn" class="fas fa-bell notification-icon"></i>
+
+  <div id="notification-panel" class="hidden">
+    <div class="panel-header">Notifications</div>
+    <ul class="notification-list">
+      <li class="notification-item">📚 New book added to Marketing section</li>
+      <li class="notification-item">🎓 Assistant uploaded a new final sheet</li>
+      <li class="notification-item">📢 New event: Business Day tomorrow</li>
+    </ul>
+    <div class="panel-footer">
+      <a href="#">View all notifications</a>
+    </div>
+  </div>
+</div>
+
+
+
+
             <i class="fas fa-bars burger-menu" ></i>
             <a href="MainPagefull.html" class="sign-in">Sign in</a>
      
@@ -780,14 +859,6 @@ body.blur {
         </a>
         <a href="MainPagefull.html" style="text-decoration: none;">
             <span class="business-text" style="text-shadow: 0 0 10px #EC522D, 0 0 20px #EC522D;">Business</span>&nbsp; <span class="hub-text" style="text-shadow: 0 0 10px #5E2950, 0 0 20px #5E2950;">Hub</span>
-
-
-
-
-
-
-
-
 
 
 
@@ -885,6 +956,23 @@ body.blur {
    
     </div>
   </div>
+  <!-- this script for notification center open  -->
+  <script>
+    const notifBtn = document.getElementById('notification-btn');
+    const notifPanel = document.getElementById('notification-panel');
+  
+    notifBtn.addEventListener('click', () => {
+      notifPanel.classList.toggle('show');
+    });
+  
+    // Hide panel when clicking outside
+    window.addEventListener('click', function (e) {
+      if (!notifBtn.contains(e.target) && !notifPanel.contains(e.target)) {
+        notifPanel.classList.remove('show');
+      }
+    });
+  </script>
+  
   <!-- this script for FAQ OPEN -->
   <script>
     const faqIcon = document.querySelector('a[href="#"] img[src="images/FAQ.png"]').parentElement;
