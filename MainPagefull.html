@@ -124,7 +124,7 @@
             border-radius: 0px; /* Soft rounded edges */
             position: sticky;
             top: 0;
-            z-index: 999;
+  z-index: 1000; /* Lower than menu panel */
            
         }
       
@@ -365,7 +365,7 @@
             background-color: #232322;
             transform: translateY(-100%);
             transition: transform 0.5s ease-in-out;
-            z-index: 5;
+            z-index: 2000; /* Higher than navbar */
             display: flex;
             flex-direction: column;
             justify-content: center;
