@@ -525,12 +525,18 @@ body.blur {
     font-size: 28px;
     font-weight: bold;
     margin-bottom: 10px;
+   /* under is a decorartion for slide show 1 title */
+        background: linear-gradient(to right, #FF5733, #C70039, #900C3F, #581845); 
+        -webkit-background-clip: text; 
+        -webkit-text-fill-color: transparent; 
+    
 }
 
 .description-text {
-    font-size: 16px;
+    font-size: 20px;
     line-height: 1.6;
     margin-bottom: 20px;
+    font-family: 'Playfair Display', serif;
 }
 
 .info-button {
@@ -604,7 +610,8 @@ body.blur {
   display: flex;
   justify-content: center;
   align-items: center
-  }
+ 
+}
   .fb-container iframe {
   margin-left: 20px; /* Or more if needed */
 }
@@ -777,6 +784,37 @@ body.blur {
 }
 /* the notification NEED to be mobile responsive */
 
+/* for icons main services inside title  */
+.dropdown-title {
+  font-weight: bold;
+  padding: 10px 16px;
+  color: #EC522D; /* Your theme orange */
+  font-size: 15px;
+}
+.dropdown-title {
+  border-bottom: 1px solid #eee;
+}
+/* info card for box exchange icon when hover  */
+.info-tooltip {
+  position: absolute;
+  bottom: -40px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(0, 0, 0, 0.8); /* semi-transparent */
+  color: white;
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-size: 14px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 10;}
+  /* this for icon box exchange for the info card IT'S A BIT SCARY */
+  .icon-item-me { 
+  position: relative;
+  display: inline-block;
+}
     </style>
 </head>
 <body>
@@ -802,20 +840,20 @@ body.blur {
         </div>
         <nav class="nav-links">
             <div class="dropdown">
-                <button class="dropbtn">Departments <i class="fas fa-caret-down"></i></button>
+                <button class="dropbtn">الأقسام <i class="fas fa-caret-down"></i></button>
                 <div class="dropdown-content">
-                    <a href="#">Management Information System</a>
-                    <a href="#">Public Administration</a>
-                    <a href="#">Economics of Business</a>
-                    <a href="#">Business Administration</a>
-                    <a href="#">Finance</a>
-                    <a href="#">Marketing</a>
-                    <a href="#">Accounting</a>
+                    <a href="#">نظم المعلومات الإدارية</a>
+                    <a href="#">إدارة الأعمال</a>
+                    <a href="#">اقتصاد الأعمال</a>
+                    <a href="#">الإدارة العامة</a>
+                    <a href="#">التمويل</a>
+                    <a href="#">التسويق</a>
+                    <a href="#">المحاسبة</a>
                 </div>
             </div>
-            <a href="#">Academic Staff</a>
-            <a href="#">Halls</a>
-            <a href="#">Books Exchange</a>
+            <a href="#">أعضاء هيئة التدريس</a>
+            <a href="#">القاعات</a>
+            <a href="#">تبادل الكتب</a>
         </nav>
         <div class="icons">
             <i class="fas fa-search search-icon" onclick="toggleSearchPopup()"></i>
@@ -863,16 +901,16 @@ body.blur {
     <button class="close-btn">✖</button>
     <div class="menu-links">
         <div class="halls-dropdown">
-            <a href="#">Halls </a>
+            <a href="#">القاعات </a>
           
         </div>
-        <a href="#">Departments</a>
-        <a href="#">Books Exchange</a>
-        <a href="#">Academic Staff</a>
-        <a href="#">GPA Calculator</a>
-        <a href="#">Graduate guide</a>
-        <a href="#">Wanna have fun ?</a>
-        <a href="#">Important Services nearby</a>
+        <a href="#">الأقسام</a>
+        <a href="#">تبادل الكتب</a>
+        <a href="#">هيئة التدريس</a>
+        <a href="#">حساب المعدل التراكمي</a>
+        <a href="#">متطلبات التخرج</a>
+        <a href="#">هل تود خوض تجربة جديدة؟</a>
+        <a href="#">خدمات استفد منها قبل تخرجك</a>
     </div>
 </div>
 
@@ -892,43 +930,69 @@ body.blur {
                
                 <a href="#" class="icon-link"><img src="images/tree.png" alt="Icon 1"></a>
                    </button><div class="icon-dropdown-content"> 
-                    <a href="#">Management Information System</a>
-                    <a href="#">Business Administration</a>
-                    <a href="#">Economics of Business</a>
-                    <a href="#">Public Administration</a>
-                    <a href="#">Finance</a>
-                    <a href="#">Marketing</a>
-                    <a href="#">Accounting</a>
+                    <div class="dropdown-title">شجرة التخصص</div>
+                    <a href="#">نظم المعلومات الإدارية</a>
+                    <a href="#">إدارة الأعمال</a>
+                    <a href="#">اقتصاد الأعمال</a>
+                    <a href="#">الإدارة العامة</a>
+                    <a href="#">التمويل</a>
+                    <a href="#">التسويق</a>
+                    <a href="#">المحاسبة</a>
                     
                 </div>
             </div>
             <div class="icon-item icon-dropdown">
                 <a href="#" class="icon-link"><img src="images/Books.png" alt="Icon 2"></a>
                 <div class="icon-dropdown-content">
-                    <a href="#">Management Information System</a>
-                    <a href="#">Business Administration</a>
-                    <a href="#">Economics of Business</a>
-                    <a href="#">Public Administration</a>
-                    <a href="#">Finance</a>
-                    <a href="#">Marketing</a>
-                    <a href="#">Accounting</a>
+                    <div class="dropdown-title">كتب التخصص</div>
+                    <a href="#">نظم المعلومات الإدارية</a>
+                    <a href="#">إدارة الأعمال</a>
+                    <a href="#">اقتصاد الأعمال</a>
+                    <a href="#">الإدارة العامة</a>
+                    <a href="#">التمويل</a>
+                    <a href="#">التسويق</a>
+                    <a href="#">المحاسبة</a>
                 </div>
             </div>
             <div class="icon-item icon-dropdown">
                 <a href="#" class="icon-link"><img src="images/courses.png" alt="Icon 3"></a>
                 <div class="icon-dropdown-content">
-                    <a href="#">Management Information System</a>
-                    <a href="#">Business Administration</a>
-                    <a href="#">Economics of Business</a>
-                    <a href="#">Public Administration</a>
-                    <a href="#">Finance</a>
-                    <a href="#">Marketing</a>
-                    <a href="#">Accounting</a>
+                    <div class="dropdown-title">دورات داعمة للتخصص</div>
+                    <a href="#">نظم المعلومات الإدارية</a>
+                    <a href="#">إدارة الأعمال</a>
+                    <a href="#">اقتصاد الأعمال</a>
+                    <a href="#">الإدارة العامة</a>
+                    <a href="#">التمويل</a>
+                    <a href="#">التسويق</a>
+                    <a href="#">المحاسبة</a>
                 </div>
             </div>
-            <div class="icon-item">
-                <a href="#" class="icon-link"><img src="images/Booksexchange.png" alt="Icon 4"></a>
-            </div>
+            <div class="icon-item-me">
+                <a href="#" class="icon-link" id="books-icon">
+                  <img src="images/Booksexchange.png" alt="Icon 4">
+                </a>
+                <div class="info-tooltip" id="books-tooltip">
+                  تبادل الكتب
+                </div>
+                <!-- script for icon hover for info card to be shown -->
+                <script>
+                    const icon = document.getElementById("books-icon");
+                    const tooltip = document.getElementById("books-tooltip");
+                    let tooltipTimer;
+                  
+                    icon.addEventListener("mouseenter", () => {
+                      tooltipTimer = setTimeout(() => {
+                        tooltip.style.opacity = "1";
+                      }, 650); // 0.65 seconds
+                    });
+                  
+                    icon.addEventListener("mouseleave", () => {
+                      clearTimeout(tooltipTimer);
+                      tooltip.style.opacity = "0";
+                    });
+                  </script>
+                  
+              </div>
             <div class="icon-item">
                 <a href="#" class="icon-link"><img src="images/FAQ.png" alt="Icon 5"></a>
             </div>
@@ -936,7 +1000,7 @@ body.blur {
 <div id="faqModal" class="modal">
     <div class="modal-content">
       <span class="close">&times;</span>
-      <h2>Frequently Asked Questions</h2>
+      <h2>الأسئلة الأكثر تكرارا</h2>
       <p><strong>Q1:</strong> What is Business Hub?</p>
       <p><strong>A:</strong> A platform to help business students with resources and support.</p>
       <hr>
@@ -996,20 +1060,25 @@ body.blur {
 <!-- Section for Text and Slideshow 1 -->
 <section class="info-section">
     <div class="info-content">
-        <h1 class="bold-text">Important Services Around You</h1>
+        <h1 class="bold-text">خدمات استفد منها قبل تخرجك</h1>
+
+
+
+
+
+        
         <p class="description-text">
     
-            Four years. Countless lectures. Endless coffee-fueled nights. But what if we told you there’s more?<br>
+            أربع سنوات. محاضرات لا تُحصى. ليالٍ لا تنتهي من القهوة. لكن ماذا لو قلنا لك إن هناك المزيد؟<br>
 
-             More than just classrooms and corridors. More than the same old spots everyone knows.<br>
-
-           Tucked away in the unnoticed corners of campus, a hidden network of services exists <br>
-           places that whisper convenience yet remain untouched by most.<br>
+            أكثر من مجرد قاعات دراسية وممرات. أكثر من نفس الأماكن المألوفة التي يعرفها الجميع.<br>
             
+            في زوايا الحرم الجامعي غير الملحوظة، توجد شبكة خدمات خفية <br>
+            أماكن تُوحي بالراحة لكنها تبقى بعيدة عن أنظار معظم الناس.
        
             
         </p>
-        <button class="info-button">Discover</button>
+        <button class="info-button">استكشف</button>
     </div>
 
     <!-- Slideshow Panel 1-->
@@ -1092,8 +1161,8 @@ body.blur {
 <section style="text-align: right; margin-top: -140px; margin-right: 20px;">
     <a href="#" style="font-size: 80px; text-decoration: none; color: #5E2950; font-weight: bold; transition: color 0.3s ease-in-out; position: relative; right: 50px; top: -70px;" 
        onmouseover="this.style.color='#EC522D';" 
-       onmouseout="this.style.color='#5E2950';">
-       Are you down for a thrill ?
+       onmouseout="this.style.color='#5E2950';">اصنع ذكريات في هذه الأماكن
+        <span style="font-size: 15px;"> اكبسني</span>
     </a>
 </section>
 
@@ -1152,24 +1221,24 @@ body.blur {
                         
                     </a>
                 </h2>
-                <p class="slogan">Empowering Students, Connecting Knowledge and Building Futures</p>
+                <p class="slogan">تمكين الطلاب وربط المعرفة وبناء المستقبل</p>
             </div>
             <div class="footer-middle">
-                <a href="#">Management Information System</a>
-                <a href="#">Business Administration</a>
-                <a href="#">Economics of Business</a>
-                <a href="#">Public Administration</a>
-                <a href="#">Accounting</a>
-                <a href="#">Marketing</a>
-                <a href="#">Finance</a>
+                <a href="#">نظم المعلومات الإدارية</a>
+                <a href="#">إدارة الأعمال</a>
+                <a href="#">اقتصاد الأعمال</a>
+                <a href="#">الإدارة العامة</a>
+                <a href="#">التمويل</a>
+                <a href="#">التسويق</a>
+                <a href="#">المحاسبة</a>
             </div>
             <div class="footer-right">
-                <a href="https://regapp.ju.edu.jo/regapp/">Registration</a>
+                <a href="https://regapp.ju.edu.jo/regapp/">موقع التسجيل</a>
                 <a href="https://elearning.ju.edu.jo/login/index.php">eLearning</a>
                 <a href="https://juexams.com/moodle/login/index.php">Ju-Exam</a>
                 <a href="https://library.ju.edu.jo/Elibrary/">E-Library</a>
-                <a href="#">Contact Us</a>
-                <a href="#">About Us</a>
+                <a href="#">تواصل معنا</a>
+                <a href="#">من نحن</a>
             </div>
         </div>
     </footer>
