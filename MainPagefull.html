@@ -122,8 +122,9 @@
             background-color:  #19002a;
             box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3), 0 12px 25px rgba(0, 0, 0, 0.1); /* Adds a deeper 3D effect */
             border-radius: 0px; /* Soft rounded edges */
-            position: relative;
-            z-index: 3;
+            position: sticky;
+            top: 0;
+            z-index: 999;
            
         }
       
@@ -778,7 +779,18 @@ body.blur {
             <img src="images/logo.png" alt="Business Hub Logo">
         </a>
         <a href="MainPagefull.html" style="text-decoration: none;">
-            <span class="business-text">Business </span><span class="hub-text">Hub</span>
+            <span class="business-text" style="text-shadow: 0 0 10px #EC522D, 0 0 20px #EC522D;">Business</span>&nbsp; <span class="hub-text" style="text-shadow: 0 0 10px #5E2950, 0 0 20px #5E2950;">Hub</span>
+
+
+
+
+
+
+
+
+
+
+
         </a>
     </div>
     <button class="close-btn">✖</button>
@@ -1068,10 +1080,10 @@ body.blur {
                 <a href="#">Finance</a>
             </div>
             <div class="footer-right">
-                <a href="#">Registration</a>
-                <a href="#">eLearning</a>
-                <a href="#">Ju-Exam</a>
-                <a href="#">E-Library</a>
+                <a href="https://regapp.ju.edu.jo/regapp/">Registration</a>
+                <a href="https://elearning.ju.edu.jo/login/index.php">eLearning</a>
+                <a href="https://juexams.com/moodle/login/index.php">Ju-Exam</a>
+                <a href="https://library.ju.edu.jo/Elibrary/">E-Library</a>
                 <a href="#">Contact Us</a>
                 <a href="#">About Us</a>
             </div>
