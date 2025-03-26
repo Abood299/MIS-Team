@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="en"> 
+<head>
+    <!-- the link tag below for linking css bootstrap -->
+    <link rel="stylesheet" href="/css/bootstrap.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- chatgpt addons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script>
+<!-- add FontAwesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <title>Business Hub</title>
+    <!-- css withing the style -->
+<!-- this is for burger menu toggle  -->
+    <script> document.addEventListener("DOMContentLoaded", function() {
+        const burgerMenu = document.querySelector(".burger-menu");
+        const menuOverlay = document.querySelector(".menu-overlay");
+    
+        burgerMenu.addEventListener("click", function() {
+            menuOverlay.classList.toggle("active");
+        });
+    });
+    </script>
+       <!-- this script for closing the burger menu with ✖ -->
+       <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const burgerMenu = document.querySelector(".burger-menu");
+            const menuOverlay = document.querySelector(".menu-overlay");
+            const closeButton = document.querySelector(".close-btn");
+    
+            // Open the menu when clicking the burger icon
+            burgerMenu.addEventListener("click", function() {
+                menuOverlay.classList.add("active"); // Ensure it opens correctly
+            });
+    
+            // Close the menu when clicking the close (X) button
+            closeButton.addEventListener("click", function() {
+                menuOverlay.classList.remove("active"); // Properly hides the overlay
+            });
+        });
+    </script>
+    <style>
+    body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif, Times, serif, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #FAF9F6; /* Light ivory color */
+        }
+
+/* Moble responsive screens */
+
+@media (max-width: 768px) {
+  .slideshow-container {
+    margin-bottom: 100px;
+  }
+}
+
+
+
+        /* Header Styling 15 the navbar below is for the 3 icons on the right properties*/                    
+        .navbar {      
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo {
+            width: 50px;
+            margin-right: 10px;
+        }
+        
+
+        .business-text {
+            font-size: 22px;
+            font-weight: bold;
+            color: #EC522D;
+            margin-right: 5px; /* Added space between Business and Hub */
+        }
+
+        .hub-text {
+            font-size: 22px;
+            font-weight: bold;
+            color: #5E2950;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+        .nav-links a, .dropbtn {
+            text-decoration: none;
+            color: #ffffff93;
+            font-size: 16px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 5px;
+            transition: border-bottom 0.3s ease-in-out;
+        }
+
+        .nav-links a:hover, .dropbtn:hover {
+            border-bottom: 2px solid #EC522D;
+        }
+
+        /* Navbar 3D Effect - Making it Stand Out with a Stepped Edge Look */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            background-color:  #19002a;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3), 0 12px 25px rgba(0, 0, 0, 0.1); /* Adds a deeper 3D effect */
+            border-radius: 0px; /* Soft rounded edges */
+            position: sticky;
+            top: 0;
+  z-index: 1000; /* Lower than menu panel */
+           
+        }
+      
+/* for the icons text I'll add them withing the picture */
+        .icons { 
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-size: 20px;
+            cursor: pointer;}
+            
+        .sign-in {
+            background: none;
+            border: 1px solid #ffffff93;
+            color: #ffffff93; /* ✅ Add this line */
+            padding: 5px 10px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+        }
+
+
+         .sign-in:hover {
+             background-color: #EC522D;
+          color: white;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: white;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            min-width: 180px;
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            display: block;
+            padding: 10px;
+            text-decoration: none;
+            color: black;
+            transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+        }
+        .icon-dropdown-content a:hover, .dropdown-content a:hover {
+            background-color: #EC522D;
+            color: white;
+        }
+
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+ /* Hover effect for navbar icons (Search, Burger, Notification) */
+ .icons i {
+            padding: 5px;
+            transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+            border-radius: 5px;
+        }
+
+        .icons i:hover {
+            background-color: #EC522D;
+            color: white;
+        }
+        /* Header Styling */
+
+       
+
+        /* Footer Styling 6 */
+        .footer {
+            background: #19002a;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            text-align: left;
+        }
+
+        .footer-container {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            padding: 20px;
+        }
+
+        .footer-left h2 {
+            margin: 0;
+        }
+
+        .footer-middle, .footer-right {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .footer-middle a, .footer-right a {
+            text-decoration: none;
+            color: #ffffff93;
+            margin: 5px 0;
+            
+        }
+        .footer-middle a:hover, .footer-right a:hover {
+            color: blue;
+        }
+    
+        .slogan {
+  color: #ffffff; /* Light gray – good for dark backgrounds */
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+
+
+
+}
+
+          /* Footer Styling */
+          
+        /* Full-screen grey overlay when burger menu is clicked */
+        
+        .menu-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #232322;
+            transform: translateY(-100%);
+            transition: transform 0.5s ease-in-out;
+            z-index: 2000; /* Higher than navbar */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start; /* Aligns menu items to the left */
+            padding: 50px;}
+
+        .menu-overlay.active {
+            transform: translateY(0);
+        }
+
+        /* Close button styling */
+        .close-btn {
+            border: none;
+            font-size: 24px;
+            font-weight: bold;
+            cursor: pointer;
+            padding: 10px;
+            border-radius: 5px;
+            position: absolute;
+            top: 15px;
+            right: 30px; /* Adjusted to move it left */
+            color: white;
+            background: transparent;
+        }
+          /* Menu Links Styling */
+          .menu-links {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            text-align: left; /* Ensures text is left-aligned */
+            width: 100%;
+            padding-left: 30px; /* Moves text to the left */
+        }
+
+        .menu-links a {
+            text-decoration: none;
+            color: white;
+            font-size: 22px;
+            font-weight: bold;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .menu-links a:hover {
+            transform: scale(1.02x);
+            color: #EC522D;
+        }
+
+        /* Styling for the Logo in the Grey Overlay */
+.menu-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    position: absolute;
+    top: 20px; /* Adjust this if needed */
+    left: 30px;
+}
+
+.menu-logo img {
+    width: 50px; /* Adjust size */
+    height: auto;
+    max-width: 100%;
+}
+
+.menu-logo .business-text {
+    font-size: 24px;
+    font-weight: bold;
+     color: #EC522D;
+     margin-right: -3px;  /* Reduces space between words */
+}
+
+
+.menu-logo .hub-text {
+    font-size: 24px;
+    font-weight: bold;
+    color:#5E2950;
+}
+
+
+/* Search Popup Overlay */
+.search-popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+    z-index: 10;
+}
+
+/* Search Box */
+.search-container {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 50%;
+    max-width: 400px;
+}
+
+/* Search Input */
+.search-input {
+    flex: 1;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Close Button */
+.close-search {
+    border: none;
+    background: none;
+    font-size: 20px;
+    cursor: pointer;
+    color: red;
+    font-weight: bold;
+}
+
+/* Show Popup */
+.search-popup.active {
+    visibility: visible;
+    opacity: 1;
+}
+/* Blur effect when search bar is active */
+body.blur {
+    filter: blur(5px); /* Adjust blur intensity */
+    transition: filter 0.3s ease-in-out;
+}
+
+/* first slide show styling */
+
+
+/* Section Styling */
+.info-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 85%; /* Control overall section width */
+    margin: 50px auto;
+}
+
+/* Text and Button Styling */
+.info-content {
+    width: 50%; /* Adjusted width */
+    text-align: left;
+}
+
+.bold-text {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 10px;
+   /* under is a decorartion for slide show 1 title */
+        background: linear-gradient(to right, #FF5733, #C70039, #900C3F, #581845); 
+        -webkit-background-clip: text; 
+        -webkit-text-fill-color: transparent; 
+    
+}
+
+.description-text {
+    font-size: 20px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    font-family: 'Playfair Display', serif;
+}
+
+.info-button {
+    padding: 12px 20px;
+    background-color: #EC522D;
+    color: white;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.info-button:hover {
+    background-color: #b83e20;
+}
+
+/* notification  */
+#notification-panel {
+  position: absolute;
+  top: 35px; /* Adjust based on your navbar height */
+  right: 0;
+  width: 300px;
+  background: white;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  overflow: hidden;
+  z-index: 2000;
+  display: none;
+}
+
+#notification-panel.show {
+  display: block;
+}
+
+.panel-header {
+  padding: 10px 15px;
+  background-color: #f1f1f1;
+  font-weight: bold;
+  border-bottom: 1px solid #ddd;
+}
+
+.notification-list {
+  list-style: none;
+  max-height: 300px;
+  overflow-y: auto;
+  padding: 0;
+  margin: 0;
+}
+
+.notification-item {
+  padding: 10px 15px;
+  border-bottom: 1px solid #eee;
+  font-size: 14px;
+  transition: background 0.3s;
+}
+
+.notification-item:hover {
+  background-color: #EC522D; /* Replace with your exact theme color if different */
+  color: white;
+  cursor: pointer;
+}
+
+
+.panel-footer {
+  padding: 10px 15px;
+  text-align: center;
+  background-color: #fafafa;
+  font-size: 13px;
+}
+/* the notification NEED to be mobile responsive */
+
+    </style>
+</head>
+<body>
+    
+      
+    <!-- the script tags below for linking js bootstrap -->
+    <script src="js/popper.min.js"></script>
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <script src="js/bootstrap.js"></script>
+    
+    <header class="navbar">
+        <div class="logo-container">
+            <a href="MainPagefull.html">
+                <img src="images/logo.png" alt="Business Hub Logo" class="logo">
+            </a>
+            
+            <a href="MainPagefull.html" style="text-decoration: none; white-space: nowrap;">
+                <span class="business-text" style="text-shadow: 0 0 5px #EC522D;">Business</span><span class="hub-text" style="text-shadow: 0 0 7px #5E2950;">Hub</span>
+
+
+
+            </a>
+        </div>
+        <nav class="nav-links">
+            <div class="dropdown">
+                <button class="dropbtn">الأقسام <i class="fas fa-caret-down"></i></button>
+                <div class="dropdown-content">
+                    <a href="#">نظم المعلومات الإدارية</a>
+                    <a href="#">إدارة الأعمال</a>
+                    <a href="#">اقتصاد الأعمال</a>
+                    <a href="#">الإدارة العامة</a>
+                    <a href="#">التمويل</a>
+                    <a href="#">التسويق</a>
+                    <a href="#">المحاسبة</a>
+                </div>
+            </div>
+            <a href="#">أعضاء هيئة التدريس</a>
+            <a href="#">القاعات</a>
+            <a href="#">تبادل الكتب</a>
+        </nav>
+        <div class="icons">
+            <i class="fas fa-search search-icon" onclick="toggleSearchPopup()"></i>
+
+<!-- Notifacation center code -->
+           <div class="notification-container">
+  <i id="notification-btn" class="fas fa-bell notification-icon"></i>
+
+  <div id="notification-panel" class="hidden">
+    <div class="panel-header">Notifications</div>
+    <ul class="notification-list">
+      <li class="notification-item">📚 New book added to Marketing section</li>
+      <li class="notification-item">🎓 Assistant uploaded a new final sheet</li>
+      <li class="notification-item">📢 New event: Business Day tomorrow</li>
+    </ul>
+    <div class="panel-footer">
+      <a href="#">View all notifications</a>
+    </div>
+  </div>
+</div>
+
+
+            <i class="fas fa-bars burger-menu" ></i>
+            <a href="MainPagefull.html" class="sign-in">Sign in</a>
+     
+
+        </div>
+
+    </header>
+    <!-- Grey Overlay Menu -->
+<div class="menu-overlay">
+   
+    <!-- Logo in the Grey Overlay Menu -->
+    <div class="menu-logo">
+        <a href="MainPagefull.html">
+            <img src="images/logo.png" alt="Business Hub Logo">
+        </a>
+        <a href="MainPagefull.html" style="text-decoration: none;">
+            <span class="business-text" style="text-shadow: 0 0 10px #EC522D, 0 0 20px #EC522D;">Business</span>&nbsp; <span class="hub-text" style="text-shadow: 0 0 10px #5E2950, 0 0 20px #5E2950;">Hub</span>
+
+
+
+        </a>
+    </div>
+    <button class="close-btn">✖</button>
+    <div class="menu-links">
+        <div class="halls-dropdown">
+            <a href="#">القاعات </a>
+          
+        </div>
+        <a href="#">الأقسام</a>
+        <a href="#">تبادل الكتب</a>
+        <a href="#">هيئة التدريس</a>
+        <a href="#">حساب المعدل التراكمي</a>
+        <a href="#">متطلبات التخرج</a>
+        <a href="#">هل تود خوض تجربة جديدة؟</a>
+        <a href="#">خدمات استفد منها قبل تخرجك</a>
+    </div>
+</div>
+
+  
+
+
+<!-- Search Bar Popup -->
+<div class="search-popup">
+    <div class="search-container">
+        <input type="text" class="search-input" placeholder="Search...">
+        <button class="close-search">✖</button>
+    </div>
+</div>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const searchIcon = document.querySelector(".fa-search");
+        const searchPopup = document.querySelector(".search-popup");
+        const closeSearch = document.querySelector(".close-search");
+
+        searchIcon.addEventListener("click", function () {
+            searchPopup.classList.add("active");
+        });
+
+        closeSearch.addEventListener("click", function () {
+            searchPopup.classList.remove("active");
+        });
+
+        // Close on outside click
+        searchPopup.addEventListener("click", function (e) {
+            if (e.target === searchPopup) {
+                searchPopup.classList.remove("active");
+            }
+        });
+    });
+</script>
+
+
+    </script>   
+    <!-- this small code to open the grey list -->
+ <div class="menu-overlay">
+        <button class="close-btn">✖</button>
+    </div>
+  
+  
+  
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-left">
+          
+                <h2>
+                    <a href="MainPagefull.html" style="text-decoration: none;">
+
+                        <span style="color: #EC522D; font-weight: bold; text-shadow: 0 0 5px #EC522D, 0 0 20px #EC522D;">Business</span> 
+                        <span style="color: #5E2950; font-weight: bold; text-shadow: 0 0 10px #5E2950, 0 0 20px #5E2950;">Hub</span>
+
+
+                        
+                    </a>
+                </h2>
+                <p class="slogan">تمكين الطلاب وربط المعرفة وبناء المستقبل</p>
+            </div>
+            <div class="footer-middle">
+                <a href="#">نظم المعلومات الإدارية</a>
+                <a href="#">إدارة الأعمال</a>
+                <a href="#">اقتصاد الأعمال</a>
+                <a href="#">الإدارة العامة</a>
+                <a href="#">التمويل</a>
+                <a href="#">التسويق</a>
+                <a href="#">المحاسبة</a>
+            </div>
+            <div class="footer-right">
+                <a href="https://regapp.ju.edu.jo/regapp/">موقع التسجيل</a>
+                <a href="https://elearning.ju.edu.jo/login/index.php">eLearning</a>
+                <a href="https://juexams.com/moodle/login/index.php">Ju-Exam</a>
+                <a href="https://library.ju.edu.jo/Elibrary/">E-Library</a>
+                <a href="#">تواصل معنا</a>
+                <a href="#">من نحن</a>
+            </div>
+        </div>
+    </footer>
+ 
+    
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
