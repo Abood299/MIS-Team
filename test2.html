@@ -8,14 +8,14 @@
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      background: #fff;
+      background-color: #f4f1f9;
     }
 
     .tree-title-wrapper {
       text-align: center;
       padding-top: 40px;
       padding-bottom: 10px;
-      background-color: #fff;
+ 
     }
 
     .tree-title {
@@ -88,11 +88,91 @@
       text-shadow: 1px 1px 3px black;
       pointer-events: none;
     }
+/* animate tree */
+.animated-tree {
+  width: 100%;
+  animation: sway 3s ease-in-out infinite;
+}
 
- 
+@keyframes sway {
+  0% { transform: translateX(0); }
+  50% { transform: translateX(5px); } /* slight right */
+  100% { transform: translateX(0); }
+}
+
+/* big title  */
+
+.big-title {
+  text-align: center;
+  padding: 40px 20px 20px;
+  background-color: #fff;
+}
+
+.big-title h1 {
+  font-size: 75px;
+  font-weight: bold;
+  color: #5E2950;
+  text-shadow: 0 0 5px #5E2950, 0 0 15px #5E2950;
+  margin: 0;
+}
+/* button for more books  */
+.center-button-wrapper {
+  text-align: center;
+  margin: 40px 0;
+}
+
+.custom-button {
+  display: inline-block;
+  padding: 12px 30px;
+  background-color: #5E2950; /* deep purple */
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: bold;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+}
+
+.custom-button:hover {
+  background-color: #EC522D; /* orange hover */
+  transform: scale(1.05);
+}
+.fancy-badge {
+  margin: 30px auto;              /* Centers it horizontally */
+  padding: 12px 30px;
+  background-color: #5E2950;      /* Deep purple theme */
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  text-align: center;
+  width: fit-content;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  text-shadow: 0 0 5px #EC522D;
+}
+
+
   </style>
 </head>
 <body>
+
+
+
+<!-- title in the page -->
+
+<div class="big-title">
+  <h1>كتب ودورات داعمة للتخصص</h1>
+</div>
+<p>اضغط على المادة للتحميل المباشر</p>
+
+
+
+
+
+
+
+
 
 <!-- Tree Block Repeated 4 Times -->
 
@@ -103,7 +183,7 @@
 </div>
 <div class="tree-responsive-wrapper">
   <div class="tree-container">
-    <img src="movetree.gif" alt="Tree" class="tree-image">
+    <img src="images/treedep.png" alt="Tree" class="tree-image"class="animated-tree">
     <div class="icon-grid">
       <a href="#"><div class="tree-icon-wrapper"><img src="images/bookicon.png" class="tree-icon"><span class="icon-text">محاسبة 1</span></div></a>
       <a href="#"><div class="tree-icon-wrapper"><img src="images/bookicon.png" class="tree-icon"><span class="icon-text">مبادئ نظم</span></div></a>
@@ -118,6 +198,15 @@
 </div>
 
 <!-- END TREE BLOCK -->
+
+<div class="fancy-badge">
+  <span>أفضل المصادر لطلبة التخصص</span>
+</div>
+
+
+
+
+
 <hr style="border: 1px solid #5E2950; margin: 20px auto; width: 50%; box-shadow: 0 0 10px #5E2950;">
 <!-- START TREE BLOCK -->
 <div class="tree-title-wrapper">
@@ -126,7 +215,7 @@
 
 <div class="tree-responsive-wrapper">
   <div class="tree-container">
-    <img src="images/booktree.png" alt="Tree" class="tree-image">
+    <img src="images/treedep.png" alt="Tree" class="tree-image">
     <div class="icon-grid">
       <a href="#"><div class="tree-icon-wrapper"><img src="images/bookicon.png" class="tree-icon"><span class="icon-text">برمجة تطبيقات الأعمال</span></div></a>
       <a href="#"><div class="tree-icon-wrapper"><img src="images/bookicon.png" class="tree-icon"><span class="icon-text">الأعمال الإلكترونية</span></div></a>
@@ -149,7 +238,7 @@
   
   <div class="tree-responsive-wrapper">
     <div class="tree-container">
-      <img src="images/booktree.png" alt="Tree" class="tree-image">
+      <img src="images/treedep.png" alt="Tree" class="tree-image">
       <div class="icon-grid">
         <a href="#"><div class="tree-icon-wrapper"><img src="images/bookicon.png" class="tree-icon"><span class="icon-text">نظم إدارة موارد المنظمة</span></div></a>
         <a href="#"><div class="tree-icon-wrapper"><img src="images/bookicon.png" class="tree-icon"><span class="icon-text">برمجة تطبيقات</span></div></a>
@@ -173,7 +262,7 @@
   
   <div class="tree-responsive-wrapper"> 
     <div class="tree-container"> 
-      <img src="images/booktree.png" alt="Tree" class="tree-image"> 
+      <img src="images/treedep.png" alt="Tree" class="tree-image">
       <div class="icon-grid"> 
         <a href="#"><div class="tree-icon-wrapper"><img src="images/bookicon.png" class="tree-icon"><span class="icon-text">قضايا معاصرة</span></div></a> 
         <a href="#"><div class="tree-icon-wrapper"><img src="images/bookicon.png" class="tree-icon"><span class="icon-text">سوق العمل</span></div></a> 
@@ -189,8 +278,19 @@
   
 
   <!-- END TREE BLOCK -->
-<!-- Copy and paste the entire block above 3 more times below this line to make 4 in total -->
-<!-- Repeat as needed -->
+
+<!-- button for more books -->
+  <div class="center-button-wrapper">
+    <a href="#" class="custom-button">المواد الاخرى</a>
+  </div>
+
+
+
+
+
+
+
+  
 
 </body>
 </html>
