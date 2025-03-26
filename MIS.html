@@ -205,13 +205,18 @@
             justify-content: space-between;
             align-items: center;
             text-align: left;
+            
         }
-
+        
         .footer-container {
+            width: 100%;
+            background: #19002a;
+            padding: 20px;
             display: flex;
             justify-content: space-between;
-            width: 100%;
-            padding: 20px;
+            align-items: flex-start; /* better than center */
+            text-align: left;
+            flex-wrap: wrap; /* <- important for responsiveness */
         }
 
         .footer-left h2 {
@@ -524,15 +529,21 @@ body.blur {
   top: 10%;
   left: 50%;
   transform: translateX(-50%);
-  width: 80%;
+  width: 100%; /* or keep 80% if you're happy with that */
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 20px 40px; /* row gap / column gap */
+  /* Instead of equal columns (1fr 1fr), give them fixed size with small gap between */
+  grid-template-columns: auto auto;
+  column-gap: 40px; /* Reduce this to tighten horizontal spacing */
+  gap: 10px 40px; /* row gap / column gap */
   justify-items: center;
+  row-gap: 30px; /* vertical spacing, adjust as needed */
+  justify-content: center; /* center the grid as a block */
+  align-items: center;
 }
 
 .tree-icon {
-  width: 90px;
+    width: 140px;   /* Original was 90px */
+    max-width: 140px; /* or whatever your current size is */
   height: auto;
   transition: transform 0.3s ease;
   cursor: pointer;
@@ -541,6 +552,148 @@ body.blur {
 .tree-icon:hover {
   transform: scale(1.2);
 }
+/* text insie the boxes */
+.tree-icon-wrapper {
+  position: relative;
+  display: inline-block;
+  text-align: center;
+  text-decoration: none;
+}
+
+.icon-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 14px;
+  font-weight: bold;
+  color: white;
+  text-align: center;
+  text-shadow: 1px 1px 3px black;
+  pointer-events: none;
+}
+/* mobile for icons */
+@media (max-width: 768px) {
+  .icon-grid {
+    grid-template-columns: 1fr 1fr;
+    column-gap: 10px;
+    row-gap: 16px;
+    width: 90%;
+  }
+
+  .tree-container {
+    width: 100%;
+    max-width: 500px;
+  }
+
+  .icon-text {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .icon-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .tree-icon-wrapper {
+    display: flex;
+    justify-content: center;
+  }
+
+  .icon-text {
+    font-size: 14px;
+  }
+}
+@media (max-width: 414px) {
+  .icon-grid {
+    grid-template-columns: repeat(2, 1fr); /* ⬅️ Two columns */
+  column-gap: 8px;  /* tighter side spacing */
+  row-gap: 12px;    /* space between rows */
+  width: 90%;
+  margin: auto;
+  }
+
+  .tree-container {
+    width: 100%;
+    max-width: 350px;
+  }
+
+  .tree-icon {
+    width: 70px;
+  }
+
+  .icon-text {
+    font-size: 12px;
+  }
+}
+/* iphone 14 pro max */
+@media (max-width: 430px) {
+  .icon-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns */
+    column-gap: 12px;
+    row-gap: 14px;
+    width: 90%;
+    margin: auto;
+  }
+
+  .tree-icon {
+    max-width: 80px;
+  }
+
+  .icon-text {
+    font-size: 12px;
+  }
+
+  .tree-container {
+    max-width: 400px;
+  }
+}
+/* tree title */
+.tree-title-wrapper {
+  text-align: center;
+  padding-top: 40px;
+  padding-bottom: 10px;
+  background-color: #fff; /* Optional for contrast */
+}
+
+.tree-title {
+  font-size: 32px;
+  font-weight: bold;
+  color: #EC522D; /* Orange theme color */
+  margin: 0;
+}
+@media (max-width: 430px) {
+  .tree-title {
+    font-size: 22px;
+  }
+}
+/* tree 1 button */
+.tree-button-wrapper {
+  text-align: center;
+  margin-top: 30px;
+  margin-bottom: 40px;
+  background-color: #fff; /* Optional to match the section */
+}
+
+.tree-button {
+  display: inline-block;
+  padding: 12px 30px;
+  background-color: #EC522D; /* Your brand orange */
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: bold;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  transition: background 0.3s ease;
+}
+
+.tree-button:hover {
+  background-color: #b83e20; /* Slightly darker on hover */
+  text-decoration: none;
+}
+
 
 
     </style>
@@ -641,23 +794,126 @@ body.blur {
         <a href="#">خدمات استفد منها قبل تخرجك</a>
     </div>
 </div>
-<!-- treeeeeeeee -->
+
+<!-- tree title 1 -->
+<section class="tree-title-wrapper">
+    <h2 class="tree-title">نظم المعلومات الادارية العام الأول</h2>
+  </section>
+  
+<!-- treeeeeeeee  1-->
 <main class="tree-section">
+ 
     <div class="tree-container">
       <img src="images/booktree.png" alt="Tree" class="tree-image">
   
-      <!-- Icon grid over the tree -->
+      <!-- icon -->
       <div class="icon-grid">
-        <img src="images/bookicon.png" class="tree-icon" alt="box">
-        <img src="images/bookicon.png" class="tree-icon" alt="box">
-        <img src="images/bookicon.png" class="tree-icon" alt="box">
-        <img src="images/bookicon.png" class="tree-icon" alt="box">
-        <img src="images/bookicon.png" class="tree-icon" alt="box">
-        <img src="images/bookicon.png" class="tree-icon" alt="box">
-        <img src="images/bookicon.png" class="tree-icon" alt="box">
-        <img src="images/bookicon.png" class="tree-icon" alt="box">
+       <a href="#">
+        <div class="tree-icon-wrapper">
+          <img src="images/bookicon.png" class="tree-icon" alt="box">
+          <span class="icon-text">مبادئ نظم معلومات ادارية</span>
+        </div></a>
+        <a href="#">
+        <div class="tree-icon-wrapper">
+          <img src="images/bookicon.png" class="tree-icon" alt="box">
+          <span class="icon-text">مبادئ محاسبة 1</span>
+        </div></a>
+        <a href="#">
+        <div class="tree-icon-wrapper">
+          <img src="images/bookicon.png" class="tree-icon" alt="box">
+          <span class="icon-text">مبادئ ادارة اعمال</span>
+        </div></a>
+        <a href="#">
+        <div class="tree-icon-wrapper">
+          <img src="images/bookicon.png" class="tree-icon" alt="box">
+          <span class="icon-text">مبادئ احصاء</span>
+        </div></a>
+        <a href="#">
+        <div class="tree-icon-wrapper">
+          <img src="images/bookicon.png" class="tree-icon" alt="box">
+          <span class="icon-text">ادارة عامة حديثة</span>
+        </div></a>
+        <a href="#">
+        <div class="tree-icon-wrapper">
+          <img src="images/bookicon.png" class="tree-icon" alt="box">
+          <span class="icon-text">ادارة قواعد البيانات</span>
+        </div></a>
+        <a href="#">
+        <div class="tree-icon-wrapper">
+          <img src="images/bookicon.png" class="tree-icon" alt="box">
+          <span class="icon-text">اساسيات البرمجة</span>
+        </div></a>
+        <a href="#">
+        <div class="tree-icon-wrapper">
+          <img src="images/bookicon.png" class="tree-icon" alt="box">
+          <span class="icon-text">اللغة الإنجليزية</span>
+        </div></a>
       </div>
-    </div>
+      <!-- year 1 button -->
+      <section class="tree-button-wrapper">
+        <a href="#" class="tree-button">عرض المزيد</a>
+      </section>
+      
+<hr>
+<!-- tree title 2 -->
+<section class="tree-title-wrapper">
+    <h2 class="tree-title">نظم المعلومات الادارية العام الأول</h2>
+  </section>
+  
+<!-- treeeeeeeee  2-->
+<main class="tree-section">
+ 
+    <div class="tree-container">
+      <img src="images/booktree.png" alt="Tree" class="tree-image">
+  
+      <!-- icon -->
+      <div class="icon-grid">
+       <a href="#">
+        <div class="tree-icon-wrapper">
+          <img src="images/bookicon.png" class="tree-icon" alt="box">
+          <span class="icon-text">مبادئ نظم معلومات ادارية</span>
+        </div></a>
+        <a href="#">
+        <div class="tree-icon-wrapper">
+          <img src="images/bookicon.png" class="tree-icon" alt="box">
+          <span class="icon-text">مبادئ محاسبة 1</span>
+        </div></a>
+        <a href="#">
+        <div class="tree-icon-wrapper">
+          <img src="images/bookicon.png" class="tree-icon" alt="box">
+          <span class="icon-text">مبادئ ادارة اعمال</span>
+        </div></a>
+        <a href="#">
+        <div class="tree-icon-wrapper">
+          <img src="images/bookicon.png" class="tree-icon" alt="box">
+          <span class="icon-text">مبادئ احصاء</span>
+        </div></a>
+        <a href="#">
+        <div class="tree-icon-wrapper">
+          <img src="images/bookicon.png" class="tree-icon" alt="box">
+          <span class="icon-text">ادارة عامة حديثة</span>
+        </div></a>
+        <a href="#">
+        <div class="tree-icon-wrapper">
+          <img src="images/bookicon.png" class="tree-icon" alt="box">
+          <span class="icon-text">ادارة قواعد البيانات</span>
+        </div></a>
+        <a href="#">
+        <div class="tree-icon-wrapper">
+          <img src="images/bookicon.png" class="tree-icon" alt="box">
+          <span class="icon-text">اساسيات البرمجة</span>
+        </div></a>
+        <a href="#">
+        <div class="tree-icon-wrapper">
+          <img src="images/bookicon.png" class="tree-icon" alt="box">
+          <span class="icon-text">اللغة الإنجليزية</span>
+        </div></a>
+      </div>
+      <!-- year 1 button -->
+      <section class="tree-button-wrapper">
+        <a href="#" class="tree-button">عرض المزيد</a>
+      </section>
+      
   </main>
   
 
@@ -700,42 +956,40 @@ body.blur {
     </div>
   
   
-  
     <footer class="footer">
-        <div class="footer-container">
+        <div class="container">
+          <div class="footer-container">
             <div class="footer-left">
-          
-                <h2>
-                    <a href="MainPagefull.html" style="text-decoration: none;">
-
-                        <span style="color: #EC522D; font-weight: bold; text-shadow: 0 0 5px #EC522D, 0 0 20px #EC522D;">Business</span> 
-                        <span style="color: #5E2950; font-weight: bold; text-shadow: 0 0 10px #5E2950, 0 0 20px #5E2950;">Hub</span>
-
-
-                        
-                    </a>
-                </h2>
-                <p class="slogan">تمكين الطلاب وربط المعرفة وبناء المستقبل</p>
+              <h2>
+                <a href="MainPagefull.html" style="text-decoration: none;">
+                  <span style="color: #EC522D; font-weight: bold; text-shadow: 0 0 5px #EC522D, 0 0 20px #EC522D;">Business</span>
+                  <span style="color: #5E2950; font-weight: bold; text-shadow: 0 0 10px #5E2950, 0 0 20px #5E2950;">Hub</span>
+                </a>
+              </h2>
+              <p class="slogan">تمكين الطلاب وربط المعرفة وبناء المستقبل</p>
             </div>
+      
             <div class="footer-middle">
-                <a href="#">نظم المعلومات الإدارية</a>
-                <a href="#">إدارة الأعمال</a>
-                <a href="#">اقتصاد الأعمال</a>
-                <a href="#">الإدارة العامة</a>
-                <a href="#">التمويل</a>
-                <a href="#">التسويق</a>
-                <a href="#">المحاسبة</a>
+              <a href="#">نظم المعلومات الإدارية</a>
+              <a href="#">إدارة الأعمال</a>
+              <a href="#">اقتصاد الأعمال</a>
+              <a href="#">الإدارة العامة</a>
+              <a href="#">التمويل</a>
+              <a href="#">التسويق</a>
+              <a href="#">المحاسبة</a>
             </div>
+      
             <div class="footer-right">
-                <a href="https://regapp.ju.edu.jo/regapp/">موقع التسجيل</a>
-                <a href="https://elearning.ju.edu.jo/login/index.php">eLearning</a>
-                <a href="https://juexams.com/moodle/login/index.php">Ju-Exam</a>
-                <a href="https://library.ju.edu.jo/Elibrary/">E-Library</a>
-                <a href="#">تواصل معنا</a>
-                <a href="#">من نحن</a>
+              <a href="https://regapp.ju.edu.jo/regapp/">موقع التسجيل</a>
+              <a href="https://elearning.ju.edu.jo/login/index.php">eLearning</a>
+              <a href="https://juexams.com/moodle/login/index.php">Ju-Exam</a>
+              <a href="https://library.ju.edu.jo/Elibrary/">E-Library</a>
+              <a href="#">تواصل معنا</a>
+              <a href="#">من نحن</a>
             </div>
+          </div>
         </div>
-    </footer>
+      </footer>
  
     
 </body>
@@ -756,9 +1010,3 @@ body.blur {
 
 
 
-
-
-
-
-</body>
-</html>

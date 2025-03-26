@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+<style>
+/* === Tree Section Styling === */
+.tree-block {
+  background-color: #fff;
+  padding-bottom: 40px; /* Add spacing between blocks */
+}
+
+/* Title Above Tree */
+.tree-title-wrapper {
+  text-align: center;
+  padding-top: 40px;
+  padding-bottom: 10px;
+}
+
+.tree-title {
+  font-size: 32px;
+  font-weight: bold;
+  color: #EC522D;
+  margin: 0;
+}
+
+@media (max-width: 430px) {
+  .tree-title {
+    font-size: 22px;
+  }
+}
+
+/* Tree Section Layout */
+.tree-section {
+  display: flex;
+  justify-content: center;
+  padding: 40px 0;
+  background-color: #fff;
+}
+
+.tree-container {
+  position: relative;
+  width: 1200px;
+}
+
+.tree-image {
+  width: 100%;
+  display: block;
+}
+
+/* Icons Grid */
+.icon-grid {
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  display: grid;
+  grid-template-columns: auto auto;
+  gap: 30px 40px;
+  justify-items: center;
+  justify-content: center;
+  align-items: center;
+}
+
+.tree-icon-wrapper {
+  position: relative;
+  display: inline-block;
+  text-align: center;
+  text-decoration: none;
+}
+
+.tree-icon {
+  width: 140px;
+  max-width: 140px;
+  height: auto;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+.tree-icon:hover {
+  transform: scale(1.2);
+}
+
+.icon-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 14px;
+  font-weight: bold;
+  color: white;
+  text-align: center;
+  text-shadow: 1px 1px 3px black;
+  pointer-events: none;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .icon-grid {
+    grid-template-columns: 1fr 1fr;
+    column-gap: 10px;
+    row-gap: 16px;
+    width: 90%;
+  }
+
+  .tree-container {
+    width: 100%;
+    max-width: 500px;
+  }
+
+  .icon-text {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .icon-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .tree-icon-wrapper {
+    display: flex;
+    justify-content: center;
+  }
+
+  .icon-text {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 414px) {
+  .icon-grid {
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 8px;
+    row-gap: 12px;
+    width: 90%;
+    margin: auto;
+  }
+
+  .tree-container {
+    max-width: 350px;
+  }
+
+  .tree-icon {
+    width: 70px;
+  }
+
+  .icon-text {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 430px) {
+  .icon-grid {
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 12px;
+    row-gap: 14px;
+    width: 90%;
+    margin: auto;
+  }
+
+  .tree-icon {
+    max-width: 80px;
+  }
+
+  .icon-text {
+    font-size: 12px;
+  }
+
+  .tree-container {
+    max-width: 400px;
+  }
+}
+
+/* Button Styling */
+.tree-button-wrapper {
+  text-align: center;
+  margin-top: 30px;
+  margin-bottom: 40px;
+}
+
+.tree-button {
+  display: inline-block;
+  padding: 12px 30px;
+  background-color: #EC522D;
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: bold;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  transition: background 0.3s ease;
+}
+
+.tree-button:hover {
+  background-color: #b83e20;
+  text-decoration: none;
+}
+
+    </style>
+
+
+
+</head>
+<body>
+    
+
+
+
+
+
+
+
+
+
+
+ <!-- Tree Sections Wrapper -->
+<div class="trees-wrapper">
+
+    <!-- Tree 1 -->
+    <section class="tree-block">
+      <h2 class="tree-title">نظم المعلومات الادارية العام الأول</h2>
+      <main class="tree-section">
+        <div class="tree-container">
+          <img src="images/booktree.png" alt="Tree" class="tree-image">
+          <div class="icon-grid">
+            <!-- Repeatable icon -->
+            <a href="#"><div class="tree-icon-wrapper"><img src="images/bookicon.png" class="tree-icon" alt="box"><span class="icon-text">مبادئ نظم معلومات ادارية</span></div></a>
+            <a href="#"><div class="tree-icon-wrapper"><img src="images/bookicon.png" class="tree-icon" alt="box"><span class="icon-text">مبادئ محاسبة 1</span></div></a>
+            <a href="#"><div class="tree-icon-wrapper"><img src="images/bookicon.png" class="tree-icon" alt="box"><span class="icon-text">مبادئ ادارة اعمال</span></div></a>
+            <a href="#"><div class="tree-icon-wrapper"><img src="images/bookicon.png" class="tree-icon" alt="box"><span class="icon-text">مبادئ احصاء</span></div></a>
+            <a href="#"><div class="tree-icon-wrapper"><img src="images/bookicon.png" class="tree-icon" alt="box"><span class="icon-text">ادارة عامة حديثة</span></div></a>
+            <a href="#"><div class="tree-icon-wrapper"><img src="images/bookicon.png" class="tree-icon" alt="box"><span class="icon-text">ادارة قواعد البيانات</span></div></a>
+            <a href="#"><div class="tree-icon-wrapper"><img src="images/bookicon.png" class="tree-icon" alt="box"><span class="icon-text">اساسيات البرمجة</span></div></a>
+            <a href="#"><div class="tree-icon-wrapper"><img src="images/bookicon.png" class="tree-icon" alt="box"><span class="icon-text">اللغة الإنجليزية</span></div></a>
+          </div>
+          <div class="tree-button-wrapper">
+            <a href="#" class="tree-button">عرض المزيد</a>
+          </div>
+        </div>
+      </main>
+    </section>
+  
+    <!-- Tree 2 -->
+    <section class="tree-block">
+      <h2 class="tree-title">نظم المعلومات الادارية العام الأول</h2>
+      <main class="tree-section">
+        <div class="tree-container">
+          <img src="images/booktree.png" alt="Tree" class="tree-image">
+          <div class="icon-grid">
+            <!-- Same content copied for demonstration -->
+            <a href="#"><div class="tree-icon-wrapper"><img src="images/bookicon.png" class="tree-icon" alt="box"><span class="icon-text">مبادئ نظم معلومات ادارية</span></div></a>
+            <a href="#"><div class="tree-icon-wrapper"><img src="images/bookicon.png" class="tree-icon" alt="box"><span class="icon-text">مبادئ محاسبة 1</span></div></a>
+            <a href="#"><div class="tree-icon-wrapper"><img src="images/bookicon.png" class="tree-icon" alt="box"><span class="icon-text">مبادئ ادارة اعمال</span></div></a>
+            <a href="#"><div class="tree-icon-wrapper"><img src="images/bookicon.png" class="tree-icon" alt="box"><span class="icon-text">مبادئ احصاء</span></div></a>
+            <a href="#"><div class="tree-icon-wrapper"><img src="images/bookicon.png" class="tree-icon" alt="box"><span class="icon-text">ادارة عامة حديثة</span></div></a>
+            <a href="#"><div class="tree-icon-wrapper"><img src="images/bookicon.png" class="tree-icon" alt="box"><span class="icon-text">ادارة قواعد البيانات</span></div></a>
+            <a href="#"><div class="tree-icon-wrapper"><img src="images/bookicon.png" class="tree-icon" alt="box"><span class="icon-text">اساسيات البرمجة</span></div></a>
+            <a href="#"><div class="tree-icon-wrapper"><img src="images/bookicon.png" class="tree-icon" alt="box"><span class="icon-text">اللغة الإنجليزية</span></div></a>
+          </div>
+          <div class="tree-button-wrapper">
+            <a href="#" class="tree-button">عرض المزيد</a>
+          </div>
+        </div>
+      </main>
+    </section>
+      <!-- You can continue duplicating .tree-block section as needed -->
+  </div>
+
+<!-- tree block 3 -->
+<section class="tree-block">
+    <!-- tree title -->
+    <section class="tree-title-wrapper">
+      <h2 class="tree-title">نظم المعلومات الادارية العام الأول</h2>
+    </section>
+  
+    <!-- tree + icons -->
+    <main class="tree-section">
+      <div class="tree-container">
+        <img src="images/booktree.png" alt="Tree" class="tree-image" />
+  
+        <!-- icons -->
+        <div class="icon-grid">
+          <a href="#"><div class="tree-icon-wrapper"><img src="images/bookicon.png" class="tree-icon" alt="box" /><span class="icon-text">مبادئ نظم معلومات ادارية</span></div></a>
+          <a href="#"><div class="tree-icon-wrapper"><img src="images/bookicon.png" class="tree-icon" alt="box" /><span class="icon-text">مبادئ محاسبة 1</span></div></a>
+          <a href="#"><div class="tree-icon-wrapper"><img src="images/bookicon.png" class="tree-icon" alt="box" /><span class="icon-text">مبادئ ادارة اعمال</span></div></a>
+          <a href="#"><div class="tree-icon-wrapper"><img src="images/bookicon.png" class="tree-icon" alt="box" /><span class="icon-text">مبادئ احصاء</span></div></a>
+          <a href="#"><div class="tree-icon-wrapper"><img src="images/bookicon.png" class="tree-icon" alt="box" /><span class="icon-text">ادارة عامة حديثة</span></div></a>
+          <a href="#"><div class="tree-icon-wrapper"><img src="images/bookicon.png" class="tree-icon" alt="box" /><span class="icon-text">ادارة قواعد البيانات</span></div></a>
+          <a href="#"><div class="tree-icon-wrapper"><img src="images/bookicon.png" class="tree-icon" alt="box" /><span class="icon-text">اساسيات البرمجة</span></div></a>
+          <a href="#"><div class="tree-icon-wrapper"><img src="images/bookicon.png" class="tree-icon" alt="box" /><span class="icon-text">اللغة الإنجليزية</span></div></a>
+        </div>
+      </div>
+    </main>
+  
+    <!-- tree button -->
+    <section class="tree-button-wrapper">
+      <a href="#" class="tree-button">عرض المزيد</a>
+    </section>
+  </section>
+
+  <!-- tree block 4 -->
+<section class="tree-block">
+    <!-- tree title -->
+    <section class="tree-title-wrapper">
+      <h2 class="tree-title">نظم المعلومات الادارية العام الأول</h2>
+    </section>
+  
+    <!-- tree + icons -->
+    <main class="tree-section">
+      <div class="tree-container">
+        <img src="images/booktree.png" alt="Tree" class="tree-image" />
+  
+        <!-- icons -->
+        <div class="icon-grid">
+          <a href="#"><div class="tree-icon-wrapper"><img src="images/bookicon.png" class="tree-icon" alt="box" /><span class="icon-text">مبادئ نظم معلومات ادارية</span></div></a>
+          <a href="#"><div class="tree-icon-wrapper"><img src="images/bookicon.png" class="tree-icon" alt="box" /><span class="icon-text">مبادئ محاسبة 1</span></div></a>
+          <a href="#"><div class="tree-icon-wrapper"><img src="images/bookicon.png" class="tree-icon" alt="box" /><span class="icon-text">مبادئ ادارة اعمال</span></div></a>
+          <a href="#"><div class="tree-icon-wrapper"><img src="images/bookicon.png" class="tree-icon" alt="box" /><span class="icon-text">مبادئ احصاء</span></div></a>
+          <a href="#"><div class="tree-icon-wrapper"><img src="images/bookicon.png" class="tree-icon" alt="box" /><span class="icon-text">ادارة عامة حديثة</span></div></a>
+          <a href="#"><div class="tree-icon-wrapper"><img src="images/bookicon.png" class="tree-icon" alt="box" /><span class="icon-text">ادارة قواعد البيانات</span></div></a>
+          <a href="#"><div class="tree-icon-wrapper"><img src="images/bookicon.png" class="tree-icon" alt="box" /><span class="icon-text">اساسيات البرمجة</span></div></a>
+          <a href="#"><div class="tree-icon-wrapper"><img src="images/bookicon.png" class="tree-icon" alt="box" /><span class="icon-text">اللغة الإنجليزية</span></div></a>
+        </div>
+      </div>
+    </main>
+  
+    <!-- tree button -->
+    <section class="tree-button-wrapper">
+      <a href="#" class="tree-button">عرض المزيد</a>
+    </section>
+  </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
