@@ -500,6 +500,49 @@ body.blur {
 }
 /* the notification NEED to be mobile responsive */
 
+/* tree and icon styling */
+.tree-section {
+  display: flex;
+  justify-content: center;
+  padding: 40px 0;
+  background-color: #fefefe;
+}
+
+.tree-container {
+  position: relative;
+  width: 1200px; /* You can adjust size */
+}
+
+.tree-image {
+  width: 100%;
+  display: block;
+}
+
+/* Grid overlay for icons */
+.icon-grid {
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px 40px; /* row gap / column gap */
+  justify-items: center;
+}
+
+.tree-icon {
+  width: 90px;
+  height: auto;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+.tree-icon:hover {
+  transform: scale(1.2);
+}
+
+
     </style>
 </head>
 <body>
@@ -598,7 +641,24 @@ body.blur {
         <a href="#">خدمات استفد منها قبل تخرجك</a>
     </div>
 </div>
-
+<!-- treeeeeeeee -->
+<main class="tree-section">
+    <div class="tree-container">
+      <img src="images/booktree.png" alt="Tree" class="tree-image">
+  
+      <!-- Icon grid over the tree -->
+      <div class="icon-grid">
+        <img src="images/bookicon.png" class="tree-icon" alt="box">
+        <img src="images/bookicon.png" class="tree-icon" alt="box">
+        <img src="images/bookicon.png" class="tree-icon" alt="box">
+        <img src="images/bookicon.png" class="tree-icon" alt="box">
+        <img src="images/bookicon.png" class="tree-icon" alt="box">
+        <img src="images/bookicon.png" class="tree-icon" alt="box">
+        <img src="images/bookicon.png" class="tree-icon" alt="box">
+        <img src="images/bookicon.png" class="tree-icon" alt="box">
+      </div>
+    </div>
+  </main>
   
 
 
