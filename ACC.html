@@ -19,7 +19,7 @@
 <!-- title in the dep page -->
 
 <div class="big-title">
-  <h1>كتب ودورات داعمة للتخصص</h1>
+  <h1>الخطة الشجرية ودورات داعمة للتخصص</h1>
 </div>
 
 
@@ -35,7 +35,7 @@
 
 <!-- START TREE BLOCK -->
 <div class="tree-title-wrapper"> 
-  <h2 class="tree-title">الخطة الشجرية لتخصص المحاسبة - السنة الأولى</h2> 
+  <h2 class="tree-title">المحاسبة - العام الأولى</h2> 
 </div> 
 <div class="tree-responsive-wrapper"> 
   <div class="tree-container"> 
@@ -53,6 +53,8 @@
   </div> 
 </div> 
 <!-- END TREE BLOCK -->
+
+<!-- script for download book -->
 <script>
   function forceDownload() {
       const link = document.createElement('a');
@@ -63,6 +65,7 @@
       document.body.removeChild(link);
   }
   </script>
+  <!-- badge under first tree  -->
 <div class="fancy-badge">
   <span>اضغط على المادة للتحميل المباشر</span>
 </div>
@@ -72,7 +75,7 @@
 
 <!-- START TREE BLOCK -->
 <div class="tree-title-wrapper"> 
-  <h2 class="tree-title">الخطة الشجرية لتخصص المحاسبة - السنة الثانية</h2> 
+  <h2 class="tree-title">المحاسبة - العام الثانية</h2> 
 </div> 
 <div class="tree-responsive-wrapper"> 
   <div class="tree-container"> 
@@ -95,7 +98,7 @@
 
 <!-- START TREE BLOCK -->
 <div class="tree-title-wrapper"> 
-  <h2 class="tree-title">الخطة الشجرية لتخصص المحاسبة - السنة الثالثة</h2> 
+  <h2 class="tree-title"> المحاسبة - العام الثالثة</h2> 
 </div> 
 <div class="tree-responsive-wrapper"> 
   <div class="tree-container"> 
@@ -118,7 +121,7 @@
 
 <!-- START TREE BLOCK -->
 <div class="tree-title-wrapper"> 
-  <h2 class="tree-title">الخطة الشجرية لتخصص المحاسبة - السنة الرابعة</h2> 
+  <h2 class="tree-title"> المحاسبة - العام الرابعة</h2> 
 </div> 
 <div class="tree-responsive-wrapper"> 
   <div class="tree-container"> 
@@ -138,7 +141,7 @@
 <!-- END TREE BLOCK -->
 <!-- button for more books -->
 <div class="center-button-wrapper">
-  <a href="#" class="custom-button" onclick="showPopup()">المواد الاخرى</a>
+  <a  class="custom-button" onclick="showPopup()">المواد الاخرى</a>
 </div>
 
 <!-- Popup Modal -->
@@ -178,7 +181,7 @@
         <td style="padding: 10px; border: 1px solid #ddd;">السنة الثالثة</td>
         <td style="padding: 10px; border: 1px solid #ddd; text-align: center;"><a href="#" style="color: #EC522D; text-decoration: none;">تحميل</a></td>
       </tr>
-      <!-- Add more rows as needed -->
+                                             <!-- Add more rows as needed -->
     </tbody>
   </table>
   <tbody>
@@ -189,11 +192,23 @@
   </div>
   </div>
 
+<!-- script for button  -->
+<script>
+  function showPopup() {
+    document.getElementById("popupModal").style.display = "block";
+  }
+
+  function closePopup() {
+    document.getElementById("popupModal").style.display = "none";
+  }
+</script>
+
     <!--heading for courses  -->
     <div class="big-title">
       <h1>دورات داعمة للتخصص</h1>
     </div>
 <!-- for courses table  -->
+
     <table class="styled-table">
       <thead>
         <tr>

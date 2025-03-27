@@ -107,11 +107,17 @@ font-weight: bold;
 color: #5E2950;
 text-shadow: 0 0 5px #5E2950, 0 0 15px #5E2950;
 margin: 0;
+user-select: none;
+-webkit-user-select: none; /* For Safari */
+-moz-user-select: none;    /* For Firefox */
+-ms-user-select: none;     /* For IE/Edge */
 }
 /* button for more books  */
 .center-button-wrapper {
 text-align: center;
 margin: 40px 0;
+cursor: pointer; /* 👈 Add this line */
+
 }
 
 .custom-button {
@@ -143,6 +149,11 @@ width: fit-content;
 border-radius: 12px;
 box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 text-shadow: 0 0 5px #EC522D;
+cursor: pointer; /* 👈 Add this line */
+user-select: none;
+-webkit-user-select: none; /* For Safari */
+-moz-user-select: none;    /* For Firefox */
+-ms-user-select: none;     /* For IE/Edge */
 }
 
 

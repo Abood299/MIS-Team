@@ -22,7 +22,7 @@
 <!-- title in the dep page -->
 
 <div class="big-title">
-  <h1>كتب ودورات داعمة للتخصص</h1>
+  <h1>الخطة الشجرية ودورات داعمة للتخصص</h1>
 </div>
 
 
@@ -43,7 +43,7 @@
 </div>
 <div class="tree-responsive-wrapper">
   <div class="tree-container">
-    <img src="images/treedep.png" alt="Tree" class="tree-image"class="animated-tree">
+    <img src="images/treedep.png" alt="Tree" class="tree-image">
     <div class="icon-grid">
       <a href="downloadbooks/ReportOne.pdf"><div class="tree-icon-wrapper"><img src="images/bookicon.png" class="tree-icon" class="download-btn"><span class="icon-text">محاسبة 1</span></div></a>
       <a href="downloadbooks/ReportOne.pdf"><div class="tree-icon-wrapper"><img src="images/bookicon.png" class="tree-icon"><span class="icon-text">مبادئ نظم</span></div></a>
@@ -150,7 +150,7 @@
 
 <!-- button for more books -->
   <div class="center-button-wrapper">
-    <a href="#" class="custom-button" onclick="showPopup()">المواد الاخرى</a>
+    <a  class="custom-button" onclick="showPopup()">المواد الاخرى</a>
   </div>
 
   <!-- Popup Modal -->
@@ -200,8 +200,16 @@
       <button onclick="closePopup()" style="padding: 10px 20px; background-color: #5E2950; color: white; border: none; border-radius: 5px; cursor: pointer; transition: background-color 0.3s ease;" onmouseover="this.style.backgroundColor='#EC522D'" onmouseout="this.style.backgroundColor='#5E2950'">إغلاق</button>
     </div>
     </div>
-
+<!-- script for button  -->
+    <script>
+      function showPopup() {
+        document.getElementById("popupModal").style.display = "block";
+      }
     
+      function closePopup() {
+        document.getElementById("popupModal").style.display = "none";
+      }
+    </script>
     <div class="big-title">
       <h1>دورات داعمة للتخصص</h1>
     </div>
@@ -238,5 +246,7 @@
       </tbody>
     </table>
 
+
+    <script>src</script>
   </body>
 </html>
