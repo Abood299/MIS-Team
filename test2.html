@@ -164,7 +164,7 @@
 <div class="big-title">
   <h1>كتب ودورات داعمة للتخصص</h1>
 </div>
-<p>اضغط على المادة للتحميل المباشر</p>
+
 
 
 
@@ -185,7 +185,7 @@
   <div class="tree-container">
     <img src="images/treedep.png" alt="Tree" class="tree-image"class="animated-tree">
     <div class="icon-grid">
-      <a href="#"><div class="tree-icon-wrapper"><img src="images/bookicon.png" class="tree-icon"><span class="icon-text">محاسبة 1</span></div></a>
+      <a href="downloadbooks/ReportOne.pdf"><div class="tree-icon-wrapper"><img src="images/bookicon.png" class="tree-icon"><span class="icon-text">محاسبة 1</span></div></a>
       <a href="#"><div class="tree-icon-wrapper"><img src="images/bookicon.png" class="tree-icon"><span class="icon-text">مبادئ نظم</span></div></a>
       <a href="#"><div class="tree-icon-wrapper"><img src="images/bookicon.png" class="tree-icon"><span class="icon-text">إدارة أعمال</span></div></a>
       <a href="#"><div class="tree-icon-wrapper"><img src="images/bookicon.png" class="tree-icon"><span class="icon-text">إحصاء</span></div></a>
@@ -200,7 +200,7 @@
 <!-- END TREE BLOCK -->
 
 <div class="fancy-badge">
-  <span>أفضل المصادر لطلبة التخصص</span>
+  <span>اضغط على المادة للتحميل المباشر</span>
 </div>
 
 
@@ -281,8 +281,71 @@
 
 <!-- button for more books -->
   <div class="center-button-wrapper">
-    <a href="#" class="custom-button">المواد الاخرى</a>
+    <a href="#" class="custom-button" onclick="showPopup()">المواد الاخرى</a>
   </div>
+
+  <!-- Popup Modal -->
+  <div id="popupModal" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 1000; background: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);">
+    <h2 style="text-align: center; color: #5E2950;">قائمة المواد</h2>
+    <table style="width: 100%; border-collapse: collapse; margin-top: 20px;">
+      <thead>
+        <tr style="background-color: #5E2950; color: white;">
+          <th style="padding: 10px; border: 1px solid #ddd;">اسم المادة</th>
+          <th style="padding: 10px; border: 1px solid #ddd;">السنة</th>
+          <th style="padding: 10px; border: 1px solid #ddd;">تحميل</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="padding: 10px; border: 1px solid #ddd;">سلسلة تزويد</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">السنة الثالثة</td>
+          <td style="padding: 10px; border: 1px solid #ddd; text-align: center;"><a href="#" style="color: #EC522D; text-decoration: none;">تحميل</a></td>
+        </tr>
+        <tr>
+          <td style="padding: 10px; border: 1px solid #ddd;">إدارة موارد بشرية</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">السنة الثانية</td>
+          <td style="padding: 10px; border: 1px solid #ddd; text-align: center;"><a href="#" style="color: #EC522D; text-decoration: none;">تحميل</a></td>
+        </tr>
+        <tr>
+          <td style="padding: 10px; border: 1px solid #ddd;">أمن المعلومات</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">السنة الرابعة</td>
+          <td style="padding: 10px; border: 1px solid #ddd; text-align: center;"><a href="#" style="color: #EC522D; text-decoration: none;">تحميل</a></td>
+        </tr>
+        <tr>
+          <td style="padding: 10px; border: 1px solid #ddd;">التسويق الإلكتروني</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">السنة الأولى</td>
+          <td style="padding: 10px; border: 1px solid #ddd; text-align: center;"><a href="#" style="color: #EC522D; text-decoration: none;">تحميل</a></td>
+        </tr>
+        <tr>
+          <td style="padding: 10px; border: 1px solid #ddd;">إدارة سياحية</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">السنة الثالثة</td>
+          <td style="padding: 10px; border: 1px solid #ddd; text-align: center;"><a href="#" style="color: #EC522D; text-decoration: none;">تحميل</a></td>
+        </tr>
+        <!-- Add more rows as needed -->
+      </tbody>
+    </table>
+    <tbody>
+ 
+    </tbody>
+    <div style="text-align: center; margin-top: 20px;">
+      <button onclick="closePopup()" style="padding: 10px 20px; background-color: #5E2950; color: white; border: none; border-radius: 5px; cursor: pointer; transition: background-color 0.3s ease;" onmouseover="this.style.backgroundColor='#EC522D'" onmouseout="this.style.backgroundColor='#5E2950'">إغلاق</button>
+    </div>
+    </div>
+
+    <!-- Overlay -->
+    <div id="popupOverlay" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.5); z-index: 999;" onclick="closePopup()"></div>
+
+    <script>
+    function showPopup() {
+      document.getElementById('popupModal').style.display = 'block';
+      document.getElementById('popupOverlay').style.display = 'block';
+    }
+
+    function closePopup() {
+      document.getElementById('popupModal').style.display = 'none';
+      document.getElementById('popupOverlay').style.display = 'none';
+    }
+    </script></div>
 
 
 
