@@ -233,7 +233,7 @@ user-select: none;
     color: white;
     background: linear-gradient(135deg, #5E2950, #EC522D);
     border-radius: 30px;
-    text-decoration: none;
+    text-decoration: none !important;
     font-weight: bold;
     position: relative;
     z-index: 1;
@@ -262,7 +262,7 @@ user-select: none;
   
   .button-link-table:hover {
     transform: scale(1.05);
-    text-decoration: none;
+    text-decoration: none !important;
   }
   
   /* Glowing animation keyframes */
