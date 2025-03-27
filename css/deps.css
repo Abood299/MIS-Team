@@ -1,0 +1,188 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f1f9;
+  }
+
+  .tree-title-wrapper {
+    text-align: center;
+    padding-top: 40px;
+    padding-bottom: 10px;
+
+  }
+
+  .tree-title {
+    font-size: 28px;
+    font-weight: bold;
+    color: #EC522D;
+    margin: 0;
+  }
+
+  .tree-responsive-wrapper {
+    width: 100%;
+    max-width: 550px;
+    margin: auto;
+    position: relative;
+  }
+
+  .tree-container {
+    width: 100%;
+    position: relative; /* For the absolute positioning dsghsdgjhsdgjhsdgjhsedtgtghjof the grid */
+  }
+
+  .tree-image {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .icon-grid {
+      position: absolute;
+top: 10%;
+left: 50%;
+transform: translateX(-50%);
+width: 100%;
+display: grid;
+
+/* Tighter spacing between columns */
+grid-template-columns: auto auto;
+gap: 5px 15px; /* vertical gap / horizontal gap */
+justify-items: center;
+justify-content: center;
+align-items: center;
+  }
+
+/* Text inside the boxes */
+.tree-icon-wrapper {
+position: relative;
+display: inline-block;
+text-align: center;
+text-decoration: none;
+}
+  .tree-icon {
+    width: 90px;
+    height: auto;
+    transition: transform 0.3s ease;
+  }
+
+  .tree-icon:hover {
+    transform: scale(1.1);
+  }
+
+  .icon-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 15px;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    text-shadow: 1px 1px 3px black;
+    pointer-events: none;
+  }
+/* animate tree */
+.animated-tree {
+width: 100%;
+animation: sway 3s ease-in-out infinite;
+}
+
+@keyframes sway {
+0% { transform: translateX(0); }
+50% { transform: translateX(5px); } /* slight right */
+100% { transform: translateX(0); }
+}
+
+/* big title  */
+
+.big-title {
+text-align: center;
+padding: 40px 20px 20px;
+
+}
+
+.big-title h1 {
+font-size: 75px;
+font-weight: bold;
+color: #5E2950;
+text-shadow: 0 0 5px #5E2950, 0 0 15px #5E2950;
+margin: 0;
+}
+/* button for more books  */
+.center-button-wrapper {
+text-align: center;
+margin: 40px 0;
+}
+
+.custom-button {
+display: inline-block;
+padding: 12px 30px;
+background-color: #5E2950; /* deep purple */
+color: white;
+text-decoration: none;
+font-size: 18px;
+font-weight: bold;
+border-radius: 12px;
+box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+transition: all 0.3s ease;
+}
+
+.custom-button:hover {
+background-color: #EC522D; /* orange hover */
+transform: scale(1.05);
+}
+.fancy-badge {
+margin: 30px auto;              /* Centers it horizontally */
+padding: 12px 30px;
+background-color: #5E2950;      /* Deep purple theme */
+color: white;
+font-weight: bold;
+font-size: 20px;
+text-align: center;
+width: fit-content;
+border-radius: 12px;
+box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+text-shadow: 0 0 5px #EC522D;
+}
+
+
+/* for courses table */
+.styled-table {
+    width: 80%;
+    margin: 40px auto;
+    border-collapse: collapse;
+    text-align: center;
+    font-family: 'Segoe UI', sans-serif;
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.15);
+  }
+
+  .styled-table th {
+    background-color: #5E2950;
+    color: white;
+    padding: 12px;
+    font-size: 18px;
+  }
+
+  .styled-table td {
+    padding: 10px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+  }
+
+  .styled-table tr:nth-child(even) {
+    background-color: #f9f1f7;
+  }
+
+  .styled-table tr:hover {
+    background-color: #ffe7e1;
+  }
+
+  .styled-table a {
+    color: #EC522D;
+    font-weight: bold;
+    text-decoration: none;
+  }
+
+  .styled-table a:hover {
+    text-decoration: underline;
+  }
