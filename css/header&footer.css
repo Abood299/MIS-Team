@@ -1,0 +1,405 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif, Times, serif, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #FAF9F6; /* Light ivory color */
+}
+
+/* Moble responsive screens */
+
+@media (max-width: 768px) {
+.slideshow-container {
+margin-bottom: 100px;
+}
+}
+
+
+
+/* Header Styling 15 the navbar below is for the 3 icons on the right properties*/                    
+.navbar {      
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    width: 50px;
+    margin-right: 10px;
+}
+
+
+.business-text {
+    font-size: 22px;
+    font-weight: bold;
+    color: #EC522D;
+    margin-right: 5px; /* Added space between Business and Hub */
+}
+
+.hub-text {
+    font-size: 22px;
+    font-weight: bold;
+    color: #5E2950;
+}
+
+.nav-links {
+    display: flex;
+    gap: 20px;
+}
+.nav-links a, .dropbtn {
+    text-decoration: none;
+    color: #ffffff93;
+    font-size: 16px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+    transition: border-bottom 0.3s ease-in-out;
+}
+
+.nav-links a:hover, .dropbtn:hover {
+    border-bottom: 2px solid #EC522D;
+}
+
+/* Navbar 3D Effect - Making it Stand Out with a Stepped Edge Look */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background-color:  #19002a;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3), 0 12px 25px rgba(0, 0, 0, 0.1); /* Adds a deeper 3D effect */
+    border-radius: 0px; /* Soft rounded edges */
+    position: sticky;
+    top: 0;
+z-index: 1000; /* Lower than menu panel */
+   
+}
+.icons { 
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-size: 20px;
+    cursor: pointer;}
+    
+.sign-in {
+    background: none;
+    border: 1px solid #ffffff93;
+    color: #ffffff93; /* ✅ Add this line */
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+
+ .sign-in:hover {
+     background-color: #EC522D;
+  color: white;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: white;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    min-width: 180px;
+    z-index: 1;
+}
+
+.dropdown-content a {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: black;
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+.icon-dropdown-content a:hover, .dropdown-content a:hover {
+    background-color: #EC522D;
+    color: white;
+}
+
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+/* Hover effect for navbar icons (Search, Burger, Notification) */
+.icons i {
+    padding: 5px;
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+    border-radius: 5px;
+}
+
+.icons i:hover {
+    background-color: #EC522D;
+    color: white;
+}
+/* Header Styling */
+
+  /* Footer Styling 6 */
+  .footer {
+    background: #19002a;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: left;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 20px;
+}
+
+.footer-left h2 {
+    margin: 0;
+}
+
+.footer-middle, .footer-right {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-middle a, .footer-right a {
+    text-decoration: none;
+    color: #ffffff93;
+    margin: 5px 0;
+    
+}
+.footer-middle a:hover, .footer-right a:hover {
+    color: blue;
+}
+
+.slogan {
+color: #ffffff; /* Light gray – good for dark backgrounds */
+font-size: 16px;
+font-weight: 400;
+letter-spacing: 0.5px;
+
+
+
+}
+
+  /* Footer Styling */
+  
+/* Full-screen grey overlay when burger menu is clicked */
+
+.menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #232322;
+    transform: translateY(-100%);
+    transition: transform 0.5s ease-in-out;
+    z-index: 2000; /* Higher than navbar */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start; /* Aligns menu items to the left */
+    padding: 50px;}
+
+.menu-overlay.active {
+    transform: translateY(0);
+}
+
+/* Close button styling */
+.close-btn {
+    border: none;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 5px;
+    position: absolute;
+    top: 15px;
+    right: 30px; /* Adjusted to move it left */
+    color: white;
+    background: transparent;
+}
+  /* Menu Links Styling */
+  .menu-links {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    text-align: left; /* Ensures text is left-aligned */
+    width: 100%;
+    padding-left: 30px; /* Moves text to the left */
+}
+
+.menu-links a {
+    text-decoration: none;
+    color: white;
+    font-size: 22px;
+    font-weight: bold;
+    transition: transform 0.3s ease-in-out;
+}
+
+.menu-links a:hover {
+    transform: scale(1.02x);
+    color: #EC522D;
+}
+
+/* Styling for the Logo in the Grey Overlay */
+.menu-logo {
+display: flex;
+align-items: center;
+gap: 10px;
+position: absolute;
+top: 20px; /* Adjust this if needed */
+left: 30px;
+}
+
+.menu-logo img {
+width: 50px; /* Adjust size */
+height: auto;
+max-width: 100%;
+}
+
+.menu-logo .business-text {
+font-size: 24px;
+font-weight: bold;
+color: #EC522D;
+margin-right: -3px;  /* Reduces space between words */
+}
+
+
+.menu-logo .hub-text {
+font-size: 24px;
+font-weight: bold;
+color:#5E2950;
+}
+
+
+/* Search Popup Overlay */
+.search-popup {
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background-color: rgba(0, 0, 0, 0.8);
+display: flex;
+justify-content: center;
+align-items: center;
+visibility: hidden;
+opacity: 0;
+transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+z-index: 10;
+}
+
+/* Search Box */
+.search-container {
+background: white;
+padding: 20px;
+border-radius: 8px;
+display: flex;
+align-items: center;
+gap: 10px;
+width: 50%;
+max-width: 400px;
+}
+
+/* Search Input */
+.search-input {
+flex: 1;
+padding: 10px;
+font-size: 16px;
+border: 1px solid #ccc;
+border-radius: 5px;
+}
+
+/* Close Button */
+.close-search {
+border: none;
+background: none;
+font-size: 20px;
+cursor: pointer;
+color: red;
+font-weight: bold;
+}
+
+/* Show Popup */
+.search-popup.active {
+visibility: visible;
+opacity: 1;
+}
+/* Blur effect when search bar is active */
+body.blur {
+filter: blur(5px); /* Adjust blur intensity */
+transition: filter 0.3s ease-in-out;
+}
+/* Notification center */
+.notification-container {
+    position: relative;
+    display: inline-block;
+  }
+  
+  #notification-panel {
+    position: absolute;
+    top: 35px; /* Adjust based on your navbar height */
+    right: 0;
+    width: 300px;
+    background: white;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    overflow: hidden;
+    z-index: 2000;
+    display: none;
+  }
+  
+  #notification-panel.show {
+    display: block;
+  }
+  
+  .panel-header {
+    padding: 10px 15px;
+    background-color: #f1f1f1;
+    font-weight: bold;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .notification-list {
+    list-style: none;
+    max-height: 300px;
+    overflow-y: auto;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .notification-item {
+    padding: 10px 15px;
+    border-bottom: 1px solid #eee;
+    font-size: 14px;
+    transition: background 0.3s;
+  }
+  
+  .notification-item:hover {
+    background-color: #EC522D; /* Replace with your exact theme color if different */
+    color: white;
+    cursor: pointer;
+  }
+  
+  
+  .panel-footer {
+    padding: 10px 15px;
+    text-align: center;
+    background-color: #fafafa;
+    font-size: 13px;
+  }
+  /* the notification NEED to be mobile responsive */
