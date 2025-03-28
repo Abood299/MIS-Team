@@ -339,11 +339,7 @@ font-weight: bold;
 visibility: visible;
 opacity: 1;
 }
-/* Blur effect when search bar is active */
-body.blur {
-filter: blur(5px); /* Adjust blur intensity */
-transition: filter 0.3s ease-in-out;
-}
+
 /* Notification center */
 .notification-container {
     position: relative;
@@ -403,3 +399,19 @@ transition: filter 0.3s ease-in-out;
     font-size: 13px;
   }
   /* the notification NEED to be mobile responsive */
+
+
+
+  /* for 3 icons above  */
+  .search-icon {
+    color: #ffffff93;
+  }
+  
+  .notification-icon {
+    color: #ffffff93;
+  }
+  
+  .burger-menu {
+    color: #ffffff93;
+  }
+  
