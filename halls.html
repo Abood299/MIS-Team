@@ -11,6 +11,11 @@
 
 <!-- add FontAwesome -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Amiri&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@500;700;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@500;700;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@600;800&display=swap" rel="stylesheet">
+
 
     <title>Business Hub</title>
     <!-- css withing the style -->
@@ -52,6 +57,7 @@
 <style>
 
 /* HALLS STYLE 🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵🔵 */
+
 .halls-section {
     text-align: center;
     padding: 30px 10px;
@@ -63,28 +69,23 @@
     justify-content: center;
     max-width: 1200px;
     margin: auto;
+      padding: 0 20px; /* Left & right padding to shrink overall layout */
   }
   .hall-box {
     position: relative;
     overflow: hidden;
     cursor: pointer;
-    border-radius: 10px; 
-
-  border-radius: 15px;
-  background: linear-gradient(to bottom, #D45734, #C44220); /* dark gradient */
-  border: 1px solid #8F2A12;
-  border-radius: 10px;
-  box-shadow:
-    inset 0 1px 0 #E36F4C,         /* top inner highlight */
-    0 5px 0 #8F2A12,               /* 3D edge shadow */
-    0 8px 16px rgba(0, 0, 0, 0.15); /* outer shadow for lift */
-  color: white;
-  padding: 20px;
-  font-weight: bold;
-  text-align: center;
-  transition: all 0.25s ease-in-out;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background: linear-gradient(to bottom, #4D1C70, #260143); /* top to base */
+    border: 1px solid #19002E;
+    border-radius: 10px;
+    box-shadow:
+    inset 0 1px 0 #6C45A5,           /* inner top glow */
+    0 5px 0 #19002E,                 /* base border depth */
+    0 10px 20px rgba(0, 0, 0, 0.2);  /* soft lift */
+    color: white;
     text-align: center;
+    transition: all 0.3s ease;
+    border: 3px solid #ffffff93; /* Orange stroke around the whole box */
     padding: 15px;
   }
   .hall-box:hover {
@@ -122,7 +123,73 @@
     display: none;
     text-align: center;
     margin-top: 30px;
+    background-color: #fdf9f7;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 10px 25px rgba(38, 1, 67, 0.15);
   }
+  /* Table Styles */
+table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  overflow: hidden;
+  border-radius: 10px;
+  font-family: 'Cairo', sans-serif; /* Or your luxury font */
+}
+
+/* Table Header */
+thead {
+  background-color: #260143;
+  color: white;
+}
+
+thead th {
+  padding: 15px;
+  text-align: center;
+  font-weight: 700;
+  font-size: 18px;
+  border-bottom: 2px solid #EC522D;
+  color: #EC522D;
+}
+
+/* Table Body */
+tbody td {
+  padding: 12px 10px;
+  text-align: center;
+  font-size: 16px;
+  border-bottom: 1px solid #eee;
+}
+
+/* Zebra rows */
+tbody tr:nth-child(even) {
+  background-color: #f9f4f2;
+}
+
+/* Play Button */
+table button {
+  padding: 5px 12px;
+  border: 2px solid #EC522D;
+  background-color: transparent;
+  color: #EC522D;
+  font-weight: bold;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+  font-family: inherit;
+}
+
+table button:hover {
+  background-color: #EC522D;
+  color: white;
+  cursor: pointer;
+}
+#buildingName {
+  color: #260143;
+  font-size: 28px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 20px;
+}
   .hall-details video {
     width: 100%;
     max-width: 500px;
@@ -141,16 +208,25 @@
 .hall-box img {
   border-radius: 10px;
   width: 100%;
-  height: auto;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Light image shadow */
+  height: auto; 
+   border: 3px solid #ffffff93; /* or any color */
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Optional */
 }
 
-/* Optional: Title or caption inside */
+/* BUILDING NAMES WITHIN BOXES */
 .hall-box p {
-  font-size: 20px;
-  font-weight: bold;
-  color: #5E2950;
+  font-size: 23px;
+  color: #EC522D;
+  text-align: center;
+  /* Soft surrounding glow / border */
+  text-shadow:
+    1px 1px 2px #b04125,
+    -1px -1px 2px #b04125,
+    2px 2px 5px rgba(236, 82, 45, 0.4),
+    -2px -2px 5px rgba(236, 82, 45, 0.4);
   margin-top: 10px;
+  font-family: 'Tajawal', sans-serif;
 }
   /* search bar  */
   .search-container {
@@ -396,10 +472,7 @@
         <button class="search-button"><i class="fas fa-search"></i></button>
       </div>
       
-
-
-
-
+ 
 
       <!-- boxes -->
       <div class="container halls-section">
@@ -411,10 +484,10 @@
         <table class="table table-bordered">
           <thead class="table-dark">
             <tr>
-              <th>Hall Name</th>
-              <th>Floor</th>
-              <th>Capacity</th>
-              <th>Video</th>
+              <th>اسم القاعة</th>
+              <th>الطابق</th>
+              <th>السعة</th>
+              <th>الطريق الى هناك</th>
             </tr>
           </thead>
           <tbody id="hallTableBody"></tbody>
@@ -438,7 +511,7 @@
           { name: "Hall I", floor: "Eighth Floor", capacity: 105, video: "videos/test for now.mp4" },
           { name: "Hall J", floor: "Ninth Floor", capacity: 115, video: "videos/test for now.mp4" }
         ],
-        image: "Accademicspics/images.jpg",
+        image: "Accademicspics/picbuilding1.png",
         previewVideo: "Accademicspics/building1.mp4"
       },
       {
@@ -455,7 +528,7 @@
           { name: "Hall I", floor: "Eighth Floor", capacity: 95, video: "videos/test for now.mp4" },
           { name: "Hall J", floor: "Ninth Floor", capacity: 105, video: "videos/test for now.mp4" }
         ],
-        image: "Accademicspics/مبنى 2.jpg",
+        image: "Accademicspics/picbuilding2.png",
         previewVideo: "Accademicspics/building2.mp4"
       },
       {
@@ -472,7 +545,7 @@
           { name: "Hall I", floor: "Eighth Floor", capacity: 95, video: "videos/test for now.mp4" },
           { name: "Hall J", floor: "Ninth Floor", capacity: 115, video: "videos/test for now.mp4" }
         ],
-        image: "Accademicspics/building3.png.jpg",
+        image: "Accademicspics/building3.png",
         previewVideo: "videos/test for now.mp4"
       },
       {
@@ -489,7 +562,7 @@
           { name: "Hall I", floor: "Eighth Floor", capacity: 100, video: "videos/test for now.mp4" },
           { name: "Hall J", floor: "Ninth Floor", capacity: 110, video: "videos/test for now.mp4" }
         ],
-        image: "Accademicspics/picbuilding4.png.jpg",
+        image: "Accademicspics/picbuilding4.png",
         previewVideo: "Accademicspics/building4.mp4"
       }
       ];
@@ -603,8 +676,6 @@
       
       document.addEventListener("DOMContentLoaded", displayBuildings);
       </script>
-
-
 
 
 
