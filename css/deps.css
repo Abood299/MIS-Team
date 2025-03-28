@@ -1,7 +1,7 @@
 body {
     margin: 0;
     font-family: Arial, sans-serif;
-    background-color: #f4f1f9;
+    background-color: #FAF9F6; /* Light ivory color */
   }
 
   .tree-title-wrapper {
@@ -149,7 +149,7 @@ padding: 40px 20px 20px;
     margin: 20px auto; 
     padding: 12px 24px; /* Increased padding for a larger button */
     background-color: #5E2950; 
-    color: white; 
+    color: white !important; 
     text-decoration: none; 
     font-size: 24px; 
     font-weight: bold; 
@@ -294,3 +294,9 @@ user-select: none;
     }
   }
   /* button under tree 4  */
+
+  /* empty  block */
+  .empty-block {
+    height: 50px;
+  }
+  
