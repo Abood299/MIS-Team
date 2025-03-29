@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en"> 
+<head>
+    <!-- the link tag below for linking css bootstrap -->
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- chatgpt addons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+
+<!-- add FontAwesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <title>Business Hub</title>
+    <!-- css withing the style -->
+<!-- this is for burger menu toggle  -->
+    <script> document.addEventListener("DOMContentLoaded", function() {
+        const burgerMenu = document.querySelector(".burger-menu");
+        const menuOverlay = document.querySelector(".menu-overlay");
+    
+        burgerMenu.addEventListener("click", function() {
+            menuOverlay.classList.toggle("active");
+        });
+    });
+    </script>
+       <!-- this script for closing the burger menu with ✖ -->
+       <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const burgerMenu = document.querySelector(".burger-menu");
+            const menuOverlay = document.querySelector(".menu-overlay");
+            const closeButton = document.querySelector(".close-btn");
+    
+            // Open the menu when clicking the burger icon
+            burgerMenu.addEventListener("click", function() {
+                menuOverlay.classList.add("active"); // Ensure it opens correctly
+            });
+    
+            // Close the menu when clicking the close (X) button
+            closeButton.addEventListener("click", function() {
+                menuOverlay.classList.remove("active"); // Properly hides the overlay
+            });
+        });
+    </script>
+
+   <!-- HEADER AND FOOTER STYLE IMPORT 🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴 -->
+   <link rel="stylesheet" href="css/header&footer.css">
+   <!-- HEADER AND FOOTER STYLE IMPORT 🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴 -->
+   
+  
+</head>
+<!-- PUT YOUR STYLE HERE GUYS ⬇⬇⬇⬇⬇⬆ -->
+ 
+<style>
+
+.guide-container {
+  max-width: 800px;
+  margin: 40px auto;
+  direction: rtl;
+  font-family: 'Cairo', sans-serif;
+}
+
+.step {
+  border-radius: 8px;
+  margin-bottom: 15px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(38, 1, 67, 0.1);
+  border: 1px solid #ccc;
+  transition: all 0.3s ease;
+}
+
+.step-header {
+  width: 100%;
+  text-align: right;
+  padding: 15px 20px;
+  background-color: #260143;
+  color: #fff;
+  font-weight: bold;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+  outline: none;
+  transition: background 0.3s;
+  text-align: center;         /* 🔥 CENTER the text */
+  display: flex;              /* makes alignment work well */
+  justify-content: space-between; /* Text on left, icon on right */
+  align-items: center;        /* center vertically */
+}
+
+.step-header:hover {
+    background-color: #3b1961;
+  color: #EC522D;
+  text-shadow:
+    0 0 5px #EC522D,
+    0 0 10px #EC522D,
+    0 0 15px rgba(236, 82, 45, 0.6); /* soft glow */
+}
+.step-header::after {
+  content: "▼"; /* Down arrow icon */
+  font-size: 18px;
+  transition: transform 0.3s ease;
+  margin-right: 10px;
+}
+.step-header.active::after {
+  content: "▲"; /* Up arrow when active */
+}
+.step-content {
+  background-color: #f9f4f2;
+  padding: 15px 20px;
+  display: none;
+  animation: slideDown 0.3s ease forwards;
+  line-height: 1.8;
+  color: #333;
+}
+
+/* Optional slide animation */
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+.big-title {
+text-align: center;
+padding: 40px 20px 20px;
+
+}
+.big-title h1 {
+  font-size: 75px;
+  font-weight: bold;
+  color: #5E2950;
+  text-shadow:
+    /* Soft gray stroke */
+    0 0 1px #7b7979,
+    0 0 2px #7b7979,
+    1px 1px 2px #7b7979,
+    -1px -1px 2px #7b7979,
+
+    /* Purple glow */
+    0 0 30px rgba(94, 41, 80, 0.95),
+    0 0 60px rgba(94, 41, 80, 0.85),
+    0 0 90px rgba(94, 41, 80, 0.75);
+
+  margin: 0;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  animation: glowTitle 3s ease-in-out infinite;
+}
+/* empty  block */
+.empty-block {
+    height: 50px;
+  }
+  
+
+</style>
+
+
+
+<body>
+    
+      <!-- HEADER SECTION 🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥-->
+
+
+    <header class="navbar">
+        <div class="logo-container">
+            <a href="MainPagefull.html">
+                <img src="images/logo.png" alt="Business Hub Logo" class="logo">
+            </a>
+            
+            <a href="MainPagefull.html" style="text-decoration: none; white-space: nowrap;">
+                <span class="business-text" style="text-shadow: 0 0 5px #EC522D;">Business</span><span class="hub-text" style="text-shadow: 0 0 7px #5E2950;">Hub</span>
+
+
+
+            </a>
+        </div>
+        <nav class="nav-links">
+            <div class="dropdown">
+                <button class="dropbtn">الأقسام <i class="fas fa-caret-down"></i></button>
+                <div class="dropdown-content">
+                    <a href="MIS.html">نظم المعلومات الإدارية</a>
+                    <a href="BUS.html">إدارة الأعمال</a>
+                    <a href="ECO.html">اقتصاد الأعمال</a>
+                    <a href="PBUS.html">الإدارة العامة</a>
+                    <a href="FNC.html">التمويل</a>
+                    <a href="MKT.html">التسويق</a>
+                    <a href="ACC.html">المحاسبة</a>
+                </div>
+            </div>
+            <a href="#">أعضاء هيئة التدريس</a>
+            <a href="#">القاعات</a>
+            <a href="#">تبادل الكتب</a>
+        </nav>
+        <div class="icons">
+            <i class="fas fa-search search-icon" onclick="toggleSearchPopup()"></i>
+
+<!-- Notifacation center code -->
+           <div class="notification-container">
+  <i id="notification-btn" class="fas fa-bell notification-icon"></i>
+
+  <div id="notification-panel" class="hidden">
+    <div class="panel-header">Notifications</div>
+    <ul class="notification-list">
+      <li class="notification-item">📚 New book added to Marketing section</li>
+      <li class="notification-item">🎓 Assistant uploaded a new final sheet</li>
+      <li class="notification-item">📢 New event: Business Day tomorrow</li>
+    </ul>
+    <div class="panel-footer">
+      <a href="#">View all notifications</a>
+    </div>
+  </div>
+</div>
+
+
+            <i class="fas fa-bars burger-menu" ></i>
+            <a href="MainPagefull.html" class="sign-in">Sign in</a>
+     
+
+        </div>
+
+    </header>
+    <!-- Grey Overlay Menu -->
+<div class="menu-overlay">
+   
+    <!-- Logo in the Grey Overlay Menu -->
+    <div class="menu-logo">
+        <a href="MainPagefull.html">
+            <img src="images/logo.png" alt="Business Hub Logo">
+        </a>
+        <a href="MainPagefull.html" style="text-decoration: none;">
+            <span class="business-text" style="text-shadow: 0 0 10px #EC522D, 0 0 20px #EC522D;">Business</span>&nbsp; <span class="hub-text" style="text-shadow: 0 0 10px #5E2950, 0 0 20px #5E2950;">Hub</span>
+
+
+
+        </a>
+    </div>
+    <button class="close-btn">✖</button>
+    <div class="menu-links">
+        <div class="halls-dropdown">
+            <a href="#">القاعات </a>
+          
+        </div>
+        <a href="#">الأقسام</a>
+        <a href="#">تبادل الكتب</a>
+        <a href="#">هيئة التدريس</a>
+        <a href="#">حساب المعدل التراكمي</a>
+        <a href="#">متطلبات التخرج</a>
+        <a href="#">هل تود خوض تجربة جديدة؟</a>
+        <a href="#">خدمات استفد منها قبل تخرجك</a>
+    </div>
+</div>
+
+  
+
+  <!-- this script for notification center open  -->
+  <script>
+    const notifBtn = document.getElementById('notification-btn');
+    const notifPanel = document.getElementById('notification-panel');
+  
+    notifBtn.addEventListener('click', () => {
+      notifPanel.classList.toggle('show');
+    });
+  
+    // Hide panel when clicking outside
+    window.addEventListener('click', function (e) {
+      if (!notifBtn.contains(e.target) && !notifPanel.contains(e.target)) {
+        notifPanel.classList.remove('show');
+      }
+    });
+  </script>
+  
+ 
+
+<!-- Search Bar Popup -->
+<div class="search-popup">
+    <div class="search-container">
+        <input type="text" class="search-input" placeholder="Search...">
+        <button class="close-search">✖</button>
+    </div>
+</div>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const searchIcon = document.querySelector(".fa-search");
+        const searchPopup = document.querySelector(".search-popup");
+        const closeSearch = document.querySelector(".close-search");
+
+        searchIcon.addEventListener("click", function () {
+            searchPopup.classList.add("active");
+        });
+
+        closeSearch.addEventListener("click", function () {
+            searchPopup.classList.remove("active");
+        });
+
+        // Close on outside click
+        searchPopup.addEventListener("click", function (e) {
+            if (e.target === searchPopup) {
+                searchPopup.classList.remove("active");
+            }
+        });
+    });
+</script>
+
+    </script>   
+    <!-- this small code to open the grey list -->
+ <div class="menu-overlay">
+        <button class="close-btn">✖</button>
+    </div>
+  
+      <!-- HEADER SECTION 🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥-->
+
+<!-- Empty block -->
+<div class="empty-block"></div>
+
+      <div class="big-title">
+        <h1>متطلبات التخرّج</h1>
+      </div>
+      
+
+
+
+      <div class="guide-container">
+
+        <div class="step">
+          <button class="step-header">الخطوة الأولى - حجز الأوراق</button>
+          <div class="step-content">
+            <p>هذا نص تجريبي للخطوة الأولى. هنا يتم شرح تفاصيل حجز الأوراق اللازمة للتخرج.</p>
+            <p>هذا نص تجريبي للخطوة الأولى. هنا يتم شرح تفاصيل حجز الأوراق اللازمة للتخرج.</p>
+            <p>هذا نص تجريبي للخطوة الأولى. هنا يتم شرح تفاصيل حجز الأوراق اللازمة للتخرج.</p>
+            <p>هذا نص تجريبي للخطوة الأولى. هنا يتم شرح تفاصيل حجز الأوراق اللازمة للتخرج.</p>
+            <p>هذا نص تجريبي للخطوة الأولى. هنا يتم شرح تفاصيل حجز الأوراق اللازمة للتخرج.</p>
+            <p>هذا نص تجريبي للخطوة الأولى. هنا يتم شرح تفاصيل حجز الأوراق اللازمة للتخرج.</p>
+            <p>هذا نص تجريبي للخطوة الأولى. هنا يتم شرح تفاصيل حجز الأوراق اللازمة للتخرج.</p>
+            <p>هذا نص تجريبي للخطوة الأولى. هنا يتم شرح تفاصيل حجز الأوراق اللازمة للتخرج.</p>
+          </div>
+        </div>
+      
+        <div class="step">
+          <button class="step-header">الخطوة الثانية - دفع الرسوم</button>
+          <div class="step-content">
+            <p>تفاصيل حول دفع الرسوم النهائية في الدائرة المالية أو عبر الإنترنت.</p>
+          </div>
+        </div>
+      
+        <div class="step">
+          <button class="step-header">الخطوة الثالثة - تسليم الكتب</button>
+          <div class="step-content">
+            <p>شرح عن آلية تسليم الكتب للمكتبة الجامعية ضمن خطوات التخرج.</p>
+          </div>
+        </div>
+      
+        <div class="step">
+          <button class="step-header">الخطوة الرابعة - تعبئة نموذج الخريج</button>
+          <div class="step-content">
+            <p>قم بتعبئة نموذج الخريجين عبر البوابة الإلكترونية أو من خلال مكتب التسجيل.</p>
+          </div>
+        </div>
+      
+        <div class="step">
+          <button class="step-header">الخطوة الخامسة - استلام الوثائق</button>
+          <div class="step-content">
+            <p>الموعد والمكان المخصص لاستلام وثائق التخرج الرسمية بعد الانتهاء من الخطوات.</p>
+          </div>
+        </div>
+      
+      </div>
+      
+
+
+
+      <script>
+        const steps = document.querySelectorAll(".step");
+      
+        steps.forEach(step => {
+          const btn = step.querySelector(".step-header");
+          const content = step.querySelector(".step-content");
+      
+          btn.addEventListener("click", () => {
+            // Collapse all others
+            steps.forEach(s => {
+              if (s !== step) {
+                s.querySelector(".step-content").style.display = "none";
+                s.querySelector(".step-header").classList.remove("active");
+              }
+            });
+      
+            // Toggle current
+            const isOpen = content.style.display === "block";
+            content.style.display = isOpen ? "none" : "block";
+            btn.classList.toggle("active", !isOpen);
+          });
+        });
+      </script>
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      
+
+  
+  <!--  FOOTER 🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥-->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-left">
+          
+                <h2>
+                    <a href="MainPagefull.html" style="text-decoration: none;">
+
+                        <span style="color: #EC522D; font-weight: bold; text-shadow: 0 0 5px #EC522D, 0 0 20px #EC522D;">Business</span> 
+                        <span style="color: #5E2950; font-weight: bold; text-shadow: 0 0 10px #5E2950, 0 0 20px #5E2950;">Hub</span>
+
+
+                        
+                    </a>
+                </h2>
+                <p class="slogan">تمكين الطلاب وربط المعرفة وبناء المستقبل</p>
+            </div>
+            <div class="footer-middle">
+                <a href="MIS.html">نظم المعلومات الإدارية</a>
+                <a href="BUS.html">إدارة الأعمال</a>
+                <a href="ECO.html">اقتصاد الأعمال</a>
+                <a href="PBUS.html">الإدارة العامة</a>
+                <a href="FNC.html">التمويل</a>
+                <a href="MKT.html">التسويق</a>
+                <a href="ACC.html">المحاسبة</a>
+            </div>
+            <div class="footer-right">
+                <a href="https://regapp.ju.edu.jo/regapp/">موقع التسجيل</a>
+                <a href="https://elearning.ju.edu.jo/login/index.php">eLearning</a>
+                <a href="https://juexams.com/moodle/login/index.php">Ju-Exam</a>
+                <a href="https://library.ju.edu.jo/Elibrary/">E-Library</a>
+                <a href="#">تواصل معنا</a>
+                <a href="#">من نحن</a>
+            </div>
+        </div>
+    </footer>
+ 
+      <!--  FOOTER 🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥-->
+</body>
+</html>
