@@ -1,4 +1,13 @@
 
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif, Times, serif, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #FAF9F6; /* Light ivory color */
+}
+
+
+
 /* Moble responsive screens */
 
 @media (max-width: 768px) {
@@ -10,13 +19,17 @@ margin-bottom: 100px;
 
 
 /* Header Styling 15 the navbar below is for the 3 icons on the right properties*/                    
-.navbar {      
+.navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 15px 20px;
-    background-color: #fff;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    background-color: #19002a;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3), 0 12px 25px rgba(0, 0, 0, 0.1);
+    border-radius: 0px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
 .logo-container {
@@ -63,26 +76,8 @@ margin-bottom: 100px;
 }
 
 /* Navbar 3D Effect - Making it Stand Out with a Stepped Edge Look */
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 20px;
-    background-color:  #19002a;
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3), 0 12px 25px rgba(0, 0, 0, 0.1); /* Adds a deeper 3D effect */
-    border-radius: 0px; /* Soft rounded edges */
-    position: sticky;
-    top: 0;
-z-index: 1000; /* Lower than menu panel */
-   
-}
-.icons { 
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    font-size: 20px;
-    cursor: pointer;}
-    
+
+
 .sign-in {
     background: none;
     border: 1px solid #ffffff93;
@@ -393,6 +388,7 @@ opacity: 1;
     font-size: 13px;
   }
   /* the notification NEED to be mobile responsive */
+
 
 
 
