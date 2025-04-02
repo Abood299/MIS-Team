@@ -1,7 +1,7 @@
 body {
     margin: 0;
     font-family: Arial, sans-serif;
-    background-color: #f4f1f9;
+    background-color: #FAF9F6; /* Light ivory color */
   }
 
   .tree-title-wrapper {
@@ -144,28 +144,38 @@ padding: 40px 20px 20px;
 
   
   /*BUTTON UNDER FOR MORE  */
-  .custom-button {
-    display: block;
-    margin: 20px auto;
-    padding: 5px 10px;
-    background-color: #5E2950;
-    color: white;
-    text-decoration: none;
-    font-size: 18px;
-    font-weight: bold;
-    border-radius: 12px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-    transition: all 0.3s ease;
-    text-align: center;
-  }
-  
-.custom-button:hover {
-background-color: #EC522D; /* orange hover */
-transform: scale(1.05);
+  .custom-button { 
+    display: inline-block; 
+    margin: 20px auto; 
+    padding: 12px 24px; /* Increased padding for a larger button */
+    background-color: #5E2950; 
+    color: white !important; 
+    text-decoration: none; 
+    font-size: 24px; 
+    font-weight: bold; 
+    border-radius: 12px; 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); 
+    transition: all 0.3s ease; 
+    text-align: center; 
+    cursor: pointer; /* 👈 This line adds the hand pointer */
+ 
+} 
+ 
+.custom-button:hover { 
+    background-color: #EC522D; /* orange hover */ 
+    transform: scale(1.05); 
+
+
+}
+
+.center-button-wrapper {
+  text-align: center;      /* Horizontally center inline elements like your button */
+  margin-top: 15px;        /* Optional spacing above */
+  margin-bottom: 15px;     /* Optional spacing below */
 }
 
 
-
+/* badge under tree 1 */
 .fancy-badge {
 margin: 30px auto;              /* Centers it horizontally */
 padding: 12px 30px;
@@ -233,7 +243,7 @@ user-select: none;
     color: white;
     background: linear-gradient(135deg, #5E2950, #EC522D);
     border-radius: 30px;
-    text-decoration: none;
+    text-decoration: none !important;
     font-weight: bold;
     position: relative;
     z-index: 1;
@@ -262,7 +272,7 @@ user-select: none;
   
   .button-link-table:hover {
     transform: scale(1.05);
-    text-decoration: none;
+    text-decoration: none !important;
   }
   
   /* Glowing animation keyframes */
@@ -284,3 +294,9 @@ user-select: none;
     }
   }
   /* button under tree 4  */
+
+  /* empty  block */
+  .empty-block {
+    height: 50px;
+  }
+  
