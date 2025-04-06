@@ -1,0 +1,301 @@
+body {
+    margin: 0;
+    background-color: #FAF9F6; /* Light ivory color */
+  }
+
+  .tree-title-wrapper {
+    text-align: center;
+    padding-top: 40px;
+    padding-bottom: 10px;
+
+  }
+
+  .tree-title {
+    font-size: 28px;
+    font-weight: bold;
+    color: #EC522D;
+    margin: 0;
+  }
+
+  .tree-responsive-wrapper {
+    width: 100%;
+    max-width: 550px;
+    margin: auto;
+    position: relative;
+  }
+
+  .tree-container {
+    width: 100%;
+    position: relative; /* For the absolute positioning dsghsdgjhsdgjhsdgjhsedtgtghjof the grid */
+  }
+
+  .tree-image {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .icon-grid {
+      position: absolute;
+      top: 10%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100%;
+      display: grid;
+
+/* Tighter spacing between columns */
+grid-template-columns: auto auto;
+gap: 5px 15px; /* vertical gap / horizontal gap */
+justify-items: center;
+justify-content: center;
+align-items: center;
+  }
+
+/* Text inside the boxes */
+.tree-icon-wrapper {
+position: relative;
+display: inline-block;
+text-align: center;
+text-decoration: none;
+}
+  .tree-icon {
+    width: 90px;
+    height: auto;
+    transition: transform 0.3s ease;
+  }
+
+  .tree-icon:hover {
+    transform: scale(1.1);
+  }
+
+  .icon-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 15px;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    text-shadow: 1px 1px 3px black;
+    pointer-events: none;
+  }
+ 
+
+@keyframes sway {
+0% { transform: translateX(0); }
+50% { transform: translateX(5px); } /* slight right */
+100% { transform: translateX(0); }
+}
+
+/* big title  */
+
+.big-title {
+text-align: center;
+padding: 40px 20px 20px;
+
+}
+.big-title h1 {
+  font-size: 75px;
+  font-weight: bold;
+  color: #5E2950;
+  text-shadow:
+    /* Soft gray stroke */
+    0 0 1px #7b7979,
+    0 0 2px #7b7979,
+    1px 1px 2px #7b7979,
+    -1px -1px 2px #7b7979,
+
+    /* Purple glow */
+    0 0 30px rgba(94, 41, 80, 0.95),
+    0 0 60px rgba(94, 41, 80, 0.85),
+    0 0 90px rgba(94, 41, 80, 0.75);
+
+  margin: 0;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  animation: glowTitle 3s ease-in-out infinite;
+}
+
+@keyframes glowTitle {
+  0%, 100% {
+    text-shadow:
+      0 0 1px #7b7979,
+      0 0 2px #7b7979,
+      1px 1px 2px #7b7979,
+      -1px -1px 2px #7b7979,
+      0 0 30px rgba(94, 41, 80, 0.95),
+      0 0 60px rgba(94, 41, 80, 0.85),
+      0 0 90px rgba(94, 41, 80, 0.75);
+  }
+  50% {
+    text-shadow:
+      0 0 2px #7b7979,
+      1px 1px 3px #7b7979,
+      -1px -1px 3px #7b7979,
+      0 0 40px rgba(94, 41, 80, 1),
+      0 0 80px rgba(94, 41, 80, 0.95),
+      0 0 120px rgba(94, 41, 80, 0.9);
+  }
+}
+
+  
+  /*BUTTON UNDER FOR MORE  */
+  .custom-button { 
+    display: inline-block; 
+    margin: 20px auto; 
+    padding: 12px 24px; /* Increased padding for a larger button */
+    background-color: #5E2950; 
+    color: white !important; 
+    text-decoration: none; 
+    font-size: 24px; 
+    font-weight: bold; 
+    border-radius: 12px; 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); 
+    transition: all 0.3s ease; 
+    text-align: center; 
+    cursor: pointer; /* 👈 This line adds the hand pointer */
+ 
+} 
+ 
+.custom-button:hover { 
+    background-color: #EC522D; /* orange hover */ 
+    transform: scale(1.05); 
+
+
+}
+
+.center-button-wrapper {
+  text-align: center;      /* Horizontally center inline elements like your button */
+  margin-top: 15px;        /* Optional spacing above */
+  margin-bottom: 15px;     /* Optional spacing below */
+}
+
+
+/* badge under tree 1 */
+.fancy-badge {
+margin: 30px auto;              /* Centers it horizontally */
+padding: 12px 30px;
+background-color: #5E2950;      /* Deep purple theme */
+color: white;
+font-weight: bold;
+font-size: 20px;
+text-align: center;
+width: fit-content;
+border-radius: 12px;
+box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+text-shadow: 0 0 5px #EC522D;
+cursor: pointer; /* 👈 Add this line */
+user-select: none;
+-webkit-user-select: none; /* For Safari */
+-moz-user-select: none;    /* For Firefox */
+-ms-user-select: none;     /* For IE/Edge */
+}
+
+
+/* for courses table */
+.styled-table {
+    width: 80%;
+    margin: 40px auto;
+    border-collapse: collapse;
+    text-align: center;
+    font-family: 'Segoe UI', sans-serif;
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.15);
+  }
+
+  .styled-table th {
+    background-color: #5E2950;
+    color: white;
+    padding: 12px;
+    font-size: 18px;
+  }
+
+  .styled-table td {
+    padding: 10px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+  }
+
+  .styled-table tr:nth-child(even) {
+    background-color: #f9f1f7;
+  }
+
+  .styled-table tr:hover {
+    background-color: #ffe7e1;
+  }
+
+  .styled-table a {
+    color: #EC522D;
+    font-weight: bold;
+    text-decoration: none;
+  }
+
+  .styled-table a:hover {
+    text-decoration: underline;
+  }
+  /* button inside the table below */
+  .button-link-table {
+    display: inline-block;
+    padding: 10px 25px;
+    color: white;
+    background: linear-gradient(135deg, #5E2950, #EC522D);
+    border-radius: 30px;
+    text-decoration: none !important;
+    font-weight: bold;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    animation: pulseGlow 2s infinite;
+  }
+  
+  .button-link-table::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(236,82,45,0.4), transparent 70%);
+    animation: rotateGlow 4s linear infinite;
+    z-index: 0;
+  }
+  
+  .button-link-table span,
+  .button-link-table a {
+    position: relative;
+    z-index: 2;
+  }
+  
+  .button-link-table:hover {
+    transform: scale(1.05);
+    text-decoration: none !important;
+  }
+  
+  /* Glowing animation keyframes */
+  @keyframes rotateGlow {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  
+  @keyframes pulseGlow {
+    0%, 100% {
+      box-shadow: 0 0 10px #EC522D, 0 0 20px #5E2950;
+    }
+    50% {
+      box-shadow: 0 0 20px #EC522D, 0 0 30px #5E2950;
+    }
+  }
+  /* button under tree 4  */
+
+  /* empty  block */
+  .empty-block {
+    height: 50px;
+  }
+  
