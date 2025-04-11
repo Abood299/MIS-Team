@@ -16,7 +16,7 @@
     /* Body */
     body {
       font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #101010; /* Darker background for a "black" feel */
+      background-color: #101010; /* Dark background */
       color: #fff;
       display: flex;
     }
@@ -96,14 +96,12 @@
       outline: none;
       background-color: #2a2a2a;
       color: #fff;
-      text-align: left;
     }
 
     .search-container input::placeholder {
       color: #ccc;
     }
 
-    /* Replacing language-switcher with three nav items: Message, Notification, and User Profile */
     .top-nav-right {
       display: flex;
       align-items: center;
@@ -163,7 +161,6 @@
     .dropdown-menu a:hover {
       background-color: #2a2a2a;
     }
-    /* New CSS Rule for Dropdown via Class */
     .dropdown-menu.show {
       display: flex !important;
       flex-direction: column;
@@ -523,15 +520,12 @@
       margin-right: 5px;
       transition: background-color 0.2s;
     }
-
     .books-container .btn-edit:hover {
       background-color: #e63f3f;
     }
-
     .books-container .btn-delete {
       background-color: #ff1f1f;
     }
-
     .books-container .btn-delete:hover {
       background-color: #cc1919;
     }
@@ -570,6 +564,7 @@
       color: #fff;
     }
 
+    /* The "Deactivate" (gray) and "Delete" (red) buttons in the Users section */
     .users-container .btn-deactivate,
     .users-container .btn-delete {
       background-color: #ff4f4f; 
@@ -581,16 +576,124 @@
       margin-right: 5px;
       transition: background-color 0.2s;
     }
-
     .users-container .btn-deactivate {
-      background-color: #707070; /* Deactivate is a bit more subdued */
+      background-color: #707070; /* Gray Deactivate */
     }
-
     .users-container .btn-deactivate:hover {
       background-color: #555555;
     }
-
     .users-container .btn-delete:hover {
+      background-color: #cc1919;
+    }
+
+    /* ------------------ Admin Panel Styles ------------------ */
+    .admin-container {
+      width: 100%;
+      margin: 20px 0;
+      background: #101010;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      color: #fff;
+    }
+    .admin-container h1 {
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    .admin-content .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 20px;
+    }
+    .admin-content .data-table th,
+    .admin-content .data-table td {
+      padding: 12px;
+      border: 1px solid #2a2a2a;
+      text-align: left;
+    }
+    .admin-content .data-table thead {
+      background-color: #2a2a2a;
+      color: #fff;
+    }
+    .admin-container .btn-deactivate,
+    .admin-container .btn-delete {
+      background-color: #ff4f4f;
+      color: #fff;
+      border: none;
+      padding: 5px 10px;
+      border-radius: 3px;
+      cursor: pointer;
+      margin-right: 5px;
+      transition: background-color 0.2s;
+    }
+    .admin-container .btn-deactivate {
+      background-color: #707070; /* Gray for Deactivate */
+    }
+    .admin-container .btn-deactivate:hover {
+      background-color: #555555;
+    }
+    .admin-container .btn-delete:hover {
+      background-color: #cc1919;
+    }
+    
+    /* ------------------ Department Pages Styles ------------------ */
+    .departments-container {
+      width: 100%;
+      margin: 20px 0;
+      background: #101010;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      color: #fff;
+    }
+    .departments-container h1 {
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    .departments-container .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 20px;
+    }
+    .departments-container .data-table th,
+    .departments-container .data-table td {
+      padding: 12px;
+      border: 1px solid #2a2a2a;
+      text-align: left;
+    }
+    .departments-container .data-table thead {
+      background-color: #2a2a2a;
+      color: #fff;
+    }
+    /* Force buttons side by side in the last column */
+    .departments-container .data-table td:last-child {
+      white-space: nowrap;
+    }
+    /* Make "Edit" gray like 'Deactivate', and "Delete" red */
+    .departments-container .btn-edit {
+      background-color: #707070; /* Gray Edit */
+      color: #fff;
+      border: none;
+      padding: 5px 10px;
+      border-radius: 3px;
+      cursor: pointer;
+      margin-right: 5px;
+      transition: background-color 0.2s;
+    }
+    .departments-container .btn-edit:hover {
+      background-color: #555555;
+    }
+    .departments-container .btn-delete {
+      background-color: #ff4f4f; /* Red Delete */
+      color: #fff;
+      border: none;
+      padding: 5px 10px;
+      border-radius: 3px;
+      cursor: pointer;
+      margin-right: 5px;
+      transition: background-color 0.2s;
+    }
+    .departments-container .btn-delete:hover {
       background-color: #cc1919;
     }
 
@@ -632,6 +735,16 @@
           <span class="icon">👤</span> Users
         </a>
       </li>
+      <li>
+        <a href="#" id="adminLink" onclick="showSection('admin')">
+          <span class="icon">🛠️</span> Admin
+        </a>
+      </li>
+      <li>
+        <a href="#" id="departmentsLink" onclick="showSection('departments')">
+          <span class="icon">🏢</span> Department Pages
+        </a>
+      </li>
     </ul>
   </aside>
 
@@ -662,7 +775,7 @@
         </div>
         <!-- User Profile with Dropdown & Caret -->
         <div class="nav-item user-profile" onclick="toggleUserDropdown()">
-          <img src="data:image/jpeg;base64,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" alt="User Avatar" />
+          <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/..." alt="User Avatar" />
           <span>John Doe</span>
           <span class="dropdown-caret">▼</span>
           <div class="dropdown-menu" id="userDropdown">
@@ -1254,6 +1367,99 @@
         </tbody>
       </table>
     </section>
+
+    <!-- Admin Section -->
+    <section id="admin" class="admin-container hidden">
+      <h1>Admin Panel</h1>
+      <div class="admin-content">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Password</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>Admin One</td>
+              <td>admin1@example.com</td>
+              <td>adminpass1</td>
+              <td>
+                <button class="btn-deactivate">Deactivate</button>
+                <button class="btn-delete">Delete</button>
+              </td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Admin Two</td>
+              <td>admin2@example.com</td>
+              <td>adminpass2</td>
+              <td>
+                <button class="btn-deactivate">Deactivate</button>
+                <button class="btn-delete">Delete</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+    
+    <!-- Department Pages Section -->
+    <section id="departments" class="departments-container hidden">
+      <h1>Department Pages</h1>
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Department</th>
+            <th>Major Books</th>
+            <th>Courses for Majors</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>MIS</td>
+            <td>Management Information Systems, IT Strategy</td>
+            <td>Introduction to MIS, Data Analytics</td>
+            <td>
+              <button class="btn-edit">Edit</button>
+              <button class="btn-delete">Delete</button>
+            </td>
+          </tr>
+          <tr>
+            <td>ACC</td>
+            <td>Financial Accounting, Managerial Accounting</td>
+            <td>Intro to Accounting, Intermediate Accounting</td>
+            <td>
+              <button class="btn-edit">Edit</button>
+              <button class="btn-delete">Delete</button>
+            </td>
+          </tr>
+          <tr>
+            <td>Marketing</td>
+            <td>Principles of Marketing, Digital Marketing</td>
+            <td>Marketing Fundamentals, Advanced Digital Marketing</td>
+            <td>
+              <button class="btn-edit">Edit</button>
+              <button class="btn-delete">Delete</button>
+            </td>
+          </tr>
+          <tr>
+            <td>Public Administration</td>
+            <td>Public Administration: An Introduction</td>
+            <td>Government and Administration, Public Policy</td>
+            <td>
+              <button class="btn-edit">Edit</button>
+              <button class="btn-delete">Delete</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
   </div>
 
   <script>
@@ -1264,6 +1470,8 @@
       document.getElementById('halls').classList.add('hidden');
       document.getElementById('books').classList.add('hidden');
       document.getElementById('users').classList.add('hidden');
+      document.getElementById('admin').classList.add('hidden');
+      document.getElementById('departments').classList.add('hidden');
       
       // Remove active class from sidebar links
       document.getElementById('dashboardLink').classList.remove('active');
@@ -1271,6 +1479,8 @@
       document.getElementById('hallsLink').classList.remove('active');
       document.getElementById('booksLink').classList.remove('active');
       document.getElementById('usersLink').classList.remove('active');
+      document.getElementById('adminLink').classList.remove('active');
+      document.getElementById('departmentsLink').classList.remove('active');
 
       // Show the selected section
       document.getElementById(sectionId).classList.remove('hidden');
@@ -1288,6 +1498,10 @@
         showBooksPage(1);
       } else if (sectionId === 'users') {
         document.getElementById('usersLink').classList.add('active');
+      } else if (sectionId === 'admin') {
+        document.getElementById('adminLink').classList.add('active');
+      } else if (sectionId === 'departments') {
+        document.getElementById('departmentsLink').classList.add('active');
       }
     }
 
@@ -1304,7 +1518,7 @@
       pages.forEach(function(page) {
         page.classList.remove('active');
       });
-      // Mark the corresponding page-number active (assuming pages are in order)
+      // Mark the corresponding page-number active
       document.querySelector('.pagination .page-number:nth-child(' + pageNum + ')').classList.add('active');
     }
     
