@@ -1,0 +1,119 @@
+<!DOCTYPE html> 
+<html lang="en">  
+<head> 
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>Business Hub</title> 
+
+    <!-- External CSS and Scripts -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"> 
+    <link rel="stylesheet" type="text/css" href="header&footer.css"> 
+    <script defer src="header&footer.js"></script> 
+
+    <style> 
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            background-color: #FAF9F6; 
+            margin: 0; 
+            padding: 0; 
+        } 
+    </style> 
+</head> 
+<body> 
+    <!-- Load Header Here -->
+<div id="header-container"></div>
+
+<script>
+    function loadComponent(id, file) {
+        fetch(file)
+            .then(response => response.text())
+            .then(data => document.getElementById(id).innerHTML = data);
+    }
+
+    document.addEventListener("DOMContentLoaded", function() {
+        loadComponent("header-container", "header.html");
+    });
+</script>
+
+    <!-- Video Section -->
+    <section class="video-section"> 
+        <video autoplay loop muted playsinline class="background-video"> 
+            <source src="videos/testpic.jpg" type="picture/jpg"> 
+            Your browser does not support the video tag. 
+        </video> 
+    </section> 
+
+    <!-- Icon Section Below Video 
+    <section class="icon-section">
+        <div class="icon-container">
+            <div class="icon-item icon-dropdown">
+               
+                <a href="#" class="icon-link"><img src="images/tree.png" alt="Icon 1"></a>
+               </button><div class="icon-dropdown-content"> 
+                    <a href="#">Management Information System</a>
+                    <a href="#">Business Administration</a>
+                    <a href="#">Economics of Business</a>
+                    <a href="#">Public Administration</a>
+                    <a href="#">Finance</a>
+                    <a href="#">Marketing</a>
+                    <a href="#">Accounting</a>
+                    
+                </div>
+            </div>
+            <div class="icon-item icon-dropdown">
+                <a href="#" class="icon-link"><img src="images/Books.png" alt="Icon 2"></a>
+                <div class="icon-dropdown-content">
+                    <a href="#">Management Information System</a>
+                    <a href="#">Business Administration</a>
+                    <a href="#">Economics of Business</a>
+                    <a href="#">Public Administration</a>
+                    <a href="#">Finance</a>
+                    <a href="#">Marketing</a>
+                    <a href="#">Accounting</a>
+                </div>
+            </div>
+            <div class="icon-item icon-dropdown">
+                <a href="#" class="icon-link"><img src="images/courses.png" alt="Icon 3"></a>
+                <div class="icon-dropdown-content">
+                    <a href="#">Management Information System</a>
+                    <a href="#">Business Administration</a>
+                    <a href="#">Economics of Business</a>
+                    <a href="#">Public Administration</a>
+                    <a href="#">Finance</a>
+                    <a href="#">Marketing</a>
+                    <a href="#">Accounting</a>
+                </div>
+            </div>
+            <div class="icon-item">
+                <a href="#" class="icon-link"><img src="images/Booksexchange.png" alt="Icon 4"></a>
+            </div>
+            <div class="icon-item">
+                <a href="#" class="icon-link"><img src="images/FAQ.png" alt="Icon 5"></a>
+            </div>
+        </div>
+    </section>
+                     -->
+    <!-- Search Popup -->
+    <div class="search-popup"> 
+        <div class="search-container"> 
+            <input type="text" class="search-input" placeholder="Search..."> 
+            <button class="close-search">✖</button> 
+        </div> 
+    </div> 
+
+    <!-- Load Footer Here -->
+    <div id="footer-container"></div> 
+    <script>
+        function loadComponent(id, file) {
+            fetch(file)
+                .then(response => response.text())
+                .then(data => document.getElementById(id).innerHTML = data);
+        }
+    
+        document.addEventListener("DOMContentLoaded", function() {
+            loadComponent("header-container", "header.html");
+        });
+    </script>
+    
+</body> 
+</html>

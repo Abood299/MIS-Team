@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en"> 
+<head>
+    <!-- the link tag below for linking css bootstrap -->
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- chatgpt addons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+
+<!-- add FontAwesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <title>Business Hub</title>
+    <!-- css withing the style -->
+<!-- this is for burger menu toggle  -->
+    <script> document.addEventListener("DOMContentLoaded", function() {
+        const burgerMenu = document.querySelector(".burger-menu");
+        const menuOverlay = document.querySelector(".menu-overlay");
+    
+        burgerMenu.addEventListener("click", function() {
+            menuOverlay.classList.toggle("active");
+        });
+    });
+    </script>
+       <!-- this script for closing the burger menu with ✖ -->
+       <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const burgerMenu = document.querySelector(".burger-menu");
+            const menuOverlay = document.querySelector(".menu-overlay");
+            const closeButton = document.querySelector(".close-btn");
+    
+            // Open the menu when clicking the burger icon
+            burgerMenu.addEventListener("click", function() {
+                menuOverlay.classList.add("active"); // Ensure it opens correctly
+            });
+    
+            // Close the menu when clicking the close (X) button
+            closeButton.addEventListener("click", function() {
+                menuOverlay.classList.remove("active"); // Properly hides the overlay
+            });
+        });
+    </script>
+
+   <!-- HEADER AND FOOTER STYLE IMPORT 🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴 -->
+   <link rel="stylesheet" href="css/header&footer.css">
+   <!-- HEADER AND FOOTER STYLE IMPORT 🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴 -->
+   
+  
+</head>
+<!-- PUT YOUR STYLE HERE GUYS ⬇⬇⬇⬇⬇⬆ -->
+<style>
+
+
+    h1 {
+      font-size: 32px;
+      margin-bottom: 20px;
+    }
+
+    .search-bar {
+      margin: 20px auto;
+      display: flex;
+      justify-content: center;
+    }
+
+    .search-bar input {
+      padding: 10px;
+      width: 300px;
+      border-radius: 20px 0 0 20px;
+      border: 1px solid #ccc;
+      outline: none;
+    }
+
+    .search-bar button {
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 0 20px 20px 0;
+      cursor: pointer;
+    }
+
+    .filters {
+      margin: 20px 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+    }
+
+    .filters button {
+      padding: 8px 16px;
+      border: none;
+      background-color: #e0e0e0;
+      border-radius: 20px;
+      cursor: pointer;
+    }
+
+    .book-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+      margin-top: 30px;
+    }
+
+    .book-card {
+      width: 220px;
+      min-height: 500px;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      padding: 15px;
+      box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .book-card img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      border-radius: 6px;
+      background-color: #f5f5f5;
+    }
+
+    .book-info {
+      flex-grow: 1;
+      margin-top: 10px;
+    }
+
+    .book-title {
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    .book-author {
+      color: gray;
+      font-size: 14px;
+    }
+
+    .book-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .give-btn {
+      background-color: #EC522D;
+      color: white;
+      border: none;
+      padding: 8px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .take-btn {
+      background-color: #6A0DAD;
+      color: white;
+      border: none;
+      padding: 8px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+  
+
+
+</style>
+
+
+
+<body>
+    
+      <!-- HEADER SECTION 🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥-->
+
+
+    <header class="navbar">
+        <div class="logo-container">
+            <a href="MainPagefull.html">
+                <img src="images/logo.png" alt="Business Hub Logo" class="logo">
+            </a>
+            
+            <a href="MainPagefull.html" style="text-decoration: none; white-space: nowrap;">
+                <span class="business-text" style="text-shadow: 0 0 5px #EC522D;">Business</span><span class="hub-text" style="text-shadow: 0 0 7px #5E2950;">Hub</span>
+
+
+
+            </a>
+        </div>
+        <nav class="nav-links">
+            <div class="dropdown">
+                <button class="dropbtn">الأقسام <i class="fas fa-caret-down"></i></button>
+                <div class="dropdown-content">
+                    <a href="MIS.html">نظم المعلومات الإدارية</a>
+                    <a href="BUS.html">إدارة الأعمال</a>
+                    <a href="ECO.html">اقتصاد الأعمال</a>
+                    <a href="PBUS.html">الإدارة العامة</a>
+                    <a href="FNC.html">التمويل</a>
+                    <a href="MKT.html">التسويق</a>
+                    <a href="ACC.html">المحاسبة</a>
+                </div>
+            </div>
+            <a href="#">أعضاء هيئة التدريس</a>
+            <a href="#">القاعات</a>
+            <a href="#">تبادل الكتب</a>
+        </nav>
+        <div class="icons">
+            <i class="fas fa-search search-icon" onclick="toggleSearchPopup()"></i>
+
+<!-- Notifacation center code -->
+           <div class="notification-container">
+  <i id="notification-btn" class="fas fa-bell notification-icon"></i>
+
+  <div id="notification-panel" class="hidden">
+    <div class="panel-header">Notifications</div>
+    <ul class="notification-list">
+      <li class="notification-item">📚 New book added to Marketing section</li>
+      <li class="notification-item">🎓 Assistant uploaded a new final sheet</li>
+      <li class="notification-item">📢 New event: Business Day tomorrow</li>
+    </ul>
+    <div class="panel-footer">
+      <a href="#">View all notifications</a>
+    </div>
+  </div>
+</div>
+
+
+            <i class="fas fa-bars burger-menu" ></i>
+            <a href="MainPagefull.html" class="sign-in">Sign in</a>
+     
+
+        </div>
+
+    </header>
+    <!-- Grey Overlay Menu -->
+<div class="menu-overlay">
+   
+    <!-- Logo in the Grey Overlay Menu -->
+    <div class="menu-logo">
+        <a href="MainPagefull.html">
+            <img src="images/logo.png" alt="Business Hub Logo">
+        </a>
+        <a href="MainPagefull.html" style="text-decoration: none;">
+            <span class="business-text" style="text-shadow: 0 0 10px #EC522D, 0 0 20px #EC522D;">Business</span>&nbsp; <span class="hub-text" style="text-shadow: 0 0 10px #5E2950, 0 0 20px #5E2950;">Hub</span>
+
+
+
+        </a>
+    </div>
+    <button class="close-btn">✖</button>
+    <div class="menu-links">
+        <div class="halls-dropdown">
+            <a href="#">القاعات </a>
+          
+        </div>
+        <a href="#">الأقسام</a>
+        <a href="#">تبادل الكتب</a>
+        <a href="#">هيئة التدريس</a>
+        <a href="#">حساب المعدل التراكمي</a>
+        <a href="#">متطلبات التخرج</a>
+        <a href="#">هل تود خوض تجربة جديدة؟</a>
+        <a href="#">خدمات استفد منها قبل تخرجك</a>
+    </div>
+</div>
+
+  
+
+  <!-- this script for notification center open  -->
+  <script>
+    const notifBtn = document.getElementById('notification-btn');
+    const notifPanel = document.getElementById('notification-panel');
+  
+    notifBtn.addEventListener('click', () => {
+      notifPanel.classList.toggle('show');
+    });
+  
+    // Hide panel when clicking outside
+    window.addEventListener('click', function (e) {
+      if (!notifBtn.contains(e.target) && !notifPanel.contains(e.target)) {
+        notifPanel.classList.remove('show');
+      }
+    });
+  </script>
+  
+ 
+
+<!-- Search Bar Popup -->
+<div class="search-popup">
+    <div class="search-container">
+        <input type="text" class="search-input" placeholder="Search...">
+        <button class="close-search">✖</button>
+    </div>
+</div>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const searchIcon = document.querySelector(".fa-search");
+        const searchPopup = document.querySelector(".search-popup");
+        const closeSearch = document.querySelector(".close-search");
+
+        searchIcon.addEventListener("click", function () {
+            searchPopup.classList.add("active");
+        });
+
+        closeSearch.addEventListener("click", function () {
+            searchPopup.classList.remove("active");
+        });
+
+        // Close on outside click
+        searchPopup.addEventListener("click", function (e) {
+            if (e.target === searchPopup) {
+                searchPopup.classList.remove("active");
+            }
+        });
+    });
+</script>
+
+    </script>   
+    <!-- this small code to open the grey list -->
+ <div class="menu-overlay">
+        <button class="close-btn">✖</button>
+    </div>
+  
+      <!-- HEADER SECTION 🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥-->
+
+      <h1>تبادل الكتب والمواد الدراسية</h1>
+
+      <div class="search-bar">
+        <input type="text" placeholder="Search For a Book" id="searchInput" oninput="filterBooks()" />
+        <button onclick="filterBooks()">Search</button>
+      </div>
+    
+      <div class="filters">
+        <button onclick="filterByMajor('all')">All Majors</button>
+        <button onclick="filterByMajor('MIS')">MIS</button>
+        <button onclick="filterByMajor('Accounting')">Accounting</button>
+        <button onclick="filterByMajor('Marketing')">Marketing</button>
+        <button onclick="filterByMajor('Finance')">Finance</button>
+        <button onclick="filterByMajor('Economics')">Economics</button>
+        <button onclick="filterByMajor('Public Administration')">Public Administration</button>
+        <button onclick="filterByMajor('Business Administration')">Business Administration</button>
+      </div>
+    
+      <div class="book-grid" id="bookGrid">
+        <!-- All books will show here -->
+      </div>
+    
+      <script>
+        const books = [
+          { major: 'MIS', title: 'Management Info Systems', author: 'Jane Doe' },
+          { major: 'MIS', title: 'Systems Analysis', author: 'John Smith' },
+          { major: 'Accounting', title: 'Financial Accounting', author: 'Mark Davis' },
+          { major: 'Accounting', title: 'Managerial Accounting', author: 'Sara Miles' },
+          { major: 'Marketing', title: 'Marketing Basics', author: 'Kate Lee' },
+          { major: 'Marketing', title: 'Digital Marketing', author: 'Tom Hardy' },
+          { major: 'Finance', title: 'Principles of Finance', author: 'Emily Stone' },
+          { major: 'Finance', title: 'Corporate Finance', author: 'Robert West' },
+          { major: 'Economics', title: 'Microeconomics Today', author: 'Olivia Brooks' },
+          { major: 'Economics', title: 'Macroeconomics', author: 'Henry Wells' },
+          { major: 'Public Administration', title: 'Public Sector Management', author: 'Rachel Adams' },
+          { major: 'Public Administration', title: 'Govt & Society', author: 'James Lee' },
+          { major: 'Business Administration', title: 'Intro to Business Admin', author: 'Angela Dean' },
+          { major: 'Business Administration', title: 'Strategic Management', author: 'Victor Hunt' },
+        ];
+    
+        const grid = document.getElementById('bookGrid');
+    
+        function renderBooks(filteredBooks) {
+          grid.innerHTML = '';
+          filteredBooks.forEach(book => {
+            const card = document.createElement('div');
+            card.className = 'book-card';
+            card.innerHTML = `
+              <img src="images/Books covers/mis.jpeg" alt="Book Cover">
+              <div class="book-info">
+                <div class="book-title">${book.title}</div>
+                <div class="book-author">by ${book.author}</div>
+              </div>
+              <div class="book-buttons">
+                <button class="give-btn">Give</button>
+                <button class="take-btn">Take</button>
+              </div>
+            `;
+            grid.appendChild(card);
+          });
+        }
+    
+        function filterByMajor(major) {
+          if (major === 'all') {
+            renderBooks(books);
+          } else {
+            renderBooks(books.filter(book => book.major === major));
+          }
+        }
+    
+        function filterBooks() {
+          const term = document.getElementById('searchInput').value.toLowerCase();
+          renderBooks(books.filter(book => book.title.toLowerCase().includes(term)));
+        }
+    
+        // Initial display
+        renderBooks(books);
+      </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      
+
+  
+  <!--  FOOTER 🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥-->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-left">
+          
+                <h2>
+                    <a href="MainPagefull.html" style="text-decoration: none;">
+
+                        <span style="color: #EC522D; font-weight: bold; text-shadow: 0 0 5px #EC522D, 0 0 20px #EC522D;">Business</span> 
+                        <span style="color: #5E2950; font-weight: bold; text-shadow: 0 0 10px #5E2950, 0 0 20px #5E2950;">Hub</span>
+
+
+                        
+                    </a>
+                </h2>
+                <p class="slogan">تمكين الطلاب وربط المعرفة وبناء المستقبل</p>
+            </div>
+            <div class="footer-middle">
+                <a href="MIS.html">نظم المعلومات الإدارية</a>
+                <a href="BUS.html">إدارة الأعمال</a>
+                <a href="ECO.html">اقتصاد الأعمال</a>
+                <a href="PBUS.html">الإدارة العامة</a>
+                <a href="FNC.html">التمويل</a>
+                <a href="MKT.html">التسويق</a>
+                <a href="ACC.html">المحاسبة</a>
+            </div>
+            <div class="footer-right">
+                <a href="https://regapp.ju.edu.jo/regapp/">موقع التسجيل</a>
+                <a href="https://elearning.ju.edu.jo/login/index.php">eLearning</a>
+                <a href="https://juexams.com/moodle/login/index.php">Ju-Exam</a>
+                <a href="https://library.ju.edu.jo/Elibrary/">E-Library</a>
+                <a href="#">تواصل معنا</a>
+                <a href="#">من نحن</a>
+            </div>
+        </div>
+    </footer>
+ 
+      <!--  FOOTER 🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥-->
+</body>
+</html>

@@ -1,0 +1,134 @@
+
+
+
+
+Business App :شجرة لكل تخصص*
+               hidden قروبات العامه لكل تخصص 
+              مراجع لينك للكتب كلها*
+              حساب معدل داخلي 
+              تبادل كتب بس بطريقه الموقع (تبديل بشرط  مادة اضافة مادة او اكثر او فقط اعطاء مع تواجد كل اسماء الكتب )*
+              دورات داعمه لكل تخصص مع مصادر *
+              Visual (Google Earth) اماكن القاعات بشكل *
+              اخبار الكليه من القوائم واخر التحديثات والاضافات+ مسار للانضمام لكل كتلة Panel 
+              اعلانات عمادة كلية الاعمال Side Panel small 
+              Missing items*
+              دعم مشاريع الطلبة داخل الكليه بعرض منتجاتهم ومعلوماتهم
+              Pop Up Notification for instant Student Need Like Calculator Or Charger Or Pens Or Papers
+              معلومات قد تهم الطالب : اماكن المكتبات المشهوره المحيطه والمطاعم
+              اماكن الاستفادة من رصيد  الورق وطباعته
+              مطعم الجامعة والامويه + ذكر خدماتهم
+              باص الجامعة + اي تفصيله ممكن تفيد 
+              زينك
+              تيستو الاعمال 
+              تيستو الاساسي
+              Geo Gifts 
+
+              Most Asked Questions *
+              دليل الخريج
+              
+              أشياء يمكن اكتشافها خارج كليتك : 
+              1) حجز ملعب الجامعة + اضافة التفاصيل والخطوات
+              2) American Corner 
+              3) متحف سمير الرفاعي
+              4) مركز المخطوطات + 
+              5) 
+              6) حديقة الزراعة فيها مراجيح واشياء ثانية
+              7) لعب التنس الطاولة 
+              8) مرسم الجامعة
+              9)  
+              10) لعب بسكليتات بالجامعة
+                 Wanna Have Fun ?
+              رابط  Elearning 
+              رابط  Registriation   
+
+              مكاتب الدكاترة ************************ 
+              
+               Interactive counters for Business numbers
+              seperate those into 2 things : 1) Places to visit with friends 2) Activities 
+
+
+
+for launching : Brouchers and Promotional Video 
+
+
+ 
+Side Panel Button :           دليل الخريج
+
+                     حساب معدل داخلي / GPA Calculator
+                      
+                دعم مشاريع الطلبة داخل الكليه بعرض منتجاتهم ومعلوماتهم
+
+                         Wanna Have Fun ?
+
+                           معلومات تهم الطالب    
+ 
+                  
+this side panel will be inspired from harvard business school website + search icon
+
+اعلانات العمادة huge boxes contain arrows to slide and to explore 
+اعلانات القوائم 
+
+
+in the side panel expandables will be each department then all doctors for each department then both موقع المكتب + الايميل 
+
+the rest will be normal 
+
+
+
+for the tree we will for now make a picture and if the interactive doesn't take time we'll make it clickable
+
+
+Books exchange Page : اعطاء بشرط اخذ او اعطاء او اخذ / search for book / categeory / once book found 3 options buttons / sign in is must / chat / panel for books needed and offered 
+                     for the book requester he sends a request and for the giver he either accept or reject , if accept a live chat and his contact information will appear and the counter will decrease
+                                                                                         if rejects the request will be cancled and can be re-requested up to 3 times 
+                      for a giver it will show him a google form to fill his information and for the taker it's a pending request for approval from the giver 
+Wanna have fun Page ?
+GPA Calculator 
+Important Services Nearby 
+Project Promote Page 
+
+
+
+
+Graduate Guide 
+
+
+
+For the sign in : two sides needed , user side and adminstrator side (to apply edits and update information)
+
+
+
+Future ideas if time is enough : weather estimations for tomorrow in university To be Placed as a moving bar on the main page 
+
+
+1) HomePage _ One Page including search pop up 
+
+2) Books Exchange (One for book inspecting second for take%give) then some procedures after like submitting request and wait and accept and open chat 
+
+3) Departments  ( TREE&BOOKS + COURSES for each major = 7 Pages) * Expands 1 time 
+ 
+4) Halls for 4 business Buildings
+
+5) AcademicStaff expands 2 panel Majors>DoctorName then he clicks and go to that page for each department that contains Email&OfficeLocation
+
+
+FAQ we have to do it but not 
+    our priority when starting
+
+For the users ( Normal user > Update Information User > Who Gives Roles )
+
+Services Nearby + wanna have -
+Student Project Support -
+Missing Items - 
+
+GPA Don't put effort on it you can put it 
+
+
+
+refine the side list again (GPA internal link fetch in)
+add condition for the book exchange (سحب بشرط اضافة)
+
+
+
+Documentation : adding design pages within document and document first meet for ideas and second meet for picked idea and 
+

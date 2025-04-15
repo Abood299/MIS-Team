@@ -1,0 +1,1718 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Books Exchange - Business Hub</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" />
+  <!-- Bootstrap 5 CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" />
+  <style>
+    :root {
+      --primary-color: #0d6efd;
+      --secondary-color: #6c757d;
+      --light-bg: #f8f9fa;
+      --dark-text: #343a40;
+      --card-shadow: rgba(0, 0, 0, 0.1);
+    }
+    /* Global Styles */
+    body {
+      font-family: 'Roboto', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #ffffff;
+      color: var(--dark-text);
+    }
+    /* Navigation Bar */
+    nav.navbar {
+      background-color: var(--light-bg);
+      box-shadow: 0 2px 4px var(--card-shadow);
+    }
+    nav .navbar-brand {
+      font-weight: 700;
+      font-size: 1.5rem;
+    }
+    nav .nav-link {
+      font-weight: 500;
+      transition: color 0.2s ease;
+    }
+    nav .nav-link:hover {
+      color: var(--primary-color);
+    }
+    /* Page Title */
+    .page-title {
+      text-align: center;
+      margin: 2rem 0 1rem 0;
+    }
+    /* Search Bar */
+    .search-container .form-control {
+      border-radius: 50px 0 0 50px;
+      border-right: none;
+      transition: box-shadow 0.2s ease;
+    }
+    .search-container .form-control:focus {
+      box-shadow: 0 0 5px var(--primary-color);
+    }
+    .search-container .btn {
+      border-radius: 0 50px 50px 0;
+    }
+    /* Category Tabs */
+    .category-tabs {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 2rem;  /* Added spacing between search bar and majors */
+      margin-bottom: 2rem;
+    }
+    .category-tabs button {
+      border: none;
+      background-color: #ddd;
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      cursor: pointer;
+      transition: background-color 0.2s ease, transform 0.2s ease;
+    }
+    .category-tabs button.active,
+    .category-tabs button:hover {
+      background-color: #bbb;
+      transform: scale(1.05);
+    }
+    /* Book Grid */
+    .book-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 1rem;
+      padding: 0 1rem;
+      margin-bottom: 2rem;
+    }
+    .book-card {
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      text-align: center;
+      padding: 1rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      background-color: #fff;
+    }
+    .book-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 4px 12px var(--card-shadow);
+    }
+    .book-card img {
+      max-width: 100%;
+      height: auto;
+      margin-bottom: 0.5rem;
+      border-radius: 4px;
+    }
+    .book-card h6 {
+      margin: 0.5rem 0;
+      font-size: 1.1rem;
+      font-weight: 500;
+    }
+    .book-card p {
+      font-size: 0.9rem;
+      color: #666;
+      margin-bottom: 0.5rem;
+    }
+    .book-card .btn {
+      margin: 0.25rem;
+      font-size: 0.9rem;
+    }
+    /* Short Story / Description */
+    .short-story {
+      max-width: 800px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+      text-align: center;
+    }
+    .short-story h2 {
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+    .short-story p {
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+    /* Footer */
+    footer {
+      background-color: var(--light-bg);
+      padding: 1rem 0;
+      text-align: center;
+      font-size: 0.9rem;
+    }
+    footer .footer-links a {
+      margin: 0 0.5rem;
+      color: var(--dark-text);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.2s ease;
+    }
+    footer .footer-links a:hover {
+      color: var(--primary-color);
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation Bar -->
+  <nav class="navbar navbar-expand-lg">
+    <div class="container-fluid">
+      <a class="navbar-brand ms-3" href="#">Business Hub</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" 
+              data-bs-target="#navbarNav" aria-controls="navbarNav" 
+              aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon">☰</span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto me-3">
+          <li class="nav-item"><a class="nav-link" href="#">About Us</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Registration</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">e-Learning</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">JU Exam</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Title -->
+  <div class="page-title">
+    <h1>Books Exchange</h1>
+  </div>
+
+  <!-- Search Bar (Centered) -->
+  <div class="container search-container">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <div class="input-group">
+          <input type="text" class="form-control" placeholder="Search For a Book" aria-label="Search for a book" />
+          <button class="btn btn-primary">Search</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Category Tabs -->
+  <div class="category-tabs container">
+    <button class="active" data-category="all">All Majors</button>
+    <button data-category="MIS">MIS</button>
+    <button data-category="Accounting">Accounting</button>
+    <button data-category="Marketing">Marketing</button>
+    <button data-category="Finance">Finance</button>
+    <button data-category="Economics">Economics</button>
+    <button data-category="Public Administration">Public Administration</button>
+    <button data-category="Business Administration">Business Administration</button>
+  </div>
+
+  <!-- Book Grid -->
+  <div class="book-grid container" id="bookGrid">
+    <!-- MIS Books (8 books) -->
+    <div class="book-card" data-category="MIS">
+      <img src="Accademicspics/download.jpg" alt="MIS Book Cover">
+      <h6>Management Information Systems</h6>
+      <p>by Jane Doe</p>
+      <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#giveModal">Give</button>
+      <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#takeModal">Take</button>
+    </div>
+    <div class="book-card" data-category="MIS">
+      <img src="Accademicspics/download.jpg" alt="MIS Book Cover">
+      <h6>Systems Analysis & Design</h6>
+      <p>by John Smith</p>
+      <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#giveModal">Give</button>
+      <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#takeModal">Take</button>
+    </div>
+    <div class="book-card" data-category="MIS">
+      <img src="Accademicspics/download.jpg" alt="MIS Book Cover">
+      <h6>Database Management</h6>
+      <p>by Alice Johnson</p>
+      <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#giveModal">Give</button>
+      <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#takeModal">Take</button>
+    </div>
+    <div class="book-card" data-category="MIS">
+      <img src="Accademicspics/download.jpg" alt="MIS Book Cover">
+      <h6>Information Security</h6>
+      <p>by Robert Brown</p>
+      <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#giveModal">Give</button>
+      <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#takeModal">Take</button>
+    </div>
+    <div class="book-card" data-category="MIS">
+      <img src="Accademicspics/download.jpg" alt="MIS Book Cover">
+      <h6>Enterprise Resource Planning</h6>
+      <p>by Michael Davis</p>
+      <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#giveModal">Give</button>
+      <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#takeModal">Take</button>
+    </div>
+    <div class="book-card" data-category="MIS">
+      <img src="Accademicspics/download.jpg" alt="MIS Book Cover">
+      <h6>Business Intelligence</h6>
+      <p>by Linda Wilson</p>
+      <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#giveModal">Give</button>
+      <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#takeModal">Take</button>
+    </div>
+    <div class="book-card" data-category="MIS">
+      <img src="Accademicspics/mis7.jpg" alt="MIS Book Cover">
+      <h6>IT Strategy</h6>
+      <p>by Chris Martin</p>
+      <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#giveModal">Give</button>
+      <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#takeModal">Take</button>
+    </div>
+    <div class="book-card" data-category="MIS">
+      <img src="Accademicspics/mis8.jpg" alt="MIS Book Cover">
+      <h6>Digital Transformation</h6>
+      <p>by Emily Clark</p>
+      <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#giveModal">Give</button>
+      <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#takeModal">Take</button>
+    </div>
+
+    <!-- Accounting Books (8 books) -->
+    <div class="book-card" data-category="Accounting">
+      <img src="Accademicspics/accounting1.jpg" alt="Accounting Book Cover">
+      <h6>Financial Accounting</h6>
+      <p>by Emily Brown</p>
+      <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#giveModal">Give</button>
+      <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#takeModal">Take</button>
+    </div>
+    <div class="book-card" data-category="Accounting">
+      <img src="Accademicspics/accounting2.jpg" alt="Accounting Book Cover">
+      <h6>Managerial Accounting</h6>
+      <p>by Michael Davis</p>
+      <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#giveModal">Give</button>
+      <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#takeModal">Take</button>
+    </div>
+    <div class="book-card" data-category="Accounting">
+      <img src="Accademicspics/accounting3.jpg" alt="Accounting Book Cover">
+      <h6>Cost Accounting</h6>
+      <p>by John Doe</p>
+      <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#giveModal">Give</button>
+      <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#takeModal">Take</button>
+    </div>
+    <div class="book-card" data-category="Accounting">
+      <img src="Accademicspics/accounting4.jpg" alt="Accounting Book Cover">
+      <h6>Auditing Principles</h6>
+      <p>by Sarah Lee</p>
+      <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#giveModal">Give</button>
+      <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#takeModal">Take</button>
+    </div>
+    <div class="book-card" data-category="Accounting">
+      <img src="Accademicspics/accounting5.jpg" alt="Accounting Book Cover">
+      <h6>Taxation Basics</h6>
+      <p>by Richard Kim</p>
+      <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#giveModal">Give</button>
+      <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#takeModal">Take</button>
+    </div>
+    <div class="book-card" data-category="Accounting">
+      <img src="Accademicspics/accounting6.jpg" alt="Accounting Book Cover">
+      <h6>Accounting Ethics</h6>
+      <p>by Angela White</p>
+      <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#giveModal">Give</button>
+      <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#takeModal">Take</button>
+    </div>
+    <div class="book-card" data-category="Accounting">
+      <img src="Accademicspics/accounting7.jpg" alt="Accounting Book Cover">
+      <h6>Budgeting & Forecasting</h6>
+      <p>by James Green</p>
+      <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#giveModal">Give</button>
+      <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#takeModal">Take</button>
+    </div>
+    <div class="book-card" data-category="Accounting">
+      <img src="Accademicspics/accounting8.jpg" alt="Accounting Book Cover">
+      <h6>Forensic Accounting</h6>
+      <p>by Olivia Black</p>
+      <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#giveModal">Give</button>
+      <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#takeModal">Take</button>
+    </div>
+
+    <!-- Marketing Books (8 books) -->
+    <div class="book-card" data-category="Marketing">
+      <img src="Accademicspics/marketing1.jpg" alt="Marketing Book Cover">
+      <h6>Marketing Strategies</h6>
+      <p>by Megan Chan</p>
+      <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#giveModal">Give</button>
+      <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#takeModal">Take</button>
+    </div>
+    <div class="book-card" data-category="Marketing">
+      <img src="Accademicspics/marketing2.jpg" alt="Marketing Book Cover">
+      <h6>Digital Marketing 101</h6>
+      <p>by Sam Wilson</p>
+      <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#giveModal">Give</button>
+      <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#takeModal">Take</button>
+    </div>
+    <div class="book-card" data-category="Marketing">
+      <img src="Accademicspics/marketing3.jpg" alt="Marketing Book Cover">
+      <h6>Brand Management</h6>
+      <p>by Patricia Miller</p>
+      <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#giveModal">Give</button>
+      <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#takeModal">Take</button>
+    </div>
+    <div class="book-card" data-category="Marketing">
+      <img src="Accademicspics/marketing4.jpg" alt="Marketing Book Cover">
+      <h6>Consumer Behavior</h6>
+      <p>by Karen Taylor</p>
+      <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#giveModal">Give</button>
+      <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#takeModal">Take</button>
+    </div>
+    <div class="book-card" data-category="Marketing">
+      <img src="Accademicspics/marketing5.jpg" alt="Marketing Book Cover">
+      <h6>Social Media Marketing</h6>
+      <p>by David Harris</p>
+      <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#giveModal">Give</button>
+      <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#takeModal">Take</button>
+    </div>
+    <div class="book-card" data-category="Marketing">
+      <img src="Accademicspics/marketing6.jpg" alt="Marketing Book Cover">
+      <h6>Content Marketing</h6>
+      <p>by Susan Lee</p>
+      <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#giveModal">Give</button>
+      <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#takeModal">Take</button>
+    </div>
+    <div class="book-card" data-category="Marketing">
+      <img src="Accademicspics/marketing7.jpg" alt="Marketing Book Cover">
+      <h6>Market Research</h6>
+      <p>by Brian Clark</p>
+      <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#giveModal">Give</button>
+      <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#takeModal">Take</button>
+    </div>
+    <div class="book-card" data-category="Marketing">
+      <img src="Accademicspics/marketing8.jpg" alt="Marketing Book Cover">
+      <h6>Advertising Principles</h6>
+      <p>by Nancy Adams</p>
+      <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#giveModal">Give</button>
+      <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#takeModal">Take</button>
+    </div>
+
+    <!-- Finance Books (8 books) -->
+    <div class="book-card" data-category="Finance">
+      <img src="Accademicspics/finance1.jpg" alt="Finance Book Cover">
+      <h6>Corporate Finance</h6>
+      <p>by Sarah Lee</p>
+      <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#giveModal">Give</button>
+      <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#takeModal">Take</button>
+    </div>
+    <div class="book-card" data-category="Finance">
+      <img src="Accademicspics/finance2.jpg" alt="Finance Book Cover">
+      <h6>Investment Banking</h6>
+      <p>by John Miller</p>
+      <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#giveModal">Give</button>
+      <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#takeModal">Take</button>
+    </div>
+    <div class="book-card" data-category="Finance">
+      <img src="Accademicspics/finance3.jpg" alt="Finance Book Cover">
+      <h6>Financial Markets</h6>
+      <p>by Alex Johnson</p>
+      <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#giveModal">Give</button>
+      <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#takeModal">Take</button>
+    </div>
+    <div class="book-card" data-category="Finance">
+      <img src="Accademicspics/finance4.jpg" alt="Finance Book Cover">
+      <h6>Portfolio Management</h6>
+      <p>by Mark Davis</p>
+      <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#giveModal">Give</button>
+      <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#takeModal">Take</button>
+    </div>
+    <div class="book-card" data-category="Finance">
+      <img src="Accademicspics/finance5.jpg" alt="Finance Book Cover">
+      <h6>Risk Management</h6>
+      <p>by Elizabeth Smith</p>
+      <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#giveModal">Give</button>
+      <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#takeModal">Take</button>
+    </div>
+    <div class="book-card" data-category="Finance">
+      <img src="Accademicspics/finance6.jpg" alt="Finance Book Cover">
+      <h6>Financial Modeling</h6>
+      <p>by Robert Wilson</p>
+      <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#giveModal">Give</button>
+      <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#takeModal">Take</button>
+    </div>
+    <div class="book-card" data-category="Finance">
+      <img src="Accademicspics/finance7.jpg" alt="Finance Book Cover">
+      <h6>Derivatives Trading</h6>
+      <p>by Thomas Brown</p>
+      <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#giveModal">Give</button>
+      <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#takeModal">Take</button>
+    </div>
+    <div class="book-card" data-category="Finance">
+      <img src="Accademicspics/finance8.jpg" alt="Finance Book Cover">
+      <h6>International Finance</h6>
+      <p>by Karen Williams</p>
+      <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#giveModal">Give</button>
+      <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#takeModal">Take</button>
+    </div>
+
+    <!-- Economics Books (8 books) -->
+    <div class="book-card" data-category="Economics">
+      <img src="Accademicspics/economics1.jpg" alt="Economics Book Cover">
+      <h6>Principles of Economics</h6>
+      <p>by Robert Johnson</p>
+      <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#giveModal">Give</button>
+      <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#takeModal">Take</button>
+    </div>
+    <div class="book-card" data-category="Economics">
+      <img src="Accademicspics/economics2.jpg" alt="Economics Book Cover">
+      <h6>Microeconomics Essentials</h6>
+      <p>by Emma Watson</p>
+      <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#giveModal">Give</button>
+      <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#takeModal">Take</button>
+    </div>
+    <div class="book-card" data-category="Economics">
+      <img src="Accademicspics/economics3.jpg" alt="Economics Book Cover">
+      <h6>Macroeconomics Concepts</h6>
+      <p>by William Taylor</p>
+      <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#giveModal">Give</button>
+      <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#takeModal">Take</button>
+    </div>
+    <div class="book-card" data-category="Economics">
+      <img src="Accademicspics/economics4.jpg" alt="Economics Book Cover">
+      <h6>Economic Development</h6>
+      <p>by Emily Davis</p>
+      <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#giveModal">Give</button>
+      <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#takeModal">Take</button>
+    </div>
+    <div class="book-card" data-category="Economics">
+      <img src="Accademicspics/economics5.jpg" alt="Economics Book Cover">
+      <h6>International Economics</h6>
+      <p>by David Lee</p>
+      <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#giveModal">Give</button>
+      <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#takeModal">Take</button>
+    </div>
+    <div class="book-card" data-category="Economics">
+      <img src="Accademicspics/economics6.jpg" alt="Economics Book Cover">
+      <h6>Behavioral Economics</h6>
+      <p>by Michael Garcia</p>
+      <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#giveModal">Give</button>
+      <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#takeModal">Take</button>
+    </div>
+    <div class="book-card" data-category="Economics">
+      <img src="Accademicspics/economics7.jpg" alt="Economics Book Cover">
+      <h6>Environmental Economics</h6>
+      <p>by Linda Martinez</p>
+      <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#giveModal">Give</button>
+      <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#takeModal">Take</button>
+    </div>
+    <div class="book-card" data-category="Economics">
+      <img src="Accademicspics/economics8.jpg" alt="Economics Book Cover">
+      <h6>Econometrics</h6>
+      <p>by Susan Clark</p>
+      <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#giveModal">Give</button>
+      <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#takeModal">Take</button>
+    </div>
+
+    <!-- Public Administration Books (8 books) -->
+    <div class="book-card" data-category="Public Administration">
+      <img src="Accademicspics/publicadmin1.jpg" alt="Public Administration Book Cover">
+      <h6>Public Policy & Administration</h6>
+      <p>by David Wilson</p>
+      <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#giveModal">Give</button>
+      <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#takeModal">Take</button>
+    </div>
+    <div class="book-card" data-category="Public Administration">
+      <img src="Accademicspics/publicadmin2.jpg" alt="Public Administration Book Cover">
+      <h6>Government Management</h6>
+      <p>by Lisa Adams</p>
+      <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#giveModal">Give</button>
+      <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#takeModal">Take</button>
+    </div>
+    <div class="book-card" data-category="Public Administration">
+      <img src="Accademicspics/publicadmin3.jpg" alt="Public Administration Book Cover">
+      <h6>Public Sector Economics</h6>
+      <p>by Mark Thompson</p>
+      <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#giveModal">Give</button>
+      <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#takeModal">Take</button>
+    </div>
+    <div class="book-card" data-category="Public Administration">
+      <img src="Accademicspics/publicadmin4.jpg" alt="Public Administration Book Cover">
+      <h6>Administrative Law</h6>
+      <p>by Laura Scott</p>
+      <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#giveModal">Give</button>
+      <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#takeModal">Take</button>
+    </div>
+    <div class="book-card" data-category="Public Administration">
+      <img src="Accademicspics/publicadmin5.jpg" alt="Public Administration Book Cover">
+      <h6>Nonprofit Management</h6>
+      <p>by Kevin Parker</p>
+      <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#giveModal">Give</button>
+      <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#takeModal">Take</button>
+    </div>
+    <div class="book-card" data-category="Public Administration">
+      <img src="Accademicspics/publicadmin6.jpg" alt="Public Administration Book Cover">
+      <h6>Urban Administration</h6>
+      <p>by Rachel Green</p>
+      <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#giveModal">Give</button>
+      <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#takeModal">Take</button>
+    </div>
+    <div class="book-card" data-category="Public Administration">
+      <img src="Accademicspics/publicadmin7.jpg" alt="Public Administration Book Cover">
+      <h6>Public Financial Management</h6>
+      <p>by Oscar Reed</p>
+      <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#giveModal">Give</button>
+      <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#takeModal">Take</button>
+    </div>
+    <div class="book-card" data-category="Public Administration">
+      <img src="Accademicspics/publicadmin8.jpg" alt="Public Administration Book Cover">
+      <h6>Crisis Management</h6>
+      <p>by Diane Cooper</p>
+      <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#giveModal">Give</button>
+      <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#takeModal">Take</button>
+    </div>
+
+    <!-- Business Administration Books (8 books) -->
+    <div class="book-card" data-category="Business Administration">
+      <img src="Accademicspics/businessadmin1.jpg" alt="Business Administration Book Cover">
+      <h6>Business Management Essentials</h6>
+      <p>by Mark Brown</p>
+      <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#giveModal">Give</button>
+      <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#takeModal">Take</button>
+    </div>
+    <div class="book-card" data-category="Business Administration">
+      <img src="Accademicspics/businessadmin2.jpg" alt="Business Administration Book Cover">
+      <h6>Leadership in Business</h6>
+      <p>by Lucy Gray</p>
+      <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#giveModal">Give</button>
+      <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#takeModal">Take</button>
+    </div>
+    <div class="book-card" data-category="Business Administration">
+      <img src="Accademicspics/businessadmin3.jpg" alt="Business Administration Book Cover">
+      <h6>Strategic Management</h6>
+      <p>by Kevin White</p>
+      <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#giveModal">Give</button>
+      <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#takeModal">Take</button>
+    </div>
+    <div class="book-card" data-category="Business Administration">
+      <img src="Accademicspics/businessadmin4.jpg" alt="Business Administration Book Cover">
+      <h6>Organizational Behavior</h6>
+      <p>by Diana Black</p>
+      <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#giveModal">Give</button>
+      <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#takeModal">Take</button>
+    </div>
+    <div class="book-card" data-category="Business Administration">
+      <img src="Accademicspics/businessadmin5.jpg" alt="Business Administration Book Cover">
+      <h6>Entrepreneurship 101</h6>
+      <p>by Susan Parker</p>
+      <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#giveModal">Give</button>
+      <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#takeModal">Take</button>
+    </div>
+    <div class="book-card" data-category="Business Administration">
+      <img src="Accademicspics/businessadmin6.jpg" alt="Business Administration Book Cover">
+      <h6>Operations Management</h6>
+      <p>by Tom Harris</p>
+      <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#giveModal">Give</button>
+      <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#takeModal">Take</button>
+    </div>
+    <div class="book-card" data-category="Business Administration">
+      <img src="Accademicspics/businessadmin7.jpg" alt="Business Administration Book Cover">
+      <h6>Human Resource Management</h6>
+      <p>by Carol Adams</p>
+      <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#giveModal">Give</button>
+      <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#takeModal">Take</button>
+    </div>
+    <div class="book-card" data-category="Business Administration">
+      <img src="Accademicspics/businessadmin8.jpg" alt="Business Administration Book Cover">
+      <h6>Business Ethics</h6>
+      <p>by Steven Young</p>
+      <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#giveModal">Give</button>
+      <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#takeModal">Take</button>
+    </div>
+  </div>
+  
+  <!-- Short Story / Description -->
+  <div class="short-story">
+    <h2>Our Inspiration & Mission</h2>
+    <p>
+      We created the Business Hub’s Book Exchange to bring students together and promote a culture of sharing. By allowing students to easily “Give or Take” books, we reduce costs, encourage sustainable resource use, and foster a collaborative academic community. Our mission is to make knowledge more accessible and empower future leaders.
+    </p>
+  </div>
+  
+  <!-- Footer for Books Exchange -->
+  <footer>
+    <div class="footer-links">
+      <a href="#">MIS</a> |
+      <a href="#">Accounting</a> |
+      <a href="#">Marketing</a> |
+      <a href="#">Finance</a> |
+      <a href="#">Economics</a> |
+      <a href="#">Public Administration</a> |
+      <a href="#">Business Administration</a>
+    </div>
+    <p>© 2025 Business Hub</p>
+  </footer>
+  
+  <!-- Modal: Give Form -->
+  <div class="modal fade" id="giveModal" tabindex="-1" aria-labelledby="giveModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="giveModalLabel">Give a Book - Identification Form</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form id="giveForm">
+            <div class="mb-3">
+              <label for="giverFullName" class="form-label">Full Name</label>
+              <input type="text" class="form-control" id="giverFullName" placeholder="Enter your full name" required>
+            </div>
+            <div class="mb-3">
+              <label for="giverEmailAddress" class="form-label">Email Address</label>
+              <input type="email" class="form-control" id="giverEmailAddress" placeholder="Enter your email address" required>
+            </div>
+            <div class="mb-3">
+              <label for="giverPhoneNumber" class="form-label">Phone Number</label>
+              <input type="tel" class="form-control" id="giverPhoneNumber" placeholder="Enter your phone number" required>
+            </div>
+            <div class="mb-3">
+              <label for="giverStudentId" class="form-label">Student ID</label>
+              <input type="text" class="form-control" id="giverStudentId" placeholder="Enter your Student ID" required>
+            </div>
+            <div class="mb-3">
+              <label for="giverMajor" class="form-label">Major/Department</label>
+              <select class="form-select" id="giverMajor" required>
+                <option value="">Select your major</option>
+                <option value="MIS">MIS</option>
+                <option value="Accounting">Accounting</option>
+                <option value="Marketing">Marketing</option>
+                <option value="Finance">Finance</option>
+                <option value="Economics">Economics</option>
+                <option value="Public Administration">Public Administration</option>
+                <option value="Business Administration">Business Administration</option>
+              </select>
+            </div>
+            <div class="mb-3">
+              <label for="giverBookDetails" class="form-label">Book Details (Title, Author, etc.)</label>
+              <textarea class="form-control" id="giverBookDetails" rows="3" placeholder="Provide any details about the book you are giving" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary w-100">Submit (Give)</button>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Modal: Take Form + Potential Givers List -->
+  <div class="modal fade" id="takeModal" tabindex="-1" aria-labelledby="takeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg"> <!-- Wider modal -->
+      <div class="modal-content">
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h5 class="modal-title" id="takeModalLabel">Take a Book - Request Form</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <!-- Modal Body with two columns -->
+        <div class="modal-body">
+          <div class="row">
+            <!-- Left Column: Request Form -->
+            <div class="col-md-6">
+              <form id="takeForm">
+                <div class="mb-3">
+                  <label for="takerFullName" class="form-label">Full Name</label>
+                  <input type="text" class="form-control" id="takerFullName" placeholder="Enter your full name" required>
+                </div>
+                <div class="mb-3">
+                  <label for="takerEmailAddress" class="form-label">Email Address</label>
+                  <input type="email" class="form-control" id="takerEmailAddress" placeholder="Enter your email address" required>
+                </div>
+                <div class="mb-3">
+                  <label for="takerPhoneNumber" class="form-label">Phone Number</label>
+                  <input type="tel" class="form-control" id="takerPhoneNumber" placeholder="Enter your phone number" required>
+                </div>
+                <div class="mb-3">
+                  <label for="takerStudentId" class="form-label">Student ID</label>
+                  <input type="text" class="form-control" id="takerStudentId" placeholder="Enter your Student ID" required>
+                </div>
+                <div class="mb-3">
+                  <label for="takerMajor" class="form-label">Major/Department</label>
+                  <select class="form-select" id="takerMajor" required>
+                    <option value="">Select your major</option>
+                    <option value="MIS">MIS</option>
+                    <option value="Accounting">Accounting</option>
+                    <option value="Marketing">Marketing</option>
+                    <option value="Finance">Finance</option>
+                    <option value="Economics">Economics</option>
+                    <option value="Public Administration">Public Administration</option>
+                    <option value="Business Administration">Business Administration</option>
+                  </select>
+                </div>
+                <div class="mb-3">
+                  <label for="takerBookDetails" class="form-label">Book Request Details</label>
+                  <textarea class="form-control" id="takerBookDetails" rows="3" placeholder="Which book are you taking or requesting?" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary w-100">Submit (Take)</button>
+              </form>
+            </div>
+            <!-- Right Column: List of Potential Givers -->
+            <div class="col-md-6">
+              <h5>People Who Offered This Book</h5>
+              <p class="text-muted">
+                Choose whom you’d like to request the book from:
+              </p>
+              <ul class="list-group" id="giverList">
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                  <div>
+                    <strong>John Smith</strong><br>
+                    <small>Major: MIS | ID: 12345</small>
+                  </div>
+                  <button class="btn btn-sm btn-outline-primary request-btn" data-giver="John Smith">Request</button>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                  <div>
+                    <strong>Jane Doe</strong><br>
+                    <small>Major: Accounting | ID: 67890</small>
+                  </div>
+                  <button class="btn btn-sm btn-outline-primary request-btn" data-giver="Jane Doe">Request</button>
+                </li>
+              </ul>
+              <div class="mt-3" id="requestStatus"></div>
+            </div>
+          </div>
+        </div>
+        <!-- Modal Footer -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Bootstrap 5 JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Category Filtering Logic
+    const categoryButtons = document.querySelectorAll('.category-tabs button');
+    const bookCards = document.querySelectorAll('.book-card');
+    categoryButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        categoryButtons.forEach(btn => btn.classList.remove('active'));
+        button.classList.add('active');
+        const selectedCategory = button.getAttribute('data-category');
+        bookCards.forEach(card => {
+          if (selectedCategory === "all" || card.getAttribute('data-category') === selectedCategory) {
+            card.style.display = 'flex';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+    // Show "All Majors" by default on page load
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelector('[data-category="all"]').click();
+    });
+    // Handle "Give" form submission
+    document.getElementById('giveForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      alert('Your "Give" submission has been received!');
+      const giveModal = bootstrap.Modal.getInstance(document.getElementById('giveModal'));
+      giveModal.hide();
+      this.reset();
+    });
+    // Handle "Take" form submission
+    document.getElementById('takeForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      alert('Your "Take" submission has been received!');
+      const takeModal = bootstrap.Modal.getInstance(document.getElementById('takeModal'));
+      takeModal.hide();
+      this.reset();
+    });
+    // Simulate sending requests to potential givers after verifying that the take form is complete
+    const requestButtons = document.querySelectorAll('.request-btn');
+    const requestStatus = document.getElementById('requestStatus');
+    requestButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const takeForm = document.getElementById('takeForm');
+        if (!takeForm.checkValidity()) {
+          alert("Please fill in all required fields in the form before sending a request.");
+          return;
+        }
+        const giverName = btn.getAttribute('data-giver');
+        requestStatus.innerHTML = `
+          <p class="text-muted">
+            Sending request to <strong>${giverName}</strong>...
+          </p>
+        `;
+        setTimeout(() => {
+          const accepted = Math.random() < 0.7;
+          if (accepted) {
+            requestStatus.innerHTML = `
+              <p class="text-success">
+                <strong>${giverName}</strong> has accepted your request!<br>
+                <a href="live-chat.html" class="btn btn-sm btn-success mt-2">
+                  Proceed to Live Chat
+                </a>
+              </p>
+            `;
+          } else {
+            requestStatus.innerHTML = `
+              <p class="text-danger">
+                Sorry, <strong>${giverName}</strong> declined your request.<br>
+                Please choose another giver or try again later.
+              </p>
+            `;
+          }
+        }, 2000);
+      });
+    });
+  </script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Books Exchange - Business Hub</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" />
+  <!-- Bootstrap 5 CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" />
+  <style>
+    :root {
+      --primary-color: #0d6efd;
+      --secondary-color: #6c757d;
+      --light-bg: #f8f9fa;
+      --dark-text: #343a40;
+      --card-shadow: rgba(0, 0, 0, 0.1);
+    }
+    /* Global Styles */
+    body {
+      font-family: 'Roboto', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #ffffff;
+      color: var(--dark-text);
+    }
+    /* Navigation Bar */
+    nav.navbar {
+      background-color: var(--light-bg);
+      box-shadow: 0 2px 4px var(--card-shadow);
+    }
+    nav .navbar-brand {
+      font-weight: 700;
+      font-size: 1.5rem;
+    }
+    nav .nav-link {
+      font-weight: 500;
+      transition: color 0.2s ease;
+    }
+    nav .nav-link:hover {
+      color: var(--primary-color);
+    }
+    /* Page Title */
+    .page-title {
+      text-align: center;
+      margin: 2rem 0 1rem 0;
+    }
+    /* Search Bar */
+    .search-container .form-control {
+      border-radius: 50px 0 0 50px;
+      border-right: none;
+      transition: box-shadow 0.2s ease;
+    }
+    .search-container .form-control:focus {
+      box-shadow: 0 0 5px var(--primary-color);
+    }
+    .search-container .btn {
+      border-radius: 0 50px 50px 0;
+    }
+    /* Category Tabs */
+    .category-tabs {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 2rem;  /* Added spacing between search bar and majors */
+      margin-bottom: 2rem;
+    }
+    .category-tabs button {
+      border: none;
+      background-color: #ddd;
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      cursor: pointer;
+      transition: background-color 0.2s ease, transform 0.2s ease;
+    }
+    .category-tabs button.active,
+    .category-tabs button:hover {
+      background-color: #bbb;
+      transform: scale(1.05);
+    }
+    /* Book Grid */
+    .book-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 1rem;
+      padding: 0 1rem;
+      margin-bottom: 2rem;
+    }
+    .book-card {
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      text-align: center;
+      padding: 1rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      background-color: #fff;
+    }
+    .book-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 4px 12px var(--card-shadow);
+    }
+    .book-card img {
+      max-width: 100%;
+      height: auto;
+      margin-bottom: 0.5rem;
+      border-radius: 4px;
+    }
+    .book-card h6 {
+      margin: 0.5rem 0;
+      font-size: 1.1rem;
+      font-weight: 500;
+    }
+    .book-card p {
+      font-size: 0.9rem;
+      color: #666;
+      margin-bottom: 0.5rem;
+    }
+    .book-card .btn {
+      margin: 0.25rem;
+      font-size: 0.9rem;
+    }
+    /* Short Story / Description */
+    .short-story {
+      max-width: 800px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+      text-align: center;
+    }
+    .short-story h2 {
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+    .short-story p {
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+    /* Footer */
+    footer {
+      background-color: var(--light-bg);
+      padding: 1rem 0;
+      text-align: center;
+      font-size: 0.9rem;
+    }
+    footer .footer-links a {
+      margin: 0 0.5rem;
+      color: var(--dark-text);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.2s ease;
+    }
+    footer .footer-links a:hover {
+      color: var(--primary-color);
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation Bar -->
+  <nav class="navbar navbar-expand-lg">
+    <div class="container-fluid">
+      <a class="navbar-brand ms-3" href="#">Business Hub</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" 
+              data-bs-target="#navbarNav" aria-controls="navbarNav" 
+              aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon">☰</span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto me-3">
+          <li class="nav-item"><a class="nav-link" href="#">About Us</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Registration</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">e-Learning</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">JU Exam</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Title -->
+  <div class="page-title">
+    <h1>Books Exchange</h1>
+  </div>
+
+  <!-- Search Bar (Centered) -->
+  <div class="container search-container">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <div class="input-group">
+          <input type="text" class="form-control" placeholder="Search For a Book" aria-label="Search for a book" />
+          <button class="btn btn-primary">Search</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Category Tabs -->
+  <div class="category-tabs container">
+    <button class="active" data-category="all">All Majors</button>
+    <button data-category="MIS">MIS</button>
+    <button data-category="Accounting">Accounting</button>
+    <button data-category="Marketing">Marketing</button>
+    <button data-category="Finance">Finance</button>
+    <button data-category="Economics">Economics</button>
+    <button data-category="Public Administration">Public Administration</button>
+    <button data-category="Business Administration">Business Administration</button>
+  </div>
+
+  <!-- Book Grid -->
+  <div class="book-grid container" id="bookGrid">
+    <!-- MIS Books (8 books) -->
+    <div class="book-card" data-category="MIS">
+      <img src="Accademicspics/download.jpg" alt="MIS Book Cover">
+      <h6>Management Information Systems</h6>
+      <p>by Jane Doe</p>
+      <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#giveModal">Give</button>
+      <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#takeModal">Take</button>
+    </div>
+    <div class="book-card" data-category="MIS">
+      <img src="Accademicspics/download.jpg" alt="MIS Book Cover">
+      <h6>Systems Analysis & Design</h6>
+      <p>by John Smith</p>
+      <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#giveModal">Give</button>
+      <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#takeModal">Take</button>
+    </div>
+    <div class="book-card" data-category="MIS">
+      <img src="Accademicspics/download.jpg" alt="MIS Book Cover">
+      <h6>Database Management</h6>
+      <p>by Alice Johnson</p>
+      <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#giveModal">Give</button>
+      <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#takeModal">Take</button>
+    </div>
+    <div class="book-card" data-category="MIS">
+      <img src="Accademicspics/download.jpg" alt="MIS Book Cover">
+      <h6>Information Security</h6>
+      <p>by Robert Brown</p>
+      <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#giveModal">Give</button>
+      <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#takeModal">Take</button>
+    </div>
+    <div class="book-card" data-category="MIS">
+      <img src="Accademicspics/download.jpg" alt="MIS Book Cover">
+      <h6>Enterprise Resource Planning</h6>
+      <p>by Michael Davis</p>
+      <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#giveModal">Give</button>
+      <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#takeModal">Take</button>
+    </div>
+    <div class="book-card" data-category="MIS">
+      <img src="Accademicspics/download.jpg" alt="MIS Book Cover">
+      <h6>Business Intelligence</h6>
+      <p>by Linda Wilson</p>
+      <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#giveModal">Give</button>
+      <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#takeModal">Take</button>
+    </div>
+    <div class="book-card" data-category="MIS">
+      <img src="Accademicspics/mis7.jpg" alt="MIS Book Cover">
+      <h6>IT Strategy</h6>
+      <p>by Chris Martin</p>
+      <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#giveModal">Give</button>
+      <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#takeModal">Take</button>
+    </div>
+    <div class="book-card" data-category="MIS">
+      <img src="Accademicspics/mis8.jpg" alt="MIS Book Cover">
+      <h6>Digital Transformation</h6>
+      <p>by Emily Clark</p>
+      <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#giveModal">Give</button>
+      <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#takeModal">Take</button>
+    </div>
+
+    <!-- Accounting Books (8 books) -->
+    <div class="book-card" data-category="Accounting">
+      <img src="Accademicspics/accounting1.jpg" alt="Accounting Book Cover">
+      <h6>Financial Accounting</h6>
+      <p>by Emily Brown</p>
+      <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#giveModal">Give</button>
+      <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#takeModal">Take</button>
+    </div>
+    <div class="book-card" data-category="Accounting">
+      <img src="Accademicspics/accounting2.jpg" alt="Accounting Book Cover">
+      <h6>Managerial Accounting</h6>
+      <p>by Michael Davis</p>
+      <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#giveModal">Give</button>
+      <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#takeModal">Take</button>
+    </div>
+    <div class="book-card" data-category="Accounting">
+      <img src="Accademicspics/accounting3.jpg" alt="Accounting Book Cover">
+      <h6>Cost Accounting</h6>
+      <p>by John Doe</p>
+      <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#giveModal">Give</button>
+      <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#takeModal">Take</button>
+    </div>
+    <div class="book-card" data-category="Accounting">
+      <img src="Accademicspics/accounting4.jpg" alt="Accounting Book Cover">
+      <h6>Auditing Principles</h6>
+      <p>by Sarah Lee</p>
+      <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#giveModal">Give</button>
+      <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#takeModal">Take</button>
+    </div>
+    <div class="book-card" data-category="Accounting">
+      <img src="Accademicspics/accounting5.jpg" alt="Accounting Book Cover">
+      <h6>Taxation Basics</h6>
+      <p>by Richard Kim</p>
+      <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#giveModal">Give</button>
+      <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#takeModal">Take</button>
+    </div>
+    <div class="book-card" data-category="Accounting">
+      <img src="Accademicspics/accounting6.jpg" alt="Accounting Book Cover">
+      <h6>Accounting Ethics</h6>
+      <p>by Angela White</p>
+      <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#giveModal">Give</button>
+      <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#takeModal">Take</button>
+    </div>
+    <div class="book-card" data-category="Accounting">
+      <img src="Accademicspics/accounting7.jpg" alt="Accounting Book Cover">
+      <h6>Budgeting & Forecasting</h6>
+      <p>by James Green</p>
+      <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#giveModal">Give</button>
+      <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#takeModal">Take</button>
+    </div>
+    <div class="book-card" data-category="Accounting">
+      <img src="Accademicspics/accounting8.jpg" alt="Accounting Book Cover">
+      <h6>Forensic Accounting</h6>
+      <p>by Olivia Black</p>
+      <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#giveModal">Give</button>
+      <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#takeModal">Take</button>
+    </div>
+
+    <!-- Marketing Books (8 books) -->
+    <div class="book-card" data-category="Marketing">
+      <img src="Accademicspics/marketing1.jpg" alt="Marketing Book Cover">
+      <h6>Marketing Strategies</h6>
+      <p>by Megan Chan</p>
+      <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#giveModal">Give</button>
+      <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#takeModal">Take</button>
+    </div>
+    <div class="book-card" data-category="Marketing">
+      <img src="Accademicspics/marketing2.jpg" alt="Marketing Book Cover">
+      <h6>Digital Marketing 101</h6>
+      <p>by Sam Wilson</p>
+      <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#giveModal">Give</button>
+      <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#takeModal">Take</button>
+    </div>
+    <div class="book-card" data-category="Marketing">
+      <img src="Accademicspics/marketing3.jpg" alt="Marketing Book Cover">
+      <h6>Brand Management</h6>
+      <p>by Patricia Miller</p>
+      <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#giveModal">Give</button>
+      <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#takeModal">Take</button>
+    </div>
+    <div class="book-card" data-category="Marketing">
+      <img src="Accademicspics/marketing4.jpg" alt="Marketing Book Cover">
+      <h6>Consumer Behavior</h6>
+      <p>by Karen Taylor</p>
+      <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#giveModal">Give</button>
+      <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#takeModal">Take</button>
+    </div>
+    <div class="book-card" data-category="Marketing">
+      <img src="Accademicspics/marketing5.jpg" alt="Marketing Book Cover">
+      <h6>Social Media Marketing</h6>
+      <p>by David Harris</p>
+      <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#giveModal">Give</button>
+      <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#takeModal">Take</button>
+    </div>
+    <div class="book-card" data-category="Marketing">
+      <img src="Accademicspics/marketing6.jpg" alt="Marketing Book Cover">
+      <h6>Content Marketing</h6>
+      <p>by Susan Lee</p>
+      <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#giveModal">Give</button>
+      <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#takeModal">Take</button>
+    </div>
+    <div class="book-card" data-category="Marketing">
+      <img src="Accademicspics/marketing7.jpg" alt="Marketing Book Cover">
+      <h6>Market Research</h6>
+      <p>by Brian Clark</p>
+      <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#giveModal">Give</button>
+      <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#takeModal">Take</button>
+    </div>
+    <div class="book-card" data-category="Marketing">
+      <img src="Accademicspics/marketing8.jpg" alt="Marketing Book Cover">
+      <h6>Advertising Principles</h6>
+      <p>by Nancy Adams</p>
+      <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#giveModal">Give</button>
+      <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#takeModal">Take</button>
+    </div>
+
+    <!-- Finance Books (8 books) -->
+    <div class="book-card" data-category="Finance">
+      <img src="Accademicspics/finance1.jpg" alt="Finance Book Cover">
+      <h6>Corporate Finance</h6>
+      <p>by Sarah Lee</p>
+      <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#giveModal">Give</button>
+      <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#takeModal">Take</button>
+    </div>
+    <div class="book-card" data-category="Finance">
+      <img src="Accademicspics/finance2.jpg" alt="Finance Book Cover">
+      <h6>Investment Banking</h6>
+      <p>by John Miller</p>
+      <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#giveModal">Give</button>
+      <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#takeModal">Take</button>
+    </div>
+    <div class="book-card" data-category="Finance">
+      <img src="Accademicspics/finance3.jpg" alt="Finance Book Cover">
+      <h6>Financial Markets</h6>
+      <p>by Alex Johnson</p>
+      <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#giveModal">Give</button>
+      <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#takeModal">Take</button>
+    </div>
+    <div class="book-card" data-category="Finance">
+      <img src="Accademicspics/finance4.jpg" alt="Finance Book Cover">
+      <h6>Portfolio Management</h6>
+      <p>by Mark Davis</p>
+      <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#giveModal">Give</button>
+      <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#takeModal">Take</button>
+    </div>
+    <div class="book-card" data-category="Finance">
+      <img src="Accademicspics/finance5.jpg" alt="Finance Book Cover">
+      <h6>Risk Management</h6>
+      <p>by Elizabeth Smith</p>
+      <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#giveModal">Give</button>
+      <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#takeModal">Take</button>
+    </div>
+    <div class="book-card" data-category="Finance">
+      <img src="Accademicspics/finance6.jpg" alt="Finance Book Cover">
+      <h6>Financial Modeling</h6>
+      <p>by Robert Wilson</p>
+      <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#giveModal">Give</button>
+      <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#takeModal">Take</button>
+    </div>
+    <div class="book-card" data-category="Finance">
+      <img src="Accademicspics/finance7.jpg" alt="Finance Book Cover">
+      <h6>Derivatives Trading</h6>
+      <p>by Thomas Brown</p>
+      <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#giveModal">Give</button>
+      <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#takeModal">Take</button>
+    </div>
+    <div class="book-card" data-category="Finance">
+      <img src="Accademicspics/finance8.jpg" alt="Finance Book Cover">
+      <h6>International Finance</h6>
+      <p>by Karen Williams</p>
+      <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#giveModal">Give</button>
+      <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#takeModal">Take</button>
+    </div>
+
+    <!-- Economics Books (8 books) -->
+    <div class="book-card" data-category="Economics">
+      <img src="Accademicspics/economics1.jpg" alt="Economics Book Cover">
+      <h6>Principles of Economics</h6>
+      <p>by Robert Johnson</p>
+      <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#giveModal">Give</button>
+      <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#takeModal">Take</button>
+    </div>
+    <div class="book-card" data-category="Economics">
+      <img src="Accademicspics/economics2.jpg" alt="Economics Book Cover">
+      <h6>Microeconomics Essentials</h6>
+      <p>by Emma Watson</p>
+      <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#giveModal">Give</button>
+      <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#takeModal">Take</button>
+    </div>
+    <div class="book-card" data-category="Economics">
+      <img src="Accademicspics/economics3.jpg" alt="Economics Book Cover">
+      <h6>Macroeconomics Concepts</h6>
+      <p>by William Taylor</p>
+      <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#giveModal">Give</button>
+      <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#takeModal">Take</button>
+    </div>
+    <div class="book-card" data-category="Economics">
+      <img src="Accademicspics/economics4.jpg" alt="Economics Book Cover">
+      <h6>Economic Development</h6>
+      <p>by Emily Davis</p>
+      <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#giveModal">Give</button>
+      <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#takeModal">Take</button>
+    </div>
+    <div class="book-card" data-category="Economics">
+      <img src="Accademicspics/economics5.jpg" alt="Economics Book Cover">
+      <h6>International Economics</h6>
+      <p>by David Lee</p>
+      <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#giveModal">Give</button>
+      <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#takeModal">Take</button>
+    </div>
+    <div class="book-card" data-category="Economics">
+      <img src="Accademicspics/economics6.jpg" alt="Economics Book Cover">
+      <h6>Behavioral Economics</h6>
+      <p>by Michael Garcia</p>
+      <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#giveModal">Give</button>
+      <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#takeModal">Take</button>
+    </div>
+    <div class="book-card" data-category="Economics">
+      <img src="Accademicspics/economics7.jpg" alt="Economics Book Cover">
+      <h6>Environmental Economics</h6>
+      <p>by Linda Martinez</p>
+      <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#giveModal">Give</button>
+      <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#takeModal">Take</button>
+    </div>
+    <div class="book-card" data-category="Economics">
+      <img src="Accademicspics/economics8.jpg" alt="Economics Book Cover">
+      <h6>Econometrics</h6>
+      <p>by Susan Clark</p>
+      <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#giveModal">Give</button>
+      <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#takeModal">Take</button>
+    </div>
+
+    <!-- Public Administration Books (8 books) -->
+    <div class="book-card" data-category="Public Administration">
+      <img src="Accademicspics/publicadmin1.jpg" alt="Public Administration Book Cover">
+      <h6>Public Policy & Administration</h6>
+      <p>by David Wilson</p>
+      <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#giveModal">Give</button>
+      <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#takeModal">Take</button>
+    </div>
+    <div class="book-card" data-category="Public Administration">
+      <img src="Accademicspics/publicadmin2.jpg" alt="Public Administration Book Cover">
+      <h6>Government Management</h6>
+      <p>by Lisa Adams</p>
+      <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#giveModal">Give</button>
+      <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#takeModal">Take</button>
+    </div>
+    <div class="book-card" data-category="Public Administration">
+      <img src="Accademicspics/publicadmin3.jpg" alt="Public Administration Book Cover">
+      <h6>Public Sector Economics</h6>
+      <p>by Mark Thompson</p>
+      <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#giveModal">Give</button>
+      <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#takeModal">Take</button>
+    </div>
+    <div class="book-card" data-category="Public Administration">
+      <img src="Accademicspics/publicadmin4.jpg" alt="Public Administration Book Cover">
+      <h6>Administrative Law</h6>
+      <p>by Laura Scott</p>
+      <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#giveModal">Give</button>
+      <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#takeModal">Take</button>
+    </div>
+    <div class="book-card" data-category="Public Administration">
+      <img src="Accademicspics/publicadmin5.jpg" alt="Public Administration Book Cover">
+      <h6>Nonprofit Management</h6>
+      <p>by Kevin Parker</p>
+      <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#giveModal">Give</button>
+      <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#takeModal">Take</button>
+    </div>
+    <div class="book-card" data-category="Public Administration">
+      <img src="Accademicspics/publicadmin6.jpg" alt="Public Administration Book Cover">
+      <h6>Urban Administration</h6>
+      <p>by Rachel Green</p>
+      <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#giveModal">Give</button>
+      <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#takeModal">Take</button>
+    </div>
+    <div class="book-card" data-category="Public Administration">
+      <img src="Accademicspics/publicadmin7.jpg" alt="Public Administration Book Cover">
+      <h6>Public Financial Management</h6>
+      <p>by Oscar Reed</p>
+      <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#giveModal">Give</button>
+      <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#takeModal">Take</button>
+    </div>
+    <div class="book-card" data-category="Public Administration">
+      <img src="Accademicspics/publicadmin8.jpg" alt="Public Administration Book Cover">
+      <h6>Crisis Management</h6>
+      <p>by Diane Cooper</p>
+      <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#giveModal">Give</button>
+      <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#takeModal">Take</button>
+    </div>
+
+    <!-- Business Administration Books (8 books) -->
+    <div class="book-card" data-category="Business Administration">
+      <img src="Accademicspics/businessadmin1.jpg" alt="Business Administration Book Cover">
+      <h6>Business Management Essentials</h6>
+      <p>by Mark Brown</p>
+      <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#giveModal">Give</button>
+      <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#takeModal">Take</button>
+    </div>
+    <div class="book-card" data-category="Business Administration">
+      <img src="Accademicspics/businessadmin2.jpg" alt="Business Administration Book Cover">
+      <h6>Leadership in Business</h6>
+      <p>by Lucy Gray</p>
+      <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#giveModal">Give</button>
+      <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#takeModal">Take</button>
+    </div>
+    <div class="book-card" data-category="Business Administration">
+      <img src="Accademicspics/businessadmin3.jpg" alt="Business Administration Book Cover">
+      <h6>Strategic Management</h6>
+      <p>by Kevin White</p>
+      <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#giveModal">Give</button>
+      <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#takeModal">Take</button>
+    </div>
+    <div class="book-card" data-category="Business Administration">
+      <img src="Accademicspics/businessadmin4.jpg" alt="Business Administration Book Cover">
+      <h6>Organizational Behavior</h6>
+      <p>by Diana Black</p>
+      <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#giveModal">Give</button>
+      <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#takeModal">Take</button>
+    </div>
+    <div class="book-card" data-category="Business Administration">
+      <img src="Accademicspics/businessadmin5.jpg" alt="Business Administration Book Cover">
+      <h6>Entrepreneurship 101</h6>
+      <p>by Susan Parker</p>
+      <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#giveModal">Give</button>
+      <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#takeModal">Take</button>
+    </div>
+    <div class="book-card" data-category="Business Administration">
+      <img src="Accademicspics/businessadmin6.jpg" alt="Business Administration Book Cover">
+      <h6>Operations Management</h6>
+      <p>by Tom Harris</p>
+      <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#giveModal">Give</button>
+      <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#takeModal">Take</button>
+    </div>
+    <div class="book-card" data-category="Business Administration">
+      <img src="Accademicspics/businessadmin7.jpg" alt="Business Administration Book Cover">
+      <h6>Human Resource Management</h6>
+      <p>by Carol Adams</p>
+      <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#giveModal">Give</button>
+      <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#takeModal">Take</button>
+    </div>
+    <div class="book-card" data-category="Business Administration">
+      <img src="Accademicspics/businessadmin8.jpg" alt="Business Administration Book Cover">
+      <h6>Business Ethics</h6>
+      <p>by Steven Young</p>
+      <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#giveModal">Give</button>
+      <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#takeModal">Take</button>
+    </div>
+  </div>
+  
+  <!-- Short Story / Description -->
+  <div class="short-story">
+    <h2>Our Inspiration & Mission</h2>
+    <p>
+      We created the Business Hub’s Book Exchange to bring students together and promote a culture of sharing. By allowing students to easily “Give or Take” books, we reduce costs, encourage sustainable resource use, and foster a collaborative academic community. Our mission is to make knowledge more accessible and empower future leaders.
+    </p>
+  </div>
+  
+  <!-- Footer for Books Exchange -->
+  <footer>
+    <div class="footer-links">
+      <a href="#">MIS</a> |
+      <a href="#">Accounting</a> |
+      <a href="#">Marketing</a> |
+      <a href="#">Finance</a> |
+      <a href="#">Economics</a> |
+      <a href="#">Public Administration</a> |
+      <a href="#">Business Administration</a>
+    </div>
+    <p>© 2025 Business Hub</p>
+  </footer>
+  
+  <!-- Modal: Give Form -->
+  <div class="modal fade" id="giveModal" tabindex="-1" aria-labelledby="giveModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="giveModalLabel">Give a Book - Identification Form</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form id="giveForm">
+            <div class="mb-3">
+              <label for="giverFullName" class="form-label">Full Name</label>
+              <input type="text" class="form-control" id="giverFullName" placeholder="Enter your full name" required>
+            </div>
+            <div class="mb-3">
+              <label for="giverEmailAddress" class="form-label">Email Address</label>
+              <input type="email" class="form-control" id="giverEmailAddress" placeholder="Enter your email address" required>
+            </div>
+            <div class="mb-3">
+              <label for="giverPhoneNumber" class="form-label">Phone Number</label>
+              <input type="tel" class="form-control" id="giverPhoneNumber" placeholder="Enter your phone number" required>
+            </div>
+            <div class="mb-3">
+              <label for="giverStudentId" class="form-label">Student ID</label>
+              <input type="text" class="form-control" id="giverStudentId" placeholder="Enter your Student ID" required>
+            </div>
+            <div class="mb-3">
+              <label for="giverMajor" class="form-label">Major/Department</label>
+              <select class="form-select" id="giverMajor" required>
+                <option value="">Select your major</option>
+                <option value="MIS">MIS</option>
+                <option value="Accounting">Accounting</option>
+                <option value="Marketing">Marketing</option>
+                <option value="Finance">Finance</option>
+                <option value="Economics">Economics</option>
+                <option value="Public Administration">Public Administration</option>
+                <option value="Business Administration">Business Administration</option>
+              </select>
+            </div>
+            <div class="mb-3">
+              <label for="giverBookDetails" class="form-label">Book Details (Title, Author, etc.)</label>
+              <textarea class="form-control" id="giverBookDetails" rows="3" placeholder="Provide any details about the book you are giving" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary w-100">Submit (Give)</button>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Modal: Take Form + Potential Givers List -->
+  <div class="modal fade" id="takeModal" tabindex="-1" aria-labelledby="takeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg"> <!-- Wider modal -->
+      <div class="modal-content">
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h5 class="modal-title" id="takeModalLabel">Take a Book - Request Form</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <!-- Modal Body with two columns -->
+        <div class="modal-body">
+          <div class="row">
+            <!-- Left Column: Request Form -->
+            <div class="col-md-6">
+              <form id="takeForm">
+                <div class="mb-3">
+                  <label for="takerFullName" class="form-label">Full Name</label>
+                  <input type="text" class="form-control" id="takerFullName" placeholder="Enter your full name" required>
+                </div>
+                <div class="mb-3">
+                  <label for="takerEmailAddress" class="form-label">Email Address</label>
+                  <input type="email" class="form-control" id="takerEmailAddress" placeholder="Enter your email address" required>
+                </div>
+                <div class="mb-3">
+                  <label for="takerPhoneNumber" class="form-label">Phone Number</label>
+                  <input type="tel" class="form-control" id="takerPhoneNumber" placeholder="Enter your phone number" required>
+                </div>
+                <div class="mb-3">
+                  <label for="takerStudentId" class="form-label">Student ID</label>
+                  <input type="text" class="form-control" id="takerStudentId" placeholder="Enter your Student ID" required>
+                </div>
+                <div class="mb-3">
+                  <label for="takerMajor" class="form-label">Major/Department</label>
+                  <select class="form-select" id="takerMajor" required>
+                    <option value="">Select your major</option>
+                    <option value="MIS">MIS</option>
+                    <option value="Accounting">Accounting</option>
+                    <option value="Marketing">Marketing</option>
+                    <option value="Finance">Finance</option>
+                    <option value="Economics">Economics</option>
+                    <option value="Public Administration">Public Administration</option>
+                    <option value="Business Administration">Business Administration</option>
+                  </select>
+                </div>
+                <div class="mb-3">
+                  <label for="takerBookDetails" class="form-label">Book Request Details</label>
+                  <textarea class="form-control" id="takerBookDetails" rows="3" placeholder="Which book are you taking or requesting?" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary w-100">Submit (Take)</button>
+              </form>
+            </div>
+            <!-- Right Column: List of Potential Givers -->
+            <div class="col-md-6">
+              <h5>People Who Offered This Book</h5>
+              <p class="text-muted">
+                Choose whom you’d like to request the book from:
+              </p>
+              <ul class="list-group" id="giverList">
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                  <div>
+                    <strong>John Smith</strong><br>
+                    <small>Major: MIS | ID: 12345</small>
+                  </div>
+                  <button class="btn btn-sm btn-outline-primary request-btn" data-giver="John Smith">Request</button>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                  <div>
+                    <strong>Jane Doe</strong><br>
+                    <small>Major: Accounting | ID: 67890</small>
+                  </div>
+                  <button class="btn btn-sm btn-outline-primary request-btn" data-giver="Jane Doe">Request</button>
+                </li>
+              </ul>
+              <div class="mt-3" id="requestStatus"></div>
+            </div>
+          </div>
+        </div>
+        <!-- Modal Footer -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Bootstrap 5 JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Category Filtering Logic
+    const categoryButtons = document.querySelectorAll('.category-tabs button');
+    const bookCards = document.querySelectorAll('.book-card');
+    categoryButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        categoryButtons.forEach(btn => btn.classList.remove('active'));
+        button.classList.add('active');
+        const selectedCategory = button.getAttribute('data-category');
+        bookCards.forEach(card => {
+          if (selectedCategory === "all" || card.getAttribute('data-category') === selectedCategory) {
+            card.style.display = 'flex';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+    // Show "All Majors" by default on page load
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelector('[data-category="all"]').click();
+    });
+    // Handle "Give" form submission
+    document.getElementById('giveForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      alert('Your "Give" submission has been received!');
+      const giveModal = bootstrap.Modal.getInstance(document.getElementById('giveModal'));
+      giveModal.hide();
+      this.reset();
+    });
+    // Handle "Take" form submission
+    document.getElementById('takeForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      alert('Your "Take" submission has been received!');
+      const takeModal = bootstrap.Modal.getInstance(document.getElementById('takeModal'));
+      takeModal.hide();
+      this.reset();
+    });
+    // Simulate sending requests to potential givers after verifying that the take form is complete
+    const requestButtons = document.querySelectorAll('.request-btn');
+    const requestStatus = document.getElementById('requestStatus');
+    requestButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const takeForm = document.getElementById('takeForm');
+        if (!takeForm.checkValidity()) {
+          alert("Please fill in all required fields in the form before sending a request.");
+          return;
+        }
+        const giverName = btn.getAttribute('data-giver');
+        requestStatus.innerHTML = `
+          <p class="text-muted">
+            Sending request to <strong>${giverName}</strong>...
+          </p>
+        `;
+        setTimeout(() => {
+          const accepted = Math.random() < 0.7;
+          if (accepted) {
+            requestStatus.innerHTML = `
+              <p class="text-success">
+                <strong>${giverName}</strong> has accepted your request!<br>
+                <a href="live-chat.html" class="btn btn-sm btn-success mt-2">
+                  Proceed to Live Chat
+                </a>
+              </p>
+            `;
+          } else {
+            requestStatus.innerHTML = `
+              <p class="text-danger">
+                Sorry, <strong>${giverName}</strong> declined your request.<br>
+                Please choose another giver or try again later.
+              </p>
+            `;
+          }
+        }, 2000);
+      });
+    });
+  </script>
+</body>
+</html>
