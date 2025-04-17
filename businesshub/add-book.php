@@ -4,6 +4,23 @@
   <title>Add New Book</title>
 </head>
 <body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   <h2>Add a Book</h2>
   <form action="insert-book.php" method="POST" enctype="multipart/form-data">
   >

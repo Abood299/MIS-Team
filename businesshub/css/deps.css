@@ -1,6 +1,5 @@
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
     background-color: #FAF9F6; /* Light ivory color */
   }
 
@@ -38,11 +37,11 @@ body {
 
   .icon-grid {
       position: absolute;
-top: 10%;
-left: 50%;
-transform: translateX(-50%);
-width: 100%;
-display: grid;
+      top: 10%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100%;
+      display: grid;
 
 /* Tighter spacing between columns */
 grid-template-columns: auto auto;
