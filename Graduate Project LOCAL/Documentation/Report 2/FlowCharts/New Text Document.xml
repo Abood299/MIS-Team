@@ -1,0 +1,62 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Admin Dashboard Flow">
+    <mxGraphModel dx="1294" dy="801" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <!-- Start -->
+        <mxCell id="2" value="" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="480" y="10" width="20" height="20" as="geometry"/>
+        </mxCell>
+        <!-- Admin enters email & password -->
+        <mxCell id="3" value="Admin enters email & password" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="420" y="40" width="180" height="40" as="geometry"/>
+        </mxCell>
+        <!-- Validate credentials -->
+        <mxCell id="4" value="Validate credentials" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="420" y="100" width="180" height="40" as="geometry"/>
+        </mxCell>
+        <!-- Credentials valid? -->
+        <mxCell id="5" value="Credentials valid?" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="445" y="160" width="130" height="60" as="geometry"/>
+        </mxCell>
+        <!-- Dashboard -->
+        <mxCell id="6" value="Dashboard" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="350" y="240" width="100" height="40" as="geometry"/>
+        </mxCell>
+        <!-- Display "Login failed" -->
+        <mxCell id="7" value="Display \"Login failed\"" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="540" y="240" width="140" height="40" as="geometry"/>
+        </mxCell>
+        <!-- End -->
+        <mxCell id="8" value="" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="560" y="290" width="20" height="20" as="geometry"/>
+        </mxCell>
+        <!-- Swimlane Division -->
+        <mxCell id="9" style="line;strokeWidth=2;html=1;" edge="1" parent="1" source="6" target="7">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <!-- Connections -->
+        <mxCell id="10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="2" target="3">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="11" style="edgeStyle=orthogonalEdgeStyle;html=1;" edge="1" parent="1" source="3" target="4">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="12" style="edgeStyle=orthogonalEdgeStyle;html=1;" edge="1" parent="1" source="4" target="5">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="13" style="edgeStyle=orthogonalEdgeStyle;html=1;" edge="1" parent="1" source="5" target="6">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="14" style="edgeStyle=orthogonalEdgeStyle;html=1;" edge="1" parent="1" source="5" target="7">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="15" style="edgeStyle=orthogonalEdgeStyle;html=1;" edge="1" parent="1" source="7" target="8">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <!-- Note: Additional shapes and connectors for the lower section omitted for brevity -->
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
