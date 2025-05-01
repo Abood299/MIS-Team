@@ -1,4 +1,0 @@
-“Process 3.0: Manage Book Exchange was decomposed into five sub-processes to reflect the student interactions in offering,
- viewing, and requesting books, including Give-for-Take exchanges. Each subprocess complies with the rules of DFD Level 1 as
- outlined by Kendall & Kendall, including at least one input, one output, and clearly labeled data flows using noun phrases. 
-Associated data stores such as Book Offers, Book Requests, and Notifications are used meaningfully and non-redundantly.”
