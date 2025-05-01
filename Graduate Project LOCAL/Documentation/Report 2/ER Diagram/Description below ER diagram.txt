@@ -1,0 +1,64 @@
+📘 Business Hub – Entity Relationship Diagram (ERD) Explanation
+This ER diagram represents the database structure for the Business Hub platform, designed to support book exchanges, academic resources, and student-staff interactions in a university setting.
+
+🔷 Entities & Their Purpose
+users: Stores all registered users (students or super admins). Each user has personal info like name, email, phone, and a role (user or super_admin) that controls their permissions.
+
+departments: Represents academic departments (e.g., MIS, Finance). It links to most academic content across the site.
+
+book_exchange: Lists all available books for exchange, categorized by department.
+
+book_offers: When a user clicks “Give” on a book, an offer is created and stored here. It includes optional details (e.g., book condition), and may include a desired_book_id if the user is using the "Give for Take" feature.
+
+book_requests: If another user clicks “Take,” a request is recorded here. It links to the original offer and tracks its status (pending, accepted, or rejected).
+
+notifications: Generated when a book request is made. This alerts the user who posted the offer and helps facilitate communication.
+
+chat_messages: Stores real-time messages exchanged between users once a book request has been accepted. This enables them to coordinate the physical exchange.
+
+courses: Contains downloadable/viewable course resources for each department (e.g., links, descriptions).
+
+books: Represents static learning materials uploaded for each department, available through department pages (not part of the exchange system).
+
+academic_staff: A directory of academic staff members, including their office location, university email, and LinkedIn profile. Each is assigned to a department.
+
+🔁 Key Relationships
+A user can:
+
+Offer books
+
+Request offered books
+
+Receive/send notifications
+
+Chat with other users
+
+A department:
+
+Provides courses, staff, books, and exchange book listings
+
+Each book offer:
+
+Is tied to a user
+
+Refers to a book from book_exchange
+
+May specify a desired book (desired_book_id) for exchange
+
+Each book request:
+
+Is tied to a specific offer and user
+
+Triggers a notification
+
+If accepted, opens a chat session
+
+✅ Notable Design Decisions
+ENUM is used in users.role to limit account types (e.g., 'user', 'super_admin')
+
+email is marked as UNIQUE to prevent duplicate registrations
+
+desired_book_id in book_offers supports advanced trading ("Give for Take")
+
+Timestamps are recorded for auditability (who did what, and when)
+

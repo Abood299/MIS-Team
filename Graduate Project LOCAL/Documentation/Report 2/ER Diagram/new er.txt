@@ -1,0 +1,98 @@
+Here’s a clean and well-structured **description for your ER Diagram** based on the image you shared:
+
+---
+
+## 📘 **Entity-Relationship Diagram Description for "Business Hub" System**
+
+This ERD represents the data architecture of the **Business Hub** system, primarily designed to manage academic services, book exchange features, user interactions, and notifications for students at the university.
+
+---
+
+### 🧩 **Main Entities & Relationships**
+
+#### 1. **User**
+- Stores student information: `User_ID`, `First_Name`, `Last_Name`, `Email`, `Phone_Num`, `Password`, `Role`, and `Created_at`.
+- **Relationships:**
+  - **Makes** → `Book_Offer` (1:M): A user can offer multiple books.
+  - **Receives** → `Book_Request` (1:M): A user can request multiple books.
+  - **Push/Pull** → `Notifications` (1:M): A user can send or receive notifications.
+  - **Sends/Receives** → `Chat_Message` (1:M): Users can chat one-on-one with others.
+
+---
+
+#### 2. **Departments**
+- Each department has a unique `DEP_ID` and a `Name`.
+- **Relationships:**
+  - **Has** → `Academic_Staff` (1:M): A department has many staff members.
+  - **Offers** → `Courses` (1:M): A department offers multiple courses.
+  - **Provides exchange books** → `Book_Exchange` (1:M): A department lists books available for exchange.
+
+---
+
+#### 3. **Academic_Staff**
+- Contains academic staff info: `Academic_ID`, `Name`, `LinkedIn`, `Email`, `Office_Location`, and `Image`.
+- Linked to a `Department` via `DEP_ID (FK)`.
+
+---
+
+#### 4. **Courses**
+- Each course has attributes: `Course_Name`, `Course_Link`, `Course_Description`, and `Tree_ID`.
+- Linked to `Departments` through `DEP_ID (FK)`.
+
+---
+
+#### 5. **Books**
+- Represents static academic books related to majors.
+- Attributes include `Book_Name`, `Book_Material`, and `Tree_ID`.
+
+---
+
+#### 6. **Book_Exchange**
+- Represents all exchangeable books available on the platform.
+- Attributes: `Book_ID`, `Book_Name`, `DEP_ID (FK)`
+- **Relationships:**
+  - **Has book offers** → `Book_Offer` (1:M): A listed book can be offered by many users.
+
+---
+
+#### 7. **Book_Offer**
+- Represents offers made by users to give away a book.
+- Attributes: `Offer_ID`, `Book_ID (FK)`, `User_ID (FK)`, `Desired_Book_ID (FK)` *(for Give-for-Take)*, `Timestamp`, and `Details`.
+- **Relationships:**
+  - **Receives** → `Book_Request` (1:M): Offers may receive multiple requests.
+
+---
+
+#### 8. **Book_Request**
+- Represents requests to take a book from a specific offer.
+- Attributes: `Request_ID`, `Offer_ID (FK)`, `Requester_ID (FK)`, `Status`, and `Timestamp`.
+
+---
+
+#### 9. **Notifications**
+- Stores messages triggered by user actions.
+- Attributes: `Notification_ID`, `Receiver_ID (FK)`, `User_ID (FK)` *(sender)*, `Action_ID (FK)` *(reference to book_request)*, `Message`, `Type`, `Is_Read`, and `Created_at`.
+- **Triggers**: From book requests or other actions (M:1 to Book_Request).
+
+---
+
+#### 10. **Chat_Message**
+- Handles 1-on-1 messaging between users.
+- Attributes: `Chat_ID`, `Sender_ID (FK)`, `Receiver_ID (FK)`, `Message`, and `Timestamp`.
+
+---
+
+### 🔄 **Cardinality Highlights**
+- One **Department** → Many `Book_Exchange`, `Courses`, and `Academic_Staff`
+- One **Book_Exchange** → Many `Book_Offers`
+- One **User** → Many `Book_Offers`, `Book_Requests`, `Notifications`, and `Chat_Messages`
+- One **Book_Offer** → Many `Book_Requests`
+- One **Book_Request** → May trigger one or more `Notifications`
+- Chat messages are modeled with **Sender_ID** and **Receiver_ID** directly inside `Chat_Message`
+
+---
+
+### 🏁 Summary
+This ERD presents a scalable and role-aware structure. It tightly integrates academic services with student-driven interactions (like book exchange, requests, and messaging). Each relationship is clearly mapped with solid cardinalities to support both data integrity and application logic.
+
+Let me know if you want a **PlantUML version**, a **data dictionary**, or a **simplified diagram**.
