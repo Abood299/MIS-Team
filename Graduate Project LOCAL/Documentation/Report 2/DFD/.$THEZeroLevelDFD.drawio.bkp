@@ -1,0 +1,76 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/26.2.2 Chrome/134.0.6998.178 Electron/35.1.2 Safari/537.36" version="26.2.2">
+  <diagram name="Page-1" id="icdh6pX9APepNNFhdhNa">
+    <mxGraphModel dx="3173" dy="1976" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="13" value="D1 Users" style="shape=mxgraph.dfd.dataStoreID;whiteSpace=wrap;html=1;fontSize=19;strokeWidth=2;dashed=0;align=left;spacingLeft=3;points=[[0,0],[0.5,0],[1,0],[0,0.5],[1,0.5],[0,1],[0.5,1],[1,1]];labelPadding=-90;direction=east;noLabel=0;overflow=visible;fillOpacity=100;portConstraint=east;metaEdit=0;" vertex="1" parent="1">
+          <mxGeometry x="1479.183673469388" y="100" width="225" height="56" as="geometry" />
+        </mxCell>
+        <mxCell id="14" value="D2 Departments" style="shape=mxgraph.dfd.dataStoreID;whiteSpace=wrap;html=1;fontSize=19;strokeWidth=2;dashed=0;align=left;spacingLeft=3;points=[[0,0],[0.5,0],[1,0],[0,0.5],[1,0.5],[0,1],[0.5,1],[1,1]];labelPadding=-90;direction=east;noLabel=0;overflow=visible;fillOpacity=100;portConstraint=east;metaEdit=0;" vertex="1" parent="1">
+          <mxGeometry x="1479.183673469388" y="195.00260869565213" width="225" height="56" as="geometry" />
+        </mxCell>
+        <mxCell id="15" value="D3 Academic Staff" style="shape=mxgraph.dfd.dataStoreID;whiteSpace=wrap;html=1;fontSize=19;strokeWidth=2;dashed=0;align=left;spacingLeft=3;points=[[0,0],[0.5,0],[1,0],[0,0.5],[1,0.5],[0,1],[0.5,1],[1,1]];labelPadding=-90;direction=east;noLabel=0;overflow=visible;fillOpacity=100;portConstraint=east;metaEdit=0;" vertex="1" parent="1">
+          <mxGeometry x="1479.183673469388" y="302.26521739130425" width="225" height="56" as="geometry" />
+        </mxCell>
+        <mxCell id="16" value="D4 Courses" style="shape=mxgraph.dfd.dataStoreID;whiteSpace=wrap;html=1;fontSize=19;strokeWidth=2;dashed=0;align=left;spacingLeft=3;points=[[0,0],[0.5,0],[1,0],[0,0.5],[1,0.5],[0,1],[0.5,1],[1,1]];labelPadding=-90;direction=east;noLabel=0;overflow=visible;fillOpacity=100;portConstraint=east;metaEdit=0;" vertex="1" parent="1">
+          <mxGeometry x="1479.183673469388" y="410.9978260869565" width="225" height="56" as="geometry" />
+        </mxCell>
+        <mxCell id="17" value="D5 Books" style="shape=mxgraph.dfd.dataStoreID;whiteSpace=wrap;html=1;fontSize=19;strokeWidth=2;dashed=0;align=left;spacingLeft=3;points=[[0,0],[0.5,0],[1,0],[0,0.5],[1,0.5],[0,1],[0.5,1],[1,1]];labelPadding=-90;direction=east;noLabel=0;overflow=visible;fillOpacity=100;portConstraint=east;metaEdit=0;" vertex="1" parent="1">
+          <mxGeometry x="1479.183673469388" y="520.0004347826085" width="225" height="56" as="geometry" />
+        </mxCell>
+        <mxCell id="myy8Ru6dyto0Jvm3p5WP-34" value="D6 Book Exchange" style="shape=mxgraph.dfd.dataStoreID;whiteSpace=wrap;html=1;fontSize=19;strokeWidth=2;dashed=0;align=left;spacingLeft=3;points=[[0,0],[0.5,0],[1,0],[0,0.5],[1,0.5],[0,1],[0.5,1],[1,1]];labelPadding=-90;direction=east;noLabel=0;overflow=visible;fillOpacity=100;portConstraint=east;metaEdit=0;" vertex="1" parent="1">
+          <mxGeometry x="1479.183673469388" y="617" width="225" height="56" as="geometry" />
+        </mxCell>
+        <mxCell id="myy8Ru6dyto0Jvm3p5WP-35" value="D7 Book Offers" style="shape=mxgraph.dfd.dataStoreID;whiteSpace=wrap;html=1;fontSize=19;strokeWidth=2;dashed=0;align=left;spacingLeft=3;points=[[0,0],[0.5,0],[1,0],[0,0.5],[1,0.5],[0,1],[0.5,1],[1,1]];labelPadding=-90;direction=east;noLabel=0;overflow=visible;fillOpacity=100;portConstraint=east;metaEdit=0;" vertex="1" parent="1">
+          <mxGeometry x="1479.183673469388" y="712.0026086956522" width="225" height="56" as="geometry" />
+        </mxCell>
+        <mxCell id="myy8Ru6dyto0Jvm3p5WP-36" value="D8 Book Requests" style="shape=mxgraph.dfd.dataStoreID;whiteSpace=wrap;html=1;fontSize=19;strokeWidth=2;dashed=0;align=left;spacingLeft=3;points=[[0,0],[0.5,0],[1,0],[0,0.5],[1,0.5],[0,1],[0.5,1],[1,1]];labelPadding=-90;direction=east;noLabel=0;overflow=visible;fillOpacity=100;portConstraint=east;metaEdit=0;" vertex="1" parent="1">
+          <mxGeometry x="1479.183673469388" y="819.2652173913043" width="225" height="56" as="geometry" />
+        </mxCell>
+        <mxCell id="myy8Ru6dyto0Jvm3p5WP-37" value="D9 Notifications" style="shape=mxgraph.dfd.dataStoreID;whiteSpace=wrap;html=1;fontSize=19;strokeWidth=2;dashed=0;align=left;spacingLeft=3;points=[[0,0],[0.5,0],[1,0],[0,0.5],[1,0.5],[0,1],[0.5,1],[1,1]];labelPadding=-90;direction=east;noLabel=0;overflow=visible;fillOpacity=100;portConstraint=east;metaEdit=0;" vertex="1" parent="1">
+          <mxGeometry x="1479.183673469388" y="927.9978260869565" width="225" height="56" as="geometry" />
+        </mxCell>
+        <mxCell id="myy8Ru6dyto0Jvm3p5WP-38" value="&lt;font style=&quot;font-size: 16px;&quot;&gt;D10&lt;/font&gt; Chat Messages" style="shape=mxgraph.dfd.dataStoreID;whiteSpace=wrap;html=1;fontSize=19;strokeWidth=2;dashed=0;align=left;spacingLeft=3;points=[[0,0],[0.5,0],[1,0],[0,0.5],[1,0.5],[0,1],[0.5,1],[1,1]];labelPadding=-90;direction=east;noLabel=0;overflow=visible;fillOpacity=100;portConstraint=east;metaEdit=0;" vertex="1" parent="1">
+          <mxGeometry x="1479.183673469388" y="1037.0004347826084" width="225" height="56" as="geometry" />
+        </mxCell>
+        <mxCell id="2" value="Student" style="shape=mxgraph.dfd.externalEntity;whiteSpace=wrap;html=1;fontSize=17;dashed=0;" vertex="1" parent="1">
+          <mxGeometry x="40" y="217.39130434782606" width="200.81632653061226" height="140.86956521739128" as="geometry" />
+        </mxCell>
+        <mxCell id="3" value="Admin" style="shape=mxgraph.dfd.externalEntity;whiteSpace=wrap;html=1;fontSize=17;dashed=0;" vertex="1" parent="1">
+          <mxGeometry x="40" y="804.3478260869565" width="200.81632653061226" height="140.86956521739128" as="geometry" />
+        </mxCell>
+        <mxCell id="4" value="1. Validate User Login" style="shape=swimlane;rounded=1;whiteSpace=wrap;html=1;fontStyle=1;startSize=23;fontSize=17;strokeWidth=3;" vertex="1" parent="1">
+          <mxGeometry x="475.10204081632656" y="100" width="267.7551020408163" height="140.86956521739128" as="geometry" />
+        </mxCell>
+        <mxCell id="5" value="2. Register Student Account" style="shape=swimlane;rounded=1;whiteSpace=wrap;html=1;fontStyle=1;startSize=23;fontSize=17;strokeWidth=3;" vertex="1" parent="1">
+          <mxGeometry x="475.10204081632656" y="334.78260869565213" width="267.7551020408163" height="140.86956521739128" as="geometry" />
+        </mxCell>
+        <mxCell id="6" value="3. View Hall Locations" style="shape=swimlane;rounded=1;whiteSpace=wrap;html=1;fontStyle=1;startSize=23;fontSize=17;strokeWidth=3;" vertex="1" parent="1">
+          <mxGeometry x="475.10204081632656" y="569.5652173913043" width="267.7551020408163" height="140.86956521739128" as="geometry" />
+        </mxCell>
+        <mxCell id="7" value="4. View Department Books" style="shape=swimlane;rounded=1;whiteSpace=wrap;html=1;fontStyle=1;startSize=23;fontSize=17;strokeWidth=3;" vertex="1" parent="1">
+          <mxGeometry x="475.10204081632656" y="804.3478260869565" width="267.7551020408163" height="140.86956521739128" as="geometry" />
+        </mxCell>
+        <mxCell id="8" value="5. View Academic Staff Info" style="shape=swimlane;rounded=1;whiteSpace=wrap;html=1;fontStyle=1;startSize=23;fontSize=17;container=0;strokeWidth=3;" vertex="1" parent="1">
+          <mxGeometry x="475.10204081632656" y="1039.1304347826085" width="267.7551020408163" height="140.86956521739128" as="geometry" />
+        </mxCell>
+        <mxCell id="9" value="6. Manage Book Exchange" style="shape=swimlane;rounded=1;whiteSpace=wrap;html=1;fontStyle=1;startSize=23;fontSize=17;strokeWidth=3;" vertex="1" parent="1">
+          <mxGeometry x="977.1428571428572" y="100" width="267.7551020408163" height="140.86956521739128" as="geometry" />
+        </mxCell>
+        <mxCell id="10" value="7. Manage Academic Resources" style="shape=swimlane;rounded=1;whiteSpace=wrap;html=1;fontStyle=1;startSize=23;fontSize=17;strokeWidth=3;" vertex="1" parent="1">
+          <mxGeometry x="977.1428571428572" y="334.78260869565213" width="267.7551020408163" height="140.86956521739128" as="geometry" />
+        </mxCell>
+        <mxCell id="11" value="8. Manage Users" style="shape=swimlane;rounded=1;whiteSpace=wrap;html=1;fontStyle=1;startSize=23;fontSize=17;strokeWidth=3;swimlaneLine=1;" vertex="1" parent="1">
+          <mxGeometry x="977.1428571428572" y="569.5652173913043" width="267.7551020408163" height="140.86956521739128" as="geometry" />
+        </mxCell>
+        <mxCell id="12" value="9. Monitor System Activity" style="shape=swimlane;rounded=1;whiteSpace=wrap;html=1;fontStyle=1;startSize=23;fontSize=17;strokeWidth=3;" vertex="1" parent="1">
+          <mxGeometry x="977.1428571428572" y="804.3478260869565" width="267.7551020408163" height="140.86956521739128" as="geometry" />
+        </mxCell>
+        <mxCell id="myy8Ru6dyto0Jvm3p5WP-39" value="&lt;font style=&quot;font-size: 17px;&quot;&gt;D11&lt;/font&gt; Halls" style="shape=mxgraph.dfd.dataStoreID;whiteSpace=wrap;html=1;fontSize=19;strokeWidth=2;dashed=0;align=left;spacingLeft=3;points=[[0,0],[0.5,0],[1,0],[0,0.5],[1,0.5],[0,1],[0.5,1],[1,1]];labelPadding=-90;direction=east;noLabel=0;overflow=visible;fillOpacity=100;portConstraint=east;metaEdit=0;" vertex="1" parent="1">
+          <mxGeometry x="1479.183673469388" y="1143.0004347826084" width="225" height="56" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
