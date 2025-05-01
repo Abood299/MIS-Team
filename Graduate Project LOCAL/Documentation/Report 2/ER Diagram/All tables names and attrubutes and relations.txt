@@ -1,0 +1,127 @@
+🧱 1. ENTITIES + ATTRIBUTES in Your System
+Each table in your database becomes an entity in the ERD, and each column becomes an attribute.
+
+✅ users
+PK: id
+
+first_name
+
+last_name
+
+email (UNIQUE)
+
+phone
+
+password
+
+role (ENUM)
+
+created_at
+
+✅ departments
+PK: id
+
+name
+
+✅ book_exchange
+PK: id
+
+book_name
+
+department_id → FK to departments.id
+
+✅ book_offers
+PK: id
+
+book_id → FK to book_exchange.id
+
+user_id → FK to users.id
+
+desired_book_id → FK to book_exchange.id (for Give-for-Take)
+
+details
+
+timestamp
+
+✅ book_requests
+PK: id
+
+offer_id → FK to book_offers.id
+
+requester_id → FK to users.id
+
+status
+
+timestamp
+
+✅ notifications
+PK: id
+
+user_id → sender (FK to users.id)
+
+receiver_id → FK to users.id
+
+action_id → FK to book_requests.id
+
+type
+
+message
+
+is_read
+
+created_at
+
+✅ chat_messages
+PK: id
+
+sender_id → FK to users.id
+
+receiver_id → FK to users.id
+
+message
+
+timestamp
+
+✅ courses
+PK: id
+
+department_id → FK to departments.id
+
+course_name
+
+course_link
+
+course_description
+
+✅ books (static materials for departments)
+PK: id
+
+department_id → FK to departments.id
+
+book_name
+
+book_material
+
+✅ academic_staff
+PK: id
+
+name
+
+email
+
+linkedin
+
+image
+
+office_location
+
+department_id → FK to departments.id
+
+Relationship | Type
+One department → many books | 1-to-many
+One department → many courses | 1-to-many
+One user → many book_offers | 1-to-many
+One offer → many requests | 1-to-many
+One request → one notification | 1-to-1
+One user → many notifications | 1-to-many
+One user → many messages (sent/recv) | 1-to-many
