@@ -25,6 +25,9 @@ $sql = "
 ";
 $res   = mysqli_query($conn,$sql);
 $books = mysqli_fetch_all($res, MYSQLI_ASSOC);
+require_once 'includes/db.php';
+
+$offerExists = (isset($_GET['offer']) && $_GET['offer']==='exists');
 ?>
 <!DOCTYPE html>
 <html lang="en"> 
@@ -50,6 +53,15 @@ $books = mysqli_fetch_all($res, MYSQLI_ASSOC);
     // expose login state
     window.isLoggedIn = <?= $isLoggedIn?'true':'false' ?>;
   </script>
+    <?php if ($offerExists): ?>
+  <script>
+    window.addEventListener('DOMContentLoaded', () => {
+      alert("You’ve already offered that book — you can’t add it twice.");
+      // clean the URL so refresh won't re-alert
+      history.replaceState({}, '', 'booksexchange.php');
+    });
+  </script>
+  <?php endif; ?>
     <style>
 
 :root {
@@ -311,10 +323,15 @@ $books = mysqli_fetch_all($res, MYSQLI_ASSOC);
           li.innerHTML = `
             <div>
               <strong>${o.giver_name}</strong><br>
-              <small class="text-muted">Offered on: ${new Date(o.offered_at).toLocaleDateString()}</small><br>
+              <small class="text-muted">
+                Offered on: ${new Date(o.offered_at).toLocaleDateString()}
+              </small><br>
               <small>${o.book_condition}</small>
             </div>
-            <button class="btn btn-sm btn-primary request-btn" data-offer-id="${o.offer_id}">
+            <button
+              class="btn btn-sm btn-primary request-btn"
+              data-offer-id="${o.offer_id}"
+            >
               Request
             </button>
           `;
@@ -331,6 +348,7 @@ $books = mysqli_fetch_all($res, MYSQLI_ASSOC);
     if (!e.target.matches('.request-btn')) return;
 
     if (!window.isLoggedIn) {
+      // not signed in → go to login
       window.location.href = 'user_login.php';
       return;
     }
@@ -343,7 +361,9 @@ $books = mysqli_fetch_all($res, MYSQLI_ASSOC);
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       body: `offer_id=${offerId}`
     })
-    .then(r => r.json())              // <-- parse JSON here
+    // 1) parse JSON
+    .then(r => r.json())
+    // 2) handle the result
     .then(data => {
       if (data.status === 'exists') {
         alert('You have already requested this book.');
@@ -371,9 +391,7 @@ $books = mysqli_fetch_all($res, MYSQLI_ASSOC);
       btn.classList.add('active');
       const cat = btn.dataset.category;
       bookCards.forEach(c => {
-        c.style.display = (cat === 'all' || c.dataset.category === cat)
-                         ? 'flex'
-                         : 'none';
+        c.style.display = (cat === 'all' || c.dataset.category === cat) ? 'flex' : 'none';
       });
     });
   });
@@ -381,14 +399,12 @@ $books = mysqli_fetch_all($res, MYSQLI_ASSOC);
   // 5) Search
   const searchInput = document.getElementById('searchInput');
   const searchBtn   = document.getElementById('searchBtn');
-  function filterBooks() {
+  function filterBooks(){
     const q = searchInput.value.toLowerCase();
     bookCards.forEach(c => {
-      c.style.display = c.querySelector('h6').textContent
-                            .toLowerCase()
-                            .includes(q)
-                      ? 'flex'
-                      : 'none';
+      c.style.display = c.querySelector('h6').textContent.toLowerCase().includes(q)
+        ? 'flex'
+        : 'none';
     });
   }
   searchInput.addEventListener('input', filterBooks);
@@ -396,8 +412,6 @@ $books = mysqli_fetch_all($res, MYSQLI_ASSOC);
 
 })();
 </script>
-
-
 
 </body>
 </html>

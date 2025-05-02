@@ -3,9 +3,10 @@
 session_start();
 require_once 'includes/db.php';
 
-// 1) must be logged in
+// 1) Must be logged in
 if (!isset($_SESSION['user_id'])) {
-  header('Location: user_login.php');
+  header('HTTP/1.1 401 Unauthorized');
+  echo json_encode(['status'=>'login_required']);
   exit;
 }
 
@@ -13,37 +14,46 @@ $user_id = $_SESSION['user_id'];
 $book_id = intval($_POST['book_id']);
 $details = trim($_POST['details']);
 
-// 2) check for an existing “offer” of the same book by this user
+// 2) Check duplicate “give” by this user
 $stmt = $conn->prepare("
-  SELECT id 
-  FROM book_offers 
-  WHERE user_id = ? 
-    AND book_id = ? 
-    AND desired_book_id IS NULL
+  SELECT id
+    FROM book_offers
+   WHERE user_id = ?
+     AND book_id = ?
+     AND desired_book_id IS NULL
 ");
 $stmt->bind_param("ii", $user_id, $book_id);
 $stmt->execute();
 $res = $stmt->get_result();
 
 if ($res->num_rows > 0) {
-  // gentle alert and send them back
-  echo <<<HTML
-    <script>
-      alert("You’ve already offered that book — you can’t add it twice.");
-      window.location.href = "booksexchange.php";
-    </script>
-  HTML;
-  exit;
+    // Already offered → send back with a flag
+    header("Location: booksexchange.php?offer=exists");
+    exit;
 }
 
-// 3) otherwise insert the new offer
+// 3) Insert the new offer
 $stmt = $conn->prepare("
   INSERT INTO book_offers (book_id, user_id, details) 
-  VALUES (?, ?, ?)
+       VALUES (?, ?, ?)
 ");
 $stmt->bind_param("iis", $book_id, $user_id, $details);
 $stmt->execute();
 
-// 4) then redirect back with a success message (optional)
-header("Location: booksexchange.php?offer=ok");
+// 4) Return updated copy count
+$countRes = $conn->prepare("
+  SELECT COUNT(*) AS cnt
+    FROM book_offers
+   WHERE book_id = ?
+");
+$countRes->bind_param("i", $book_id);
+$countRes->execute();
+$cnt = $countRes->get_result()->fetch_assoc()['cnt'];
+
+// 5) JSON response
+header('Content-Type: application/json');
+echo json_encode([
+  'status' => 'ok',
+  'copies' => (int)$cnt
+]);
 exit;
