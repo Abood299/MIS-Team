@@ -1,0 +1,153 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/26.2.2 Chrome/134.0.6998.178 Electron/35.1.2 Safari/537.36" version="26.2.2">
+  <diagram name="Page-1" id="icdh6pX9APepNNFhdhNa">
+    <mxGraphModel dx="2596" dy="2785" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="OFCxlML8dY1Pzsn77Qd4-5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;strokeWidth=3;" parent="1" source="4" target="OFCxlML8dY1Pzsn77Qd4-4" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="OFCxlML8dY1Pzsn77Qd4-6" value="&lt;font style=&quot;font-size: 24px;&quot;&gt;Updated Book Data&amp;nbsp;&lt;/font&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="OFCxlML8dY1Pzsn77Qd4-5" vertex="1" connectable="0">
+          <mxGeometry x="-0.2829" y="3" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="4" value="9.1" style="shape=swimlane;rounded=1;whiteSpace=wrap;html=1;fontStyle=1;startSize=23;fontSize=27;strokeWidth=3;" parent="1" vertex="1">
+          <mxGeometry x="515.9983364193135" y="-977.9954222222223" width="329.82196268337844" height="206.9664596273291" as="geometry" />
+        </mxCell>
+        <mxCell id="DdZt1cwlgyV9_247WWNm-23" value="Add or Update Book" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=27;" parent="4" vertex="1">
+          <mxGeometry x="34.91215211508323" y="95.9923242474001" width="261" height="44" as="geometry" />
+        </mxCell>
+        <mxCell id="oW5i2Hu7XFRM_BujK3yT-138" value="" style="endArrow=classic;html=1;rounded=0;strokeWidth=3;" parent="1" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="203" y="-881" as="sourcePoint" />
+            <mxPoint x="516" y="-881" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="oW5i2Hu7XFRM_BujK3yT-139" value="&lt;font style=&quot;font-size: 24px;&quot;&gt;Book Details&lt;/font&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="oW5i2Hu7XFRM_BujK3yT-138" vertex="1" connectable="0">
+          <mxGeometry x="-0.1052" y="-1" relative="1" as="geometry">
+            <mxPoint x="9" y="-2" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="OFCxlML8dY1Pzsn77Qd4-10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.75;exitDx=0;exitDy=0;entryX=0;entryY=1;entryDx=0;entryDy=0;strokeWidth=3;" parent="1" source="2o4widHWwDvI7ksL3-d9-4" target="OFCxlML8dY1Pzsn77Qd4-4" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="842" y="-532" />
+              <mxPoint x="1199" y="-532" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="OFCxlML8dY1Pzsn77Qd4-11" value="&lt;font style=&quot;font-size: 24px;&quot;&gt;Updated Course Data&lt;/font&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="OFCxlML8dY1Pzsn77Qd4-10" vertex="1" connectable="0">
+          <mxGeometry x="-0.0417" y="1" relative="1" as="geometry">
+            <mxPoint y="1" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="2o4widHWwDvI7ksL3-d9-4" value="9.2" style="shape=swimlane;rounded=1;whiteSpace=wrap;html=1;fontStyle=1;startSize=23;fontSize=27;strokeWidth=3;" parent="1" vertex="1">
+          <mxGeometry x="511.99833641931355" y="-711.9954222222223" width="329.82196268337844" height="206.9664596273291" as="geometry" />
+        </mxCell>
+        <mxCell id="2o4widHWwDvI7ksL3-d9-5" value="Add or Update Course" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=27;" parent="2o4widHWwDvI7ksL3-d9-4" vertex="1">
+          <mxGeometry x="21.91215211508323" y="94.9923242474001" width="287" height="44" as="geometry" />
+        </mxCell>
+        <mxCell id="2o4widHWwDvI7ksL3-d9-6" value="" style="endArrow=classic;html=1;rounded=0;strokeWidth=3;" parent="1" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="176" y="-599" as="sourcePoint" />
+            <mxPoint x="512" y="-599" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="2o4widHWwDvI7ksL3-d9-7" value="&lt;font style=&quot;font-size: 24px;&quot;&gt;Course Details&lt;/font&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="2o4widHWwDvI7ksL3-d9-6" vertex="1" connectable="0">
+          <mxGeometry x="-0.1052" y="-1" relative="1" as="geometry">
+            <mxPoint x="13" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="87_hkX-P2APECPvxWoIi-17" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.25;exitDx=0;exitDy=0;entryX=0;entryY=0.75;entryDx=0;entryDy=0;strokeWidth=3;" edge="1" parent="1" source="2o4widHWwDvI7ksL3-d9-8" target="2o4widHWwDvI7ksL3-d9-4">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="251" y="-390" />
+              <mxPoint x="251" y="-557" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="87_hkX-P2APECPvxWoIi-18" value="&lt;font style=&quot;font-size: 20px;&quot;&gt;Select Department Data&lt;/font&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="87_hkX-P2APECPvxWoIi-17">
+          <mxGeometry x="-0.5131" relative="1" as="geometry">
+            <mxPoint x="31" y="-5" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="87_hkX-P2APECPvxWoIi-20" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.75;entryDx=0;entryDy=0;strokeWidth=3;" edge="1" parent="1" source="2o4widHWwDvI7ksL3-d9-8" target="4">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="146" y="-339" />
+              <mxPoint x="146" y="-823" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="87_hkX-P2APECPvxWoIi-21" value="&lt;font style=&quot;font-size: 20px;&quot;&gt;Selected Department data&lt;/font&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="87_hkX-P2APECPvxWoIi-20">
+          <mxGeometry x="-0.5339" y="-3" relative="1" as="geometry">
+            <mxPoint x="66" y="-2" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="2o4widHWwDvI7ksL3-d9-8" value="9.3" style="shape=swimlane;rounded=1;whiteSpace=wrap;html=1;fontStyle=1;startSize=23;fontSize=27;strokeWidth=3;" parent="1" vertex="1">
+          <mxGeometry x="511.99833641931355" y="-441.99542222222226" width="329.82196268337844" height="206.9664596273291" as="geometry" />
+        </mxCell>
+        <mxCell id="2o4widHWwDvI7ksL3-d9-9" value="Select Department" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=27;" parent="2o4widHWwDvI7ksL3-d9-8" vertex="1">
+          <mxGeometry x="44.91215211508323" y="88.9923242474001" width="242" height="44" as="geometry" />
+        </mxCell>
+        <mxCell id="2o4widHWwDvI7ksL3-d9-10" value="" style="endArrow=classic;html=1;rounded=0;strokeWidth=3;" parent="1" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="209" y="-284" as="sourcePoint" />
+            <mxPoint x="512" y="-284" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="2o4widHWwDvI7ksL3-d9-11" value="&lt;font style=&quot;font-size: 24px;&quot;&gt;Department Selection&lt;/font&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="2o4widHWwDvI7ksL3-d9-10" vertex="1" connectable="0">
+          <mxGeometry x="-0.1052" y="-1" relative="1" as="geometry">
+            <mxPoint x="12" y="-3" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="87_hkX-P2APECPvxWoIi-6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.75;entryDx=0;entryDy=0;strokeWidth=3;" edge="1" parent="1" source="OFCxlML8dY1Pzsn77Qd4-4" target="4">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1243" y="-823" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="87_hkX-P2APECPvxWoIi-7" value="&lt;font style=&quot;font-size: 24px;&quot;&gt;Existing Book Info&lt;/font&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="87_hkX-P2APECPvxWoIi-6">
+          <mxGeometry x="0.2968" y="-2" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="OFCxlML8dY1Pzsn77Qd4-4" value="D5 Books" style="shape=mxgraph.dfd.dataStoreID;whiteSpace=wrap;html=1;fontSize=27;strokeWidth=2;dashed=0;align=left;spacingLeft=3;points=[[0,0],[0.5,0],[1,0],[0,0.5],[1,0.5],[0,1],[0.5,1],[1,1]];labelPadding=-90;direction=east;noLabel=0;overflow=visible;fillOpacity=100;portConstraint=east;metaEdit=0;" parent="1" vertex="1">
+          <mxGeometry x="1199" y="-649.65" width="277.1560319042871" height="82.27555555555554" as="geometry" />
+        </mxCell>
+        <mxCell id="87_hkX-P2APECPvxWoIi-8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.75;entryY=1;entryDx=0;entryDy=0;strokeWidth=3;" edge="1" parent="1" source="87_hkX-P2APECPvxWoIi-4" target="2o4widHWwDvI7ksL3-d9-4">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1175" y="-431" />
+              <mxPoint x="1175" y="-455" />
+              <mxPoint x="759" y="-455" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="87_hkX-P2APECPvxWoIi-9" value="&lt;font style=&quot;font-size: 24px;&quot;&gt;Existing Course Info&lt;/font&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="87_hkX-P2APECPvxWoIi-8">
+          <mxGeometry x="0.008" y="4" relative="1" as="geometry">
+            <mxPoint x="26" y="-5" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="87_hkX-P2APECPvxWoIi-4" value="D4 Courses" style="shape=mxgraph.dfd.dataStoreID;whiteSpace=wrap;html=1;fontSize=27;strokeWidth=2;dashed=0;align=left;spacingLeft=3;points=[[0,0],[0.5,0],[1,0],[0,0.5],[1,0.5],[0,1],[0.5,1],[1,1]];labelPadding=-90;direction=east;noLabel=0;overflow=visible;fillOpacity=100;portConstraint=east;metaEdit=0;" vertex="1" parent="1">
+          <mxGeometry x="1201" y="-472" width="277.1560319042871" height="82.27555555555554" as="geometry" />
+        </mxCell>
+        <mxCell id="87_hkX-P2APECPvxWoIi-11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.75;entryDx=0;entryDy=0;strokeWidth=3;" edge="1" parent="1" source="87_hkX-P2APECPvxWoIi-5" target="2o4widHWwDvI7ksL3-d9-8">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="845.4285714285716" y="-276.7142857142858" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="87_hkX-P2APECPvxWoIi-12" value="&lt;font style=&quot;font-size: 24px;&quot;&gt;Department Info&amp;nbsp;&lt;/font&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="87_hkX-P2APECPvxWoIi-11">
+          <mxGeometry x="-0.0311" y="2" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="87_hkX-P2APECPvxWoIi-5" value="D2 Departments&amp;nbsp;" style="shape=mxgraph.dfd.dataStoreID;whiteSpace=wrap;html=1;fontSize=27;strokeWidth=2;dashed=0;align=left;spacingLeft=3;points=[[0,0],[0.5,0],[1,0],[0,0.5],[1,0.5],[0,1],[0.5,1],[1,1]];labelPadding=-90;direction=east;noLabel=0;overflow=visible;fillOpacity=100;portConstraint=east;metaEdit=0;" vertex="1" parent="1">
+          <mxGeometry x="1196" y="-327" width="277.1560319042871" height="82.27555555555554" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
