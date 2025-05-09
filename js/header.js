@@ -12,7 +12,7 @@
         document.addEventListener("DOMContentLoaded", function() {
             const burgerMenu = document.querySelector(".burger-menu");
             const menuOverlay = document.querySelector(".menu-overlay");
-            const closeButton = document.querySelector(".close-btn");
+            const closeButton = document.querySelector(".close-btn-gry");
     
            
             burgerMenu.addEventListener("click", function() {
@@ -29,7 +29,8 @@
         document.addEventListener("DOMContentLoaded", function () {
             const searchIcon = document.querySelector(".fa-search");
             const searchPopup = document.querySelector(".search-popup");
-            const closeSearch = document.querySelector(".close-search");
+     
+
     
             searchIcon.addEventListener("click", function () {
                 searchPopup.classList.add("active");
