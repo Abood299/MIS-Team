@@ -1,526 +1,0 @@
-<!DOCTYPE html>
-<html lang="en"> 
-<head>
-    <!-- the link tag below for linking css bootstrap -->
-    <link rel="stylesheet" href="css/bootstrap.css">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- chatgpt addons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-
-
-<!-- add FontAwesome -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-
-    <title>Business Hub</title>
-    <!-- css withing the style -->
-<!-- this is for burger menu toggle  -->
-    <script> document.addEventListener("DOMContentLoaded", function() {
-        const burgerMenu = document.querySelector(".burger-menu");
-        const menuOverlay = document.querySelector(".menu-overlay");
-    
-        burgerMenu.addEventListener("click", function() {
-            menuOverlay.classList.toggle("active");
-        });
-    });
-    </script>
-       <!-- this script for closing the burger menu with ✖ -->
-       <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            const burgerMenu = document.querySelector(".burger-menu");
-            const menuOverlay = document.querySelector(".menu-overlay");
-            const closeButton = document.querySelector(".close-btn");
-    
-            // Open the menu when clicking the burger icon
-            burgerMenu.addEventListener("click", function() {
-                menuOverlay.classList.add("active"); // Ensure it opens correctly
-            });
-    
-            // Close the menu when clicking the close (X) button
-            closeButton.addEventListener("click", function() {
-                menuOverlay.classList.remove("active"); // Properly hides the overlay
-            });
-        });
-    </script>
-
-   <!-- HEADER AND FOOTER STYLE IMPORT 🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴 -->
-   <link rel="stylesheet" href="css/header&footer.css">
-   <!-- HEADER AND FOOTER STYLE IMPORT 🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴 -->
-   <link rel="stylesheet" href="css/deps.css"> <!-- to grab deps css -->
-  
-</head>
-<!-- PUT YOUR STYLE HERE GUYS ⬇⬇⬇⬇⬇⬆ -->
-<style>
-
-
-
-
-
-
-</style>
-
-
-
-<body>
-    
-      <!-- HEADER SECTION 🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥-->
-
-
-    <header class="navbar">
-        <div class="logo-container">
-            <a href="MainPagefull.html">
-                <img src="images/logo.png" alt="Business Hub Logo" class="logo">
-            </a>
-            
-            <a href="MainPagefull.html" style="text-decoration: none; white-space: nowrap;">
-                <span class="business-text" style="text-shadow: 0 0 5px #EC522D;">Business</span><span class="hub-text" style="text-shadow: 0 0 7px #5E2950;">Hub</span>
-
-
-
-            </a>
-        </div>
-        <nav class="nav-links">
-            <div class="dropdown">
-                <button class="dropbtn">الأقسام <i class="fas fa-caret-down"></i></button>
-                <div class="dropdown-content">
-                    <a href="MIS.html">نظم المعلومات الإدارية</a>
-                    <a href="BUS.html">إدارة الأعمال</a>
-                    <a href="ECO.html">اقتصاد الأعمال</a>
-                    <a href="PBUS.html">الإدارة العامة</a>
-                    <a href="FNC.html">التمويل</a>
-                    <a href="MKT.html">التسويق</a>
-                    <a href="ACC.html">المحاسبة</a>
-                </div>
-            </div>
-            <a href="#">أعضاء هيئة التدريس</a>
-            <a href="#">القاعات</a>
-            <a href="#">تبادل الكتب</a>
-        </nav>
-        <div class="icons">
-            <i class="fas fa-search search-icon" onclick="toggleSearchPopup()"></i>
-
-<!-- Notifacation center code -->
-           <div class="notification-container">
-  <i id="notification-btn" class="fas fa-bell notification-icon"></i>
-
-  <div id="notification-panel" class="hidden">
-    <div class="panel-header">Notifications</div>
-    <ul class="notification-list">
-      <li class="notification-item">📚 New book added to Marketing section</li>
-      <li class="notification-item">🎓 Assistant uploaded a new final sheet</li>
-      <li class="notification-item">📢 New event: Business Day tomorrow</li>
-    </ul>
-    <div class="panel-footer">
-      <a href="#">View all notifications</a>
-    </div>
-  </div>
-</div>
-
-
-            <i class="fas fa-bars burger-menu" ></i>
-            <a href="MainPagefull.html" class="sign-in">Sign in</a>
-     
-
-        </div>
-
-    </header>
-    <!-- Grey Overlay Menu -->
-<div class="menu-overlay">
-   
-    <!-- Logo in the Grey Overlay Menu -->
-    <div class="menu-logo">
-        <a href="MainPagefull.html">
-            <img src="images/logo.png" alt="Business Hub Logo">
-        </a>
-        <a href="MainPagefull.html" style="text-decoration: none;">
-            <span class="business-text" style="text-shadow: 0 0 10px #EC522D, 0 0 20px #EC522D;">Business</span>&nbsp; <span class="hub-text" style="text-shadow: 0 0 10px #5E2950, 0 0 20px #5E2950;">Hub</span>
-
-
-
-        </a>
-    </div>
-    <button class="close-btn">✖</button>
-    <div class="menu-links">
-        <div class="halls-dropdown">
-            <a href="#">القاعات </a>
-          
-        </div>
-        <a href="#">الأقسام</a>
-        <a href="#">تبادل الكتب</a>
-        <a href="#">هيئة التدريس</a>
-        <a href="#">حساب المعدل التراكمي</a>
-        <a href="#">متطلبات التخرج</a>
-        <a href="#">هل تود خوض تجربة جديدة؟</a>
-        <a href="#">خدمات استفد منها قبل تخرجك</a>
-    </div>
-</div>
-
-  
-
-  <!-- this script for notification center open  -->
-  <script>
-    const notifBtn = document.getElementById('notification-btn');
-    const notifPanel = document.getElementById('notification-panel');
-  
-    notifBtn.addEventListener('click', () => {
-      notifPanel.classList.toggle('show');
-    });
-  
-    // Hide panel when clicking outside
-    window.addEventListener('click', function (e) {
-      if (!notifBtn.contains(e.target) && !notifPanel.contains(e.target)) {
-        notifPanel.classList.remove('show');
-      }
-    });
-  </script>
-  
- 
-
-<!-- Search Bar Popup -->
-<div class="search-popup">
-    <div class="search-container">
-        <input type="text" class="search-input" placeholder="Search...">
-        <button class="close-search">✖</button>
-    </div>
-</div>
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
-        const searchIcon = document.querySelector(".fa-search");
-        const searchPopup = document.querySelector(".search-popup");
-        const closeSearch = document.querySelector(".close-search");
-
-        searchIcon.addEventListener("click", function () {
-            searchPopup.classList.add("active");
-        });
-
-        closeSearch.addEventListener("click", function () {
-            searchPopup.classList.remove("active");
-        });
-
-        // Close on outside click
-        searchPopup.addEventListener("click", function (e) {
-            if (e.target === searchPopup) {
-                searchPopup.classList.remove("active");
-            }
-        });
-    });
-</script>
-
-    </script>   
-    <!-- this small code to open the grey list -->
- <div class="menu-overlay">
-        <button class="close-btn">✖</button>
-    </div>
-  
-      <!-- HEADER SECTION 🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥-->
-
-
-
-
-<!-- Empty block -->
-<div class="empty-block"></div>
-
-<!-- title in the dep page -->
-
-<div class="big-title">
-    <h1>الخطة الشجرية ودورات داعمة للتخصص</h1>
-  </div>
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  <!-- Tree Block Repeated 4 Times -->
-  
-  <!-- START TREE BLOCK -->
-  <div class="tree-title-wrapper">
-    <h2 class="tree-title">الإدارة العامة السنة الأولى</h2>
-  </div>
-  <div class="tree-responsive-wrapper">
-    <div class="tree-container">
-      <img src="images/treedep.png" alt="Tree" class="tree-image">
-      <div class="icon-grid">
-        <a href="#"><div class="tree-icon-wrapper"><img src="images/bookicon.png" class="tree-icon"><span class="icon-text">الإدارة العامة الحديثة</span></div></a>
-        <a href="#"><div class="tree-icon-wrapper"><img src="images/bookicon.png" class="tree-icon"><span class="icon-text">مبادئ إحصاء</span></div></a>
-        <a href="#"><div class="tree-icon-wrapper"><img src="images/bookicon.png" class="tree-icon"><span class="icon-text">مبادئ محاسبة (1)</span></div></a>
-        <a href="#"><div class="tree-icon-wrapper"><img src="images/bookicon.png" class="tree-icon"><span class="icon-text">مبادئ التسويق</span></div></a>
-        <a href="#"><div class="tree-icon-wrapper"><img src="images/bookicon.png" class="tree-icon"><span class="icon-text">نظريات التنظيم</span></div></a>
-        <a href="#"><div class="tree-icon-wrapper"><img src="images/bookicon.png" class="tree-icon"><span class="icon-text">منهجية البحث في العلوم الإدارية</span></div></a>
-        <a href="#"><div class="tree-icon-wrapper"><img src="images/bookicon.png" class="tree-icon"><span class="icon-text">متطلب تخصص اختياري</span></div></a>
-        <a href="#"><div class="tree-icon-wrapper"><img src="images/bookicon.png" class="tree-icon"><span class="icon-text">متطلب تخصص اختياري</span></div></a>
-      </div>
-      </div>
-    </div>
-  </div>
-  <!-- END TREE BLOCK -->
-  <script>
-    function forceDownload() {
-        const link = document.createElement('a');
-        link.href = 'downloads/ReportOne.pdf';
-        link.setAttribute('download', 'ReportOne.pdf');
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
-    }
-    </script>
-  <div class="fancy-badge">
-    <span>اضغط على المادة للتحميل المباشر</span>
-  </div>
-  
-  
-  
-  
-  
-  <hr style="border: 1px solid #5E2950; margin: 20px auto; width: 50%; box-shadow: 0 0 10px #5E2950;">
-  <!-- START TREE BLOCK -->
-  <div class="tree-title-wrapper">
-    <h2 class="tree-title">الإدارة العامة السنة الثانية</h2>
-  </div>
-  <div class="tree-responsive-wrapper">
-    <div class="tree-container">
-      <img src="images/treedep.png" alt="Tree" class="tree-image">
-      <div class="icon-grid">
-        <a href="#"><div class="tree-icon-wrapper"><img src="images/bookicon.png" class="tree-icon"><span class="icon-text">مبادئ إدارة الأعمال</span></div></a>
-        <a href="#"><div class="tree-icon-wrapper"><img src="images/bookicon.png" class="tree-icon"><span class="icon-text">مبادئ الإدارة المالية</span></div></a>
-        <a href="#"><div class="tree-icon-wrapper"><img src="images/bookicon.png" class="tree-icon"><span class="icon-text">مبادئ الاقتصاد الجزئي</span></div></a>
-        <a href="#"><div class="tree-icon-wrapper"><img src="images/bookicon.png" class="tree-icon"><span class="icon-text">السلوك الإداري</span></div></a>
-        <a href="#"><div class="tree-icon-wrapper"><img src="images/bookicon.png" class="tree-icon"><span class="icon-text">مالية عامة</span></div></a>
-        <a href="#"><div class="tree-icon-wrapper"><img src="images/bookicon.png" class="tree-icon"><span class="icon-text">إدارة العلاقات العامة</span></div></a>
-        <a href="#"><div class="tree-icon-wrapper"><img src="images/bookicon.png" class="tree-icon"><span class="icon-text">المهارات الإدارية الحديثة</span></div></a>
-        <a href="#"><div class="tree-icon-wrapper"><img src="images/bookicon.png" class="tree-icon"><span class="icon-text">متطلب تخصص اختياري</span></div></a>
-      </div>
-    </div>
-  </div>
-  <!-- END TREE BLOCK -->
-  <hr style="border: 1px solid #5E2950; margin: 20px auto; width: 50%; box-shadow: 0 0 10px #5E2950;">
-   <!-- START TREE BLOCK -->
-  <div class="tree-title-wrapper">  
-    <h2 class="tree-title">الإدارة العامة العام الثالث</h2>  
-  </div>  
-  
-  <div class="tree-responsive-wrapper">  
-    <div class="tree-container">  
-      <img src="images/treedep.png" alt="Tree" class="tree-image"> 
-      <div class="icon-grid">  
-        <a href="#"><div class="tree-icon-wrapper"><img src="images/bookicon.png" class="tree-icon"><span class="icon-text">التنظيم وإجراءات العمل</span></div></a>  
-        <a href="#"><div class="tree-icon-wrapper"><img src="images/bookicon.png" class="tree-icon"><span class="icon-text">إدارة المشروعات العامة</span></div></a>  
-        <a href="#"><div class="tree-icon-wrapper"><img src="images/bookicon.png" class="tree-icon"><span class="icon-text">الحاكمية</span></div></a>  
-        <a href="#"><div class="tree-icon-wrapper"><img src="images/bookicon.png" class="tree-icon"><span class="icon-text">مبادئ نظم معلومات إدارية</span></div></a>  
-        <a href="#"><div class="tree-icon-wrapper"><img src="images/bookicon.png" class="tree-icon"><span class="icon-text">الإدارة العامة في الأردن</span></div></a>  
-        <a href="#"><div class="tree-icon-wrapper"><img src="images/bookicon.png" class="tree-icon"><span class="icon-text">إدارة المشتريات وتوريد</span></div></a>  
-        <a href="#"><div class="tree-icon-wrapper"><img src="images/bookicon.png" class="tree-icon"><span class="icon-text">إدارة الموارد البشرية في القطاع العام</span></div></a>  
-        <a href="#"><div class="tree-icon-wrapper"><img src="images/bookicon.png" class="tree-icon"><span class="icon-text">متطلب تخصص اختياري</span></div></a>  
-      </div>  
-    </div>  
-  </div>  
-  <!-- END TREE BLOCK -->
-   
-  <hr style="border: 1px solid #5E2950; margin: 20px auto; width: 50%; box-shadow: 0 0 10px #5E2950;">
-   <!-- START TREE BLOCK -->
-  <div class="tree-title-wrapper">  
-    <h2 class="tree-title">الإدارة العامة العام الرابع</h2>  
-  </div>  
-  
-  <div class="tree-responsive-wrapper">  
-    <div class="tree-container">  
-      <img src="images/treedep.png" alt="Tree" class="tree-image"> 
-      <div class="icon-grid">  
-        <a href="#"><div class="tree-icon-wrapper"><img src="images/bookicon.png" class="tree-icon"><span class="icon-text">السياسات العامة</span></div></a>  
-        <a href="#"><div class="tree-icon-wrapper"><img src="images/bookicon.png" class="tree-icon"><span class="icon-text">إدارة الجودة في القطاع العام</span></div></a>  
-        <a href="#"><div class="tree-icon-wrapper"><img src="images/bookicon.png" class="tree-icon"><span class="icon-text">أساليب التحليل الكمي</span></div></a>  
-        <a href="#"><div class="tree-icon-wrapper"><img src="images/bookicon.png" class="tree-icon"><span class="icon-text">مهارات الاستعداد لسوق العمل</span></div></a>  
-        <a href="#"><div class="tree-icon-wrapper"><img src="images/bookicon.png" class="tree-icon"><span class="icon-text">التخطيط الاستراتيجي في القطاع العام</span></div></a>  
-        <a href="#"><div class="tree-icon-wrapper"><img src="images/bookicon.png" class="tree-icon"><span class="icon-text">إدارة الحسابات الحكومية</span></div></a>  
-        <a href="#"><div class="tree-icon-wrapper"><img src="images/bookicon.png" class="tree-icon"><span class="icon-text">إدارة الأزمات</span></div></a>  
-        <a href="#"><div class="tree-icon-wrapper"><img src="images/bookicon.png" class="tree-icon"><span class="icon-text">الموازنة العامة / التدريب العملي</span></div></a>  
-      </div>  
-    </div>  
-  </div>  
-  <!-- END TREE BLOCK -->
-  
-  <!-- button for more books -->
-    <div class="center-button-wrapper">
-      <a  class="custom-button" onclick="showPopup()">المواد الاخرى</a>
-    </div>
-  
-    <!-- Popup Modal -->
-    <div id="popupModal" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 1000; background: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);">
-      <h2 style="text-align: center; color: #5E2950;">قائمة المواد</h2>
-      <table style="width: 100%; border-collapse: collapse; margin-top: 20px;">
-        <thead>
-          <tr style="background-color: #5E2950; color: white;">
-            <th style="padding: 10px; border: 1px solid #ddd;">اسم المادة</th>
-            <th style="padding: 10px; border: 1px solid #ddd;">السنة</th>
-            <th style="padding: 10px; border: 1px solid #ddd;">تحميل</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td style="padding: 10px; border: 1px solid #ddd;">سلسلة تزويد</td>
-            <td style="padding: 10px; border: 1px solid #ddd;">السنة الثالثة</td>
-            <td style="padding: 10px; border: 1px solid #ddd; text-align: center;"><a href="#" style="color: #EC522D; text-decoration: none;">تحميل</a></td>
-          </tr>
-          <tr>
-            <td style="padding: 10px; border: 1px solid #ddd;">إدارة موارد بشرية</td>
-            <td style="padding: 10px; border: 1px solid #ddd;">السنة الثانية</td>
-            <td style="padding: 10px; border: 1px solid #ddd; text-align: center;"><a href="#" style="color: #EC522D; text-decoration: none;">تحميل</a></td>
-          </tr>
-          <tr>
-            <td style="padding: 10px; border: 1px solid #ddd;">أمن المعلومات</td>
-            <td style="padding: 10px; border: 1px solid #ddd;">السنة الرابعة</td>
-            <td style="padding: 10px; border: 1px solid #ddd; text-align: center;"><a href="#" style="color: #EC522D; text-decoration: none;">تحميل</a></td>
-          </tr>
-          <tr>
-            <td style="padding: 10px; border: 1px solid #ddd;">التسويق الإلكتروني</td>
-            <td style="padding: 10px; border: 1px solid #ddd;">السنة الأولى</td>
-            <td style="padding: 10px; border: 1px solid #ddd; text-align: center;"><a href="#" style="color: #EC522D; text-decoration: none;">تحميل</a></td>
-          </tr>
-          <tr>
-            <td style="padding: 10px; border: 1px solid #ddd;">إدارة سياحية</td>
-            <td style="padding: 10px; border: 1px solid #ddd;">السنة الثالثة</td>
-            <td style="padding: 10px; border: 1px solid #ddd; text-align: center;"><a href="#" style="color: #EC522D; text-decoration: none;">تحميل</a></td>
-          </tr>
-          <!-- Add more rows as needed -->
-        </tbody>
-      </table>
-      <tbody>
-   
-      </tbody>
-      <div style="text-align: center; margin-top: 20px;">
-        <button onclick="closePopup()" style="padding: 10px 20px; background-color: #5E2950; color: white; border: none; border-radius: 5px; cursor: pointer; transition: background-color 0.3s ease;" onmouseover="this.style.backgroundColor='#EC522D'" onmouseout="this.style.backgroundColor='#5E2950'">إغلاق</button>
-      </div>
-      </div>
-  <!-- script for button  -->
-      <script>
-        function showPopup() {
-          document.getElementById("popupModal").style.display = "block";
-        }
-      
-        function closePopup() {
-          document.getElementById("popupModal").style.display = "none";
-        }
-      </script>
-  
-  
-  <!-- Heading for  -->
-      <div class="big-title">
-        <h1>دورات داعمة للتخصص</h1>
-      </div>
-  <!-- table of courses  -->
-  <table class="styled-table" id="courses-table-PBUS"> 
-    <thead> 
-      <tr> 
-        <th>اسم الدورة</th> 
-        <th>رابط الدورة</th> 
-        <th>وصف الدورة</th> 
-      </tr> 
-    </thead> 
-    <tbody> 
-      <tr> 
-        <td>مبادئ الإدارة العامة</td> 
-        <td><a href="#" class="button-link-table">اضغط هنا</a></td> 
-        <td>مدخل شامل لفهم طبيعة الإدارة العامة ومجالاتها المختلفة</td> 
-      </tr> 
-      <tr> 
-        <td>السياسات العامة</td> 
-        <td><a href="#" class="button-link-table">اضغط هنا</a></td> 
-        <td>شرح حول صياغة وتنفيذ وتقييم السياسات العامة</td> 
-      </tr> 
-      <tr> 
-        <td>الحوكمة وإدارة المؤسسات</td> 
-        <td><a href="#" class="button-link-table">اضغط هنا</a></td> 
-        <td>فهم مبادئ الحوكمة الجيدة وإدارة المشاريع الحكومية</td> 
-      </tr> 
-      <tr> 
-        <td>إدارة الأزمات</td> 
-        <td><a href="#" class="button-link-table">اضغط هنا</a></td> 
-        <td>أساليب التعامل مع الطوارئ والتخطيط لاستمرارية العمل</td> 
-      </tr> 
-    </tbody> 
-  </table>
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-      
-
-  
-  <!--  FOOTER 🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥-->
-    <footer class="footer">
-        <div class="footer-container">
-            <div class="footer-left">
-          
-                <h2>
-                    <a href="MainPagefull.html" style="text-decoration: none;">
-
-                        <span style="color: #EC522D; font-weight: bold; text-shadow: 0 0 5px #EC522D, 0 0 20px #EC522D;">Business</span> 
-                        <span style="color: #5E2950; font-weight: bold; text-shadow: 0 0 10px #5E2950, 0 0 20px #5E2950;">Hub</span>
-
-
-                        
-                    </a>
-                </h2>
-                <p class="slogan">تمكين الطلاب وربط المعرفة وبناء المستقبل</p>
-            </div>
-            <div class="footer-middle">
-                <a href="MIS.html">نظم المعلومات الإدارية</a>
-                <a href="BUS.html">إدارة الأعمال</a>
-                <a href="ECO.html">اقتصاد الأعمال</a>
-                <a href="PBUS.html">الإدارة العامة</a>
-                <a href="FNC.html">التمويل</a>
-                <a href="MKT.html">التسويق</a>
-                <a href="ACC.html">المحاسبة</a>
-            </div>
-            <div class="footer-right">
-                <a href="https://regapp.ju.edu.jo/regapp/">موقع التسجيل</a>
-                <a href="https://elearning.ju.edu.jo/login/index.php">eLearning</a>
-                <a href="https://juexams.com/moodle/login/index.php">Ju-Exam</a>
-                <a href="https://library.ju.edu.jo/Elibrary/">E-Library</a>
-                <a href="#">تواصل معنا</a>
-                <a href="#">من نحن</a>
-            </div>
-        </div>
-    </footer>
- 
-      <!--  FOOTER 🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥-->
-</body>
-</html>
