@@ -5,39 +5,48 @@ if (session_status() === PHP_SESSION_NONE) {
 }
 // make sure $conn is available for the bell-count query
 require_once __DIR__ . '/db.php';
-
 // only fetch counts & panels when logged in
 $unread = 0;
 $panelNotes = [];
 if (isset($_SESSION['user_id'])) {
   $uid = $_SESSION['user_id'];
-
-  // 1) unread count
-  $stmt = $conn->prepare("
-    SELECT COUNT(*) AS cnt
-      FROM notifications
-     WHERE receiver_id = ?
-       AND is_read = 0
-  ");
+  // 1) unread count matches exactly what shows in panel
+  $stmt = $conn->prepare(
+    "SELECT COUNT(*) AS cnt
+      FROM notifications n
+      LEFT JOIN book_requests br
+        ON n.type = 'book_request'
+       AND br.id = n.action_id
+     WHERE n.receiver_id = ?
+       AND n.is_read = 0
+       AND n.is_deleted = 0
+       AND (n.type != 'book_request' OR br.status = 'pending')"
+  );
   $stmt->bind_param("i", $uid);
   $stmt->execute();
   $unread = (int)$stmt->get_result()->fetch_assoc()['cnt'];
-
   // 2) latest 5 notifications for offcanvas panel
-// After – added action_id
-$panelStmt = $conn->prepare("
-  SELECT id,
-         action_id,
-         message,
-         type,
-         is_read,
-         created_at
-    FROM notifications
-   WHERE receiver_id = ?
-   ORDER BY created_at DESC
-   LIMIT 5
-");
-
+  $panelStmt = $conn->prepare(
+    "SELECT
+      n.id,
+      n.message,
+      n.type,
+      n.is_read,
+      n.created_at,
+      n.action_id,
+      c.id AS chat_session_id,       -- pull the chat PK for linking
+      br.status AS request_status    -- existing join
+    FROM notifications AS n
+    LEFT JOIN book_requests AS br
+      ON n.type = 'book_request'
+     AND br.id    = n.action_id
+    LEFT JOIN chats AS c
+      ON c.request_id = n.action_id
+    WHERE n.receiver_id = ?
+      AND n.is_deleted  = 0          -- skip soft-deleted
+    ORDER BY n.created_at DESC
+    LIMIT 5"
+  );
   $panelStmt->bind_param("i", $uid);
   $panelStmt->execute();
   $panelNotes = $panelStmt->get_result()->fetch_all(MYSQLI_ASSOC);
@@ -46,7 +55,7 @@ $panelStmt = $conn->prepare("
 <header class="navbar">
   <div class="logo-container">
     <a href="HomePage.php">
-      <img src="../images/3d-logo.png" alt="Business Hub Logo" class="logo">
+      <img src="images/3d-logo2.png" alt="Business Hub Logo" class="logo">
     </a>
     <a href="HomePage.php" class="brand-text">
       <span class="business-text">Business</span>
@@ -60,24 +69,24 @@ $panelStmt = $conn->prepare("
         الأقسام <i class="fas fa-caret-down"></i>
       </button>
       <div class="dropdown-content">
-        <a href="MIS.php">نظم المعلومات الإدارية</a>
-        <a href="BUS.php">إدارة الأعمال</a>
-        <a href="ECO.php">اقتصاد الأعمال</a>
-        <a href="PBUS.php">الإدارة العامة</a>
-        <a href="FNC.php">التمويل</a>
-        <a href="MKT.php">التسويق</a>
-        <a href="ACC.php">المحاسبة</a>
+        <a href="departments/MIS.php">نظم المعلومات الإدارية</a>
+        <a href="departments/BUS.php">إدارة الأعمال</a>
+        <a href="departments/ECO.php">اقتصاد الأعمال</a>
+        <a href="departments/PBUS.php">الإدارة العامة</a>
+        <a href="departments/FNC.php">التمويل</a>
+        <a href="departments/MKT.php">التسويق</a>
+        <a href="departments/ACC.php">المحاسبة</a>
       </div>
     </div>
-    <a href="AcademicStaff.php">أعضاء هيئة التدريس</a>
-    <a href="halls.php">القاعات</a>
+    <a href="front/AcademicStaff.php">أعضاء هيئة التدريس</a>
+    <a href="front/halls.php">القاعات</a>
     <a href="booksexchange.php">تبادل الكتب</a>
   </nav>
 
   <div class="icons">
     <?php if (isset($_SESSION['user_id'])): ?>
       <span class="nav-link welcome-text">
-        Welcome <?= htmlspecialchars($_SESSION['first_name'] ?? '') ?>
+        Welcome <?= htmlspecialchars($_SESSION['first_name']) ?>
       </span>
 
       <!-- Bell button opens offcanvas panel -->
@@ -109,87 +118,91 @@ $panelStmt = $conn->prepare("
 <div class="offcanvas offcanvas-end" tabindex="-1" id="notifPanel" aria-labelledby="notifPanelLabel">
   <div class="offcanvas-header">
     <h5 id="notifPanelLabel">Notifications</h5>
-    <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+
+    <!-- Recent Chats button now just redirects -->
+    <button id="show-recent-chats"
+            class="btn btn-sm btn-secondary me-2"
+            title="Recent Chats">
+      <i class="fas fa-comments"></i>
+    </button>
+
+    <!-- Clear All notifications -->
+    <button id="clear-all-notifs"
+            class="btn btn-sm btn-danger me-2"
+            title="Clear All">
+      <i class="fas fa-trash-alt"></i>
+    </button>
+
+    <button type="button"
+            class="btn-close"
+            data-bs-dismiss="offcanvas"></button>
   </div>
+
   <div class="offcanvas-body">
-    <!-- 👇 Replace the empty body you currently have with this: 👇 -->
     <?php if (empty($panelNotes)): ?>
       <p class="text-muted">No notifications.</p>
     <?php else: ?>
       <ul class="list-group">
-        <?php foreach($panelNotes as $n): ?>
-          <li class="list-group-item d-flex justify-content-between align-items-start <?= $n['is_read']?'':'list-group-item-warning' ?>">
-            <div>
-              <small class="text-muted"><?= date('M j, H:i', strtotime($n['created_at'])) ?></small><br>
-              <?= htmlspecialchars($n['message'], ENT_QUOTES, 'UTF-8') ?>
-            </div>
+        <?php foreach($panelNotes as $n):
+          // skip stale book_request notifications
+          if ($n['type']==='book_request'
+           && (!isset($n['request_status']) || $n['request_status']!=='pending')
+          ) continue;
 
-            <?php if ($n['type']==='book_request' && !empty($n['action_id'])): ?>
-              <div class="btn-group btn-group-sm">
-                <button
-                  type="button"
-                  class="btn btn-success accept-request"
-                  data-request-id="<?= (int)$n['action_id'] ?>"
-                >Accept</button>
-                <button
-                  type="button"
-                  class="btn btn-danger reject-request"
-                  data-request-id="<?= (int)$n['action_id'] ?>"
-                >Reject</button>
-              </div>
-            <?php endif; ?>
+          $type   = $n['type'];
+          $chatId = (int)($n['chat_session_id'] ?? 0);
+        ?>
+        <li
+        class="list-group-item d-flex justify-content-between align-items-start
+              <?= $n['is_read'] ? '' : 'list-group-item-warning' ?>
+              <?php if ($type!=='book_request' && $chatId) echo ' clickable'; ?>"
+        <?php if ($type!=='book_request' && $chatId): ?>
+          style="cursor:pointer"
+          data-chat-id="<?= $chatId ?>"
+          onclick="window.location='chat.php?chat_id='+this.dataset.chatId;"
+        <?php endif; ?>
+        >
+          <div class="flex-grow-1">
+            <small class="text-muted">
+              <?= date('M j, H:i', strtotime($n['created_at'])) ?>
+            </small><br>
+            <?= htmlspecialchars($n['message'], ENT_QUOTES, 'UTF-8') ?>
+          </div>
 
-          </li>
+          <?php if ($type === 'book_request'): ?>
+          <div class="btn-group btn-group-sm ms-2">
+            <button type="button"
+                    class="btn btn-success accept-request"
+                    data-request-id="<?= (int)$n['action_id'] ?>">
+              Accept
+            </button>
+            <button type="button"
+                    class="btn btn-danger reject-request"
+                    data-request-id="<?= (int)$n['action_id'] ?>">
+              Reject
+            </button>
+          </div>
+          <?php endif; ?>
+
+          <button type="button"
+                  class="btn btn-sm btn-outline-danger delete-notif ms-2"
+                  data-notif-id="<?= (int)$n['id'] ?>"
+                  title="Delete"
+                  onclick="event.stopPropagation();">
+            &times;
+          </button>
+        </li>
         <?php endforeach; ?>
       </ul>
       <hr>
-      <a href="notifications.php">See all notifications…</a>
+ 
     <?php endif; ?>
   </div>
 </div>
 
 
-<!--
-  JS: wires up Accept → chat.php and Reject → reject_request.php
-  Make sure you’ve included Bootstrap’s bundle.js (for the offcanvas),
-  then place this snippet just before your closing </body> tag.
--->
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-  // 1) Accept buttons → go to chat page
-  document.querySelectorAll('.accept-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const reqId = btn.dataset.requestId;
-      window.location.href = `chat.php?request_id=${reqId}`;
-    });
-  });
 
-  // 2) Reject buttons → AJAX, then remove from panel
-  document.querySelectorAll('.reject-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const reqId = btn.dataset.requestId;
-      if (!confirm('Reject this request?')) return;
 
-      fetch('reject_request.php', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: `request_id=${reqId}`
-      })
-      .then(r => r.json())
-      .then(data => {
-        if (data.status === 'ok') {
-          btn.closest('li').remove();
-        } else {
-          alert('Could not reject: ' + (data.error||data.status));
-        }
-      })
-      .catch(() => {
-        alert('Network error rejecting request');
-      });
-    });
-  });
-});
-</script>
 
 <!-- Search Bar Popup -->
 <div class="search-popup-header">
@@ -221,7 +234,7 @@ document.addEventListener('DOMContentLoaded', () => {
     <a href="GraduateReq.php">متطلبات التخرج</a>
 
     <!-- Note: we do NOT include the bell here in mobile -->
-    <!-- Remove any <a class="mobile-notif">…</a> you had before -->
+ 
 
     <div class="mobile-auth">
       <?php if (isset($_SESSION['user_id'])): ?>
@@ -233,35 +246,6 @@ document.addEventListener('DOMContentLoaded', () => {
   </div>
 </div>
 
-<script>
-function toggleSearchPopup() {
-  document.querySelector('.search-popup-header')?.classList.toggle('active');
-}
-document.addEventListener("DOMContentLoaded", () => {
-  const searchIcon = document.querySelector(".search-icon");
-  const searchPopup = document.querySelector(".search-popup-header");
-  const closeSearch = document.querySelector(".search-close-btn-header");
-  const container   = document.querySelector(".search-container-header");
-
-  searchIcon?.addEventListener("click", () => searchPopup.classList.toggle("active"));
-  closeSearch?.addEventListener("click", () => searchPopup.classList.remove("active"));
-  searchPopup?.addEventListener("click", e => {
-    if (!container.contains(e.target)) searchPopup.classList.remove("active");
-  });
-  document.addEventListener("keydown", e => {
-    if (e.key==="Escape" && searchPopup.classList.contains("active")) {
-      searchPopup.classList.remove("active");
-    }
-  });
-
-  document.querySelector('.burger-menu')?.addEventListener('click', () => {
-    document.querySelector('.menu-overlay')?.classList.add('active');
-  });
-  document.querySelector('.close-btn-gry')?.addEventListener('click', () => {
-    document.querySelector('.menu-overlay')?.classList.remove('active');
-  });
-});
-</script>
 
 <style>
 /* ─── Desktop header ───────────────────────────────────────────────────────── */
@@ -316,5 +300,8 @@ document.addEventListener("DOMContentLoaded", () => {
   background: #e74c3c; color: #fff;
   font-size: .65rem; padding: 2px 5px; border-radius: 50%;
 }
-
+/* Hover effect for clickable notifications */
+.list-group-item.clickable:hover {
+  background-color: #f0f8ff;    /* or whatever highlight color you prefer */
+}
 </style>

@@ -6,23 +6,26 @@
 
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <!-- chatgpt addons -->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+     
+  <!-- Base URL to make all relative paths start from /businesshub -->
+  <base href="/businesshub/">
+
+  <!-- FontAwesome + Bootstrap -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Amiri&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@500;700;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@500;700;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@600;800&display=swap" rel="stylesheet">
+ 
+  <!-- Custom CSS with cache-busting version -->
+  <?php
+    $cssVersion = filemtime($_SERVER['DOCUMENT_ROOT'] . '/businesshub/css/header-footer.css');
+  ?>
+  <link rel="stylesheet" href="css/header-footer.css?v=<?php echo $cssVersion; ?>">
+  <link rel="stylesheet" href="css/deps.css">
 
 
-        <!-- add FontAwesome -->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-        <link href="https://fonts.googleapis.com/css2?family=Amiri&display=swap" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@500;700;900&display=swap" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@500;700;900&display=swap" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@600;800&display=swap" rel="stylesheet">
-        <!-- Bootstrap 5 CSS -->
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" />
-        
-        <base href="/businesshub/">
-        <?php $version = filemtime('css/header-footer.css'); ?>
-        <link rel="stylesheet" href="css/header-footer.css?v=<?php echo $version; ?>">
-          
 
     <title>halls</title>
     <style>
@@ -300,6 +303,7 @@ table button:hover {
 
 </style>
 
+    <?php include(__DIR__ . '/../includes/header.php'); ?>
 </head>
 
 
@@ -307,7 +311,7 @@ table button:hover {
 
 <body>
     
-<?php include 'includes/header.php'; ?>
+
  
 
 
@@ -340,7 +344,7 @@ table button:hover {
         </table>
       </div>
 
-      <?php include 'includes/footer.php'; ?>
+    <?php include(__DIR__ . '/../includes/footer.php'); ?>
         <script>
       const buildings = [
       {
@@ -652,9 +656,6 @@ document.addEventListener("contextmenu", function (e) {
     }
   });
       </script>
-
-
-
 
 
 

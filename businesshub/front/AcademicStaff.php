@@ -1,41 +1,49 @@
 <?php
-session_start();
+if (session_status() === PHP_SESSION_NONE) {
+  session_start();
+}
+
+// load the DB from the correct path:
 require_once __DIR__ . '/../includes/db.php';
 require_once __DIR__ . '/../includes/model/academicStaffModel.php';
 
-// 1) Fetch all staff
 $staffList = getAllAcademicStaff();
-
-// 2) Fetch distinct department names for the dropdown
-$deptRes = $conn->query("
-  SELECT DISTINCT department_name
-    FROM departments
-   ORDER BY department_name
-");
+$deptRes   = $conn->query("SELECT DISTINCT department_name FROM departments ORDER BY department_name");
 ?>
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>الطاقم الأكاديمي</title>
-  <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <!-- DataTables CSS -->
+
+  <!-- Base URL to make all relative paths start from /businesshub -->
+  <base href="/businesshub/">
+
+  <!-- FontAwesome + Bootstrap -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" />
+
+  <!-- Custom CSS with cache-busting version -->
+  <?php
+    $cssVersion = filemtime($_SERVER['DOCUMENT_ROOT'] . '/businesshub/css/header-footer.css');
+  ?>
+  <link rel="stylesheet" href="css/header-footer.css?v=<?php echo $cssVersion; ?>">
+  <link rel="stylesheet" href="css/deps.css">
+ <!-- DataTables CSS -->
   <link href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css" rel="stylesheet">
-  <!-- Header/Footer CSS -->
-  <link
-    rel="stylesheet"
-    href="/businesshub/css/header-footer.css?v=<?= filemtime($_SERVER['DOCUMENT_ROOT'].'/businesshub/css/header-footer.css') ?>"
-  >
+  <!-- Notify styles (FontAwesome duplicate removed because already above) -->
+  <!-- You can remove this if not used -->
+  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/> -->
+
   <style>
     .modal-backdrop.show { backdrop-filter: blur(5px); }
   </style>
 </head>
+   <?php include '../includes/header.php'; ?>
 <body class="bg-light">
 
-  <!-- Shared header -->
-  <?php include __DIR__ . '/../includes/header.php'; ?>
+
+
 
   <div class="container my-5">
     <h2 class="text-center mb-4">الطاقم الأكاديمي</h2>
@@ -128,7 +136,7 @@ $deptRes = $conn->query("
   </div>
 
   <!-- Shared footer -->
-  <?php include __DIR__ . '/../includes/footer.php'; ?>
+   <?php include '../includes/footer.php'; ?>
 
   <!-- Bootstrap JS Bundle -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>

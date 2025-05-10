@@ -45,9 +45,7 @@ $offerOk      = $offerStatus === 'ok';
  
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- chatgpt addons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <!-- add FontAwesome -->
+     <!-- add FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
        <!-- Bootstrap 5 CSS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" />
@@ -309,82 +307,61 @@ $offerOk      = $offerStatus === 'ok';
   // 1) Track which book was clicked and populate the hidden “Give” form field  
   // ===============================================================================  
   bookCards.forEach(card => {
-    card
-      .querySelector('.btn-success')              // “Give” button on each card  
-      .addEventListener('click', () => {
-        // Put this card’s book ID into the hidden input inside the Give modal  
-        document.getElementById('giveBookId').value = card.dataset.bookId;
-      });
+    card.querySelector('.btn-success')?.addEventListener('click', () => {
+      document.getElementById('giveBookId').value = card.dataset.bookId;
+    });
   });
 
   // ===============================================================================  
   // 2) When the “Take” modal opens, clear previous state and fetch fresh offer data  
   // ===============================================================================  
-  const takeModalEl   = document.getElementById('takeModal');
-  const giverList     = document.getElementById('giverList');     // <ul> for offer items  
-  const requestStatus = document.getElementById('requestStatus'); // status message below list  
+const takeModalEl = document.getElementById('takeModal'); 
+const giverList = document.getElementById('giverList');
+const requestStatus = document.getElementById('requestStatus');
 
+if (!takeModalEl.dataset.bound) {
   takeModalEl.addEventListener('show.bs.modal', event => {
-    const triggerBtn = event.relatedTarget;                    // the “Take” button that opened it  
-    const card       = triggerBtn.closest('.book-card');
-    const bookId     = card.dataset.bookId;
+    const triggerBtn = event.relatedTarget;
+    const card = triggerBtn.closest('.book-card');
+    const bookId = card.dataset.bookId;
 
-    // Reset list & any previous status message  
-    giverList.innerHTML       = '';
+    giverList.innerHTML = '';
     requestStatus.textContent = '';
 
-    // Fetch all offers for this book, including whether THIS user has already requested each  
+    console.log('🟢 show.bs.modal for bookId =', bookId);
+
     fetch(`getOffers.php?book_id=${bookId}`)
       .then(r => r.json())
       .then(offers => {
         if (!offers.length) {
-          // No offers yet  
           giverList.innerHTML = `<li class="list-group-item">No offers yet for this book.</li>`;
           return;
         }
-        // Build each list item  
-        offers.forEach(o => {
+
+        const shown = new Set(offers.map(o => String(o.offer_id)));
+        giverList.innerHTML = ''; // Clear again if needed
+
+        shown.forEach(offerId => {
+          const o = offers.find(item => String(item.offer_id) === offerId);
+          if (!o) return;
+
           const li = document.createElement('li');
           li.className = 'list-group-item d-flex justify-content-between align-items-start';
 
-          // Left side: giver info  
           let html = `
             <div>
               <strong>${o.giver_name}</strong><br>
-              <small class="text-muted">
-                Offered on: ${new Date(o.offered_at).toLocaleDateString()}
-              </small><br>
+              <small class="text-muted">Offered on: ${new Date(o.offered_at).toLocaleDateString()}</small><br>
               <small>${o.book_condition}</small>
             </div>
           `;
 
-          // Right side:  
           if (window.currentUserId === o.giver_id) {
-            // (A) Your own offer → Drop  
-            html += `
-              <button
-                class="btn btn-sm btn-danger drop-btn"
-                data-offer-id="${o.offer_id}"
-              >Drop</button>
-            `;
-          }
-          else if (o.has_requested) {
-            // (B) You already have a *pending* request → Cancel  
-            html += `
-              <button
-                class="btn btn-sm btn-warning cancel-btn"
-                data-request-id="${o.request_id}"
-              >Cancel</button>
-            `;
-          }
-          else {
-            // (C) No pending request → Request  
-            html += `
-              <button
-                class="btn btn-sm btn-primary request-btn"
-                data-offer-id="${o.offer_id}"
-              >Request</button>
-            `;
+            html += `<button class="btn btn-sm btn-danger drop-btn" data-offer-id="${o.offer_id}">Drop</button>`;
+          } else if (o.has_requested) {
+            html += `<button class="btn btn-sm btn-warning cancel-btn" data-request-id="${o.request_id}">Cancel</button>`;
+          } else {
+            html += `<button class="btn btn-sm btn-primary request-btn" data-offer-id="${o.offer_id}">Request</button>`;
           }
 
           li.innerHTML = html;
@@ -392,16 +369,13 @@ $offerOk      = $offerStatus === 'ok';
         });
       })
       .catch(() => {
-        // Network or JSON error  
-        giverList.innerHTML = `
-          <li class="list-group-item text-danger">
-            Error loading offers.
-          </li>
-        `;
+        giverList.innerHTML = `<li class="list-group-item text-danger">Error loading offers.</li>`;
       });
   });
 
-  // ===========================================================================  
+  takeModalEl.dataset.bound = "true";
+}
+// ===========================================================================  
   // Populate the Give-modal’s hidden book_id whenever it’s shown  
   // ===========================================================================  
   const giveModalEl = document.getElementById('giveModal');
@@ -629,23 +603,11 @@ $offerOk      = $offerStatus === 'ok';
       return;
     }
   });
+  
 })();
+
 </script>
 
-<script>
-// Auto-dismiss any Bootstrap .alert after 2.5s
-document.addEventListener('DOMContentLoaded', () => {
-  const alertEl = document.querySelector('.alert');
-  if (!alertEl) return;
-
-  // Wait 2500ms, then trigger the Bootstrap close() method
-  setTimeout(() => {
-    // If you’re using Bootstrap 5’s JS bundle:
-    const bsAlert = bootstrap.Alert.getOrCreateInstance(alertEl);
-    bsAlert.close();
-  }, 2500);
-});
-</script>
 
 <!-- JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>

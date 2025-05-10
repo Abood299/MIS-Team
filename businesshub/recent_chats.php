@@ -16,13 +16,19 @@ if (empty($_SESSION['user_id'])) {
         rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
         rel="stylesheet">
+        <link 
+  rel="stylesheet" 
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+>
+           <?php $version = filemtime('css/header-footer.css'); ?>
+    <link rel="stylesheet" href="css/header-footer.css?v=<?php echo $version; ?>">
 
   <style>
     .chat-list .list-group-item {
       transition: background-color 0.2s, box-shadow 0.2s;
     }
     .chat-list .list-group-item:hover {
-      background-color: #f8f9fa;
+      background-color:#EC522D;
       box-shadow: 0 4px 14px rgba(0,0,0,0.1);
       cursor: pointer;
     }
@@ -33,8 +39,26 @@ if (empty($_SESSION['user_id'])) {
       object-fit: cover;
       margin-right: 1rem;
     }
+    /* to make the footer down  */
+    html, body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* allow the page‐content to grow and push the footer down */
+.page-content {
+  flex: 1 0 auto;
+}
   </style>
 </head>
+<?php include __DIR__ . '/includes/header.php'; ?>
+ <main class="page-content">
 <body class="bg-light">
 
   <div class="container py-5">
@@ -54,7 +78,8 @@ if (empty($_SESSION['user_id'])) {
       </div>
     </div>
   </div>
-
+    </main>
+<?php include __DIR__ . '/includes/footer.php'; ?>
   <!-- Bootstrap + dependencies -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 

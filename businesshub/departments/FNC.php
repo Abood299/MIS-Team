@@ -4,33 +4,37 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- chatgpt addons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <!-- add FontAwesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <!-- put on all pages  -->
-       <!-- Bootstrap 5 CSS -->
-       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" />
 
-    <base href="/businesshub/">
-    <?php $version = filemtime('css/header-footer.css'); ?>
-    <link rel="stylesheet" href="css/header-footer.css?v=<?php echo $version; ?>">
-    <link rel="stylesheet" href="css/deps.css"> <!-- to grab deps css -->
+  <!-- Base URL to make all relative paths start from /businesshub -->
+  <base href="/businesshub/">
+
+  <!-- FontAwesome + Bootstrap -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" />
+
+  <!-- Custom CSS with cache-busting version -->
+  <?php
+    $cssVersion = filemtime($_SERVER['DOCUMENT_ROOT'] . '/businesshub/css/header-footer.css');
+  ?>
+  <link rel="stylesheet" href="css/header-footer.css?v=<?php echo $cssVersion; ?>">
+  <link rel="stylesheet" href="css/deps.css">
+
+  <!-- Notify styles (FontAwesome duplicate removed because already above) -->
+  <!-- You can remove this if not used -->
+  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/> -->
 
     <title>Finance</title>
 
-    <style>
-
-   </style>
 
 
 
     </head>
 
+    <?php include '../includes/header.php'; ?>
 
 <body>
     
-<?php include 'includes/header.php'; ?>
+
 
 
 
@@ -251,7 +255,8 @@
     </table>
     
 
-    <?php include 'includes/footer.php'; ?>
+
+    <?php include '../includes/footer.php'; ?>
 <!-- to download book  -->
     <script>
   function forceDownload() {

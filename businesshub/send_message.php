@@ -1,115 +1,61 @@
 <?php
-// send_message.php — AJAX endpoint for sending a chat message
 session_start();
-
-// 0) Force JSON output, hide any stray warnings
-header('Content-Type: application/json; charset=UTF-8');
-ini_set('display_errors', 0);
-error_reporting(0);
-
 require 'includes/db.php';
 
-// ── 1) Authentication ──────────────────────────────────────────────────────────
-if (empty($_SESSION['user_id'])) {
-    http_response_code(401);
-    echo json_encode(['status'=>'error','message'=>'Not authenticated']);
+if (!isset($_SESSION['user_id'])) {
+    header('Location: user_login.php');
     exit;
 }
 
-// ── 2) Gather & validate input ────────────────────────────────────────────────
-$senderId    = (int) $_SESSION['user_id'];
-$chatId      = (int) ($_POST['chat_id']     ?? 0);
-$receiverId  = (int) ($_POST['receiver_id'] ?? 0);
-$messageText = trim((string) ($_POST['message'] ?? ''));
+$senderId   = $_SESSION['user_id'];
+$chatId     = (int)($_POST['chat_id'] ?? 0);
+$receiverId = (int)($_POST['receiver_id'] ?? 0);
+$message    = trim($_POST['message'] ?? '');
 
-if (!$chatId || !$receiverId || $messageText === '') {
-    http_response_code(400);
-    echo json_encode(['status'=>'error','message'=>'Invalid input']);
+if (!$chatId || !$receiverId || $message === '') {
+    header("Location: chat.php?chat_id={$chatId}");
     exit;
 }
 
-// ── 3) Verify user belongs to this chat ───────────────────────────────────────
-$verify = $conn->prepare("
-    SELECT 1
-      FROM chats
-     WHERE id = ?
-       AND (user1_id = ? OR user2_id = ?)
-     LIMIT 1
-");
-$verify->bind_param('iii', $chatId, $senderId, $senderId);
-$verify->execute();
-if (!$verify->get_result()->fetch_assoc()) {
-    http_response_code(403);
-    echo json_encode(['status'=>'error','message'=>'Access denied']);
-    exit;
-}
-
-// ── 4) Insert the message ─────────────────────────────────────────────────────
-$insert = $conn->prepare("
-    INSERT INTO chat_messages
-      (chat_id, sender_id, receiver_id, message)
-    VALUES
-      (?, ?, ?, ?)
-");
-$insert->bind_param('iiis',
-    $chatId,
-    $senderId,
-    $receiverId,
-    $messageText
+// 1) Verify user belongs to this chat
+$v = $conn->prepare(
+    "SELECT 1 FROM chats WHERE id = ? AND (user1_id = ? OR user2_id = ?)"
 );
-if (!$insert->execute()) {
-    http_response_code(500);
-    echo json_encode(['status'=>'error','message'=>'Database insert failed']);
-    exit;
+$v->bind_param('iii', $chatId, $senderId, $senderId);
+$v->execute();
+if (!$v->get_result()->fetch_assoc()) {
+    die('Access denied.');
 }
 
-// ── 5) Retrieve the timestamp of the newly inserted message ────────────────────
-$newId = $insert->insert_id;
-$tsQ   = $conn->prepare("
-    SELECT timestamp
-      FROM chat_messages
-     WHERE id = ?
-     LIMIT 1
-");
-$tsQ->bind_param('i', $newId);
-$tsQ->execute();
-$tsRow     = $tsQ->get_result()->fetch_assoc();
-$timestamp = $tsRow['timestamp'] ?? date('Y-m-d H:i:s');
+// 2) Insert the message
+$i = $conn->prepare(
+    "INSERT INTO chat_messages
+       (chat_id, sender_id, receiver_id, message)
+     VALUES (?, ?, ?, ?)"
+);
+$i->bind_param('iiis', $chatId, $senderId, $receiverId, $message);
+$i->execute();
 
-// ── 6) Notify the receiver ─────────────────────────────────────────────────────
-$rQ = $conn->prepare("
-    SELECT request_id
-      FROM chats
-     WHERE id = ?
-     LIMIT 1
-");
-$rQ->bind_param('i', $chatId);
-$rQ->execute();
-$rRow      = $rQ->get_result()->fetch_assoc();
-$requestId = (int) ($rRow['request_id'] ?? 0);
+// 3) Look up the original request_id from this chat
+$r = $conn->prepare("SELECT request_id FROM chats WHERE id = ? LIMIT 1");
+$r->bind_param('i', $chatId);
+$r->execute();
+$requestRow = $r->get_result()->fetch_assoc();
+$requestId  = $requestRow ? (int)$requestRow['request_id'] : 0;
 
+// 4) Notify the receiver, referencing the book_request ID
 if ($requestId) {
-    $notifText = ($_SESSION['first_name'] ?? 'Someone') . " sent you a message.";
-    $nQ = $conn->prepare("
-        INSERT INTO notifications
-          (user_id, receiver_id, action_id, type, message)
-        VALUES
-          (?, ?, ?, 'new_message', ?)
-    ");
-    $nQ->bind_param('iiis',
-        $senderId,
-        $receiverId,
-        $requestId,
-        $notifText
+    $notifText = $_SESSION['first_name'] . " sent you a message.";
+    $notif = $conn->prepare(
+        "INSERT INTO notifications
+           (user_id, receiver_id, action_id, type, message)
+         VALUES
+           (?, ?, ?, 'new_message', ?)"
     );
-    $nQ->execute();
+    $notif->bind_param('iiis', $senderId, $receiverId, $requestId, $notifText);
+    $notif->execute();
 }
 
-// ── 7) Return JSON ─────────────────────────────────────────────────────────────
-echo json_encode([
-    'status'    => 'ok',
-    'sender_id' => $senderId,
-    'message'   => $messageText,
-    'timestamp' => $timestamp
-]);
+// 5) Redirect back into the chat
+header("Location: chat.php?chat_id={$chatId}");
 exit;

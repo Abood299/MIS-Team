@@ -23,7 +23,6 @@ margin-bottom: 100px;
 /* Navbar 3D Effect - Making it Stand Out with a Stepped Edge Look */
 .navbar {
     display: flex;
-    flex-direction: row-reverse;
     justify-content: space-between;
     align-items: center;
     padding: 15px 20px;
@@ -35,8 +34,6 @@ margin-bottom: 100px;
     z-index: 1000; /* Lower than menu panel */
    
 }
-
-
 .logo-container {
     display: flex;
     align-items: center;
@@ -336,22 +333,20 @@ color:#5E2950;
 /* Header Styling */
 
 
-  /* Footer Styling 6 */
-  .footer {
-    background: #19002a;
-    padding: 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    text-align: left;
-    margin-top: auto; /* push footer to the bottom */
+.footer {
+  background: #19002a;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: left;
+  /* margin-top: auto;  ← you can leave this, but it’s not strictly needed once the body is flex */
 }
-
 .footer-container {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 20px;
 }
 
 .footer-left h2 {
@@ -384,12 +379,12 @@ color:#5E2950;
     margin-top: 7px; /* Raises the slogan up slightly */
 }
 
+/* remove the hard-coded push on the copyright */
 .copyright {
-    color: #ffffff93;
-    margin-top: 140px; /* Raises the slogan up slightly */
-    font-size: 13px;
-  }
-  
+  color: #ffffff93;
+  /* margin-top: 140px;  ← remove this */
+  font-size: 13px;
+}
 
 
 

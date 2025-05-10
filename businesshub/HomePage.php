@@ -4,20 +4,21 @@
  
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- put on all pages  -->
 
-    <!-- chatgpt addons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <!-- add FontAwesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <!-- Base URL to make all relative paths start from /businesshub -->
+  <base href="/businesshub/">
 
-    <!-- Bootstrap 5 CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" />
-     
-     
-    <base href="/businesshub/">
-    <?php $version = filemtime('css/header-footer.css'); ?>
-    <link rel="stylesheet" href="css/header-footer.css?v=<?php echo $version; ?>">
+  <!-- FontAwesome + Bootstrap -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" />
+
+  <!-- Custom CSS with cache-busting version -->
+  <?php
+    $cssVersion = filemtime($_SERVER['DOCUMENT_ROOT'] . '/businesshub/css/header-footer.css');
+  ?>
+  <link rel="stylesheet" href="css/header-footer.css?v=<?php echo $cssVersion; ?>">
+  <link rel="stylesheet" href="css/deps.css">
+
 
     <title>Business Hub</title>
 
@@ -570,10 +571,12 @@
 
     </style>
 </head>
+
+   <?php include 'includes/header.php'; ?>
 <body>
     
    
-  <?php include 'includes/header.php'; ?>
+
   
     <!-- Video Section -->
     <section class="video-section">

@@ -4,12 +4,13 @@
 session_start();
 require_once 'includes/db.php';
 
-// give.php
-// 1) Must be logged in — if not, send them to the login page immediately
-if (empty($_SESSION['user_id'])) {
-  header('Location: user_login.php');
+// 1) Must be logged in
+if (!isset($_SESSION['user_id'])) {
+  header('HTTP/1.1 401 Unauthorized');
+  echo json_encode(['status'=>'login_required']);
   exit;
 }
+
 $user_id = $_SESSION['user_id'];
 $book_id = intval($_POST['book_id']);
 $details = trim($_POST['details']);
