@@ -31,6 +31,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($password !== $confirm) {
         $errors[] = 'Passwords do not match.';
     }
+    // New: enforce minimum password length
+    if ($password && strlen($password) < 8) {
+        $errors[] = 'Password must be at least 8 characters long.';
+    }
 
     // Check for existing email
     if (empty($errors)) {
@@ -44,7 +48,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $stmt->close();
     }
 
-    // Insert into database (plain‑text password)
+    // Insert into database (plain-text password)
     if (empty($errors)) {
         $stmt = $conn->prepare(
           "INSERT INTO users (first_name, last_name, email, phone, password, role)
@@ -128,7 +132,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       <div class="form-wrapper">
         <h2>Create Account</h2>
         <?php if (!empty($errors)): ?>
-          <div style="color:#d9534f; margin-bottom:16px; text-align:left;"><!---->
+          <div style="color:#d9534f; margin-bottom:16px; text-align:left;">
             <?php foreach ($errors as $e): ?> <p>&bull; <?=htmlspecialchars($e)?></p> <?php endforeach; ?>
           </div>
         <?php endif; ?>
@@ -141,11 +145,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
           <input type="tel" name="phone" placeholder="Phone Number" maxlength="10" pattern="\d{10}" title="10-digit phone" value="<?=htmlspecialchars($_POST['phone']??'')?>" required>
           <input type="email" name="email" placeholder="Email Address" value="<?=htmlspecialchars($_POST['email']??'')?>" required>
           <div class="password-container">
-            <input type="password" id="password" name="password" placeholder="Password" required>
+            <input type="password" id="password" name="password" placeholder="Password" minlength="8" required>
             <span id="togglePassword" class="toggle-password">👁️</span>
           </div>
           <div class="password-container">
-            <input type="password" id="confirmPassword" name="confirm_password" placeholder="Confirm Password" required>
+            <input type="password" id="confirmPassword" name="confirm_password" placeholder="Confirm Password" minlength="8" required>
             <span id="toggleConfirmPassword" class="toggle-password">👁️</span>
           </div>
           <button type="submit">Sign Up</button>
@@ -156,19 +160,33 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   </div>
   <script>
     document.getElementById('signupForm').addEventListener('submit', function(event) {
-      const errs=[];
-      const phone=this.phone.value.trim();
-      const pwd=this.password.value;
-      const cpwd=this.confirm_password.value;
-      if(!/^\d{10}$/.test(phone)) errs.push('Phone must be 10 digits.');
-      if(pwd!==cpwd) errs.push('Passwords do not match.');
-      if(errs.length){ event.preventDefault(); alert(errs.join('\n')); }
+      const errs = [];
+      const phone = this.phone.value.trim();
+      const pwd   = this.password.value;
+      const cpwd  = this.confirm_password.value;
+
+      // existing checks
+      if (!/^\d{10}$/.test(phone)) errs.push('Phone must be 10 digits.');
+      if (pwd !== cpwd)            errs.push('Passwords do not match.');
+
+      // New: password length
+      if (pwd.length < 8)          errs.push('Password must be at least 8 characters long.');
+
+      if (errs.length) {
+        event.preventDefault();
+        alert(errs.join('\n'));
+      }
     });
-    document.getElementById('togglePassword').addEventListener('click',function(){
-      const p=document.getElementById('password');p.type=p.type==='password'?'text':'password';this.textContent=p.type==='password'?'👁️':'🙈';
+
+    document.getElementById('togglePassword').addEventListener('click', function(){
+      const p = document.getElementById('password');
+      p.type = p.type === 'password' ? 'text' : 'password';
+      this.textContent = p.type === 'password' ? '👁️' : '🙈';
     });
-    document.getElementById('toggleConfirmPassword').addEventListener('click',function(){
-      const p=document.getElementById('confirmPassword');p.type=p.type==='password'?'text':'password';this.textContent=p.type==='password'?'👁️':'🙈';
+    document.getElementById('toggleConfirmPassword').addEventListener('click', function(){
+      const p = document.getElementById('confirmPassword');
+      p.type = p.type === 'password' ? 'text' : 'password';
+      this.textContent = p.type === 'password' ? '👁️' : '🙈';
     });
   </script>
 </body>
