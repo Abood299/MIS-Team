@@ -1,10 +1,10 @@
-<mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/26.2.2 Chrome/134.0.6998.178 Electron/35.1.2 Safari/537.36" version="26.2.2">
+<mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/26.2.15 Chrome/134.0.6998.205 Electron/35.2.1 Safari/537.36" version="26.2.15">
   <diagram name="Page-1" id="_9vZ8oShTqBhKoVnPYbj">
-    <mxGraphModel dx="2856" dy="1778" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+    <mxGraphModel dx="2020" dy="1038" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
-        <mxCell id="xMeUwcQ0F49EkfPX01CW-1" value="" style="group;fontSize=22;" vertex="1" connectable="0" parent="1">
+        <mxCell id="xMeUwcQ0F49EkfPX01CW-1" value="" style="group;fontSize=22;" parent="1" vertex="1" connectable="0">
           <mxGeometry x="380" y="150" width="1756.7064846416383" height="580" as="geometry" />
         </mxCell>
         <mxCell id="qUDko9j9zWVaxRLH53N1-1" value="" style="swimlane;startSize=0;fontSize=22;" parent="xMeUwcQ0F49EkfPX01CW-1" vertex="1">
@@ -22,7 +22,7 @@
             <mxPoint x="638.0887372013652" y="246.5" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="qUDko9j9zWVaxRLH53N1-5" value="Email&amp;amp;Password" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=22;" parent="qUDko9j9zWVaxRLH53N1-4" connectable="0" vertex="1">
+        <mxCell id="qUDko9j9zWVaxRLH53N1-5" value="&lt;font style=&quot;font-size: 22px;&quot;&gt;Login Credintials&lt;/font&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=22;" parent="qUDko9j9zWVaxRLH53N1-4" connectable="0" vertex="1">
           <mxGeometry x="-0.0391" y="-2" relative="1" as="geometry">
             <mxPoint as="offset" />
           </mxGeometry>
@@ -47,7 +47,7 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="qUDko9j9zWVaxRLH53N1-9" value="User Summary" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=22;" parent="qUDko9j9zWVaxRLH53N1-8" vertex="1" connectable="0">
+        <mxCell id="qUDko9j9zWVaxRLH53N1-9" value="&lt;font style=&quot;font-size: 22px;&quot;&gt;Account Statuses&lt;/font&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=22;" parent="qUDko9j9zWVaxRLH53N1-8" vertex="1" connectable="0">
           <mxGeometry x="-0.122" y="1" relative="1" as="geometry">
             <mxPoint as="offset" />
           </mxGeometry>
@@ -76,7 +76,7 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="qUDko9j9zWVaxRLH53N1-13" value="Staff Update Confirmation" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=22;" parent="qUDko9j9zWVaxRLH53N1-12" vertex="1" connectable="0">
+        <mxCell id="qUDko9j9zWVaxRLH53N1-13" value="Action Feedback" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=22;" parent="qUDko9j9zWVaxRLH53N1-12" vertex="1" connectable="0">
           <mxGeometry x="-0.0559" y="1" relative="1" as="geometry">
             <mxPoint as="offset" />
           </mxGeometry>
@@ -105,7 +105,7 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="qUDko9j9zWVaxRLH53N1-17" value="Updated Department Info" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=22;" parent="qUDko9j9zWVaxRLH53N1-16" vertex="1" connectable="0">
+        <mxCell id="qUDko9j9zWVaxRLH53N1-17" value="Kpi charts and states" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=22;" parent="qUDko9j9zWVaxRLH53N1-16" vertex="1" connectable="0">
           <mxGeometry x="-0.1516" relative="1" as="geometry">
             <mxPoint as="offset" />
           </mxGeometry>
@@ -120,7 +120,7 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="qUDko9j9zWVaxRLH53N1-19" value="Department Resource managment&amp;nbsp;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=22;" parent="qUDko9j9zWVaxRLH53N1-18" vertex="1" connectable="0">
+        <mxCell id="qUDko9j9zWVaxRLH53N1-19" value="System Monitoring Requesting&amp;nbsp;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=22;" parent="qUDko9j9zWVaxRLH53N1-18" vertex="1" connectable="0">
           <mxGeometry x="0.1197" y="-2" relative="1" as="geometry">
             <mxPoint as="offset" />
           </mxGeometry>
@@ -189,7 +189,7 @@
             <mxPoint x="906.7576791808874" y="174" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="qUDko9j9zWVaxRLH53N1-30" value="Email&amp;amp;Password" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=22;" parent="qUDko9j9zWVaxRLH53N1-29" vertex="1" connectable="0">
+        <mxCell id="qUDko9j9zWVaxRLH53N1-30" value="Login Credintials" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=22;" parent="qUDko9j9zWVaxRLH53N1-29" vertex="1" connectable="0">
           <mxGeometry x="-0.0287" y="-1" relative="1" as="geometry">
             <mxPoint as="offset" />
           </mxGeometry>
@@ -211,7 +211,7 @@
             <mxPoint x="906.7576791808874" y="261" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="qUDko9j9zWVaxRLH53N1-34" value="Registration Data" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=22;" parent="qUDko9j9zWVaxRLH53N1-33" vertex="1" connectable="0">
+        <mxCell id="qUDko9j9zWVaxRLH53N1-34" value="Registration Information" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=22;" parent="qUDko9j9zWVaxRLH53N1-33" vertex="1" connectable="0">
           <mxGeometry x="-0.0882" y="1" relative="1" as="geometry">
             <mxPoint as="offset" />
           </mxGeometry>
@@ -225,7 +225,7 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="qUDko9j9zWVaxRLH53N1-36" value="Staff Details" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=22;" parent="qUDko9j9zWVaxRLH53N1-35" vertex="1" connectable="0">
+        <mxCell id="qUDko9j9zWVaxRLH53N1-36" value="Staff Records" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=22;" parent="qUDko9j9zWVaxRLH53N1-35" vertex="1" connectable="0">
           <mxGeometry x="-0.0236" relative="1" as="geometry">
             <mxPoint as="offset" />
           </mxGeometry>
@@ -260,7 +260,7 @@
             <mxPoint as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="qUDko9j9zWVaxRLH53N1-49" value="" style="endArrow=classic;html=1;rounded=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=0.588;exitY=0;exitDx=0;exitDy=0;exitPerimeter=0;fontSize=22;" parent="xMeUwcQ0F49EkfPX01CW-1" target="qUDko9j9zWVaxRLH53N1-1" edge="1" source="qUDko9j9zWVaxRLH53N1-24">
+        <mxCell id="qUDko9j9zWVaxRLH53N1-49" value="" style="endArrow=classic;html=1;rounded=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=0.588;exitY=0;exitDx=0;exitDy=0;exitPerimeter=0;fontSize=22;" parent="xMeUwcQ0F49EkfPX01CW-1" source="qUDko9j9zWVaxRLH53N1-24" target="qUDko9j9zWVaxRLH53N1-1" edge="1">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
             <mxPoint x="1488.8737201365188" y="174" as="sourcePoint" />
             <mxPoint x="772.4232081911263" y="-116" as="targetPoint" />
