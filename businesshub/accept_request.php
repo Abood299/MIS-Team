@@ -41,7 +41,14 @@ $upd = $conn->prepare("
 $upd->bind_param('i', $requestId);
 $upd->execute();
 
-// 3) Create a chat record linking the two users
+// 3) Soft-delete my offer (mark as exchanged)
+$updOffer = $conn->prepare(
+  "UPDATE book_offers SET status = 'exchanged' WHERE id = ?"
+);
+$updOffer->bind_param('i', $info['offer_id']);
+$updOffer->execute();
+
+// 4) Create a chat record linking the two users
 $chatStmt = $conn->prepare("
   INSERT INTO chats (request_id, user1_id, user2_id)
        VALUES (?, ?, ?)
@@ -55,7 +62,7 @@ $chatStmt->bind_param(
 $chatStmt->execute();
 $chatId = $conn->insert_id;
 
-// 4) Handle *other* pending requests for the same offer
+// 5) Handle *other* pending requests for the same offer
 $otherStmt = $conn->prepare("
   SELECT id, requester_id
     FROM book_requests

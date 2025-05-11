@@ -1,6 +1,4 @@
 <?php
-// delete_offer.php — mark an offer as “dropped” via AJAX
-
 session_start();
 header('Content-Type: application/json; charset=UTF-8');
 ini_set('display_errors', 0);
