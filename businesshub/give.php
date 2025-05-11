@@ -53,12 +53,3 @@ $countRes = $conn->prepare("
 $countRes->bind_param("i", $book_id);
 $countRes->execute();
 $cnt = $countRes->get_result()->fetch_assoc()['cnt'];
-
-/* 
-// 5) JSON response
-header('Content-Type: application/json');
-echo json_encode([
-  'status' => 'ok',
-  'copies' => (int)$cnt
-]);
-exit; */

@@ -1,3 +1,10 @@
+<?php
+// HomePage.php — very first lines, no blank lines before this!
+session_start();
+require __DIR__ . '/includes/db.php';   // if your header needs the DB
+
+// now begin HTML output
+?>
 <!DOCTYPE php>
 <php lang="en"> 
 <head>
