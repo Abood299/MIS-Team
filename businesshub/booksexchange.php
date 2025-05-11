@@ -3,17 +3,18 @@
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
 session_start();
-require_once 'includes/db.php';    // your connection to business_hub2
+require_once 'includes/db.php';
+
 $isLoggedIn = isset($_SESSION['user_id']);
 
-// fetch all books + copy counts + department
+// 1) Fetch all books + active-offer counts + department
 $sql = "
   SELECT
     b.id,
     b.book_name,
     b.image,
-    d.department_name AS department,   -- ← use the correct column
-    COALESCE(o.copies,0)       AS copies
+    d.department_name AS department,
+    COALESCE(o.copies,0) AS copies
   FROM book_exchange AS b
   JOIN departments AS d
     ON b.department_id = d.id
@@ -22,23 +23,32 @@ $sql = "
       book_id,
       COUNT(*) AS copies
     FROM book_offers
-    WHERE status = 'active'            -- ← only count active (non-dropped) offers
+    WHERE status = 'open'
     GROUP BY book_id
   ) AS o
     ON b.id = o.book_id
   ORDER BY d.department_name, b.book_name
 ";
-
-$res   = mysqli_query($conn,$sql);
+$res   = mysqli_query($conn, $sql);
 $books = mysqli_fetch_all($res, MYSQLI_ASSOC);
 
+// 2) Capture “offer” status for alerts
+$offerStatus = $_GET['offer'] ?? '';
+$offerExists = $offerStatus === 'exists';
+$offerOk     = $offerStatus === 'ok';
 
-// capture the “offer” flag from the URL
-$offerStatus  = $_GET['offer'] ?? '';
-$offerExists  = $offerStatus === 'exists';
-$offerOk      = $offerStatus === 'ok';
+// 3) Prepare departments list for swap modal
+$majRes = mysqli_query($conn, "
+  SELECT id, department_name AS name
+    FROM departments
+   ORDER BY department_name
+");
+$majors = mysqli_fetch_all($majRes, MYSQLI_ASSOC);
 
+// 4) Prevent “undefined variable” in any PHP-side foreach
+$offers = [];
 ?>
+
 <!DOCTYPE html>
 <html lang="en"> 
 <head>
@@ -257,6 +267,12 @@ $offerOk      = $offerStatus === 'ok';
               data-bs-target="#takeModal">
         Take
       </button>
+      <button 
+        class="btn btn-outline-warning give-for-take-btn" 
+        data-book-id="<?= $book['id'] ?>">
+        Give for Take
+      </button>
+
     </div>
   <?php endforeach; ?>
 </div>
@@ -295,6 +311,51 @@ $offerOk      = $offerStatus === 'ok';
     </div>
   </div></div>
 </div>
+
+<!-- Swap Offer Modal -->
+<div class="modal fade" id="swapModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog">
+    <form action="give.php" method="POST" class="modal-content">
+      <input type="hidden" name="book_id" id="swap-offer-book-id">
+      <input type="hidden" name="type"     value="swap">
+
+      <div class="modal-header">
+        <h5 class="modal-title">Offer a Swap</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+
+      <div class="modal-body">
+        <div class="mb-3">
+          <label for="desired_major" class="form-label">Choose Desired Major</label>
+          <select id="desired_major" name="desired_major" class="form-select" required>
+            <option value="">— Select Major —</option>
+            <?php foreach($majors as $m): ?>
+              <option value="<?= $m['id'] ?>"><?= htmlspecialchars($m['name']) ?></option>
+            <?php endforeach; ?>
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label for="desired_book" class="form-label">Choose Desired Book</label>
+          <select id="desired_book" name="desired_book_id" class="form-select" required>
+            <option value="">— Select Book —</option>
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label for="swap-details" class="form-label">Your Book Condition / Details</label>
+          <textarea id="swap-details" name="details" class="form-control" rows="3" required></textarea>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+        <button type="submit" class="btn btn-primary">Submit Swap Offer</button>
+      </div>
+    </form>
+  </div>
+</div>
+
 
 <?php include 'includes/footer.php'; ?>
 
@@ -606,6 +667,52 @@ if (!takeModalEl.dataset.bound) {
   
 })();
 
+</script>
+<script>
+  // 1) Open modal & stash offered-book-id
+  document.querySelectorAll('.give-for-take-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document
+        .getElementById('swap-offer-book-id')
+        .value = btn.dataset.bookId;
+      // reset selects
+      document.getElementById('desired_major').value = '';
+      document.getElementById('desired_book').innerHTML =
+        '<option value="">— Select Book —</option>';
+
+      new bootstrap.Modal(document.getElementById('swapModal')).show();
+    });
+  });
+
+  // When major changes, fetch its books
+document.getElementById('desired_major')
+  .addEventListener('change', function() {
+    const majId = this.value;
+    const sel   = document.getElementById('desired_book');
+
+    // show loading state
+    sel.innerHTML = '<option value="">— Loading… —</option>';
+
+    fetch(`get_books_by_major.php?major_id=${majId}`)
+      .then(r => r.ok
+        ? r.json()
+        : Promise.reject(`HTTP ${r.status}`)
+      )
+      .then(books => {
+        sel.innerHTML = '<option value="">— Select Book —</option>';
+        books.forEach(b => {
+          const opt = document.createElement('option');
+          opt.value       = b.id;
+          opt.textContent = b.title;
+          sel.append(opt);
+        });
+      })
+      .catch(err => {
+        console.error('Could not load books for major:', err);
+        sel.innerHTML = '<option value="">— Could not load books —</option>';
+      });
+  });
+  ;
 </script>
 
 
