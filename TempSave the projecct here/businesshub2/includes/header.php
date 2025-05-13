@@ -11,47 +11,53 @@ $unread = 0;
 $panelNotes = [];
 if (isset($_SESSION['user_id'])) {
   $uid = $_SESSION['user_id'];
-  // 1) unread count matches exactly what shows in panel
+
+  // 1) Unread count for both book_request and swap_request
   $stmt = $conn->prepare(
     "SELECT COUNT(*) AS cnt
-      FROM notifications n
-      LEFT JOIN book_requests br
-        ON n.type = 'book_request'
-       AND br.id = n.action_id
-     WHERE n.receiver_id = ?
-       AND n.is_read = 0
-       AND n.is_deleted = 0
-       AND (n.type != 'book_request' OR br.status = 'pending')"
+       FROM notifications n
+  LEFT JOIN book_requests br
+         ON br.id = n.action_id
+        AND n.type IN ('book_request', 'swap_request')
+      WHERE n.receiver_id = ?
+        AND n.is_read = 0
+        AND n.is_deleted = 0
+        AND (
+             n.type NOT IN ('book_request','swap_request') 
+             OR br.status = 'pending'
+        )"
   );
   $stmt->bind_param("i", $uid);
   $stmt->execute();
   $unread = (int)$stmt->get_result()->fetch_assoc()['cnt'];
-  // 2) latest 5 notifications for offcanvas panel
+
+  // 2) Latest 5 notifications including swap_request
   $panelStmt = $conn->prepare(
     "SELECT
-      n.id,
-      n.message,
-      n.type,
-      n.is_read,
-      n.created_at,
-      n.action_id,
-      c.id AS chat_session_id,       -- pull the chat PK for linking
-      br.status AS request_status    -- existing join
-    FROM notifications AS n
-    LEFT JOIN book_requests AS br
-      ON n.type = 'book_request'
-     AND br.id    = n.action_id
-    LEFT JOIN chats AS c
-      ON c.request_id = n.action_id
+       n.id,
+       n.message,
+       n.type,
+       n.is_read,
+       n.created_at,
+       n.action_id,
+       c.id AS chat_session_id,
+       br.status AS request_status
+     FROM notifications AS n
+LEFT JOIN book_requests AS br
+       ON br.id = n.action_id
+      AND n.type IN ('book_request', 'swap_request')
+LEFT JOIN chats AS c
+       ON c.request_id = n.action_id
     WHERE n.receiver_id = ?
-      AND n.is_deleted  = 0          -- skip soft-deleted
-    ORDER BY n.created_at DESC
+      AND n.is_deleted = 0
+ ORDER BY n.created_at DESC
     LIMIT 5"
   );
   $panelStmt->bind_param("i", $uid);
   $panelStmt->execute();
   $panelNotes = $panelStmt->get_result()->fetch_all(MYSQLI_ASSOC);
 }
+
 ?>
 <header class="navbar">
   <div class="logo-container">
@@ -139,67 +145,69 @@ if (isset($_SESSION['user_id'])) {
             data-bs-dismiss="offcanvas"></button>
   </div>
 
-  <div class="offcanvas-body">
-    <?php if (empty($panelNotes)): ?>
-      <p class="text-muted">No notifications.</p>
-    <?php else: ?>
-      <ul class="list-group">
-        <?php foreach($panelNotes as $n):
-          // skip stale book_request notifications
-          if ($n['type']==='book_request'
-           && (!isset($n['request_status']) || $n['request_status']!=='pending')
-          ) continue;
+ <div class="offcanvas-body">
+  <?php if (empty($panelNotes)): ?>
+    <p class="text-muted">No notifications.</p>
+  <?php else: ?>
+    <ul class="list-group">
+      <?php foreach($panelNotes as $n):
+        // skip stale book_request or swap_request notifications
+        if (
+             in_array($n['type'], ['book_request','swap_request'], true)
+             && (!isset($n['request_status']) || $n['request_status'] !== 'pending')
+           ) continue;
 
-          $type   = $n['type'];
-          $chatId = (int)($n['chat_session_id'] ?? 0);
-        ?>
-        <li
+        $type   = $n['type'];
+        $chatId = (int)($n['chat_session_id'] ?? 0);
+      ?>
+      <li
         class="list-group-item d-flex justify-content-between align-items-start
-              <?= $n['is_read'] ? '' : 'list-group-item-warning' ?>
-              <?php if ($type!=='book_request' && $chatId) echo ' clickable'; ?>"
-        <?php if ($type!=='book_request' && $chatId): ?>
+               <?= $n['is_read'] ? '' : 'list-group-item-warning' ?>
+               <?php if ($type!=='book_request' && $type!=='swap_request' && $chatId) echo ' clickable'; ?>"
+        <?php if ($type!=='book_request' && $type!=='swap_request' && $chatId): ?>
           style="cursor:pointer"
           data-chat-id="<?= $chatId ?>"
           onclick="window.location='chat.php?chat_id='+this.dataset.chatId;"
         <?php endif; ?>
-        >
-          <div class="flex-grow-1">
-            <small class="text-muted">
-              <?= date('M j, H:i', strtotime($n['created_at'])) ?>
-            </small><br>
-            <?= htmlspecialchars($n['message'], ENT_QUOTES, 'UTF-8') ?>
-          </div>
+      >
+        <div class="flex-grow-1">
+          <small class="text-muted">
+            <?= date('M j, H:i', strtotime($n['created_at'])) ?>
+          </small><br>
+          <?= htmlspecialchars($n['message'], ENT_QUOTES, 'UTF-8') ?>
+        </div>
 
-          <?php if ($type === 'book_request'): ?>
-          <div class="btn-group btn-group-sm ms-2">
-            <button type="button"
-                    class="btn btn-success accept-request"
-                    data-request-id="<?= (int)$n['action_id'] ?>">
-              Accept
-            </button>
-            <button type="button"
-                    class="btn btn-danger reject-request"
-                    data-request-id="<?= (int)$n['action_id'] ?>">
-              Reject
-            </button>
-          </div>
-          <?php endif; ?>
-
+        <?php if (in_array($type, ['book_request','swap_request'], true)): ?>
+        <div class="btn-group btn-group-sm ms-2">
           <button type="button"
-                  class="btn btn-sm btn-outline-danger delete-notif ms-2"
-                  data-notif-id="<?= (int)$n['id'] ?>"
-                  title="Delete"
-                  onclick="event.stopPropagation();">
-            &times;
+                  class="btn btn-success accept-request"
+                  data-request-id="<?= (int)$n['action_id'] ?>">
+            Accept
           </button>
-        </li>
-        <?php endforeach; ?>
-      </ul>
-      <hr>
- 
-    <?php endif; ?>
-  </div>
+          <button type="button"
+                  class="btn btn-danger reject-request"
+                  data-request-id="<?= (int)$n['action_id'] ?>">
+            Reject
+          </button>
+        </div>
+        <?php endif; ?>
+
+        <button type="button"
+                class="btn btn-sm btn-outline-danger delete-notif ms-2"
+                data-notif-id="<?= (int)$n['id'] ?>"
+                title="Delete"
+                onclick="event.stopPropagation();">
+          &times;
+        </button>
+      </li>
+      <?php endforeach; ?>
+    </ul>
+    <hr>
+  <?php endif; ?>
 </div>
+</div>
+
+
 
 
 

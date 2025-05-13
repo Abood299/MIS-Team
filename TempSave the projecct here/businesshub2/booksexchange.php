@@ -768,7 +768,7 @@ document.getElementById('desired_major')
     }
   });
 
-// 3) Load ALL swap offers into the “Give for Take Offers” panel
+// ——— 3) Load ALL swap offers into panel ———
 document.getElementById('swapOffersModal')
   .addEventListener('show.bs.modal', async () => {
     const list   = document.getElementById('swapOffersList');
@@ -787,23 +787,32 @@ document.getElementById('swapOffersModal')
       } else {
         list.innerHTML = '';
         swaps.forEach(o => {
-          const li     = document.createElement('li');
-          li.className = 'list-group-item d-flex justify-content-between align-items-start';
+          // ---- robust ownership check ----
+          const giverId      = Number(o.giver_id);
+          const currentUser  = Number(window.currentUserId);
+          console.debug('swap offer', o.offer_id, 'giver=', giverId, 'me=', currentUser);
+          const isMine = (giverId === currentUser);
 
-          // coerce to number so string IDs compare correctly
-        const isMine = parseInt(o.giver_id, 10) === window.currentUserId;
-
-          // If mine → Drop button, otherwise → Request Swap
+          // ---- choose the correct button ----
           const btnHTML = isMine
             ? `<button class="btn btn-sm btn-danger drop-swap-btn" data-offer-id="${o.offer_id}">Drop</button>`
             : `<button class="btn btn-sm btn-primary request-swap-btn" data-offer-id="${o.offer_id}">Request Swap</button>`;
 
+          // ---- render the list item ----
+          const li = document.createElement('li');
+          li.className = 'list-group-item d-flex justify-content-between align-items-start';
           li.innerHTML = `
             <div>
               <strong>${o.giver_name}</strong> offers 
-              <span class="offered-title" style="color:#9966cc;">${o.offered_title}</span><br>
-              wants <span class="desired-title" style="color:#ec522d;">${o.desired_title}</span> in exchange<br>
-              <small class="text-muted">${new Date(o.offered_at).toLocaleDateString()}</small>
+              <span class="offered-title" style="color:#9966cc;">
+                ${o.offered_title}
+              </span><br>
+              wants <span class="desired-title" style="color:#ec522d;">
+                ${o.desired_title}
+              </span> in exchange<br>
+              <small class="text-muted">
+                ${new Date(o.offered_at).toLocaleDateString()}
+              </small>
               <p class="mt-2"><strong>Details:</strong> ${o.offer_condition}</p>
             </div>
             ${btnHTML}
@@ -851,29 +860,52 @@ document.getElementById('swapOffersList')
       window.location = 'user_login.php';
       return;
     }
+
     const offerId = e.target.dataset.offerId;
-    const status  = document.getElementById('swapOffersStatus');
-    status.textContent = 'Sending request…';
+    const statusEl = document.getElementById('swapOffersStatus');
+
+    // 1) show sending state
+    statusEl.textContent = 'Sending request…';
 
     try {
+      // 2) fire the request
       const resp = await fetch('swap_request.php', {
         method: 'POST',
-        headers: {'Content-Type':'application/x-www-form-urlencoded'},
-        body: `offer_id=${offerId}`
+        headers: { 'Content-Type':'application/x-www-form-urlencoded' },
+        body: `offer_id=${encodeURIComponent(offerId)}`
       });
-      const json = await resp.json();
-      if (json.status === 'ok') {
-        status.textContent = 'Swap request sent!';
-        e.target.textContent = 'Requested';
-        e.target.disabled   = true;
-      } else {
-        status.textContent = 'Error: ' + (json.message || json.status);
+
+      // 3) grab the raw text & dump to console for debugging
+      const text = await resp.text();
+      console.log('⚙️ swap_request.php returned:', text);
+
+      let json;
+      try {
+        json = JSON.parse(text);
+      } catch (err) {
+        console.error('❌ JSON parse error:', err);
+        statusEl.textContent = 'Error parsing server response';
+        return;
       }
-    } catch {
-      status.textContent = 'Network error.';
+
+      // 4) inspect status
+      if (json.status === 'exists') {
+        statusEl.textContent = 'You already requested this swap.';
+      }
+      else if (json.status === 'ok') {
+        statusEl.textContent = 'Swap request sent!';
+        e.target.textContent  = 'Requested';
+        e.target.disabled     = true;
+      }
+      else {
+        statusEl.textContent = 'Error: ' + (json.message || json.status);
+      }
+    }
+    catch (err) {
+      console.error('❌ Network or fetch error:', err);
+      statusEl.textContent = 'Network error.';
     }
   });
-
 </script>
 
 

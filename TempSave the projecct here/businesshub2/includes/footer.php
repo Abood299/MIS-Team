@@ -76,12 +76,8 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 </script>
 
-<!--
-  JS: wires up Accept → chat.php and Reject → reject_request.php
-  Make sure you’ve included Bootstrap’s bundle.js (for the offcanvas),
-  then place this snippet just before your closing </body> tag.
--->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+
 
 <!--
   JS: wires up Accept → chat.php and Reject → reject_request.php
