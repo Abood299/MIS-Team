@@ -16,7 +16,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $phone      = trim($_POST['phone']      ?? '');
     $email      = trim($_POST['email']      ?? '');
     $password   = $_POST['password']        ?? '';
-    $confirm    = $_POST['confirm_password']?? '';
+    $confirm    = $_POST['confirm_password'] ?? '';
 
     // Validation
     if (!$first_name || !$last_name || !$phone || !$email || !$password || !$confirm) {
@@ -31,6 +31,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($password !== $confirm) {
         $errors[] = 'Passwords do not match.';
     }
+    // Password strength validation
+    if ($password && !preg_match('/^(?=.*[0-9])(?=.*[A-Z])(?=.*\W).{8,}$/', $password)) {
+        $errors[] = 'Password must be at least 8 characters long and include at least one uppercase letter, one number, and one special character.';
+    }
 
     // Check for existing email
     if (empty($errors)) {
@@ -44,13 +48,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $stmt->close();
     }
 
-    // Insert into database (plain‑text password)
+    // Insert into database (plain-text password)
     if (empty($errors)) {
         $stmt = $conn->prepare(
           "INSERT INTO users (first_name, last_name, email, phone, password, role)
            VALUES (?, ?, ?, ?, ?, 'user')"
         );
-        // bind the raw $password (no hashing)
         $stmt->bind_param("sssss",
           $first_name,
           $last_name,
@@ -106,7 +109,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     .password-container { position:relative; }
     .password-container input { width:100%; padding-right:40px; }
     .toggle-password { position:absolute; top:50%; right:10px; transform:translateY(-50%); cursor:pointer; font-size:18px; color:#555; }
-    @media (max-width:850px) { .split-screen { flex-direction:column; } .left, .right { width:100%; height:auto; } .left-content { padding:40px 20px; text-align:center; } }
+    /* Professional alert */
+    .alert { display:none; background-color:#f8d7da; color:#721c24; border:1px solid #f5c6cb; padding:12px 20px; border-radius:4px; margin-bottom:16px; text-align:left; }
   </style>
 </head>
 <body>
@@ -128,13 +132,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       <div class="form-wrapper">
         <h2>Create Account</h2>
         <?php if (!empty($errors)): ?>
-          <div style="color:#d9534f; margin-bottom:16px; text-align:left;"><!---->
+          <div class="alert" style="display:block; color:#721c24; background-color:#f8d7da; border-color:#f5c6cb;">
             <?php foreach ($errors as $e): ?> <p>&bull; <?=htmlspecialchars($e)?></p> <?php endforeach; ?>
           </div>
         <?php endif; ?>
         <?php if ($success): ?>
-          <div style="color:#28a745; margin-bottom:16px;">Registration successful! <a href="login.php">Log in</a></div>
+          <div class="alert" style="display:block; background-color:#d4edda; color:#155724; border-color:#c3e6cb;">
+            Registration successful! <a href="login.php" style="color:#155724; text-decoration:underline;">Log in</a>
+          </div>
         <?php endif; ?>
+        <!-- Client-side errors -->
+        <div id="clientErrors" class="alert"></div>
         <form id="signupForm" method="POST" action="">
           <input type="text" name="first_name" placeholder="First Name" value="<?=htmlspecialchars($_POST['first_name']??'')?>" required>
           <input type="text" name="last_name" placeholder="Last Name" value="<?=htmlspecialchars($_POST['last_name']??'')?>" required>
@@ -156,19 +164,34 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   </div>
   <script>
     document.getElementById('signupForm').addEventListener('submit', function(event) {
-      const errs=[];
-      const phone=this.phone.value.trim();
-      const pwd=this.password.value;
-      const cpwd=this.confirm_password.value;
-      if(!/^\d{10}$/.test(phone)) errs.push('Phone must be 10 digits.');
-      if(pwd!==cpwd) errs.push('Passwords do not match.');
-      if(errs.length){ event.preventDefault(); alert(errs.join('\n')); }
+      const errorDiv = document.getElementById('clientErrors');
+      const errs = [];
+      const phone = this.phone.value.trim();
+      const pwd = this.password.value;
+      const cpwd = this.confirm_password.value;
+
+      if (!/^\d{10}$/.test(phone)) errs.push('Phone must be 10 digits.');
+      if (pwd !== cpwd) errs.push('Passwords do not match.');
+      if (!/(?=.*\d)(?=.*[A-Z])(?=.*\W).{8,}/.test(pwd)) errs.push('Password must be at least 8 characters long and include an uppercase letter, a number, and a special character.');
+
+      if (errs.length) {
+        event.preventDefault();
+        errorDiv.innerHTML = errs.map(e => `<p>&bull; ${e}</p>`).join('');
+        errorDiv.style.display = 'block';
+      } else {
+        errorDiv.style.display = 'none';
+      }
     });
-    document.getElementById('togglePassword').addEventListener('click',function(){
-      const p=document.getElementById('password');p.type=p.type==='password'?'text':'password';this.textContent=p.type==='password'?'👁️':'🙈';
+
+    document.getElementById('togglePassword').addEventListener('click', function() {
+      const p = document.getElementById('password');
+      p.type = p.type === 'password' ? 'text' : 'password';
+      this.textContent = p.type === 'password' ? '👁️' : '🙈';
     });
-    document.getElementById('toggleConfirmPassword').addEventListener('click',function(){
-      const p=document.getElementById('confirmPassword');p.type=p.type==='password'?'text':'password';this.textContent=p.type==='password'?'👁️':'🙈';
+    document.getElementById('toggleConfirmPassword').addEventListener('click', function() {
+      const p = document.getElementById('confirmPassword');
+      p.type = p.type === 'password' ? 'text' : 'password';
+      this.textContent = p.type === 'password' ? '👁️' : '🙈';
     });
   </script>
 </body>
