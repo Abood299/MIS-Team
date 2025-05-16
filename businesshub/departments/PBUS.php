@@ -1,3 +1,27 @@
+
+<?php
+if (session_status() === PHP_SESSION_NONE) {
+  session_start();
+} 
+
+// load the DB from the correct path:
+require_once __DIR__ . '/../includes/db.php';
+require_once __DIR__ . '/../includes/model/books.php';
+require_once __DIR__ . '/../includes/model/courses.php';
+
+// decide which department_id this page is for:
+$departmentId = 6;   // e.g. 1 = المحاسبة (adjust to match your DB)
+// now, for each year-block you can fetch:
+$year1Books = getBooksByDepartmentAndYear($conn, $departmentId, '1');
+$year2Books = getBooksByDepartmentAndYear($conn, $departmentId, '2');
+$year3Books = getBooksByDepartmentAndYear($conn, $departmentId, '3');
+$year4Books = getBooksByDepartmentAndYear($conn, $departmentId, '4');
+
+$courses = getCoursesByDepartment($conn, $departmentId);
+// etc.
+?>
+
+
 <!DOCTYPE html>
 <html lang="en"> 
 <meta charset="UTF-8">
@@ -48,19 +72,15 @@
       <div class="tree-container">
         <img src="images/treedep.png" alt="Tree" class="tree-image">
         <div class="icon-grid">
-          <!-- first six icons -->
-          <a href="#"><div class="tree-icon-wrapper"><img src="images/apple4.png" class="tree-icon"><span class="icon-text">إدارة عامة حديثة</span></div></a>
-          <a href="#"><div class="tree-icon-wrapper"><img src="images/apple4.png" class="tree-icon"><span class="icon-text">مبادئ إحصاء</span></div></a>
-          <a href="#"><div class="tree-icon-wrapper"><img src="images/apple4.png" class="tree-icon"><span class="icon-text">1 محاسبة</span></div></a>
-          <a href="#"><div class="tree-icon-wrapper"><img src="images/apple4.png" class="tree-icon"><span class="icon-text">مبادئ تسويق</span></div></a>
-          <a href="#"><div class="tree-icon-wrapper"><img src="images/apple4.png" class="tree-icon"><span class="icon-text">نظريات التنظيم</span></div></a>
-          <a href="#"><div class="tree-icon-wrapper"><img src="images/apple4.png" class="tree-icon"><span class="icon-text">بحث العلوم الإدارية</span></div></a>
-          <!-- last two centered -->
-          <div class="last-row">
-            <a href="#"><div class="tree-icon-wrapper"><img src="images/apple4.png" class="tree-icon"><span class="icon-text">تخصص اختياري</span></div></a>
-            <a href="#"><div class="tree-icon-wrapper"><img src="images/apple4.png" class="tree-icon"><span class="icon-text">تخصص اختياري</span></div></a>
+            <?php foreach ($year1Books as $book): ?>
+              <a href="<?= htmlspecialchars($book['book_material']) ?>">
+                <div class="tree-icon-wrapper">
+                  <img src="images/apple4.png" class="tree-icon">
+                  <span class="icon-text"><?= htmlspecialchars($book['book_name']) ?></span>
+                </div>
+              </a>
+            <?php endforeach; ?>
           </div>
-        </div> <!-- /.icon-grid -->
       </div>   <!-- /.tree-container -->
     </div>     <!-- /.tree-responsive-wrapper -->
   </div>       <!-- /.tree-block -->
@@ -74,20 +94,16 @@
     <div class="tree-responsive-wrapper">
       <div class="tree-container">
         <img src="images/treedep.png" alt="Tree" class="tree-image">
-        <div class="icon-grid">
-          <!-- first six icons -->
-          <a href="#"><div class="tree-icon-wrapper"><img src="images/apple4.png" class="tree-icon"><span class="icon-text">إدارة الأعمال</span></div></a>
-          <a href="#"><div class="tree-icon-wrapper"><img src="images/apple4.png" class="tree-icon"><span class="icon-text">الإدارة المالية</span></div></a>
-          <a href="#"><div class="tree-icon-wrapper"><img src="images/apple4.png" class="tree-icon"><span class="icon-text">الاقتصاد الجزئي</span></div></a>
-          <a href="#"><div class="tree-icon-wrapper"><img src="images/apple4.png" class="tree-icon"><span class="icon-text">السلوك الإداري</span></div></a>
-          <a href="#"><div class="tree-icon-wrapper"><img src="images/apple4.png" class="tree-icon"><span class="icon-text">مالية عامة</span></div></a>
-          <a href="#"><div class="tree-icon-wrapper"><img src="images/apple4.png" class="tree-icon"><span class="icon-text">إدارة العلاقات العامة</span></div></a>
-          <!-- last two centered -->
-          <div class="last-row">
-            <a href="#"><div class="tree-icon-wrapper"><img src="images/apple4.png" class="tree-icon"><span class="icon-text">المهارات الإدارية الحديثة</span></div></a>
-            <a href="#"><div class="tree-icon-wrapper"><img src="images/apple4.png" class="tree-icon"><span class="icon-text">تخصص اختياري</span></div></a>
+         <div class="icon-grid">
+            <?php foreach ($year2Books as $book): ?>
+              <a href="<?= htmlspecialchars($book['book_material']) ?>">
+                <div class="tree-icon-wrapper">
+                  <img src="images/apple4.png" class="tree-icon">
+                  <span class="icon-text"><?= htmlspecialchars($book['book_name']) ?></span>
+                </div>
+              </a>
+            <?php endforeach; ?>
           </div>
-        </div> <!-- /.icon-grid -->
       </div>   <!-- /.tree-container -->
     </div>     <!-- /.tree-responsive-wrapper -->
   </div>       <!-- /.tree-block -->
@@ -108,19 +124,15 @@
       <div class="tree-container">
         <img src="images/treedep.png" alt="Tree" class="tree-image">
         <div class="icon-grid">
-          <!-- first six icons -->
-          <a href="#"><div class="tree-icon-wrapper"><img src="images/apple4.png" class="tree-icon"><span class="icon-text">التنظيم وإجراءات العمل</span></div></a>
-          <a href="#"><div class="tree-icon-wrapper"><img src="images/apple4.png" class="tree-icon"><span class="icon-text">إدارة المشروعات العامة</span></div></a>
-          <a href="#"><div class="tree-icon-wrapper"><img src="images/apple4.png" class="tree-icon"><span class="icon-text">الحاكمية</span></div></a>
-          <a href="#"><div class="tree-icon-wrapper"><img src="images/apple4.png" class="tree-icon"><span class="icon-text">مبادئ MIS</span></div></a>
-          <a href="#"><div class="tree-icon-wrapper"><img src="images/apple4.png" class="tree-icon"><span class="icon-text">الإدارة العامة في الأردن</span></div></a>
-          <a href="#"><div class="tree-icon-wrapper"><img src="images/apple4.png" class="tree-icon"><span class="icon-text">إدارة المشتريات وتوريد</span></div></a>
-          <!-- last two centered -->
-          <div class="last-row">
-            <a href="#"><div class="tree-icon-wrapper"><img src="images/apple4.png" class="tree-icon"><span class="icon-text">إدارة الموارد البشرية في القطاع العام</span></div></a>
-            <a href="#"><div class="tree-icon-wrapper"><img src="images/apple4.png" class="tree-icon"><span class="icon-text">تخصص اختياري</span></div></a>
+            <?php foreach ($year3Books as $book): ?>
+              <a href="<?= htmlspecialchars($book['book_material']) ?>">
+                <div class="tree-icon-wrapper">
+                  <img src="images/apple4.png" class="tree-icon">
+                  <span class="icon-text"><?= htmlspecialchars($book['book_name']) ?></span>
+                </div>
+              </a>
+            <?php endforeach; ?>
           </div>
-        </div> <!-- /.icon-grid -->
       </div>   <!-- /.tree-container -->
     </div>     <!-- /.tree-responsive-wrapper -->
   </div>       <!-- /.tree-block -->
@@ -134,20 +146,16 @@
     <div class="tree-responsive-wrapper">
       <div class="tree-container">
         <img src="images/treedep.png" alt="Tree" class="tree-image">
-        <div class="icon-grid">
-          <!-- first six icons -->
-          <a href="#"><div class="tree-icon-wrapper"><img src="images/apple4.png" class="tree-icon"><span class="icon-text">السياسات العامة</span></div></a>
-          <a href="#"><div class="tree-icon-wrapper"><img src="images/apple4.png" class="tree-icon"><span class="icon-text">إدارة الجودة في القطاع العام</span></div></a>
-          <a href="#"><div class="tree-icon-wrapper"><img src="images/apple4.png" class="tree-icon"><span class="icon-text">أساليب التحليل الكمي</span></div></a>
-          <a href="#"><div class="tree-icon-wrapper"><img src="images/apple4.png" class="tree-icon"><span class="icon-text">مهارات الاستعداد لسوق العمل</span></div></a>
-          <a href="#"><div class="tree-icon-wrapper"><img src="images/apple4.png" class="tree-icon"><span class="icon-text">التخطيط الاستراتيجي في القطاع العام</span></div></a>
-          <a href="#"><div class="tree-icon-wrapper"><img src="images/apple4.png" class="tree-icon"><span class="icon-text">إدارة الحسابات الحكومية</span></div></a>
-          <!-- last two centered -->
-          <div class="last-row">
-            <a href="#"><div class="tree-icon-wrapper"><img src="images/apple4.png" class="tree-icon"><span class="icon-text">إدارة الأزمات</span></div></a>
-            <a href="#"><div class="tree-icon-wrapper"><img src="images/apple4.png" class="tree-icon"><span class="icon-text">الموازنة العامة / التدريب العملي</span></div></a>
+         <div class="icon-grid">
+            <?php foreach ($year4Books as $book): ?>
+              <a href="<?= htmlspecialchars($book['book_material']) ?>" target="_blank">
+                <div class="tree-icon-wrapper">
+                  <img src="images/apple4.png" class="tree-icon">
+                  <span class="icon-text"><?= htmlspecialchars($book['book_name']) ?></span>
+                </div>
+              </a>
+            <?php endforeach; ?>
           </div>
-        </div> <!-- /.icon-grid -->
       </div>   <!-- /.tree-container -->
     </div>     <!-- /.tree-responsive-wrapper -->
   </div>       <!-- /.tree-block -->
@@ -223,28 +231,21 @@
         <th>وصف الدورة</th> 
       </tr> 
     </thead> 
-    <tbody> 
-      <tr> 
-        <td>مبادئ الإدارة العامة</td> 
-        <td><a href="#" class="button-link-table">اضغط هنا</a></td> 
-        <td>مدخل شامل لفهم طبيعة الإدارة العامة ومجالاتها المختلفة</td> 
-      </tr> 
-      <tr> 
-        <td>السياسات العامة</td> 
-        <td><a href="#" class="button-link-table">اضغط هنا</a></td> 
-        <td>شرح حول صياغة وتنفيذ وتقييم السياسات العامة</td> 
-      </tr> 
-      <tr> 
-        <td>الحوكمة وإدارة المؤسسات</td> 
-        <td><a href="#" class="button-link-table">اضغط هنا</a></td> 
-        <td>فهم مبادئ الحوكمة الجيدة وإدارة المشاريع الحكومية</td> 
-      </tr> 
-      <tr> 
-        <td>إدارة الأزمات</td> 
-        <td><a href="#" class="button-link-table">اضغط هنا</a></td> 
-        <td>أساليب التعامل مع الطوارئ والتخطيط لاستمرارية العمل</td> 
-      </tr> 
-    </tbody> 
+     <tbody>
+            <?php foreach ($courses as $course): ?>
+                <tr>
+                  <td><?= htmlspecialchars($course['course_name']) ?></td>
+                  <td>
+                    <?php if (!empty($course['course_link'])): ?>
+                      <a href="<?= htmlspecialchars($course['course_link']) ?>" target="_blank" class="button-link-table">اضغط هنا</a>
+                    <?php else: ?>
+                      —
+                    <?php endif; ?>
+                  </td>
+                  <td><?= htmlspecialchars($course['course_description']) ?></td>
+                </tr>
+            <?php endforeach; ?>
+          </tbody>
   </table>
   
 

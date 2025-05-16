@@ -1,3 +1,27 @@
+
+<?php
+if (session_status() === PHP_SESSION_NONE) {
+  session_start();
+} 
+
+// load the DB from the correct path:
+require_once __DIR__ . '/../includes/db.php';
+require_once __DIR__ . '/../includes/model/books.php';
+require_once __DIR__ . '/../includes/model/courses.php';
+
+// decide which department_id this page is for:
+$departmentId = 1;   // e.g. 1 = المحاسبة (adjust to match your DB)
+// now, for each year-block you can fetch:
+$year1Books = getBooksByDepartmentAndYear($conn, $departmentId, '1');
+$year2Books = getBooksByDepartmentAndYear($conn, $departmentId, '2');
+$year3Books = getBooksByDepartmentAndYear($conn, $departmentId, '3');
+$year4Books = getBooksByDepartmentAndYear($conn, $departmentId, '4');
+
+$courses = getCoursesByDepartment($conn, $departmentId);
+// etc.
+?>
+
+
 <!DOCTYPE html>
 <html lang="en"> 
 <meta charset="UTF-8">
@@ -57,18 +81,16 @@
     <div class="tree-responsive-wrapper">
       <div class="tree-container">
         <img src="images/treedep.png" alt="Tree" class="tree-image">
-        <div class="icon-grid">
-          <a href="downloadbooks/ReportOne.pdf"><div class="tree-icon-wrapper"><img src="images/apple4.png" class="tree-icon" class="download-btn"><span class="icon-text">محاسبة 1</span></div></a>
-          <a href="downloadbooks/ReportOne.pdf"><div class="tree-icon-wrapper"><img src="images/apple4.png" class="tree-icon"><span class="icon-text">مبادئ نظم</span></div></a>
-          <a href="downloadbooks/ReportOne.pdf"><div class="tree-icon-wrapper"><img src="images/apple4.png" class="tree-icon"><span class="icon-text">إدارة أعمال</span></div></a>
-          <a href="downloadbooks/ReportOne.pdf"><div class="tree-icon-wrapper"><img src="images/apple4.png" class="tree-icon"><span class="icon-text">إحصاء</span></div></a>
-          <a href="downloadbooks/ReportOne.pdf"><div class="tree-icon-wrapper"><img src="images/apple4.png" class="tree-icon"><span class="icon-text">إدارة عامة</span></div></a>
-          <a href="downloadbooks/ReportOne.pdf"><div class="tree-icon-wrapper"><img src="images/apple4.png" class="tree-icon"><span class="icon-text">قواعد بيانات</span></div></a>
-          <div class="last-row">
-          <a href="downloadbooks/ReportOne.pdf"><div class="tree-icon-wrapper"><img src="images/apple4.png" class="tree-icon"><span class="icon-text">برمجة</span></div></a>
-          <a href="downloadbooks/ReportOne.pdf"><div class="tree-icon-wrapper"><img src="images/apple4.png" class="tree-icon"><span class="icon-text">خلص لا تنزل</span></div></a>
+       <div class="icon-grid">
+            <?php foreach ($year1Books as $book): ?>
+              <a href="<?= htmlspecialchars($book['book_material']) ?>">
+                <div class="tree-icon-wrapper">
+                  <img src="images/apple4.png" class="tree-icon">
+                  <span class="icon-text"><?= htmlspecialchars($book['book_name']) ?></span>
+                </div>
+              </a>
+            <?php endforeach; ?>
           </div>
-        </div>
       </div>
     </div>
   </div>
@@ -82,20 +104,16 @@
   <div class="tree-responsive-wrapper">
     <div class="tree-container">
       <img src="images/treedep.png" alt="Tree" class="tree-image">
-      <div class="icon-grid">
-        <a href="#"><div class="tree-icon-wrapper"><img src="images/apple4.png" class="tree-icon"><span class="icon-text">برمجة تطبيقات الأعمال</span></div></a>
-        <a href="#"><div class="tree-icon-wrapper"><img src="images/apple4.png" class="tree-icon"><span class="icon-text">الأعمال الإلكترونية</span></div></a>
-        <a href="#"><div class="tree-icon-wrapper"><img src="images/apple4.png" class="tree-icon"><span class="icon-text">إدارة موارد المعلومات</span></div></a>
-        <a href="#"><div class="tree-icon-wrapper"><img src="images/apple4.png" class="tree-icon"><span class="icon-text">إقتصاد الجزئي</span></div></a>
-        <a href="#"><div class="tree-icon-wrapper"><img src="images/apple4.png" class="tree-icon"><span class="icon-text">برمجة تطبيقات الإنترنت</span></div></a>
-        <a href="#"><div class="tree-icon-wrapper"><img src="images/apple4.png" class="tree-icon"><span class="icon-text">الوسائط المتعددة</span></div></a>
-
-        <!-- wrap last two in their own row -->
-        <div class="last-row">
-          <a href="#"><div class="tree-icon-wrapper"><img src="images/apple4.png" class="tree-icon"><span class="icon-text">إدارة المعرفة</span></div></a>
-          <a href="#"><div class="tree-icon-wrapper"><img src="images/apple4.png" class="tree-icon"><span class="icon-text">أساليب وممارسات</span></div></a>
-        </div>
-      </div>
+       <div class="icon-grid">
+            <?php foreach ($year2Books as $book): ?>
+              <a href="<?= htmlspecialchars($book['book_material']) ?>">
+                <div class="tree-icon-wrapper">
+                  <img src="images/apple4.png" class="tree-icon">
+                  <span class="icon-text"><?= htmlspecialchars($book['book_name']) ?></span>
+                </div>
+              </a>
+            <?php endforeach; ?>
+          </div>
     </div>
   </div>
 </div>
@@ -110,20 +128,16 @@
   <div class="tree-responsive-wrapper">
     <div class="tree-container">
       <img src="images/treedep.png" alt="Tree" class="tree-image">
-      <div class="icon-grid">
-        <a href="#"><div class="tree-icon-wrapper"><img src="images/apple4.png" class="tree-icon"><span class="icon-text">إدارة موارد المنظمة</span></div></a>
-        <a href="#"><div class="tree-icon-wrapper"><img src="images/apple4.png" class="tree-icon"><span class="icon-text">برمجة تطبيقات</span></div></a>
-        <a href="#"><div class="tree-icon-wrapper"><img src="images/apple4.png" class="tree-icon"><span class="icon-text">الأجهزة الذكية</span></div></a>
-        <a href="#"><div class="tree-icon-wrapper"><img src="images/apple4.png" class="tree-icon"><span class="icon-text">تحليل وتصميم</span></div></a>
-        <a href="#"><div class="tree-icon-wrapper"><img src="images/apple4.png" class="tree-icon"><span class="icon-text">أنظمة المعلومات</span></div></a>
-        <a href="#"><div class="tree-icon-wrapper"><img src="images/apple4.png" class="tree-icon"><span class="icon-text">ذكاء الأعمال وأدوات</span></div></a>
-
-        <!-- wrap last two -->
-        <div class="last-row">
-          <a href="#"><div class="tree-icon-wrapper"><img src="images/apple4.png" class="tree-icon"><span class="icon-text">تحليل البيانات</span></div></a>
-          <a href="#"><div class="tree-icon-wrapper"><img src="images/apple4.png" class="tree-icon"><span class="icon-text">نمذجة الأعمال والمحاكاة</span></div></a>
-        </div>
-      </div>
+       <div class="icon-grid">
+            <?php foreach ($year3Books as $book): ?>
+              <a href="<?= htmlspecialchars($book['book_material']) ?>">
+                <div class="tree-icon-wrapper">
+                  <img src="images/apple4.png" class="tree-icon">
+                  <span class="icon-text"><?= htmlspecialchars($book['book_name']) ?></span>
+                </div>
+              </a>
+            <?php endforeach; ?>
+          </div>
     </div>
   </div>
 </div>
@@ -138,20 +152,16 @@
   <div class="tree-responsive-wrapper">
     <div class="tree-container">
       <img src="images/treedep.png" alt="Tree" class="tree-image">
-      <div class="icon-grid">
-        <a href="#"><div class="tree-icon-wrapper"><img src="images/apple4.png" class="tree-icon"><span class="icon-text">قضايا معاصرة</span></div></a>
-        <a href="#"><div class="tree-icon-wrapper"><img src="images/apple4.png" class="tree-icon"><span class="icon-text">سوق العمل</span></div></a>
-        <a href="#"><div class="tree-icon-wrapper"><img src="images/apple4.png" class="tree-icon"><span class="icon-text">التدريب العملي</span></div></a>
-        <a href="#"><div class="tree-icon-wrapper"><img src="images/apple4.png" class="tree-icon"><span class="icon-text">حلقة بحث</span></div></a>
-        <a href="#"><div class="tree-icon-wrapper"><img src="images/apple4.png" class="tree-icon"><span class="icon-text">تطبيقات الذكاء الاصطناعي</span></div></a>
-        <a href="#"><div class="tree-icon-wrapper"><img src="images/apple4.png" class="tree-icon"><span class="icon-text">مشروع في نظم المعلومات</span></div></a>
-
-        <!-- wrap last two -->
-        <div class="last-row">
-          <a href="#"><div class="tree-icon-wrapper"><img src="images/apple4.png" class="tree-icon"><span class="icon-text">متطلب تخصص اختياري</span></div></a>
-          <a href="#"><div class="tree-icon-wrapper"><img src="images/apple4.png" class="tree-icon"><span class="icon-text">متطلب تخصص اختياري</span></div></a>
-        </div>
-      </div>
+       <div class="icon-grid">
+            <?php foreach ($year4Books as $book): ?>
+              <a href="<?= htmlspecialchars($book['book_material']) ?>" target="_blank">
+                <div class="tree-icon-wrapper">
+                  <img src="images/apple4.png" class="tree-icon">
+                  <span class="icon-text"><?= htmlspecialchars($book['book_name']) ?></span>
+                </div>
+              </a>
+            <?php endforeach; ?>
+          </div>
     </div>
   </div>
 </div>
@@ -235,27 +245,20 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>مقدمة في نظم المعلومات</td>
-            <td><a href="https://www.youtube.com/watch?v=JFO_HLa0UMc" class="button-link-table">اضغط هنا</a></td>
-            <td>تعريف بأساسيات نظم المعلومات في بيئة الأعمال</td>
-          </tr>
-          <tr>
-            <td>تحليل البيانات</td>
-            <td><a href="https://www.youtube.com/watch?v=JFO_HLa0UMc" class="button-link-table">اضغط هنا</a></td>
-            <td>أساسيات تحليل البيانات باستخدام أدوات حديثة</td>
-          </tr>
-          <tr>
-            <td>أساسيات البرمجة</td>
-            <td><a href="https://www.youtube.com/watch?v=JFO_HLa0UMc" class="button-link-table">اضغط هنا</a></td>
-            <td>مقدمة في البرمجة بلغة بايثون بطريقة مبسطة</td>
-          </tr>
-          <tr>
-            <td>ريادة الأعمال</td>
-            <td><a href="https://www.youtube.com/watch?v=JFO_HLa0UMc" class="button-link-table">اضغط هنا</a></td>
-            <td>مفاهيم وأساليب إنشاء مشروع ريادي ناجح</td>
-          </tr>
-        </tbody>
+            <?php foreach ($courses as $course): ?>
+                <tr>
+                  <td><?= htmlspecialchars($course['course_name']) ?></td>
+                  <td>
+                    <?php if (!empty($course['course_link'])): ?>
+                      <a href="<?= htmlspecialchars($course['course_link']) ?>" target="_blank" class="button-link-table">اضغط هنا</a>
+                    <?php else: ?>
+                      —
+                    <?php endif; ?>
+                  </td>
+                  <td><?= htmlspecialchars($course['course_description']) ?></td>
+                </tr>
+            <?php endforeach; ?>
+          </tbody>
       </table>
   
 

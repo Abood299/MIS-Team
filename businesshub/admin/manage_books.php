@@ -61,23 +61,33 @@ if (isset($_GET['export']) && $_GET['export']==='csv') {
 if ($_SERVER['REQUEST_METHOD']==='POST') {
     if (isset($_POST['add_book'])) {
         $stmt = $conn->prepare(
-          "INSERT INTO books (book_name, book_material, department_id) VALUES (?,?,?)"
+          "INSERT INTO books
+             (book_name, book_material, department_id, year)
+           VALUES (?,?,?,?)"
         );
-        $stmt->bind_param("ssi",
+        $stmt->bind_param(
+          "ssis",
           $_POST['book_name'],
           $_POST['book_material'],
-          $_POST['department_id']
+          $_POST['department_id'],
+          $_POST['year']
         );
         $stmt->execute();
         $stmt->close();
     }
     if (isset($_POST['edit_book'])) {
         $stmt = $conn->prepare(
-          "UPDATE books SET book_name=?, book_material=? WHERE id=?"
+          "UPDATE books
+              SET book_name     = ?,
+                  book_material = ?,
+                  year          = ?
+            WHERE id = ?"
         );
-        $stmt->bind_param("ssi",
+        $stmt->bind_param(
+          "sssi",
           $_POST['book_name'],
           $_POST['book_material'],
+          $_POST['year'],
           $_POST['book_id']
         );
         $stmt->execute();
@@ -121,81 +131,98 @@ $departments = $conn->query("SELECT * FROM departments");
 </head>
 <body class="bg-dark text-white p-4">
 
- <?php
-include __DIR__ . '/../includes/admin_nav.php'; ?>
-
-
-
+ <?php include __DIR__ . '/../includes/admin_nav.php'; ?>
 
   <div class="container">
 
     <h2 class="mb-4 text-center">Manage Books</h2>
 
-  <!-- ─── Search + Filter + Print/CSV ─── -->
-<div class="d-flex mb-4 align-items-center no-print">
-  <form method="GET" class="d-flex flex-grow-1 align-items-center me-2">
-    <div class="input-group">
-      <input
-        type="text"
-        name="search"
-        class="form-control"
-        placeholder="Search by ID, name, material…"
-        value="<?= htmlspecialchars($search) ?>"
-      >
-      <button class="btn btn-primary" type="submit">Search</button>
-    </div>
-    <select
-      name="filter"
-      class="form-select ms-2"
-      style="width: 180px;"
-      onchange="this.form.submit()"
-    >
-      <option value="">All Majors</option>
-      <?php
-      mysqli_data_seek($departments,0);
-      while($d = mysqli_fetch_assoc($departments)): ?>
-        <option
-          value="<?= $d['id'] ?>"
-          <?= $filter==(string)$d['id']?'selected':'' ?>
+    <!-- ─── Search + Filter + Print/CSV ─── -->
+    <div class="d-flex mb-4 align-items-center no-print">
+      <form method="GET" class="d-flex flex-grow-1 align-items-center me-2">
+        <div class="input-group">
+          <input
+            type="text"
+            name="search"
+            class="form-control"
+            placeholder="Search by ID, name, material…"
+            value="<?= htmlspecialchars($search) ?>"
+          >
+          <button class="btn btn-primary" type="submit">Search</button>
+        </div>
+        <select
+          name="filter"
+          class="form-select ms-2"
+          style="width: 180px;"
+          onchange="this.form.submit()"
         >
-          <?= htmlspecialchars($d['department_name']) ?>
-        </option>
-      <?php endwhile; ?>
-    </select>
-  </form>
+          <option value="">All Majors</option>
+          <?php
+          mysqli_data_seek($departments,0);
+          while($d = mysqli_fetch_assoc($departments)): ?>
+            <option
+              value="<?= $d['id'] ?>"
+              <?= $filter==(string)$d['id']?'selected':'' ?>
+            >
+              <?= htmlspecialchars($d['department_name']) ?>
+            </option>
+          <?php endwhile; ?>
+        </select>
+      </form>
 
-  <button class="btn btn-outline-light me-2" onclick="window.print()">
-    Print
-  </button>
-  <a
-    href="?export=csv
-      <?= $filter   ? '&filter='.urlencode($filter) : '' ?>
-      <?= $search   ? '&search='.urlencode($search) : '' ?>"
-    class="btn btn-outline-light"
-  >
-    Download CSV
-  </a>
-</div>
+      <button class="btn btn-outline-light me-2" onclick="window.print()">
+        Print
+      </button>
+      <a
+        href="?export=csv
+          <?= $filter   ? '&filter='.urlencode($filter) : '' ?>
+          <?= $search   ? '&search='.urlencode($search) : '' ?>"
+        class="btn btn-outline-light"
+      >
+        Download CSV
+      </a>
+    </div>
 
     <!-- Add Book Form -->
     <form method="POST" class="row g-3 bg-secondary p-4 rounded mb-5 no-print">
-      <div class="col-md-4">
+      <div class="col-md-3">
         <label class="form-label">Book Name</label>
-        <input type="text" name="book_name" class="form-control" required>
+        <input
+          type="text"
+          name="book_name"
+          class="form-control"
+          required
+        >
       </div>
-      <div class="col-md-4">
+      <div class="col-md-3">
         <label class="form-label">Material (URL)</label>
-        <input type="text" name="book_material" class="form-control" required>
+        <input
+          type="text"
+          name="book_material"
+          class="form-control"
+          required
+        >
       </div>
-      <div class="col-md-4">
+      <div class="col-md-3">
+        <label class="form-label">Year</label>
+        <select name="year" class="form-select" required>
+          <option value="" disabled selected>اختر السنة</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+        </select>
+      </div>
+      <div class="col-md-3">
         <label class="form-label">Department</label>
         <select name="department_id" class="form-select" required>
           <option value="" disabled selected>Select Major</option>
-          <?php mysqli_data_seek($departments,0);
-          while($dept = mysqli_fetch_assoc($departments)): ?>
-          <option value="<?= $dept['id'] ?>">
-            <?= htmlspecialchars($dept['department_name']) ?>
-          </option>
+          <?php
+            mysqli_data_seek($departments,0);
+            while($dept = mysqli_fetch_assoc($departments)): ?>
+              <option value="<?= $dept['id'] ?>">
+                <?= htmlspecialchars($dept['department_name']) ?>
+              </option>
           <?php endwhile; ?>
         </select>
       </div>
@@ -205,13 +232,14 @@ include __DIR__ . '/../includes/admin_nav.php'; ?>
     </form>
 
     <!-- Books Table -->
-    <div class="table-responsive px-1" >
-      <table class="table table-dark table-striped table-bordered text-center ">
+    <div class="table-responsive px-1">
+      <table class="table table-dark table-striped table-bordered text-center">
         <thead class="table-light">
           <tr>
             <th>ID</th>
             <th>Book Name</th>
             <th>Material</th>
+            <th>Year</th>              <!-- ← added -->
             <th>Department</th>
             <th class="no-print">Actions</th>
           </tr>
@@ -223,7 +251,8 @@ include __DIR__ . '/../includes/admin_nav.php'; ?>
               <td><?= $b['id'] ?></td>
               <td>
                 <input
-                  type="text" name="book_name"
+                  type="text"
+                  name="book_name"
                   value="<?= htmlspecialchars($b['book_name']) ?>"
                   class="form-control"
                   required
@@ -231,16 +260,28 @@ include __DIR__ . '/../includes/admin_nav.php'; ?>
               </td>
               <td>
                 <input
-                  type="text" name="book_material"
+                  type="text"
+                  name="book_material"
                   value="<?= htmlspecialchars($b['book_material']) ?>"
                   class="form-control"
                   required
                 >
               </td>
+              <td>
+                <!-- display/edit year next to material -->
+                <select name="year" class="form-select" required>
+                  <option value="1" <?= $b['year']==='1' ? 'selected' : '' ?>>1</option>
+                  <option value="2" <?= $b['year']==='2' ? 'selected' : '' ?>>2</option>
+                  <option value="3" <?= $b['year']==='3' ? 'selected' : '' ?>>3</option>
+                  <option value="4" <?= $b['year']==='4' ? 'selected' : '' ?>>4</option>
+                </select>
+              </td>
               <td><?= htmlspecialchars($b['department_name']) ?></td>
               <td class="no-print">
                 <input type="hidden" name="book_id" value="<?= $b['id'] ?>">
-                <button name="edit_book"  class="btn btn-sm btn-success mb-1">Edit</button>
+                <button name="edit_book" class="btn btn-sm btn-success mb-1">
+                  Edit
+                </button>
             </form>
                 <form method="POST" class="d-inline">
                   <input type="hidden" name="book_id" value="<?= $b['id'] ?>">
