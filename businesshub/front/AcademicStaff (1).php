@@ -27,18 +27,64 @@ $deptRes   = $conn->query("SELECT DISTINCT department_name FROM departments ORDE
   <!-- Custom CSS -->
   <?php $cssVersion = filemtime($_SERVER['DOCUMENT_ROOT'] . '/businesshub/css/header-footer.css'); ?>
   <link rel="stylesheet" href="css/header-footer.css?v=<?php echo $cssVersion; ?>">
-  <link rel="stylesheet" href="css/deps.css">
+
   <style>
     .modal-backdrop.show { backdrop-filter: blur(5px); }
     /* Hide default DataTables search and length UI */
     .dataTables_filter, .dataTables_length, .dataTables_info, .dataTables_paginate { display: none !important; }
+
+/* Remove underline & keep default color on email links */
+#staffTable tbody td:nth-child(3) a {
+  text-decoration: none !important;
+}
+/* Hover effect on “الاسم” links */
+#staffTable tbody td:nth-child(2) a:hover {
+ 
+  color: #C7431D !important; /* a darker shade of your #EC522D */
+}
+    /* Remove underline & set soft-orange color on names (“الاسم” column) */
+#staffTable tbody td:nth-child(2) a {
+  text-decoration: none !important;
+  color: #EC522D !important;
+}
+/* Email links: no underline + custom color */
+#staffTable tbody td:nth-child(3) a {
+  text-decoration: none !important;
+  color:rgb(148, 37, 118) !important;
+}
+.graduate-title {
+text-align: center;
+padding: 40px 20px 20px;
+
+}
+.graduate-title h1 {
+  font-size: 75px;
+  font-weight: bold;
+  color: #5E2950;
+  text-shadow:
+    /* Soft gray stroke */
+    0 0 1px #7b7979,
+    0 0 2px #7b7979,
+    1px 1px 2px #7b7979,
+    -1px -1px 2px #7b7979;
+  margin: 0;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  animation: glowTitle 3s ease-in-out infinite;
+}
   </style>
 </head>
-<body class="bg-light">
   <?php include '../includes/header.php'; ?>
-
+<body class="bg-light">
+<main class="page-content">
+   <div class="graduate-title">
+        <h1>الطاقم الأكاديمي</h1>
+      </div>
+      
   <div class="container my-5">
-    <h2 class="text-center mb-4">الطاقم الأكاديمي</h2>
+
 
     <!-- Custom Search + Major Filter -->
     <div class="row mb-4">
@@ -62,7 +108,10 @@ $deptRes   = $conn->query("SELECT DISTINCT department_name FROM departments ORDE
         <thead class="table-dark">
           <tr>
             <th>الصورة</th>
-            <th>الاسم</th>
+           <th>
+  الاسم
+  <i class="fab fa-linkedin fa-sm" style="color:#0A66C2; margin-left:6px;"></i>
+</th>
             <th>البريد الإلكتروني</th>
             <th>موقع المكتب</th>
             <th>التخصص</th>
@@ -74,7 +123,7 @@ $deptRes   = $conn->query("SELECT DISTINCT department_name FROM departments ORDE
               <tr>
                 <td>
                   <?php if (!empty($row['image'])): ?>
-                    <img src="../images/Academicpics/<?= htmlspecialchars($row['image']) ?>"
+                    <img src="images/Academicpics/<?= htmlspecialchars($row['image']) ?>"
                          alt="<?= htmlspecialchars($row['name']) ?>" width="60" height="60"
                          style="cursor:pointer; border-radius:50%;">
                   <?php else: ?>
@@ -115,7 +164,7 @@ $deptRes   = $conn->query("SELECT DISTINCT department_name FROM departments ORDE
       </div>
     </div>
   </div>
-
+</main>
   <?php include '../includes/footer.php'; ?>
 
   <!-- Scripts -->
