@@ -1,4 +1,3 @@
-
 <?php
 if (session_status() === PHP_SESSION_NONE) {
   session_start();
@@ -28,7 +27,6 @@ $courses = getCoursesByDepartment($conn, $departmentId);
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-
   <!-- Base URL to make all relative paths start from /businesshub -->
   <base href="/businesshub/">
 
@@ -43,15 +41,34 @@ $courses = getCoursesByDepartment($conn, $departmentId);
   <link rel="stylesheet" href="css/header-footer.css?v=<?php echo $cssVersion; ?>">
   <link rel="stylesheet" href="css/deps.css">
 
-  <!-- Notify styles (FontAwesome duplicate removed because already above) -->
-  <!-- You can remove this if not used -->
-  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/> -->
+  <!-- --- Table Fix for Button Alignment --- -->
+  <style>
+    #courses-table-PBUS td, #courses-table-PBUS th {
+      vertical-align: middle;
+    }
+    #courses-table-PBUS td:nth-child(2), #courses-table-PBUS th:nth-child(2) {
+      min-width: 120px;
+      width: 140px;
+      text-align: center;
+    }
+    .button-link-table {
+      display: inline-block;
+      padding: 8px 16px;
+      background: #EC522D;
+      color: #fff !important;
+      border-radius: 10px;
+      font-weight: bold;
+      text-decoration: none;
+      box-shadow: 0 2px 6px #e0e0e0;
+      transition: background 0.2s;
+      margin: 0 auto;
+    }
+    .button-link-table:hover {
+      background: #cf3a0b;
+    }
+  </style>
 
     <title>Public Business Adminstration </title>
-
-
-
-
     </head>
 
 <?php include(__DIR__ . '/../includes/header.php'); ?>

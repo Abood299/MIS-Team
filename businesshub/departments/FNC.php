@@ -1,4 +1,3 @@
-
 <?php
 if (session_status() === PHP_SESSION_NONE) {
   session_start();
@@ -28,7 +27,6 @@ $courses = getCoursesByDepartment($conn, $departmentId);
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-
   <!-- Base URL to make all relative paths start from /businesshub -->
   <base href="/businesshub/">
 
@@ -43,15 +41,34 @@ $courses = getCoursesByDepartment($conn, $departmentId);
   <link rel="stylesheet" href="css/header-footer.css?v=<?php echo $cssVersion; ?>">
   <link rel="stylesheet" href="css/deps.css">
 
-  <!-- Notify styles (FontAwesome duplicate removed because already above) -->
-  <!-- You can remove this if not used -->
-  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/> -->
+  <!-- --- Table Fix for Button Alignment --- -->
+  <style>
+    #courses-table-FNC td, #courses-table-FNC th {
+      vertical-align: middle;
+    }
+    #courses-table-FNC td:nth-child(2), #courses-table-FNC th:nth-child(2) {
+      min-width: 120px;
+      width: 140px;
+      text-align: center;
+    }
+    .button-link-table {
+      display: inline-block;
+      padding: 8px 16px;
+      background: #EC522D;
+      color: #fff !important;
+      border-radius: 10px;
+      font-weight: bold;
+      text-decoration: none;
+      box-shadow: 0 2px 6px #e0e0e0;
+      transition: background 0.2s;
+      margin: 0 auto;
+    }
+    .button-link-table:hover {
+      background: #cf3a0b;
+    }
+  </style>
 
     <title>Finance</title>
-
-
-
-
     </head>
 
     <?php include '../includes/header.php'; ?>
@@ -260,8 +277,36 @@ $courses = getCoursesByDepartment($conn, $departmentId);
 
 
     <?php include '../includes/footer.php'; ?>
+
+<!-- --- Table Fix for Button Alignment --- -->
+<style>
+  #courses-table-FNC td, #courses-table-FNC th {
+    vertical-align: middle;
+  }
+  #courses-table-FNC td:nth-child(2), #courses-table-FNC th:nth-child(2) {
+    min-width: 120px;
+    width: 140px;
+    text-align: center;
+  }
+  .button-link-table {
+    display: inline-block;
+    padding: 8px 16px;
+    background: #EC522D;
+    color: #fff !important;
+    border-radius: 10px;
+    font-weight: bold;
+    text-decoration: none;
+    box-shadow: 0 2px 6px #e0e0e0;
+    transition: background 0.2s;
+    margin: 0 auto;
+  }
+  .button-link-table:hover {
+    background: #cf3a0b;
+  }
+</style>
+
 <!-- to download book  -->
-    <script>
+<script>
   function forceDownload() {
       const link = document.createElement('a');
       link.href = 'downloads/ReportOne.pdf';
@@ -270,18 +315,18 @@ $courses = getCoursesByDepartment($conn, $departmentId);
       link.click();
       document.body.removeChild(link);
   }
+</script>
+<!-- script for button  -->
+<script>
+    function showPopup() {
+      document.getElementById("popupModal").style.display = "block";
+    }
+  
+    function closePopup() {
+      document.getElementById("popupModal").style.display = "none";
+    }
   </script>
-  <!-- script for button  -->
-  <script>
-      function showPopup() {
-        document.getElementById("popupModal").style.display = "block";
-      }
-    
-      function closePopup() {
-        document.getElementById("popupModal").style.display = "none";
-      }
-    </script>
-     <!-- for grey menu js all pages  -->
+   <!-- for grey menu js all pages  -->
 <script src="js/grey.js?v=<?= time(); ?>"></script>
 </body>
 </html>

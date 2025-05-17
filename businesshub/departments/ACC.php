@@ -1,4 +1,3 @@
-
 <?php
 if (session_status() === PHP_SESSION_NONE) {
   session_start();
@@ -8,7 +7,6 @@ if (session_status() === PHP_SESSION_NONE) {
 require_once __DIR__ . '/../includes/db.php';
 require_once __DIR__ . '/../includes/model/books.php';
 require_once __DIR__ . '/../includes/model/courses.php';
-
 
 // decide which department_id this page is for:
 $departmentId = 4;   // e.g. 1 = المحاسبة (adjust to match your DB)
@@ -34,8 +32,35 @@ $courses = getCoursesByDepartment($conn, $departmentId);
   <?php $cssVersion = filemtime($_SERVER['DOCUMENT_ROOT'] . '/businesshub/css/header-footer.css');?>
   <link rel="stylesheet" href="css/header-footer.css?v=<?php echo $cssVersion; ?>">
   <link rel="stylesheet" href="css/deps.css">
-  <title>Accounting</title>
 
+  <!-- --- Table Fix for Button Alignment --- -->
+  <style>
+    #courses-table-ACC td, #courses-table-ACC th {
+      vertical-align: middle;
+    }
+    #courses-table-ACC td:nth-child(2), #courses-table-ACC th:nth-child(2) {
+      min-width: 120px;
+      width: 140px;
+      text-align: center;
+    }
+    .button-link-table {
+      display: inline-block;
+      padding: 8px 16px;
+      background: #EC522D;
+      color: #fff !important;
+      border-radius: 10px;
+      font-weight: bold;
+      text-decoration: none;
+      box-shadow: 0 2px 6px #e0e0e0;
+      transition: background 0.2s;
+      margin: 0 auto;
+    }
+    .button-link-table:hover {
+      background: #cf3a0b;
+    }
+  </style>
+
+  <title>Accounting</title>
 </head>
 
 <body>
