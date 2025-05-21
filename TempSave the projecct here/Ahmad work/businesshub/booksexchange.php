@@ -216,7 +216,7 @@ font-family: 'El Messiri', sans-serif;
     0 0 1px #7b7979,
     0 0 2px #7b7979,
     1px 1px 2px #7b7979,
-    -1px -1px 2px #7b7979,
+    -1px -1px 2px #7b7979;
 
 
   margin: 0;
@@ -229,10 +229,10 @@ font-family: 'El Messiri', sans-serif;
 </style>
 </head>
 
-<?php include 'includes/header.php'; ?>
+
 <body>
 
-
+<?php include 'includes/header.php'; ?>
 <!-- Page Title -->
 <div class="graduate-title">
   <h1>تبادل المواد الدراسية</h1>
