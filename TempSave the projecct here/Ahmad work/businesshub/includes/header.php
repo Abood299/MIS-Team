@@ -112,8 +112,34 @@ LEFT JOIN chats AS c
     <?php endif; ?>
 
     <!-- search & burger toggles -->
-    <i class="fas fa-search search-icon" onclick="toggleSearchPopup()"></i>
-    <i class="fas fa-bars burger-menu"></i>
+    <!-- inside your .icons -->
+ <button type="button" class="btn search-icon">
+  <i class="fas fa-search"></i>
+</button>
+
+
+  <!-- <h1>test</h1> -->
+  <form id="searchhh" action="search_results.php" method="GET">
+  <div class="search-card">
+    <div class="search-input-wrapper">
+      <i class="fas fa-search"></i>
+      <input
+        type="text"
+        name="search"
+        class="search-input-header"
+        placeholder="Search..."
+        value="<?= isset($_GET['search']) ? htmlspecialchars($_GET['search']) : '' ?>"
+      />
+    </div>
+    <button type="submit" class="view-results-btn">
+      View Results →
+    </button>
+    <button type="button" class="close-search-link">Close</button>
+  </div>
+</form>
+
+
+    <i  class="fas fa-bars burger-menu"></i>
 
     <?php if (isset($_SESSION['user_id'])): ?>
       <a href="logout.php" class="sign-in">Sign Out</a>
@@ -122,6 +148,8 @@ LEFT JOIN chats AS c
     <?php endif; ?>
   </div>
 </header>
+
+
 <!-- offcanvas notifications panel -->
 <div class="offcanvas offcanvas-end" tabindex="-1" id="notifPanel" aria-labelledby="notifPanelLabel">
   <div class="offcanvas-header">
@@ -209,19 +237,6 @@ LEFT JOIN chats AS c
 </div>
 
 
-
-
-
-
-
-<!-- Search Bar Popup -->
-<div class="search-popup-header">
-  <div class="search-container-header">
-    <input type="text" class="search-input-header" placeholder="Search...">
-    <button class="search-close-btn-header"><i class="fas fa-times"></i></button>
-  </div>
-</div>
-
 <!-- Grey Overlay Menu -->
 <div class="menu-overlay">
   <div class="menu-logo">
@@ -258,6 +273,10 @@ LEFT JOIN chats AS c
 
 
 <style>
+
+
+
+
 /* ─── Desktop header ───────────────────────────────────────────────────────── */
 .icons {
   display: flex;
@@ -289,9 +308,6 @@ LEFT JOIN chats AS c
 }
 
 /* ─── Mobile overlay ───────────────────────────────────────────────────────── */
-.menu-links .mobile-notif {
-  /* removed – bell not here */
-}
 .brand-text { text-decoration: none; color: #fff; display: flex; }
 .business-text { font-weight: 600; }
 .hub-text { font-weight: 300; margin-left: 0.25rem; }
@@ -314,4 +330,134 @@ LEFT JOIN chats AS c
 .list-group-item.clickable:hover {
   background-color: #f0f8ff;    /* or whatever highlight color you prefer */
 }
+
+/* ─── Search Overlay Styling ───────────────────────────────────────────────── */
+/* ─── Full-screen blurred overlay + centering ───────────────────────────────── */
+#searchhh {
+  position: fixed;
+  inset: 0;                   /* top/right/bottom/left: 0 */
+  display: none;              /* still hidden until JS toggles it */
+  background: rgba(0,0,0,0.4);
+  backdrop-filter: blur(4px);
+  z-index: 1000;
+
+  /* flex-center the card inside */
+
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+/* ─── The white “card” inside the overlay ──────────────────────────────────── */
+#searchhh .search-card {
+  background: #fff;
+  border-radius: 8px;
+  max-width: 500px;
+  width: 90%;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+  overflow: hidden;
+  text-align: center;
+}
+
+/* top-border + input row */
+#searchhh .search-input-wrapper {
+  display: flex;
+  align-items: center;
+  border-top: 4px solid #EC522D; /* brand accent */
+  padding: 0.75rem 1rem;
+}
+#searchhh .search-input-wrapper i {
+  margin-right: 0.5rem;
+  color: #666;
+}
+#searchhh .search-input-header {
+  border: none;
+  flex: 1;
+  font-size: 1rem;
+  outline: none;
+}
+
+/* “View Results” button */
+#searchhh .view-results-btn {
+  display: inline-block;
+  margin: 1rem auto 0.5rem;
+  padding: 0.5rem 1.25rem;
+  font-size: 1rem;
+  border: 2px solid #333;
+  background: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* “Close” link */
+#searchhh .close-search-link {
+  display: block;
+  margin: 0.5rem auto 1rem;
+  background: none;
+  border: none;
+  color: #333;
+  text-decoration: underline;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.search-icon {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 1.2rem;
+  cursor: pointer;           /* ← make it pointer on hover */
+  padding: 0.25rem;          /* optional, to give it some hit-area */
+}
+.search-icon i {
+  pointer-events: none;      /* clicks pass through to button */
+}
+
 </style>
+<script>
+// this function shows or hides the search form
+function toggleSearchPopup() {
+  const form = document.getElementById('searchhh');
+  // if already visible → hide; otherwise → show & focus
+  if (form.style.display === 'flex') {
+    form.style.display = 'none';
+  } else {
+    form.style.display = 'flex';
+    form.querySelector('input[name="search"]').focus();
+  }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  const closeBtn = document.querySelector('.close-search');
+  const searchForm = document.getElementById('searchhh');
+
+  // clicking the little “×” hides it
+  closeBtn.addEventListener('click', () => {
+    searchForm.style.display = 'none';
+  });
+
+  // optional: click outside the form to close it
+  document.addEventListener('click', (e) => {
+    if (!e.target.closest('#searchhh') && !e.target.closest('.search-icon')) {
+      searchForm.style.display = 'none';
+    }
+  });
+});
+// ← right after: const searchForm = document.getElementById('searchhh');
+
+const searchIcon = document.querySelector('.search-icon');
+if (searchIcon) {
+  searchIcon.addEventListener('click', toggleSearchPopup);
+}
+document.querySelector('.close-search-link')
+        .addEventListener('click', () => {
+  document.getElementById('searchhh').style.display = 'none';
+});
+
+
+</script>
+
+
+
+
