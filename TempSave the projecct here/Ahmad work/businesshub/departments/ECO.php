@@ -220,7 +220,7 @@
 
 </div>
 <!-- END TREE GRID CONTAINER -->
-<?php endif; ?>
+
   
   
   <!-- button for more books -->
@@ -306,6 +306,7 @@
             <?php endforeach; ?>
           </tbody>
       </table>
+      <?php endif; ?>
       
 <?php include(__DIR__ . '/../includes/footer.php'); ?>
         <!-- script for button  -->

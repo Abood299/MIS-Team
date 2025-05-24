@@ -221,7 +221,7 @@
     </div>
   </div>
   <!-- END TREE BLOCK 4 -->
-<?php endif; ?>
+
 
 </div>
 <!-- END TREE GRID CONTAINER -->
@@ -311,6 +311,7 @@
             <?php endforeach; ?>
         </tbody>
   </table>
+  <?php endif; ?>
   
 
 <?php include(__DIR__ . '/../includes/footer.php'); ?>

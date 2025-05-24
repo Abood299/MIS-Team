@@ -234,7 +234,6 @@
 
 </div>
 <!-- END TREE GRID CONTAINER -->
-<?php endif; ?>
 
   
   <!-- button for more books -->
@@ -324,6 +323,8 @@
             <?php endforeach; ?>
           </tbody>
       </table>
+      <?php endif; ?>
+
   
 
 
