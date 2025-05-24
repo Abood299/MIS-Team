@@ -1,25 +1,30 @@
 <?php
-if (session_status() === PHP_SESSION_NONE) {
-  session_start();
-} 
+  if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+  }
 
-// load the DB from the correct path:
-require_once __DIR__ . '/../includes/db.php';
-require_once __DIR__ . '/../includes/model/books.php';
-require_once __DIR__ . '/../includes/model/courses.php';
+  require_once __DIR__ . '/../includes/db.php';
+  require_once __DIR__ . '/../includes/model/books.php';
+  require_once __DIR__ . '/../includes/model/courses.php';
 
-// decide which department_id this page is for:
-$departmentId = 2;   // e.g. 1 = المحاسبة (adjust to match your DB)
-// now, for each year-block you can fetch:
-$year1Books = getBooksByDepartmentAndYear($conn, $departmentId, '1');
-$year2Books = getBooksByDepartmentAndYear($conn, $departmentId, '2');
-$year3Books = getBooksByDepartmentAndYear($conn, $departmentId, '3');
-$year4Books = getBooksByDepartmentAndYear($conn, $departmentId, '4');
+  // Detect if we're in “detail” mode:
+  $bookId = isset($_GET['book_id']) && is_numeric($_GET['book_id'])
+          ? (int) $_GET['book_id']
+          : null;
 
-$courses = getCoursesByDepartment($conn, $departmentId);
-// etc.
+  if ($bookId) {
+    // Single–book view:
+    $bookDetail = getBookById($conn, $bookId);
+  } else {
+    // The normal per‐year lists:
+    $departmentId = 2;   // <-- your department ID
+    $year1Books = getBooksByDepartmentAndYear($conn, $departmentId, '1');
+    $year2Books = getBooksByDepartmentAndYear($conn, $departmentId, '2');
+    $year3Books = getBooksByDepartmentAndYear($conn, $departmentId, '3');
+    $year4Books = getBooksByDepartmentAndYear($conn, $departmentId, '4');
+    $courses     = getCoursesByDepartment($conn, $departmentId);
+  }
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en"> 
@@ -81,6 +86,40 @@ $courses = getCoursesByDepartment($conn, $departmentId);
 
 
 
+<?php if ($bookId && !empty($bookDetail)): ?>
+  <!-- DETAIL VIEW: show only the selected book -->
+  <?php $b = $bookDetail[0]; ?>
+<div class="container py-5">
+  <div class="card shadow-sm">
+    <div class="card-header text-white" style="background-color: #5E2950;">
+      <h2 class="mb-0">تفاصيل الكتاب</h2>
+    </div>
+    <div class="card-body">
+      <h3 class="card-title mb-4"><?= htmlspecialchars($b['book_name']) ?></h3>
+      <dl class="row mb-4">
+        <dt class="col-sm-3">السنة:</dt>
+        <dd class="col-sm-9"><?= htmlspecialchars($b['year']) ?></dd>
+
+        <dt class="col-sm-3">القسم:</dt>
+        <dd class="col-sm-9"><?= htmlspecialchars($b['department_name']) ?></dd>
+      </dl>
+
+      <div class="d-flex gap-2">
+        <a href="<?= htmlspecialchars($b['book_material']) ?>"
+           class="btn btn-outline-primary"
+           target="_blank">
+          <i class="fas fa-download me-1"></i> تحميل الكتاب
+        </a>
+        <a href="departments/MKT.php"
+           class="btn text-light" style="background-color: #5E2950;">
+          <i class="fas fa-arrow-left me-1"></i> العودة للقائمة
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<?php else: ?>
 <!-- START TREE GRID CONTAINER -->
 <div class="tree-grid-container">
 
@@ -179,7 +218,7 @@ $courses = getCoursesByDepartment($conn, $departmentId);
 
 </div>
 <!-- END TREE GRID CONTAINER -->
-
+<?php endif; ?>
 
 <!-- button for more books -->
   <div class="center-button-wrapper">

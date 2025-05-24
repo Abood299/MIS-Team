@@ -24,3 +24,19 @@ function getAllAcademicStaff() {
     }
     return $res->fetch_all(MYSQLI_ASSOC);
 }
+
+function getAcademicStaffById(int $id): array {
+  global $conn;
+  $sql = "
+    SELECT s.*, d.department_name
+      FROM academic_staff AS s
+ LEFT JOIN departments AS d
+        ON s.department_id = d.id
+     WHERE s.id = ?
+  ";
+  $stmt = $conn->prepare($sql);
+  $stmt->bind_param('i', $id);
+  $stmt->execute();
+  return $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+}
+

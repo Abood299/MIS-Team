@@ -26,3 +26,25 @@ function getBooksByDepartmentAndYear(mysqli $conn, int $departmentId, string $ye
     $stmt->close();
     return $books;
 }   
+/**
+ * Fetch a single book by its ID (or return an empty array if not found).
+ */
+function getBookById(mysqli $conn, int $bookId): array {
+  $sql = "
+    SELECT 
+      b.id,
+      b.book_name,
+      b.book_material,
+      d.department_name,
+      b.year
+    FROM books AS b
+    JOIN departments AS d
+      ON b.department_id = d.id
+    WHERE b.id = ?
+    LIMIT 1
+  ";
+  $stmt = $conn->prepare($sql);
+  $stmt->bind_param('i', $bookId);
+  $stmt->execute();
+  return $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+}
