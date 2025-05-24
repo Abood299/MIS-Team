@@ -7,7 +7,20 @@ if (session_status() === PHP_SESSION_NONE) {
 require_once __DIR__ . '/../includes/db.php';
 require_once __DIR__ . '/../includes/model/academicStaffModel.php';
 
-$staffList = getAllAcademicStaff();
+
+// $staffList = getAllAcademicStaff();
+
+$selectedId = isset($_GET['id']) && is_numeric($_GET['id'])
+  ? (int)$_GET['id']
+  : null;
+
+if ($selectedId) {
+  $staffList = getAcademicStaffById($selectedId);
+} else {
+  $staffList = getAllAcademicStaff();
+}
+
+
 $deptRes   = $conn->query("SELECT DISTINCT department_name FROM departments ORDER BY department_name");
 ?>
 <!DOCTYPE html>

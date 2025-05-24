@@ -4,7 +4,9 @@ if (session_status() === PHP_SESSION_NONE) {
   session_start();
 }
 
-require_once __DIR__ . '/db.php';
+
+require_once $_SERVER['DOCUMENT_ROOT'] . '/businesshub/includes/db.php';
+
 
 // only fetch counts & panels when logged in
 $unread = 0;
@@ -119,7 +121,7 @@ LEFT JOIN chats AS c
 
 
   <!-- <h1>test</h1> -->
-  <form id="searchhh" action="search_results.php" method="GET">
+  <form id="searchhh" action="includes/search_results.php" method="GET">
   <div class="search-card">
     <div class="search-input-wrapper">
       <i class="fas fa-search"></i>

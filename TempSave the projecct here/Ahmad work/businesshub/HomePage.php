@@ -177,7 +177,6 @@ require __DIR__ . '/includes/db.php';   // if your header needs the DB
                 font-size: 28px;
                 font-weight: bold;
                 margin-bottom: 10px;
-            /* under is a decorartion for slide show 1 title */
                     background: linear-gradient(to right, #FF5733, #C70039, #900C3F, #581845); 
                     -webkit-background-clip: text; 
                     -webkit-text-fill-color: transparent; 
