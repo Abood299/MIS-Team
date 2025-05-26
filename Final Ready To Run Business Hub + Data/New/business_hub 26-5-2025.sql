@@ -1,0 +1,1812 @@
+-- phpMyAdmin SQL Dump
+-- version 5.2.1
+-- https://www.phpmyadmin.net/
+--
+-- Host: 127.0.0.1
+-- Generation Time: May 26, 2025 at 03:04 PM
+-- Server version: 10.4.32-MariaDB
+-- PHP Version: 8.2.12
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Database: `business_hub2`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `academic_staff`
+--
+
+CREATE TABLE `academic_staff` (
+  `id` int(11) NOT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `email` varchar(255) DEFAULT NULL,
+  `linkedin` varchar(255) DEFAULT NULL,
+  `image` text DEFAULT NULL,
+  `office_location` varchar(255) DEFAULT NULL,
+  `department_id` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `academic_staff`
+--
+
+INSERT INTO `academic_staff` (`id`, `name`, `email`, `linkedin`, `image`, `office_location`, `department_id`) VALUES
+(60, 'جمانة زياد الزعبي', 'j.zoubi@ju.edu.jo', 'https://business.ju.edu.jo/ar/Arabic/Lists/FacultyAcademicStaff/StaffDisp.aspx?id=123', 'JumanaZoubi.jpg', 'مبنى 3 الطابق الأرضي', 6),
+(61, 'محمود محمد مقابلة', 'maqableh@ju.edu.jo', 'https://business.ju.edu.jo/ar/Arabic/Lists/FacultyAcademicStaff/StaffDisp.aspx?id=78', 'mahmoudmaqableh.jpg', 'مبنى 4 الطابق الثاني', 1),
+(62, 'هزار ياسر الحمود', 'h.hmoud@ju.edu.jo', 'https://business.ju.edu.jo/ar/Arabic/Lists/FacultyAcademicStaff/StaffDisp.aspx?id=104', 'hazarhmoud.jpg', 'مبنى 4 الطابق الأرضي', 1),
+(63, 'محمود علي الدلاهمة', 'm.aldalahmeh@ju.edu.jo', 'https://business.ju.edu.jo/ar/Arabic/Lists/FacultyAcademicStaff/StaffDisp.aspx?id=43', 'الدلاهمة.jpg', 'مبنى 4 الطابق الأرضي', 1),
+(64, 'ليلى علي ذهيبة', 'laila.dahabiyeh@ju.edu.jo', 'https://business.ju.edu.jo/ar/Arabic/Lists/FacultyAcademicStaff/StaffDisp.aspx?id=105', 'Laila.jpg', 'مبنى 1 الطابق الأرضي', 1),
+(65, 'هاني حامد الضمور', 'dmourh@ju.edu.jo', 'https://business.ju.edu.jo/ar/Arabic/Lists/FacultyAcademicStaff/StaffDisp.aspx?id=33', 'هاني-الضمور.jpg', 'مبنى 4 الطابق الثاني', 2),
+(66, 'زيد محمد عبيدات', 'z.obeidat@ju.edu.jo', 'https://business.ju.edu.jo/ar/Arabic/Lists/FacultyAcademicStaff/StaffDisp.aspx?id=116', 'زيد-عبيدات.jpg', 'مبنى 4 الطابق الثاني', 2),
+(67, 'رامي محمد الدويري', 'r.dweeri@ju.edu.jo', 'https://business.ju.edu.jo/ar/Arabic/Lists/FacultyAcademicStaff/StaffDisp.aspx?id=114', 'رامي-دويري.jpg', 'مبنى 4 الطابق الثاني', 2),
+(68, 'آيات مازن المحمود', 'a.alhawary@ju.edu.jo', 'https://business.ju.edu.jo/ar/Arabic/Lists/FacultyAcademicStaff/StaffDisp.aspx?id=119', 'Ayat.jpg', 'مبنى 3 الطابق الأرضي', 2),
+(69, 'فرح ملك شيشان', 'f.shishan@ju.edu.jo', 'https://business.ju.edu.jo/ar/Arabic/Lists/FacultyAcademicStaff/StaffDisp.aspx?id=106https://business.ju.edu.jo/ar/Arabic/Lists/FacultyAcademicStaff/StaffDisp.aspx?id=106', 'Farahb.jpg', 'مبنى 3 الطابق الأرضي', 2),
+(70, 'دانا فوزي قاقيش', 'Dana.Kakeesh@ju.edu.jo', 'https://business.ju.edu.jo/ar/Arabic/Lists/FacultyAcademicStaff/StaffDisp.aspx?id=107', 'DanaKakeesh.jpg', 'مبنى 3 الطابق الأرضي', 2),
+(71, 'معتز محمد الدبعي', 'm.aldebei@ju.edu.jo', 'https://business.ju.edu.jo/ar/Arabic/Lists/FacultyAcademicStaff/StaffDisp.aspx?id=77', 'معتز-الدبعي.jpg', 'مبنى 4 الطابق الأول', 1),
+(72, 'اشرف عادل بني محمد', 'a.bany@ju.edu.jo', 'https://business.ju.edu.jo/ar/Arabic/Lists/FacultyAcademicStaff/StaffDisp.aspx?id=95', 'ashraf.jpg', 'مبنى 4 الطابق الثاني', 1),
+(73, 'رند هاني الضمور', 'Rand.aldmour@ju.edu.jo', 'https://business.ju.edu.jo/ar/Arabic/Lists/FacultyAcademicStaff/StaffDisp.aspx?id=98', 'rand-aldmour.jpg', 'مبنى 4 الطابق الأول', 1),
+(74, 'محمد خالد النوايسة', 'm.nawaiseh@ju.edu.jo', 'https://business.ju.edu.jo/ar/Arabic/Lists/FacultyAcademicStaff/StaffDisp.aspx?id=134', 'محمد-النوايسة.jpg', 'مبنى 4 الطابق الأول', 1),
+(75, 'أسماء محمد جديتاوي (رئيس قسم)', 'a.jdaitawi@ju.edu.jo', 'https://business.ju.edu.jo/ar/Arabic/Lists/FacultyAcademicStaff/StaffDisp.aspx?id=100', 'AsmaJdaitawe.jpg', 'مبنى 4 الطابق الأرضي', 1),
+(76, 'رفعت عودة الله الشناق', 'rshannak@ju.edu.jo', 'https://business.ju.edu.jo/ar/Arabic/Lists/FacultyAcademicStaff/StaffDisp.aspx?id=42', 'RifatShannak.jpg', 'مبنى 4 الطابق الأول', 1),
+(77, 'رائد مساعده بني ياسين', 'r.masadeh@ju.edu.jo', 'https://business.ju.edu.jo/ar/Arabic/Lists/FacultyAcademicStaff/StaffDisp.aspx?id=44', 'رائد-مساعده.jpg', 'مبنى 1 الطابق الأرضي', 1),
+(78, 'بشير أحمد خميس', 'basheer@ju.edu.jo', 'https://business.ju.edu.jo/ar/Arabic/Lists/FacultyAcademicStaff/StaffDisp.aspx?id=17', 'بشير-خميس.jpg', 'مبنى 3 الطابق الأرضي', 4),
+(79, 'احمد لطفي احمد', 'a.jitawi@ju.edu.jo', 'https://business.ju.edu.jo/ar/Arabic/Lists/FacultyAcademicStaff/StaffDisp.aspx?id=132', 'ahmad12.jpg', 'مبنى 3 الطابق الأرضي', 4),
+(80, 'بتول بسام عبد الدايم', 'b.Abdeldayem@ju.edu.jo', 'https://business.ju.edu.jo/ar/Arabic/Lists/FacultyAcademicStaff/StaffDisp.aspx?id=157', 'بتول-بسام.jpg', 'مبنى 2 الطابق الأرضي', 4),
+(81, 'عمر تيسير موافي (رئيس القسم)', 'o.mowafi@ju.edu.jo', 'https://business.ju.edu.jo/ar/Arabic/Lists/FacultyAcademicStaff/StaffDisp.aspx?id=158', 'عمر-الموافي.jpg', 'مبنى 2 الطابق الأرضي', 4),
+(82, 'ياسر محمد اللوزي', 'y.allozi@ju.edu.jo', 'https://business.ju.edu.jo/ar/Arabic/Lists/FacultyAcademicStaff/StaffDisp.aspx?id=164', 'ياسر-اللوزي.jpg', 'مبنى 3 الطابق الأرضي', 4),
+(83, 'آمنة خميس حمد', 'a.hamad@ju.edu.jo', 'https://business.ju.edu.jo/ar/Arabic/Lists/FacultyAcademicStaff/StaffDisp.aspx?id=19', 'امنه-خميس.jpg', 'مبنى 3 الطابق الأرضي', 4),
+(84, 'ياسين ممدوح الطراونة', 'y.tarawneh@ju.edu.jo', 'https://business.ju.edu.jo/ar/Arabic/Lists/FacultyAcademicStaff/StaffDisp.aspx?id=142', 'YaseenAltarawneh.jpg', 'مبنى 2 الطابق الأرضي', 5),
+(85, 'هديل صلاح ياسين', 'h.yaseen@ju.edu.jo', 'https://business.ju.edu.jo/ar/Arabic/Lists/FacultyAcademicStaff/StaffDisp.aspx?id=133', 'هديل-الياسين.jpg', 'مبنى 3 الطابق الاول', 3),
+(86, 'محمد عبدالله الخطايبه', 'khataybeh@ju.edu.jo', 'https://business.ju.edu.jo/ar/Arabic/Lists/FacultyAcademicStaff/StaffDisp.aspx?id=145', 'خطايبه.jpg', 'مبنى 3 الطابق الاول', 3),
+(87, 'دعاء فوزي شبيطة', 'd.shubita@ju.edu.jo', 'https://business.ju.edu.jo/ar/Arabic/Lists/FacultyAcademicStaff/StaffDisp.aspx?id=31', 'دعاء-شبيطة.jpg', 'مبنى 3 الطابق الاول', 3),
+(88, 'سالم عادل الزيادات', 's.ziadat@ju.edu.jo', 'https://business.ju.edu.jo/ar/Arabic/Lists/FacultyAcademicStaff/StaffDisp.aspx?id=211', 'سالم-الزيادات.jpg', 'مبنى 3 الطابق الاول', 3),
+(89, 'مجد منير اسكندراني', 'm.iskandrani@ju.edu.jo', 'https://business.ju.edu.jo/ar/Arabic/Lists/FacultyAcademicStaff/StaffDisp.aspx?id=109', 'Majd.jpg', 'مبنى 2 الطابق الاول', 3),
+(90, 'مهند حسين عبيدات', 'Obeidatmohanned@yahoo.com', 'https://business.ju.edu.jo/ar/Arabic/Lists/FacultyAcademicStaff/StaffDisp.aspx?id=155', 'مهند-عبيدات.jpg', 'مبنى 2 الطابق الاول', 3),
+(91, 'نورا حامد ابو عصب', 'n.abuasab@ju.edu.jo', 'https://business.ju.edu.jo/ar/Arabic/Lists/FacultyAcademicStaff/StaffDisp.aspx?id=102', 'nora-abu-asab.jpg', 'مبنى 2 الطابق الاول', 5),
+(92, 'خوله علي سبيتان', 'Khawlah.Spetan@ju.edu.jo', 'https://business.ju.edu.jo/ar/Arabic/Lists/FacultyAcademicStaff/StaffDisp.aspx?id=66', 'خوله-علي.jpg', 'مبنى 2 الطابق الاول', 5),
+(93, 'زياد سامي الكلحة', 'z.kalha@ju.edu.jo', 'https://business.ju.edu.jo/ar/Arabic/Lists/FacultyAcademicStaff/StaffDisp.aspx?id=124', 'زياد-كلحه.jpg', 'مبنى 3 الطابق الأول', 7),
+(94, 'تغريد صالح سعيفان', 't.suifan@ju.edu.jo', 'https://business.ju.edu.jo/ar/Arabic/Lists/FacultyAcademicStaff/StaffDisp.aspx?id=76', 'تغريد-سعيفان .jpg', 'مبنى 4 الطابق الثاني', 7),
+(95, 'أيمن بهجت عبدالله', 'a.abdallah@ju.edu.jo', 'https://business.ju.edu.jo/ar/Arabic/Lists/FacultyAcademicStaff/StaffDisp.aspx?id=91', 'AymanAbdullah.jpg', 'مبنى 4 الطابق الاول', 7),
+(96, 'معتصم محمد الذنيبات (رئيس القسم)', 'Motasem.thneibat@ju.edu.jo', 'https://business.ju.edu.jo/ar/Arabic/Lists/FacultyAcademicStaff/StaffDisp.aspx?id=147', 'motasemThunaibat.jpg', 'مبنى 4 الطابق الاول', 7),
+(97, 'ريما وحيد الحسن', 'r.hasan@ju.edu.jo', 'https://business.ju.edu.jo/ar/Arabic/Lists/FacultyAcademicStaff/StaffDisp.aspx?id=111', 'ريما.jpg', 'مبنى 3 الطابق الأرضي', 7),
+(98, 'سامر عيد الدحيات', 's.dahiyat@ju.edu.jo', 'https://business.ju.edu.jo/ar/Arabic/Lists/FacultyAcademicStaff/StaffDisp.aspx?id=8', 'Dr.Samer.jpg', 'مبنى 4 الطابق الأول', 7),
+(99, 'نيفين مازن السيد', 'n.alsayed@ju.edu.jo', 'https://business.ju.edu.jo/ar/Arabic/Lists/FacultyAcademicStaff/StaffDisp.aspx?id=86', 'نيفين.jpg', 'مبنى 3 الطابق الأرضي', 7),
+(100, 'زعبي محمد الزعبي', 'z.alzubi@ju.edu.jo', 'https://business.ju.edu.jo/ar/Arabic/Lists/FacultyAcademicStaff/StaffDisp.aspx?id=10', 'زعبي-الزعبي.jpg', 'مبنى 3 الطابق الأرضي', 7),
+(101, 'راتب جليل صويص', 'r.sweis@ju.edu.jo', 'https://business.ju.edu.jo/ar/Arabic/Lists/FacultyAcademicStaff/StaffDisp.aspx?id=7', 'راتب-صويص.jpg', 'مبنى 4 الطابق الثاني', 7),
+(102, 'علاء الدين عوض الطراونة', 'a.altarawneh@ju.edu.jo', 'https://business.ju.edu.jo/ar/Arabic/Lists/FacultyAcademicStaff/StaffDisp.aspx?id=83', 'علاء-طراونة.jpg', 'مبنى 2 الطابق الاول', 5),
+(103, 'نهيل اسماعيل سقف الحيط', 'nahil.saqfalhait@ju.edu.jo', 'https://business.ju.edu.jo/ar/Arabic/Lists/FacultyAcademicStaff/StaffDisp.aspx?id=65', 'profnaheel.jpg', 'مبنى 2 الطابق الاول', 5),
+(104, 'محمد عاطف المومني', 'mo.almomani@ju.edu.jo', 'https://business.ju.edu.jo/ar/Arabic/Lists/FacultyAcademicStaff/StaffDisp.aspx?id=163', 'محمد-المومني.jpg', 'مبنى 2 الطابق الاول', 2),
+(105, 'احمد محمد عبيدات', 'a.obeidat@ju.edu.jo', 'https://business.ju.edu.jo/ar/Arabic/Lists/FacultyAcademicStaff/StaffDisp.aspx?id=112', 'ahmadobeidat.jpg', 'مبنى 4 الطابق الثاني', 7),
+(106, 'محمود عوده أبو فارس', 'm.abufares@ju.edu.jo', 'https://business.ju.edu.jo/ar/Arabic/Lists/FacultyAcademicStaff/StaffDisp.aspx?id=52', 'AboFares.jpg', 'مبنى 3 الطابق الأرضي', 6),
+(107, 'عبد الحكيم عقلة اخو ارشيدة', 'a.hakim@ju.edu.jo', 'https://business.ju.edu.jo/ar/Arabic/Lists/FacultyAcademicStaff/StaffDisp.aspx?id=87', 'اخورشيده.jpg', 'مبنى 3 الطابق الأرضي', 6),
+(108, 'غالب محمد أبو رمان', 'g.aburumman@ju.edu.jo', 'https://business.ju.edu.jo/ar/Arabic/Lists/FacultyAcademicStaff/StaffDisp.aspx?id=18', 'unkown.jpg', 'مبنى 3 الطابق الأرضي', 4);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `books`
+--
+
+CREATE TABLE `books` (
+  `id` int(11) NOT NULL,
+  `department_id` int(11) DEFAULT NULL,
+  `year` enum('1','2','3','4') NOT NULL DEFAULT '1',
+  `book_name` varchar(255) DEFAULT NULL,
+  `book_material` text DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `books`
+--
+
+INSERT INTO `books` (`id`, `department_id`, `year`, `book_name`, `book_material`) VALUES
+(20, 1, '1', 'محاسبة 1', 'https://web.ung.edu/media/university-press/Principles-of-Financial-Accounting.pdf?t=1542408454385'),
+(21, 1, '1', 'نظم إدارة قواعد البيانات', 'https://mrcet.com/downloads/digital_notes/ECE/III%20Year/DATABASE%20MANAGEMENT%20SYSTEMS.pdf'),
+(22, 1, '1', 'إدارة موارد المعلومات', 'https://www.bau.edu.jo/UserPortal/UserProfile/PostsAttach/24828_3774_1.pdf'),
+(23, 1, '1', 'نظم إدارة المعرفة: أساليب وممارسات', 'https://www.apo-tokyo.org/wp-content/uploads/2014/07/ind-43-km_tt-2010.pdf'),
+(24, 1, '1', 'تحليل وتصميم أنظمة المعلومات', 'https://digilib.stiestekom.ac.id/assets/dokumen/ebook/feb_fa71ed3e33262f6f85e4b3122596d2a086ea62c4_1648782931.pdf'),
+(25, 1, '1', 'الابتكار والريادة الرقمية', 'https://www.researchgate.net/publication/379955327_Digital_Leadership_Business_Model_Innovation_and_Organizational_Change_Role_of_Leader_in_Steering_Digital_Transformation'),
+(26, 1, '1', 'حلقة بحث في نظم المعلومات الإدارية', 'https://business.ju.edu.jo/Lists/Courses/Attachments/134/Research%20seminar%20Syllabus.pdf'),
+(27, 1, '2', 'مبادئ إدارة الأعمال', 'https://th.bing.com/th/id/R.c0d3f18f70b5e1b8ad0ba6067da5e62a?rik=Sgnco9rs8JKBkw&pid=ImgRaw&r=0'),
+(28, 1, '2', 'أساسيات البرمجة للأعمال', 'https://thaka.bing.com/th/id/OIP.9oLn7WU8Qh75VKQPH61yqgHaLG?rs=1&pid=ImgDetMain'),
+(29, 1, '2', 'مبادئ الاقتصاد الجزئي', 'https://th.bing.com/th/id/OIP.cuY6NHnYLFXuQU5NhM3b_AHaIt?cb=iwc1&rs=1&pid=ImgDetMain'),
+(30, 1, '2', 'مبادئ تسويق', 'https://i.pinimg.com/736x/04/09/cc/0409cc2d2f11d037acb4a88dcaa0c0a3.jpg'),
+(31, 1, '2', 'ذكاء الأعمال وأدوات تحليل البيانات', 'https://m.media-amazon.com/images/I/71PERh4QmgL._SL1500_.jpg'),
+(32, 1, '2', 'قضايا معاصرة في نظم المعلومات الإدارية', 'https://thaka.bing.com/th/id/OIP.-oJFHEEnvwOYJrq9BL1GOQHaLI?rs=1&pid=ImgDetMain'),
+(33, 1, '2', 'تطبيقات الذكاء الاصطناعي للأعمال', 'https://cdn.kobo.com/book-images/a3627c8f-5ab8-488e-9b18-10a86092a9d0/1200/1200/False/artificial-intelligence-business-applications.jpg'),
+(34, 1, '3', 'مبادئ إحصاء', 'https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1388183119i/340019.jpg'),
+(35, 1, '3', 'برمجة تطبيقات الأعمال', 'https://m.media-amazon.com/images/I/41NF7KEPJVL.jpg'),
+(36, 1, '3', 'برمجة تطبيقات الإنترنت', 'https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1348734135i/3729666.jpg'),
+(37, 1, '3', 'نظم إدارة موارد المنظمة', 'https://thaka.bing.com/th/id/OIP.MgxDlgKKzPErGOGyS_9fgwHaLL?rs=1&pid=ImgDetMain'),
+(38, 1, '3', 'نمذجة الأعمال والمحاكاة', 'https://th.bing.com/th/id/R.0b0fa81fa2c21f8d17d5a0d54df8152c?rik=C6H6m0fiDac9Sw&pid=ImgRaw&r=0'),
+(39, 1, '3', 'مهارات الاستعداد لسوق العمل', 'nan'),
+(40, 1, '3', 'مشروع في نظم المعلومات الإدارية', 'nan'),
+(41, 1, '4', 'الإدارة العامة الحديثة', 'https://th.bing.com/th/id/OIP.d7qgPv_PJb8SCCoqsKH2PwAAAA?cb=iwc1&rs=1&pid=ImgDetMain'),
+(42, 1, '4', 'الأعمال الإلكترونية', 'https://m.media-amazon.com/images/I/61rvdr5W-TL._SL1072_.jpg'),
+(43, 1, '4', 'نظم الوسائط المتعددة', 'https://images.secondsale.com/images/ff259a19eb448be2719e91d8503766c5.jpg'),
+(44, 1, '4', 'برمجة تطبيقات الأجهزة الذكية', 'https://thaka.bing.com/th/id/OIP.eigHM4vOmyXA-9MH55p77QHaLO?rs=1&pid=ImgDetMain'),
+(45, 1, '4', 'أمن المعلومات', 'https://m.media-amazon.com/images/I/71RYLQjODAL._SL1500_.jpg'),
+(46, 1, '4', 'التدريب العملي لطلبة نظم المعلومات الإدارية', 'nan'),
+(47, 2, '1', 'مبادئ التسويق', 'https://i.pinimg.com/736x/04/09/cc/0409cc2d2f11d037acb4a88dcaa0c0a3.jpg'),
+(48, 2, '1', 'مبادئ الاقتصاد الجزئي', 'https://th.bing.com/th/id/OIP.cuY6NHnYLFXuQU5NhM3b_AHaIt?cb=iwc1&rs=1&pid=ImgDetMain'),
+(49, 2, '1', 'الاتصالات التسويقية المتكاملة', 'https://m.media-amazon.com/images/I/61aQeB0F1RL._SL1250_.jpg'),
+(50, 2, '1', 'إدارة قنوات التسويق', 'https://res.cloudinary.com/bloomsbury-atlas/image/upload/w_568,c_scale/jackets/9780275954390.jpg'),
+(51, 2, '1', 'إدارة التسويق', 'https://thaka.bing.com/th/id/OIP.9zUj88prQPrbm4ii7IbwpgHaKx?rs=1&pid=ImgDetMain'),
+(52, 2, '1', 'بحوث السوق', 'https://rukminim1.flixcart.com/image/1408/1408/book/2/2/3/marketing-research-4ed-beri-original-imadcuktehzpzf6x.jpeg?q=90'),
+(53, 2, '1', 'التسويق عبر محركات البحث', 'https://www.digitalvidya.com/blog/wp-content/uploads/2017/01/Global-Search-Engine-Marketing.webp'),
+(54, 2, '1', 'العمل لطلبة التسويق', 'nan'),
+(55, 2, '2', 'مبادئ إدارة أعمال', 'https://th.bing.com/th/id/R.c0d3f18f70b5e1b8ad0ba6067da5e62a?rik=Sgnco9rs8JKBkw&pid=ImgRaw&r=0'),
+(56, 2, '2', 'مبادئ نظم معلومات إدارية', 'https://www.neerajbooks.com/image/data/mcs-52-em-principal_of_management_and_information_system.jpg'),
+(57, 2, '2', 'تخطيط وتطوير المنتجات', 'https://www.oreilly.com/api/v2/epubs/9780127999456/files/images/9780128001905_FC.jpg'),
+(58, 2, '2', 'المهارات الرقمية الحديثة', 'https://th.bing.com/th/id/R.82b76ffe7a29d2a510fb015b1159322b?rik=YvPqjasI6Rd40Q&pid=ImgRaw&r=0'),
+(59, 2, '2', 'التسويق الرقمي', 'https://thaka.bing.com/th/id/OIP.C7VBtSaEpHTUSro8UMNr6wHaHa?rs=1&pid=ImgDetMain'),
+(60, 2, '2', 'استراتيجية التسويق', 'https://thaka.bing.com/th/id/OIP.Rw_VvSEXa1xzEJyHIwB3vAHaKz?rs=1&pid=ImgDetMain'),
+(61, 2, '2', 'مشروع التخرج', 'nan'),
+(62, 2, '3', 'الإدارة العامة الحديثة', 'https://th.bing.com/th/id/OIP.d7qgPv_PJb8SCCoqsKH2PwAAAA?cb=iwc1&rs=1&pid=ImgDetMain'),
+(63, 2, '3', 'سلوك مستهلك', 'https://thaka.bing.com/th/id/OIP.DpFpfzlSOFY_r1JLMniqlwAAAA?rs=1&pid=ImgDetMain'),
+(64, 2, '3', 'مبادئ إحصاء', 'https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1388183119i/340019.jpg'),
+(65, 2, '3', 'مبادئ الإدارة المالية', 'https://th.bing.com/th/id/OIP.GPX1wfBvXgu7G1q-5hrSKgHaJQ?cb=iwc1&rs=1&pid=ImgDetMain'),
+(66, 2, '3', 'العلاقات العامة', 'https://th.bing.com/th/id/R.1b174acc9bc4b9c68028e77443f4a932?rik=sWQw7%2bG0aDERow&pid=ImgRaw&r=0'),
+(67, 2, '3', 'قضايا معاصرة في التسويق', 'https://res.cloudinary.com/bloomsbury-atlas/image/upload/w_360,c_scale/jackets/9780333677742.jpg'),
+(68, 2, '3', 'التدريب الميداني', 'nan'),
+(69, 2, '4', 'مبادئ محاسبة (1)', 'https://m.media-amazon.com/images/I/81H7oynuXHL._SL1500_.jpg'),
+(70, 2, '4', 'مدخل إلى الاقتصاد الرياضي', 'https://img.perlego.com/book-covers/1239853/9788132325567_300_450.webp'),
+(71, 2, '4', 'التسويق الدولي', 'https://th.bing.com/th/id/R.dd69a5b023b020113f29fe26d186838d?rik=u%2bP2xd3bmQhXqA&pid=ImgRaw&r=0'),
+(72, 2, '4', 'إدارة مبيعات', 'https://mashummollah.com/wp-content/uploads/2021/02/Sales-Management.-Simplified.jpg'),
+(73, 2, '4', 'سياسات التسعير', 'https://images-na.ssl-images-amazon.com/images/I/51eM5oYtNSL.jpg'),
+(74, 2, '4', 'تسويق وإدارة المحتوى', 'https://thaka.bing.com/th/id/OIP.Fh50P_eJQSgPBEq7Lr03qQAAAA?rs=1&pid=ImgDetMain'),
+(75, 2, '4', 'مهارات الجاهزية لسوق العمل', 'nan'),
+(76, 3, '1', 'مبادئ إدارة الأعمال', 'https://th.bing.com/th/id/R.c0d3f18f70b5e1b8ad0ba6067da5e62a?rik=Sgnco9rs8JKBkw&pid=ImgRaw&r=0'),
+(77, 3, '1', 'الرياضيات لطلبة التمويل', 'https://images-na.ssl-images-amazon.com/images/I/51vMyX8q6LL.jpg'),
+(78, 3, '1', 'مبادئ الاستثمار', 'https://m.media-amazon.com/images/I/51+6+H+0v6kL.jpg'),
+(79, 3, '1', 'مؤسسات مالية', 'https://th.bing.com/th/id/OIP.Sw0Lpqntcy82WrXqOSaD2QHaLH?rs=1&pid=ImgDetMain'),
+(80, 3, '1', 'التحليل المالي', 'https://m.media-amazon.com/images/I/71-6az4ms2L._SL1500_.jpg'),
+(81, 3, '1', 'تمويل الشركات', 'https://th.bing.com/th/id/OIP.x-M2ZhE3NS3kYQJ6ZNEyQgAAAA?rs=1&pid=ImgDetMain'),
+(82, 3, '1', 'تحليل الأوراق المالية', 'https://th.bing.com/th/id/OIP.KXLEZBYX6MQu-Skbw2yq1QHaLH?rs=1&pid=ImgDetMain'),
+(83, 3, '1', 'مشروع التخرج', 'nan'),
+(84, 3, '2', 'مبادئ المحاسبة (1)', 'https://m.media-amazon.com/images/I/81H7oynuXHL._SL1500_.jpg'),
+(85, 3, '2', 'الإحصاء لطلبة التمويل', 'https://m.media-amazon.com/images/I/71ER6kUMbHL._SL1200_.jpg'),
+(86, 3, '2', 'محاسبة التكاليف', 'https://th.bing.com/th/id/OIP.MUKv9iMFL5K-nZljg9GoGwHaLZ?rs=1&pid=ImgDetMain'),
+(87, 3, '2', 'أسواق مالية', 'https://th.bing.com/th/id/OIP.ehMm5w_Yo3vD_3Q4F8EsaAHaLQ?rs=1&pid=ImgDetMain'),
+(88, 3, '2', 'إدارة مالية (2)', 'https://th.bing.com/th/id/OIP.6mJ4Q7FvjwRuV-bHZbcV-wHaKf?rs=1&pid=ImgDetMain'),
+(89, 3, '2', 'التحليل الكمي في التمويل', 'https://th.bing.com/th/id/OIP.pGukwBEPRC3H7xuKsnJ8pAHaJ4?rs=1&pid=ImgDetMain'),
+(90, 3, '2', 'تمويل دولي', 'https://m.media-amazon.com/images/I/61tRUJYln-L._SL1000_.jpg'),
+(91, 3, '2', 'التدريب العملي', 'nan'),
+(92, 3, '3', 'مبادئ التمويل', 'https://thaka.bing.com/th/id/OIP.E6vNBvCC_4kWzvmm9MjZ9gAAAA?rs=1&pid=ImgDetMain'),
+(93, 3, '3', 'مبادئ نظم معلومات إدارية', 'https://www.neerajbooks.com/image/data/mcs-52-em-principal_of_management_and_information_system.jpg'),
+(94, 3, '3', 'الاقتصاد الكلي', 'https://th.bing.com/th/id/OIP.dIUS5zCnBP8VMT-hyb6fjAHaLH?rs=1&pid=ImgDetMain'),
+(95, 3, '3', 'محاسبة شركات', 'https://m.media-amazon.com/images/I/61rIXds4X6L._SL1024_.jpg'),
+(96, 3, '3', 'تمويل المشاريع', 'https://m.media-amazon.com/images/I/51l4WrkQCXL.jpg'),
+(97, 3, '3', 'إدارة المحافظ الاستثمارية', 'https://m.media-amazon.com/images/I/71Q7FwE4rlL._SL1500_.jpg'),
+(98, 3, '3', 'قضايا معاصرة في التمويل', 'https://m.media-amazon.com/images/I/91PiVRUX6DL._SL1500_.jpg'),
+(99, 3, '4', 'مبادئ الاقتصاد الجزئي', 'https://th.bing.com/th/id/OIP.cuY6NHnYLFXuQU5NhM3b_AHaIt?cb=iwc1&rs=1&pid=ImgDetMain'),
+(100, 3, '4', 'التمويل المتوسط والطويل الأجل', 'https://m.media-amazon.com/images/I/41YkAqVYVxL.jpg'),
+(101, 3, '4', 'إدارة مالية (1)', 'https://th.bing.com/th/id/OIP.z5fYMXkCR2u8xEJ1GJXqWgHaL2?rs=1&pid=ImgDetMain'),
+(102, 3, '4', 'تحليل القوائم المالية', 'https://th.bing.com/th/id/OIP.EA7WLdnPpUz9uMr9k92oDgHaJ4?rs=1&pid=ImgDetMain'),
+(103, 3, '4', 'التمويل الإسلامي', 'https://m.media-amazon.com/images/I/81aey-YAs0L._SL1500_.jpg'),
+(104, 3, '4', 'إدارة الخطر والتأمين', 'https://m.media-amazon.com/images/I/91V8AqJtYcL._SL1500_.jpg'),
+(105, 3, '4', 'مهارات الجاهزية لسوق العمل', 'nan'),
+(106, 4, '1', 'مبادئ المحاسبة (1)', 'https://m.media-amazon.com/images/I/81H7oynuXHL._SL1500_.jpg'),
+(107, 4, '1', 'الرياضيات لطلبة المحاسبة', 'https://images-na.ssl-images-amazon.com/images/I/51vMyX8q6LL.jpg'),
+(108, 4, '1', 'محاسبة التكاليف', 'https://th.bing.com/th/id/OIP.MUKv9iMFL5K-nZljg9GoGwHaLZ?rs=1&pid=ImgDetMain'),
+(109, 4, '1', 'التحليل المالي', 'https://m.media-amazon.com/images/I/71-6az4ms2L._SL1500_.jpg'),
+(110, 4, '1', 'محاسبة إدارية', 'https://th.bing.com/th/id/OIP.2_2rsv46Bkg02MlJcuUpzwHaKp?rs=1&pid=ImgDetMain'),
+(111, 4, '1', 'محاسبة شركات الأشخاص', 'https://th.bing.com/th/id/OIP.4J1znZxw_d3lzH3DCYyBkwHaLS?rs=1&pid=ImgDetMain'),
+(112, 4, '1', 'التدقيق المالي (2)', 'https://m.media-amazon.com/images/I/61lYWPDGWnL._SL1000_.jpg'),
+(113, 4, '1', 'التدريب العملي', 'nan'),
+(114, 4, '2', 'مبادئ إدارة الأعمال', 'https://th.bing.com/th/id/R.c0d3f18f70b5e1b8ad0ba6067da5e62a?rik=Sgnco9rs8JKBkw&pid=ImgRaw&r=0'),
+(115, 4, '2', 'اللغة الإنجليزية للمحاسبة', 'https://th.bing.com/th/id/OIP.pzyD2GQUoyVbB9JQnJIGhwHaKN?rs=1&pid=ImgDetMain'),
+(116, 4, '2', 'المحاسبة الحكومية', 'https://th.bing.com/th/id/R.165f19a121a92fa71b7f5bdb4e6f8ec1?rik=y2rNeVbmQ7aeJg&pid=ImgRaw&r=0'),
+(117, 4, '2', 'مقدمة في التدقيق', 'https://m.media-amazon.com/images/I/61RMVKjjxaL._SL1181_.jpg'),
+(118, 4, '2', 'محاسبة متوسطة (1)', 'https://m.media-amazon.com/images/I/51vljKxoRTL.jpg'),
+(119, 4, '2', 'محاسبة الشركات الأجنبية', 'https://th.bing.com/th/id/OIP.7ucRCY7XEfKHqGOXIMhL1QHaLH?rs=1&pid=ImgDetMain'),
+(120, 4, '2', 'التدقيق المحوسب', 'https://th.bing.com/th/id/OIP.WITy1z1_5V5UzJ2zPP-3FAHaLH?rs=1&pid=ImgDetMain'),
+(121, 4, '2', 'مهارات الجاهزية لسوق العمل', 'nan'),
+(122, 4, '3', 'مبادئ الاقتصاد الجزئي', 'https://th.bing.com/th/id/OIP.cuY6NHnYLFXuQU5NhM3b_AHaIt?cb=iwc1&rs=1&pid=ImgDetMain'),
+(123, 4, '3', 'مقدمة في نظم المعلومات المحاسبية', 'https://th.bing.com/th/id/R.e3ef1ac7f396025e9bb76d498bd8437e?rik=LEAjshwoDR3pKA&pid=ImgRaw&r=0'),
+(124, 4, '3', 'الاقتصاد الكلي', 'https://th.bing.com/th/id/OIP.dIUS5zCnBP8VMT-hyb6fjAHaLH?rs=1&pid=ImgDetMain'),
+(125, 4, '3', 'مبادئ القانون التجاري', 'https://th.bing.com/th/id/OIP.yZOS3kmNGyR_FqMJnKEDaAHaLH?rs=1&pid=ImgDetMain'),
+(126, 4, '3', 'محاسبة متوسطة (2)', 'https://th.bing.com/th/id/R.17eaf8d6c790ae173af6624bcb79d0d2?rik=GfMTydMxBQ9Xzw&pid=ImgRaw&r=0'),
+(127, 4, '3', 'قضايا معاصرة في المحاسبة', 'https://m.media-amazon.com/images/I/61ZnOIBGQdL._SL1000_.jpg'),
+(128, 4, '3', 'محاسبة دولية', 'https://th.bing.com/th/id/OIP.HHy8uUhcf7s9NoENcSY_3gHaJ4?rs=1&pid=ImgDetMain'),
+(129, 4, '4', 'الإحصاء', 'https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1388183119i/340019.jpg'),
+(130, 4, '4', 'محاسبة الشركات', 'https://m.media-amazon.com/images/I/61rIXds4X6L._SL1024_.jpg'),
+(131, 4, '4', 'محاسبة المؤسسات المالية', 'https://m.media-amazon.com/images/I/61DE2Y4eNXL.jpg'),
+(132, 4, '4', 'محاسبة ضريبية', 'https://m.media-amazon.com/images/I/71kAWH3e6OL._SL1001_.jpg'),
+(133, 4, '4', 'التدقيق المالي (1)', 'https://th.bing.com/th/id/OIP.FAxyvhzHb15Ulf8ZzC1W7wAAAA?rs=1&pid=ImgDetMain'),
+(134, 4, '4', 'محاسبة متقدمة', 'https://m.media-amazon.com/images/I/81E8XqRCQZL._SL1500_.jpg'),
+(135, 4, '4', 'مشروع التخرج', 'nan'),
+(136, 5, '1', 'مبادئ الاقتصاد الجزئي', 'https://th.bing.com/th/id/OIP.cuY6NHnYLFXuQU5NhM3b_AHaIt?cb=iwc1&rs=1&pid=ImgDetMain'),
+(137, 5, '1', 'مبادئ الاقتصاد الكلي', 'https://th.bing.com/th/id/OIP.dIUS5zCnBP8VMT-hyb6fjAHaLH?rs=1&pid=ImgDetMain'),
+(138, 5, '1', 'الاقتصاد الرياضي (1)', 'https://img.perlego.com/book-covers/1239853/9788132325567_300_450.webp'),
+(139, 5, '1', 'تاريخ الفكر الاقتصادي', 'https://www.neelwafurat.com/images/lb/abookstore/covers/carton/268/268501.jpg'),
+(140, 5, '1', 'الاقتصاد الرياضي (2)', 'https://img.perlego.com/book-covers/1239853/9788132325567_300_450.webp'),
+(141, 5, '1', 'نظرية الاقتصاد الكلي', 'https://m.media-amazon.com/images/I/61c4HKfvWVL._SL1500_.jpg'),
+(142, 5, '1', 'الاقتصاد المؤسسي', 'https://th.bing.com/th/id/OIP.oMtyt8uIFB-Wge8UBjS65QAAAA?rs=1&pid=ImgDetMain'),
+(143, 5, '1', 'مهارات الجاهزية لسوق العمل', 'nan'),
+(144, 5, '2', 'مبادئ المحاسبة', 'https://m.media-amazon.com/images/I/81H7oynuXHL._SL1500_.jpg'),
+(145, 5, '2', 'الرياضيات لطلبة الاقتصاد', 'https://images-na.ssl-images-amazon.com/images/I/51vMyX8q6LL.jpg'),
+(146, 5, '2', 'المالية العامة', 'https://www.neelwafurat.com/images/lb/abookstore/covers/carton/237/237636.jpg'),
+(147, 5, '2', 'الاقتصاد الإسلامي', 'https://m.media-amazon.com/images/I/71vRvJv7N0L._SL1500_.jpg'),
+(148, 5, '2', 'تنمية اقتصادية', 'https://th.bing.com/th/id/OIP.qJUGMryZvxzxYBFlp7cU6QAAAA?rs=1&pid=ImgDetMain'),
+(149, 5, '2', 'اقتصاد البيئة', 'https://m.media-amazon.com/images/I/71vRVoo8i-L._SL1000_.jpg'),
+(150, 5, '2', 'تحليل اقتصادي كلي', 'https://th.bing.com/th/id/R.7b508a4bc1f689da9841ee9f1542422f?rik=MLWh5GOVeHuhww&pid=ImgRaw&r=0'),
+(151, 5, '3', 'مبادئ إحصاء', 'https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1388183119i/340019.jpg'),
+(152, 5, '3', 'اللغة الإنجليزية للاقتصاد', 'https://th.bing.com/th/id/OIP.pzyD2GQUoyVbB9JQnJIGhwHaKN?rs=1&pid=ImgDetMain'),
+(153, 5, '3', 'نقود وبنوك', 'https://th.bing.com/th/id/R.5b194d1fa3d2d1fbd39eb42f7f54f775?rik=6ZEBXslPKQ5qpw&pid=ImgRaw&r=0'),
+(154, 5, '3', 'القانون التجاري', 'https://th.bing.com/th/id/OIP.yZOS3kmNGyR_FqMJnKEDaAHaLH?rs=1&pid=ImgDetMain'),
+(155, 5, '3', 'نظرية التجارة الدولية', 'https://th.bing.com/th/id/R.c9ec4513f8cb73034ef382d6f2a4e9e1?rik=FXSUL9dQ70WXpA&pid=ImgRaw&r=0'),
+(156, 5, '3', 'اقتصاد دولي', 'https://m.media-amazon.com/images/I/61L7ceRphjL._SL1000_.jpg'),
+(157, 5, '3', 'مشروع التخرج', 'nan'),
+(158, 5, '4', 'مبادئ إدارة الأعمال', 'https://th.bing.com/th/id/R.c0d3f18f70b5e1b8ad0ba6067da5e62a?rik=Sgnco9rs8JKBkw&pid=ImgRaw&r=0'),
+(159, 5, '4', 'الاقتصاد القياسي (1)', 'https://m.media-amazon.com/images/I/71gcjW1mcpL._SL1500_.jpg'),
+(160, 5, '4', 'نظم معلومات اقتصادية', 'https://thaka.bing.com/th/id/OIP.DrRZStGZbpRChxOr6x8N9gHaJ4?rs=1&pid=ImgDetMain'),
+(161, 5, '4', 'الاقتصاد القياسي (2)', 'https://m.media-amazon.com/images/I/71gcjW1mcpL._SL1500_.jpg'),
+(162, 5, '4', 'اقتصاد إداري', 'https://www.neelwafurat.com/images/lb/abookstore/covers/carton/158/158939.jpg'),
+(163, 5, '4', 'اقتصاد الطاقة', 'https://m.media-amazon.com/images/I/61wlQBDZsZL._SL1000_.jpg'),
+(164, 5, '4', 'التدريب العملي', 'nan'),
+(165, 6, '1', 'الإدارة العامة الحديثة', 'https://th.bing.com/th/id/OIP.d7qgPv_PJb8SCCoqsKH2PwAAAA?cb=iwc1&rs=1&pid=ImgDetMain'),
+(166, 6, '1', 'نظريات التنظيم', 'https://th.bing.com/th/id/R.67f5371999691fe5c72f62fd82bb47eb?rik=tlKb9TYaGTiwbg&pid=ImgRaw&r=0'),
+(167, 6, '1', 'مبادئ الاقتصاد الجزئي', 'https://th.bing.com/th/id/OIP.cuY6NHnYLFXuQU5NhM3b_AHaIt?cb=iwc1&rs=1&pid=ImgDetMain'),
+(168, 6, '1', 'المهارات الرقمية', 'https://th.bing.com/th/id/R.82b76ffe7a29d2a510fb015b1159322b?rik=YvPqjasI6Rd40Q&pid=ImgRaw&r=0'),
+(169, 6, '1', 'مبادئ نظم معلومات إدارية', 'https://www.neerajbooks.com/image/data/mcs-52-em-principal_of_management_and_information_system.jpg'),
+(170, 6, '1', 'السياسات العامة', 'https://www.neelwafurat.com/images/eg/abookstore/covers/carton/156/156743.jpg'),
+(171, 6, '1', 'التخطيط الاستراتيجي في القطاع العام', 'https://th.bing.com/th/id/OIP.nqKcbpT1bFltRsc3TyBh4AAAAA?cb=iwc1&rs=1&pid=ImgDetMain'),
+(172, 6, '1', 'التدريب العملي', 'nan'),
+(173, 6, '2', 'مبادئ إحصاء', 'https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1388183119i/340019.jpg'),
+(174, 6, '2', 'مناهج البحث في العلوم الإدارية', 'https://media.zid.store/cdn-cgi/image/f=auto/https://media.zid.store/c3c80b9f-f176-496c-9f27-04187e1270f9/d267aabe-5fc0-444d-ba24-a6b29515817b.jpg'),
+(175, 6, '2', 'السلوك الإداري', 'https://www.neelwafurat.com/images/lb/abookstore/covers/carton/314/314759.jpg'),
+(176, 6, '2', 'التنظيم وإجراءات العمل', 'https://th.bing.com/th/id/OIP.pIgJ-1Mi66HEYdTK2vlR4gHaKf?cb=iwc1&rs=1&pid=ImgDetMain'),
+(177, 6, '2', 'الإدارة العامة في الأردن', 'https://www.neelwafurat.com/images/lb/abookstore/covers/normal/103/103843.gif'),
+(178, 6, '2', 'إدارة الجودة في القطاع العام', 'https://www.neelwafurat.com/images/eg/abookstore/covers/carton/222/222658.jpg'),
+(179, 6, '2', 'إدارة الحسابات الحكومية', 'https://th.bing.com/th/id/R.f1f678ef4a9fde7ae7c2c467a061d118?rik=GGyc%2brCpb0uujg&pid=ImgRaw&r=0'),
+(180, 6, '3', 'مبادئ محاسبة (1)', 'https://m.media-amazon.com/images/I/81H7oynuXHL._SL1500_.jpg'),
+(181, 6, '3', 'مبادئ إدارة الأعمال', 'https://th.bing.com/th/id/R.c0d3f18f70b5e1b8ad0ba6067da5e62a?rik=Sgnco9rs8JKBkw&pid=ImgRaw&r=0'),
+(182, 6, '3', 'مالية عامة', 'https://www.neelwafurat.com/images/lb/abookstore/covers/carton/237/237636.jpg'),
+(183, 6, '3', 'إدارة المشروعات العامة', 'https://www.neelwafurat.com/images/lb/abookstore/covers/carton/377/377941.jpg'),
+(184, 6, '3', 'إدارة المشتريات والتوزيد', 'https://www.neelwafurat.com/images/eg/abookstore/covers/normal/243/243000.jpg'),
+(185, 6, '3', 'أساليب التحليل الكمي', 'https://www.neelwafurat.com/images/lb/abookstore/covers/carton/171/171933.jpg'),
+(186, 6, '3', 'إدارة الأزمات', 'https://m.media-amazon.com/images/I/81dksK7DXOL._SL1500_.jpg'),
+(187, 6, '4', 'مبادئ التسويق', 'https://i.pinimg.com/736x/04/09/cc/0409cc2d2f11d037acb4a88dcaa0c0a3.jpg'),
+(188, 6, '4', 'مبادئ الإدارة المالية', 'https://th.bing.com/th/id/OIP.GPX1wfBvXgu7G1q-5hrSKgHaJQ?cb=iwc1&rs=1&pid=ImgDetMain'),
+(189, 6, '4', 'إدارة العلاقات العامة', 'https://www.neelwafurat.com/images/lb/abookstore/covers/normal/342/342772.jpg'),
+(190, 6, '4', 'الحوكمة', 'https://i0.wp.com/eduschool40.blog/wp-content/uploads/2021/12/FHZw-0DWYAE03eS.jpg?ssl=1'),
+(191, 6, '4', 'إدارة الموارد البشرية في القطاع العام', 'https://www.neelwafurat.com/images/lb/abookstore/covers/carton/189/189789.gif'),
+(192, 6, '4', 'مهارات الاستعداد لسوق العمل', 'nan'),
+(193, 6, '4', 'الموازنة العامة', 'https://www.neelwafurat.com/images/lb/abookstore/covers/normal/404/404235.jpg'),
+(194, 7, '1', 'مبادئ إدارة الأعمال', 'https://th.bing.com/th/id/R.c0d3f18f70b5e1b8ad0ba6067da5e62a?rik=Sgnco9rs8JKBkw&pid=ImgRaw&r=0'),
+(195, 7, '1', 'مبادئ الإحصاء', 'https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1388183119i/340019.jpg'),
+(196, 7, '1', 'مبادئ التمويل', 'https://thaka.bing.com/th/id/OIP.E6vNBvCC_4kWzvmm9MjZ9gAAAA?rs=1&pid=ImgDetMain'),
+(197, 7, '1', 'إدارة العمليات', 'https://m.media-amazon.com/images/I/61Zfxzgq6WL.jpg'),
+(198, 7, '1', 'إدارة الأعمال الدولية', 'https://m.media-amazon.com/images/I/71RI+bVj+pL._SL1500_.jpg'),
+(199, 7, '1', 'محاسبة إدارية', 'https://th.bing.com/th/id/OIP.2_2rsv46Bkg02MlJcuUpzwHaKp?rs=1&pid=ImgDetMain'),
+(200, 7, '1', 'إدارة المعرفة', 'https://m.media-amazon.com/images/I/61Vo0qjHdqL._SL1000_.jpg'),
+(201, 7, '1', 'مشروع التخرج', 'nan'),
+(202, 7, '2', 'مبادئ محاسبة', 'https://m.media-amazon.com/images/I/81H7oynuXHL._SL1500_.jpg'),
+(203, 7, '2', 'الرياضيات لطلبة الإدارة', 'https://images-na.ssl-images-amazon.com/images/I/51vMyX8q6LL.jpg'),
+(204, 7, '2', 'مبادئ القانون التجاري', 'https://th.bing.com/th/id/OIP.yZOS3kmNGyR_FqMJnKEDaAHaLH?rs=1&pid=ImgDetMain'),
+(205, 7, '2', 'مقدمة في نظم معلومات إدارية', 'https://www.neerajbooks.com/image/data/mcs-52-em-principal_of_management_and_information_system.jpg'),
+(206, 7, '2', 'إدارة التغيير والتطوير التنظيمي', 'https://th.bing.com/th/id/OIP.49A3r3mLjM6um3oWg7NcUwAAAA?rs=1&pid=ImgDetMain'),
+(207, 7, '2', 'إدارة الإنتاج', 'https://m.media-amazon.com/images/I/71ItkHHYZuL._SL1000_.jpg'),
+(208, 7, '2', 'إدارة الابتكار', 'https://m.media-amazon.com/images/I/91d5L7pKqfL._SL1500_.jpg'),
+(209, 7, '2', 'التدريب العملي', 'nan'),
+(210, 7, '3', 'مبادئ الاقتصاد الجزئي', 'https://th.bing.com/th/id/OIP.cuY6NHnYLFXuQU5NhM3b_AHaIt?cb=iwc1&rs=1&pid=ImgDetMain'),
+(211, 7, '3', 'اللغة الإنجليزية للإدارة', 'https://th.bing.com/th/id/OIP.pzyD2GQUoyVbB9JQnJIGhwHaKN?rs=1&pid=ImgDetMain'),
+(212, 7, '3', 'إدارة موارد بشرية', 'https://m.media-amazon.com/images/I/41DT7M2gVgL.jpg'),
+(213, 7, '3', 'مهارات اتصال إداري', 'https://th.bing.com/th/id/OIP.npPWYbKuGpHPhUuGOkUWIgHaKn?rs=1&pid=ImgDetMain'),
+(214, 7, '3', 'تحليل قرارات الأعمال', 'https://th.bing.com/th/id/OIP.fOWVmcM-KY-ymlPJ7SgbYwAAAA?rs=1&pid=ImgDetMain'),
+(215, 7, '3', 'قضايا معاصرة في الإدارة', 'https://th.bing.com/th/id/OIP.iNS3uVjRtE1iQ6xT7xFKYAHaLH?rs=1&pid=ImgDetMain'),
+(216, 7, '3', 'إدارة المشاريع', 'https://th.bing.com/th/id/OIP.pIgJ-1Mi66HEYdTK2vlR4gHaKf?cb=iwc1&rs=1&pid=ImgDetMain'),
+(217, 7, '4', 'مبادئ تسويق', 'https://i.pinimg.com/736x/04/09/cc/0409cc2d2f11d037acb4a88dcaa0c0a3.jpg'),
+(218, 7, '4', 'سلوك تنظيمي', 'https://th.bing.com/th/id/OIP.A1UbOUvKjzN-BW_LNJ2KDgHaLH?rs=1&pid=ImgDetMain'),
+(219, 7, '4', 'الاقتصاد الكلي', 'https://th.bing.com/th/id/OIP.dIUS5zCnBP8VMT-hyb6fjAHaLH?rs=1&pid=ImgDetMain'),
+(220, 7, '4', 'إدارة استراتيجية', 'https://th.bing.com/th/id/OIP.AwVgUhhLHgPl7vBW7Mw91gAAAA?rs=1&pid=ImgDetMain'),
+(221, 7, '4', 'إدارة مالية', 'https://th.bing.com/th/id/OIP.z5fYMXkCR2u8xEJ1GJXqWgHaL2?rs=1&pid=ImgDetMain'),
+(222, 7, '4', 'أخلاقيات العمل', 'https://th.bing.com/th/id/OIP.9k7GM9zZsUBG9fA_m9lq6wHaLH?rs=1&pid=ImgDetMain'),
+(223, 7, '4', 'مهارات الجاهزية لسوق العمل', 'https://th.bing.com/th/id/OIP.9k7GM9zZsUBG9fA_m9lq6wHaLH?rs=1&pid=ImgDetMain');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `book_exchange`
+--
+
+CREATE TABLE `book_exchange` (
+  `id` int(11) NOT NULL,
+  `book_name` varchar(255) DEFAULT NULL,
+  `image` varchar(255) DEFAULT NULL,
+  `department_id` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `book_exchange`
+--
+
+INSERT INTO `book_exchange` (`id`, `book_name`, `image`, `department_id`) VALUES
+(1, 'تحليل وتصميم انظمة', 'https://m.media-amazon.com/images/I/91z81kUHUjL._AC_UF1000,1000_QL80_.jpg', 1),
+(2, 'مبادئ تسويق', 'https://res.cloudinary.com/bloomsbury-atlas/image/upload/w_568,c_scale,dpr_1.5/jackets/9780230392700.jpg', 2),
+(3, 'مبادئ ادارة مالية', 'https://www.massira.jo/sites/default/files/200850999_0.jpg', 3),
+(4, 'مبادئ محاسبة 1', 'https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1500300702i/35693562.jpg', 4),
+(5, 'مبادئ الاقتصاد الجزئي', 'https://www.neelwafurat.com/images/lb/abookstore/covers/carton/164/164765.jpg', 5),
+(6, 'ادارة عامة حديثة', 'https://www.neelwafurat.com/images/lb/abookstore/covers/normal/221/221059.jpg', 6),
+(7, 'مبادئ ادارة اعمال', 'https://www.store.bookrivers.com/wp-content/uploads/2023/04/front-4.jpg', 7),
+(8, 'اساسيات البرمجة للاعمال', 'https://thaka.bing.com/th/id/OIP.9oLn7WU8Qh75VKQPH61yqgHaLG?rs=1&pid=ImgDetMain', 1),
+(9, 'نظم ادارة قواعد البيانات', 'https://www.dreambookpublishing.com/wp-content/uploads/2021/11/duxcfg-744x1024.png', 1),
+(10, 'برمجة تطبيقات الاعمال', 'https://m.media-amazon.com/images/I/41NF7KEPJVL.jpg', 1),
+(11, 'برمجة تطبيقات الانترنت', 'https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1348734135i/3729666.jpg', 1),
+(12, 'برمجة تطبيقات الاجهزة الذكية', 'https://thaka.bing.com/th/id/OIP.eigHM4vOmyXA-9MH55p77QHaLO?rs=1&pid=ImgDetMain', 1),
+(13, 'نظم الوسائط المتعددة', 'https://images.secondsale.com/images/ff259a19eb448be2719e91d8503766c5.jpg', 1),
+(14, 'الاعمال الالكترونية', 'https://m.media-amazon.com/images/I/61rvdr5W-TL._SL1072_.jpg', 1),
+(15, 'ادارة موارد المعلومات', 'https://m.media-amazon.com/images/I/818lYq4iUGL._SL1500_.jpg', 1),
+(16, 'نظم ادارة المعرفة:اساليب و ممارسات', 'https://thaka.bing.com/th/id/OIP.N4YBJF2gxo0tbmB8BeLRRwAAAA?rs=1&pid=ImgDetMain', 1),
+(18, 'ذكاء الاعمال و ادوات تحليل البيانات', 'https://m.media-amazon.com/images/I/71PERh4QmgL._SL1500_.jpg', 1),
+(19, 'امن المعلوومات', 'https://m.media-amazon.com/images/I/71RYLQjODAL._SL1500_.jpg', 1),
+(20, 'الابتكار و الريادة الرقمية', 'https://m.media-amazon.com/images/I/61C7uSPWIuL._SL1500_.jpg', 1),
+(21, 'نمذجة الاعمال و المحاكاة', 'https://th.bing.com/th/id/R.0b0fa81fa2c21f8d17d5a0d54df8152c?rik=C6H6m0fiDac9Sw&pid=ImgRaw&r=0', 1),
+(22, 'نظم ادارة موارد المنظمة', 'https://thaka.bing.com/th/id/OIP.MgxDlgKKzPErGOGyS_9fgwHaLL?rs=1&pid=ImgDetMain', 1),
+(23, 'تطبيقات الذكاء الاصطناعي للاعمال', 'https://cdn.kobo.com/book-images/a3627c8f-5ab8-488e-9b18-10a86092a9d0/1200/1200/False/artificial-intelligence-business-applications.jpg', 1),
+(24, 'قضايا معاصرة في نظم معلومات ادارية', 'https://thaka.bing.com/th/id/OIP.-oJFHEEnvwOYJrq9BL1GOQHaLI?rs=1&pid=ImgDetMain', 1),
+(25, 'حلقة بحث في نظم معلومات ادارية', 'https://media.springernature.com/w153/springer-static/cover/book/978-3-031-25470-3.jpg', 1),
+(26, 'موضوعات خاصة في البرمجة', 'https://thaka.bing.com/th/id/OIP.b9C0E_cweEoDbzuA3RrnwQHaKp?rs=1&pid=ImgDetMain', 1),
+(27, 'الحكومة الالكترونية', 'https://images.routledge.com/common/jackets/crclarge/978078902/9780789023056.jpg', 1),
+(28, 'اخلاقيات تكنولوجيا المعلومات', 'https://thaka.bing.com/th/id/OIP.uwUFXVLcG_-Iy4jefWQlqAAAAA?rs=1&pid=ImgDetMain', 1),
+(29, 'التسويق الرقمي', 'https://thaka.bing.com/th/id/OIP.C7VBtSaEpHTUSro8UMNr6wHaHa?rs=1&pid=ImgDetMain', 1),
+(30, 'ادارة استراتيجية', 'https://th.bing.com/th/id/R.3bde54ea43d84d7dbb7bf60ceac5c9af?rik=d1rvZLkfIyEdlw&riu=http%3a%2f%2fstrategyclub.com%2fwp-content%2fuploads%2f2018%2f11%2fFrontCover-1.jpg&ehk=a5uXLDUyoFatb8YpBRgJ1IGE4bQQS2y8Rsbx1aQXaKw%3d&risl=&pid=ImgRaw&r=0', 1),
+(31, 'ادارة سلسلة التزويد', 'https://thaka.bing.com/th/id/OIP.HrXp0wH64FzzZiDhze3_YgAAAA?rs=1&pid=ImgDetMain', 1),
+(32, 'ادارة الجودة الشاملة', 'https://thaka.bing.com/th/id/OIP.wz9v-zUQB9DHgkb8lOzf5QHaLH?rs=1&pid=ImgDetMain', 1),
+(33, 'التحليل', 'https://emarketing.cengageasia.com/cover/cover/9780357722091.jpg', 1),
+(35, 'دراسات الجدروى الاقتصادية', 'https://th.bing.com/th/id/R.3d4e11aadf89927f66861e72fee86b9a?rik=GmrQ%2b0Ir50cf1Q&riu=http%3a%2f%2fprodimage.images-bn.com%2fpimages%2f9780133428537_p0_v1_s1200x630.jpg&ehk=sfTsnACTlAPmP%2bDKYb9aL566IlzYSbbMcjep6wyBUgI%3d&risl=&pid=ImgRaw&r=0', 1),
+(64, 'سلوك المستهلك', 'https://thaka.bing.com/th/id/OIP.DpFpfzlSOFY_r1JLMniqlwAAAA?rs=1&pid=ImgDetMain', 2),
+(65, 'ادارة قنوات التسويق', 'https://res.cloudinary.com/bloomsbury-atlas/image/upload/w_568,c_scale/jackets/9780275954390.jpg', 2),
+(66, 'مدخل إلى الإقتصاد الرياضي', 'https://img.perlego.com/book-covers/1239853/9788132325567_300_450.webp', 2),
+(67, 'ادارة مبيعات', 'https://mashummollah.com/wp-content/uploads/2021/02/Sales-Management.-Simplified.jpg', 2),
+(69, 'تخطيط وتطوير المنتجات', 'https://www.oreilly.com/api/v2/epubs/9780127999456/files/images/9780128001905_FC.jpg', 2),
+(70, 'التسويق الدولي', 'https://th.bing.com/th/id/R.dd69a5b023b020113f29fe26d186838d?rik=u%2bP2xd3bmQhXqA&pid=ImgRaw&r=0', 2),
+(71, 'العلاقات العامة', 'https://th.bing.com/th/id/R.1b174acc9bc4b9c68028e77443f4a932?rik=sWQw7%2bG0aDERow&pid=ImgRaw&r=0', 2),
+(72, 'الاتصالات التسويقية المتكاملة', 'https://m.media-amazon.com/images/I/61aQeB0F1RL._SL1250_.jpg', 2),
+(73, 'ادارة التسويق', 'https://thaka.bing.com/th/id/OIP.9zUj88prQPrbm4ii7IbwpgHaKx?rs=1&pid=ImgDetMain', 2),
+(74, 'سياسات التسعير', 'https://images-na.ssl-images-amazon.com/images/I/51eM5oYtNSL.jpg', 2),
+(75, 'تسويق الخدمات', 'https://th.bing.com/th/id/R.d446b12b4a9e2e1ee6f3da5c808f4509?rik=yyKXKBg1%2fuV7Ng&pid=ImgRaw&r=0', 2),
+(76, 'التسويق للأعمال', 'https://m.media-amazon.com/images/I/716TmNgGs+L.jpg', 2),
+(77, 'قضايا معاصرة في التسويق', 'https://res.cloudinary.com/bloomsbury-atlas/image/upload/w_360,c_scale/jackets/9780333677742.jpg', 2),
+(78, 'بحوث التسويق', 'https://rukminim1.flixcart.com/image/1408/1408/book/2/2/3/marketing-research-4ed-beri-original-imadcuktehzpzf6x.jpeg?q=90', 2),
+(79, 'استراتيجية التسويق', 'https://thaka.bing.com/th/id/OIP.Rw_VvSEXa1xzEJyHIwB3vAHaKz?rs=1&pid=ImgDetMain', 2),
+(80, 'التسويق عبر محركات البحث', 'https://www.digitalvidya.com/blog/wp-content/uploads/2017/01/Global-Search-Engine-Marketing.webp', 2),
+(81, 'تسويق المحتوى وادارته', 'https://thaka.bing.com/th/id/OIP.Fh50P_eJQSgPBEq7Lr03qQAAAA?rs=1&pid=ImgDetMain', 2),
+(82, 'التسويق الصيدلاني', 'https://images.tandf.co.uk/common/jackets/amazon/978157491/9781574911183.jpg', 2),
+(83, 'التسويق السياحي', 'https://images.tandf.co.uk/common/jackets/amazon/978177188/9781771884709.jpg', 2),
+(84, 'التسويق الزراعي', 'https://thaka.bing.com/th/id/OIP.8jdf0knKL1Vy6Dk4-EQYtAAAAA?rs=1&pid=ImgDetMain', 2),
+(85, 'تسويق الخدمات المالية', 'https://thaka.bing.com/th/id/OIP.mR5tIouu3CefgVqtAvG-QAHaKi?rs=1&pid=ImgDetMain', 2),
+(86, 'أخلاقيات التسويق', 'https://thaka.bing.com/th/id/OIP.xe4Oo1L0G2RXb0c9WoaX7AAAAA?rs=1&pid=ImgDetMain', 2),
+(87, 'أساليب نوعية في التسويق', 'https://m.media-amazon.com/images/I/51krclULS5L._SY445_SX342_.jpg', 2),
+(88, 'تسويق الموضة والأزياء', 'https://m.media-amazon.com/images/I/81UPKq58r4L._SL1500_.jpg', 2),
+(89, 'البيع الشخصي', 'https://media.loot.co.za/static/gallery/details/t/l/l/tllv-5865-ga30/detail.tllv-5865-ga30.0.photo.1485129265.jpg', 2),
+(90, 'تجارة التجزئة', 'https://m.media-amazon.com/images/I/51vyRHtl6YL._SL1000_.jpg', 2),
+(91, 'ادارة العلامة التجارية', 'https://www.schandpublishing.com/uploads/bookimages/schand-books/9788125914273.jpg', 2),
+(92, 'التسويق بالعلاقات', 'https://thaka.bing.com/th/id/OIP.4lEWxRLUJyDMSqYaW2RJCwHaJo?rs=1&pid=ImgDetMain', 2),
+(93, 'الأعمال الإلكترونية', 'https://m.media-amazon.com/images/I/61rvdr5W-TL._SL1072_.jpg', 2),
+(94, 'تحليل البيانات والتصور المرئي', 'https://m.media-amazon.com/images/I/41ooGs5Pw7L.jpg', 2),
+(95, 'التسويق الاجتماعي والأخضر', 'https://media.s-bol.com/g6NOvrjO5Aq9/r8RWOQK/550x764.jpg', 2),
+(96, 'إدارة المعارض التجارية', 'https://m.media-amazon.com/images/I/81rFBlBNIaL._SL1500_.jpg', 2),
+(97, 'الريادية في الأعمال', 'https://thaka.bing.com/th/id/OIP.mYuvd-07OuzTEToPKTqZcwHaJe?rs=1&pid=ImgDetMain', 2),
+(98, 'إدارة استثمار', 'https://thaka.bing.com/th/id/OIP.bFfJsq4jXoBWq4BvGb6VlwHaJ2?rs=1&pid=ImgDetMain', 3),
+(99, 'الاقتصاد القياسي', 'https://thaka.bing.com/th/id/OIP.H55ydOHM21JFFAzlSss0oQAAAA?rs=1&pid=ImgDetMain', 3),
+(100, 'الاقتصاد القياسي التطبيقي في التمويل', 'https://media.springernature.com/w153/springer-static/cover/book/978-981-16-4063-6.jpg', 3),
+(101, 'منهجية البحث في العلوم المالية', 'https://thaka.bing.com/th/id/OIP.YPfp1sior7NPHTy9flRtXAAAAA?cb=iwc1&rs=1&pid=ImgDetMain', 3),
+(102, 'التحليل والتقييم المالي', 'https://pictures.abebooks.com/isbn/9781618531049-de.jpg', 3),
+(103, 'إدارة المصارف', 'https://m.media-amazon.com/images/I/61Dj4PjJUqL._SL1000_.jpg', 3),
+(104, 'مبادئ التأمين', 'https://thaka.bing.com/th/id/OIP.7tI7SeCiZSZV_szoDNKCCwHaKa?cb=iwc1&rs=1&pid=ImgDetMain', 3),
+(105, 'الإدارة المالية في الشركات المساهمة', 'https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1609187679i/56450325.jpg', 3),
+(106, 'الإدارة المالية الدولية', 'https://m.media-amazon.com/images/I/614dh55SMXL._SL1500_.jpg', 3),
+(107, 'إدارة المحافظ الاستثمارية', 'https://m.media-amazon.com/images/I/71y9K1RfFwL._SL1500_.jpg', 3),
+(108, 'التخطيط والرقابة المالية', 'https://thaka.bing.com/th/id/OIP.CEpSuH8I1LbBKF3M1U6jGgAAAA?cb=iwc1&rs=1&pid=ImgDetMain', 3),
+(109, 'إدارة المصارف المتقدمة', 'https://d34a0mln2492j4.cloudfront.net/unsigned/resize:fit:760:1000:0/gravity:sm/plain/https://bookscape-s3-bucket.s3.amazonaws.com/product_images/9789356660274.jpg', 3),
+(110, 'إدارة مخاطر المؤسسات المالية', 'https://thaka.bing.com/th/id/OIP.0gqCEcSJiZ8dbhguNXPDiwHaLQ?cb=iwc1&rs=1&pid=ImgDetMain', 3),
+(111, 'الأسواق المالية والنقدية', 'https://nwf-bucket.s3.me-south-1.amazonaws.com/images/ae/abookstore/covers/normal/27/27295.jpg', 3),
+(112, 'المشتقات المالية', 'https://bookstation.in/cdn/shop/files/financial-derivatives-original-imafz3gpjj2cy76k.jpg?v=1707220889', 3),
+(113, 'قضايا معاصرة في المالية', 'https://thaka.bing.com/th/id/OIP.ahr-3ftj2TPWq_ykW1Fa7QAAAA?cb=iwc1&rs=1&pid=ImgDetMain', 3),
+(114, 'النمذجة المالية', 'https://thaka.bing.com/th/id/OIP.809cdI_1RjixAYDd4MInhQAAAA?cb=iwc1&rs=1&pid=ImgDetMain', 3),
+(115, 'مدخل إلى الاقتصاد الرياضي', 'https://thaka.bing.com/th/id/OIP.F2n5mmd1rqjXiAu0dwYuQAHaL9?rs=1&pid=ImgDetMain', 3),
+(116, 'مبادئ المحاسبة (2)', 'https://thaka.bing.com/th/id/OIP.fugSPrfRHsihpp-_RKFeiwHaJ4?cb=iwc1&rs=1&pid=ImgDetMain', 3),
+(117, 'مبادئ الاقتصاد الكلي', 'https://m.media-amazon.com/images/I/71UtVllhkPL._SL1200_.jpg', 3),
+(118, 'الريادة والتمويل الجزئي', 'https://m.media-amazon.com/images/I/513E+r0ifAL.jpg', 3),
+(119, 'المصارف الإسلامية', 'https://thaka.bing.com/th/id/OIP.BzpfWFtgKaHZ_nTsVw5zEwHaLT?rs=1&pid=ImgDetMain', 3),
+(120, 'إدارة المخاطر المتقدمة', 'https://thaka.bing.com/th/id/OIP.3n4WMnE51YBR9z9F8I12CwAAAA?cb=iwc1&rs=1&pid=ImgDetMain', 3),
+(121, 'الاستثمار الدولي', 'https://m.media-amazon.com/images/I/71HzrthDDhL.jpg', 3),
+(122, 'الأخلاقيات في التمويل', 'https://sevenpillarsinstitute.org/wp-content/uploads/2023/07/Ethics-in-Finance-2nd-Edition-722x1024.jpeg', 3),
+(123, 'حاكمية الشركات المساهمة', 'https://pictures.abebooks.com/isbn/9780198702757-us.jpg', 3),
+(124, 'محاسبة تكاليف (1)', 'https://thaka.bing.com/th/id/OIP.wRZRv2H6lvse39T7DUjKeQHaLM?rs=1&pid=ImgDetMain', 3),
+(125, 'المحاسبة المتوسطة (1)', 'https://th.bing.com/th/id/R.e20af52a8c579fe60710e58b12dc40bf?rik=AzB%2bme81T81pIw&pid=ImgRaw&r=0', 3),
+(126, 'المحاسبة الإدارية', 'https://thaka.bing.com/th/id/OIP.Kfyi2Xpw6W4-03i9DwqjvgAAAA?cb=iwc1&rs=1&pid=ImgDetMain', 3),
+(127, 'محاسبة الشركات', 'https://i0.wp.com/www.pdfnotes.co/wp-content/uploads/2021/12/CORPORATE-ACCOUNTING-TS-REDDY-MURTHY-PDF-min.png?fit=279%2C363&ssl=1&is-pending-load=1', 3),
+(128, 'التحليل الإحصائي', 'https://thaka.bing.com/th/id/OIP.PMkK_u6Z9mzKRD13fDFBLQHaKd?rs=1&pid=ImgDetMain', 3),
+(129, 'الاقتصاد الإداري', 'https://thaka.bing.com/th/id/OIP.l7G73_TPbFLmv-Hym3jX-QHaJP?rs=1&pid=ImgDetMain', 3),
+(130, 'المالية العامة', 'https://images.thenile.io/r1000/9780078021688.jpg', 3),
+(131, 'مقدمة في الاقتصاد الأخضر', 'https://thaka.bing.com/th/id/OIP.72yABEBtiJhIbIgv3jzOcQHaKd?rs=1&pid=ImgDetMain', 3),
+(132, 'اقتصاديات الصحة', 'https://m.media-amazon.com/images/I/61YBPeUnChL._SL1162_.jpg', 3),
+(133, 'بحوث العمليات', 'https://thaka.bing.com/th/id/OIP.dMaSBGwyqd1tnPi7WlRJewHaJ1?cb=iwc1&rs=1&pid=ImgDetMain', 3),
+(134, 'التشريعات التجارية', 'https://th.bing.com/th/id/R.7adcbf4445b011e8e29ef9be93c3b9e4?rik=u7aBo8cQkrfgNQ&pid=ImgRaw&r=0', 3),
+(135, 'أساسيات البرمجة للأعمال', 'https://thaka.bing.com/th/id/OIP.9oLn7WU8Qh75VKQPH61yqgHaLG?rs=1&pid=ImgDetMain', 3),
+(136, 'التنمية الإدارية', 'https://thaka.bing.com/th/id/OIP.J6GB4dgQOmvL3z7Ptu5A3gHaK2?cb=iwc1&rs=1&pid=ImgDetMain', 3),
+(140, 'المحاسبة المتوسطة (2)', 'https://filebroker-cdn.lazada.com.ph/kf/S137c9ef5c611430a81f3b63291dcd0eae.jpg', 4),
+(141, 'منهجية البحث العلمي في المحاسبة', 'https://m.media-amazon.com/images/I/81WUT8xTFDL._SL1500_.jpg', 4),
+(143, 'محاسبة المنشآت المالية', 'https://m.media-amazon.com/images/I/71uyiHmcYgL._SL1484_.jpg', 4),
+(144, 'محاسبة التكاليف', 'https://th.bing.com/th/id/OIP.wRZRv2H6lvse39T7DUjKeQHaLM?cb=iwc1&rs=1&pid=ImgDetMain', 4),
+(145, 'نظم المعلومات المحاسبية', 'https://www.massira.jo/sites/default/files/-lmlwmt-lmhsby.jpg', 4),
+(146, 'تدقيق الحسابات (1)', 'https://d3i3lzopayriz.cloudfront.net/books/0_front_cover_1636191961.jpg', 4),
+(147, 'تدقيق الحسابات (2)', 'https://down-id.img.susercontent.com/file/id-11134207-7r98s-loqic8btwm6ff4', 4),
+(148, 'محاسبة المنشآت الحكومية وغير الربحية', 'https://images.bwbcovers.com/013/Governmental-and-Non-Profit-Accounting-9780130661913.jpg', 4),
+(149, 'المحاسبة المتقدمة', 'https://th.bing.com/th/id/OIP.kmQdRh3JkaswUWbOE3GNBQAAAA?cb=iwc1&rs=1&pid=ImgDetMain', 4),
+(150, 'تحليل القوائم المالية', 'https://m.media-amazon.com/images/I/61inl44EdfL._SL1500_.jpg', 4),
+(151, 'نظرية المحاسبة المالية', 'https://pictures.abebooks.com/isbn/9780070277267-us.jpg', 4),
+(152, 'معايير محاسبة دولية', 'https://www.caclubindia.com/books/book_preview/5097.jpg?v=6', 4),
+(153, 'محاسبة ضريبة الدخل', 'https://m.media-amazon.com/images/I/61X0chEqmbL._SL1500_.jpg', 4),
+(154, 'محاسبة ضريبة المبيعات', 'https://cdn.shopify.com/s/files/1/0026/0787/4084/products/a-text-book-of-sales-tax-BCom-part-2-AA126-01_2048x2048.jpg?v=1530533719', 4),
+(155, 'إدارة الاستثمار', 'https://thaka.bing.com/th/id/OIP.bFfJsq4jXoBWq4BvGb6VlwHaJ2?rs=1&pid=ImgDetMain', 4),
+(156, 'تطبيقات محاسبية باستخدام الحاسوب', 'https://th.bing.com/th/id/R.3c9347a509b80478f3917d242b29f94a?rik=gMXViyfM63nAGw&pid=ImgRaw&r=0', 4),
+(157, 'بحوث محاسبية خاصة', 'https://th.bing.com/th/id/OIP.C2CR-Bog6rcmZn5j52RmOwAAAA?cb=iwc1&rs=1&pid=ImgDetMain', 4),
+(158, 'المحاسبة الإسلامية', 'https://www.e-elgar.com/shop/media/catalog/product/9/7/9781848442207.jpg', 4),
+(159, 'المحاسبة الدولية', 'https://cs.cheggcdn.com/covers2/16000000/16005779_1409111857_Width288.jpg', 4),
+(160, 'التدقيق الداخلي', 'https://petiwalaeducation.com/wp-content/uploads/2021/07/The-Essential-Handbook-of-Internal-Auditing.png', 4),
+(161, 'المحاسبة الجنائية', 'https://images-na.ssl-images-amazon.com/images/I/51Xpbwht9JL._SX218_BO1,204,203,200_QL40_ML2_.jpg', 4),
+(162, 'البيانات والذكاء الاصطناعي في المحاسبة', 'https://m.media-amazon.com/images/I/61JQmHatszL._SL1200_.jpg', 4),
+(163, 'محاسبة التكاليف المتقدمة', 'https://cdn01.sapnaonline.com/product_media/9789327230260/md_9789327230260.jpg', 4),
+(164, 'الإدارة الاستراتيجية', 'https://s.ecrater.com/stores/196233/5b57feee5a580_196233b.jpg', 4),
+(165, 'الريادة في الأعمال', 'https://th.bing.com/th/id/OIP.mYuvd-07OuzTEToPKTqZcwHaJe?cb=iwc1&rs=1&pid=ImgDetMain', 4),
+(166, 'أخلاقيات ومسؤولية الأعمال الاجتماعية', 'https://th.bing.com/th/id/OIP.K_PhQ56Xn6T3pgpmbgVtKwHaHa?cb=iwc1&rs=1&pid=ImgDetMain', 4),
+(170, 'إدارة المبيعات', 'https://booksnbobs.com/wp-content/uploads/2023/12/Sales_Management-1701417156.jpg', 4),
+(174, 'إدارة المشتريات والتزويد', 'https://th.bing.com/th/id/R.ade6b57ff3a8a11c49cd040f6e3ea892?rik=f3X1l3GUR7YtXQ&pid=ImgRaw&r=0', 4),
+(178, 'النظرية الاقتصادية الجزئية', 'https://thaka.bing.com/th/id/OIP.jcqyImuB4LaEjp27v6vFdgHaKr?rs=1&pid=ImgDetMain', 5),
+(179, 'النظرية الاقتصادية الكلية', 'https://thaka.bing.com/th/id/OIP.cxwxgPx4WY4Xv3pi8hhvAgHaKb?rs=1&pid=ImgDetMain', 5),
+(180, 'النقود والبنوك', 'https://pictures.abebooks.com/isbn/9788120347953-it.jpg', 5),
+(183, 'الاقتصاد الأردني', 'https://media.s-bol.com/lpXJ0lAzx3zr/550x727.jpg', 5),
+(184, 'نظرية التجارة الدولية', 'https://pictures.abebooks.com/isbn/9781292060439-us.jpg', 5),
+(185, 'الاقتصاد الرياضي', 'https://img.perlego.com/book-covers/1239853/9788132325567_300_450.webp', 5),
+(186, 'المالية الدولية', 'https://thaka.bing.com/th/id/OIP.Zk4TD5bE9JgEfeaSsN5VEwHaLH?rs=1&pid=ImgDetMain', 5),
+(187, 'قضايا اقتصادية معاصرة', 'https://thaka.bing.com/th/id/OIP.by9PiLC1ysy9AACNsj-xZQHaKs?rs=1&pid=ImgDetMain', 5),
+(188, 'التنمية الاقتصادية', 'https://pictures.abebooks.com/isbn/9780133406788-us.jpg', 5),
+(191, 'الاقتصاد المالي', 'https://prodimage.images-bn.com/pimages/9780558785758_p0_v1_s550x406.jpg', 5),
+(192, 'دراسات الجدوى الاقتصادية', 'https://thaka.bing.com/th/id/OIP.UIYEhoAh8E9GAWCt2xtMOQHaKe?rs=1&pid=ImgDetMain', 5),
+(193, 'منهجية البحث في الاقتصاد', 'https://th.bing.com/th/id/R.f45b700595153df1630e0b2e61170b40?rik=YgCTV7blFsuZZA&pid=ImgRaw&r=0', 5),
+(195, 'الاقتصاد الصناعي', 'https://cdn01.sapnaonline.com/bk_images/046/9789383281046.jpg', 5),
+(196, 'الاقتصاد الإسلامي', 'https://e-sentral-images.fra1.cdn.digitaloceanspaces.com/bookcapital/9789674455064-medium.jpg', 5),
+(197, 'اقتصاديات العمل', 'https://rokbook.com/wp-content/uploads/2024/09/1_Cover_Labor-Economics-9th-Edition_1-scaled.jpg', 5),
+(198, 'المنافسة والتنظيم الاقتصادي', 'https://img.perlego.com/books/RM_Books/ingram_csplus_gexhsuob/9781776141685_300_450.webp', 5),
+(199, 'تاريخ الفكر الاقتصادي', 'https://thaka.bing.com/th/id/OIP.Tu3CwdRsngqrNVXSQTLm0gHaKd?rs=1&pid=ImgDetMain', 5),
+(202, 'تطبيقات في الاقتصاد القياسي', 'https://thaka.bing.com/th/id/OIP.jCe2VSTLnlQ1JAvvut-ZQwHaJs?rs=1&pid=ImgDetMain', 5),
+(203, 'الاقتصاد الرقمي', 'https://thaka.bing.com/th/id/OIP.2NipmH6h8rQNKtt_qXzuTQHaLG?rs=1&pid=ImgDetMain', 5),
+(205, 'إدارة الموارد البشرية', 'https://d28hgpri8am2if.cloudfront.net/book_images/onix/cvr9781440519420/human-resources-management-9781440519420_hr.jpg', 5),
+(206, 'إدارة الابتكار', 'https://cs.cheggcdn.com/covers2/59090000/59093077_1501028266.jpg', 5),
+(208, 'التحليل المالي والتقييم', 'https://pictures.abebooks.com/isbn/9781618531049-de.jpg', 5),
+(216, 'الابتكار والريادة الرقمية', 'https://m.media-amazon.com/images/I/61C7uSPWIuL._SL1500_.jpg', 5),
+(217, 'السياسات العامة', 'https://res.cloudinary.com/bloomsbury-atlas/image/upload/w_568,c_scale/jackets/9781137573292.jpg', 5),
+(218, 'نظريات التنظيم', 'https://th.bing.com/th/id/R.67f5371999691fe5c72f62fd82bb47eb?rik=tlKb9TYaGTiwbg&pid=ImgRaw&r=0', 6),
+(219, 'منهجية البحث في العلوم الإدارية', 'https://media.zid.store/cdn-cgi/image/f=auto/https://media.zid.store/c3c80b9f-f176-496c-9f27-04187e1270f9/d267aabe-5fc0-444d-ba24-a6b29515817b.jpg', 6),
+(220, 'السلوك الإداري', 'https://www.neelwafurat.com/images/lb/abookstore/covers/carton/314/314759.jpg', 6),
+(221, 'إدارة مالية عامة', 'https://www.neelwafurat.com/images/lb/abookstore/covers/carton/237/237636.jpg', 6),
+(222, 'إدارة الموارد البشرية في القطاع العام', 'https://www.neelwafurat.com/images/lb/abookstore/covers/carton/189/189789.gif', 6),
+(224, 'الحوكمة العامة', 'https://i0.wp.com/eduschool40.blog/wp-content/uploads/2021/12/FHZw-0DWYAE03eS.jpg?ssl=1', 6),
+(225, 'أساليب التحليل الكمي', 'https://www.neelwafurat.com/images/lb/abookstore/covers/carton/171/171933.jpg', 6),
+(226, 'إدارة العلاقات العامة', 'https://www.neelwafurat.com/images/lb/abookstore/covers/normal/342/342772.jpg', 6),
+(228, 'الإدارة العامة في الأردن', 'https://www.neelwafurat.com/images/lb/abookstore/covers/normal/103/103843.gif', 6),
+(229, 'إدارة المشروعات العامة', 'https://www.neelwafurat.com/images/lb/abookstore/covers/carton/377/377941.jpg', 6),
+(230, 'التنظيم وإجراءات العمل', 'https://th.bing.com/th/id/OIP.pIgJ-1Mi66HEYdTK2vlR4gHaKf?cb=iwc1&rs=1&pid=ImgDetMain', 6),
+(231, 'الحاكمية', 'https://i5.walmartimages.com/asr/343184ba-ce07-4897-9627-09d01d891b84_1.f05a7efb00af7a2aeeed9a55f748a9cb.jpeg', 6),
+(232, 'إدارة المعرفة في القطاع العام', 'https://archive.org/services/img/20201006_20201006_1750', 6),
+(233, 'إدارة المستندات الحكومية', 'https://altibrah.ae/img/covers/e89059a8907d73a00.png', 6),
+(234, 'التخطيط الاستراتيجي في القطاع العام', 'https://th.bing.com/th/id/OIP.nqKcbpT1bFltRsc3TyBh4AAAAA?cb=iwc1&rs=1&pid=ImgDetMain', 6),
+(235, 'إدارة التغيير في القطاع العام', 'https://www.noor-book.com/publice/covers_cache_webp/18/5/2/d/2465640ff752d9247030aba1903f36a0.jpg.webp', 6),
+(236, 'تطوير المنظمات', 'https://th.bing.com/th/id/R.7470e5fe51ac5fdd98ba6a1790c6b706?rik=dsawSroOsjDnYw&pid=ImgRaw&r=0', 6),
+(237, 'إدارة المؤسسات العامة', 'https://www.neelwafurat.com/images/lb/abookstore/covers/normal/286/286398.jpg', 6),
+(238, 'أخلاقيات الإدارة العامة', 'https://www.neelwafurat.com/images/lb/abookstore/covers/carton/374/374663.jpg', 6),
+(239, 'الإدارة المحلية', 'https://www.neelwafurat.com/images/lb/abookstore/covers/carton/184/184556.jpg', 6),
+(240, 'اتخاذ القرارات', 'https://kolalkotob.com/media/imgs/books/book28-08-2021-06-36-15.jpg', 6),
+(242, 'القيادة الإدارية', 'https://wraqat.com/uploads/images/202306/image_870x_647eca1b42b27.jpg', 6),
+(243, 'الحكومة الإلكترونية', 'https://www.neelwafurat.com/images/lb/abookstore/covers/carton/251/251653.jpg', 6),
+(244, 'نظرية الإدارة الإسلامية', 'https://media.zid.store/thumbs/c3c80b9f-f176-496c-9f27-04187e1270f9/0fb5971a-d6ed-492e-8aad-7544db2e3e82-thumbnail-770x770-70.jpeg', 6),
+(245, 'التدريب في الإدارة', 'https://www.neelwafurat.com/images/lb/abookstore/covers/normal/221/221057.jpg', 6),
+(250, 'منهجية البحث العلمي في الأعمال', 'https://media.springernature.com/full/springer-static/cover-hires/book/978-3-030-76857-7', 7),
+(251, 'السلوك التنظيمي', 'https://th.bing.com/th/id/R.d9a0a3fb2385f209956df9c64a688a6c?rik=16ujFpnm9mwM0Q&pid=ImgRaw&r=0', 7),
+(252, 'بحوث عمليات', 'https://th.bing.com/th/id/OIP.dMaSBGwyqd1tnPi7WlRJewHaJ1?cb=iwc1&rs=1&pid=ImgDetMain', 7),
+(253, 'إدارة سلسلة التزويد', 'https://th.bing.com/th/id/OIP.HrXp0wH64FzzZiDhze3_YgAAAA?cb=iwc1&rs=1&pid=ImgDetMain', 7),
+(255, 'إدارة أعمال دولية', 'https://covers.vitalbook.com/vbid/9783319966229/width/200', 7),
+(256, 'إدارة استراتيجية', 'https://s.ecrater.com/stores/196233/5b57feee5a580_196233b.jpg', 7),
+(258, 'إدارة العمليات والإنتاج', 'https://m.media-amazon.com/images/I/61+sIyCC7UL._SL1400_.jpg', 7),
+(259, 'إدارة الجودة الشاملة', 'https://rukminim1.flixcart.com/image/832/832/book/2/7/4/total-quality-management-original-imadbn6yeefnhmsh.jpeg?q=70', 7),
+(260, 'إدارة المعرفة', 'https://th.bing.com/th/id/OIP.lDkZ6HPAG_MwsGWiF1MbPQHaLQ?cb=iwc1&rs=1&pid=ImgDetMain', 7),
+(261, 'إدارة المشاريع', 'https://th.bing.com/th/id/OIP.UUo975hAuj5kTjraYmiyywHaJI?cb=iwc1&rs=1&pid=ImgDetMain', 7),
+(262, 'الحاكمية المؤسسية', 'https://pictures.abebooks.com/isbn/9780198702757-us.jpg', 7),
+(263, 'نظرية وتصميم المنظمة', 'https://th.bing.com/th/id/OIP.u7jv9Us6gFwL-uFrQSHWQwAAAA?cb=iwc1&rs=1&pid=ImgDetMain', 7),
+(265, 'إدارة عمليات الخدمات', 'https://m.media-amazon.com/images/I/41yF3MUceqS.jpg', 7),
+(266, 'تخطيط الإنتاج ومراقبته', 'https://m.media-amazon.com/images/I/A1r3QajcI4L.jpg', 7),
+(267, 'إدارة خدمات صحية', 'https://m.media-amazon.com/images/I/91t0PcxVnXL._SL1500_.jpg', 7),
+(268, 'قضايا معاصرة في الإدارة', 'https://th.bing.com/th/id/R.74473540875e822c129d9e51584aceed?rik=hnqrvoYyNhhZdw&pid=ImgRaw&r=0', 7),
+(269, 'إدارة سياحية وفندقية', 'https://m.media-amazon.com/images/I/71YcSsrI6gL._SL1500_.jpg', 7),
+(270, 'إدارة التغيير والأزمات', 'https://m.media-amazon.com/images/I/81dksK7DXOL._SL1500_.jpg', 7),
+(271, 'أخلاقيات الأعمال والمسؤولية الاجتماعية', 'https://th.bing.com/th/id/OIP.oKt9Sg7l9DziObB_ky3rXQAAAA?cb=iwc1&rs=1&pid=ImgDetMain', 7),
+(272, 'الاتصالات الإدارية', 'https://th.bing.com/th/id/OIP.CSh5eVZ0id6rW1K7Ygoo-wHaLH?cb=iwc1&rs=1&pid=ImgDetMain', 7),
+(279, 'إدارة موارد المعلومات', 'https://m.media-amazon.com/images/I/818lYq4iUGL._SL1500_.jpg', 7),
+(281, 'تحليل إحصائي', 'https://thaka.bing.com/th/id/OIP.PMkK_u6Z9mzKRD13fDFBLQHaKd?rs=1&pid=ImgDetMain', 7),
+(282, 'إدارة التسويق', 'https://thaka.bing.com/th/id/OIP.9zUj88prQPrbm4ii7IbwpgHaKx?rs=1&pid=ImgDetMain', 7),
+(287, 'تطبيقات حاسوبية في إدارة الأعمال', 'https://th.bing.com/th/id/OIP.pbQSf9W3JzhHD2bUt2VVAgHaLv?cb=iwc1&rs=1&pid=ImgDetMain', 7);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `book_offers`
+--
+
+CREATE TABLE `book_offers` (
+  `id` int(11) NOT NULL,
+  `book_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `desired_book_id` int(11) DEFAULT NULL,
+  `details` text DEFAULT NULL,
+  `timestamp` datetime DEFAULT current_timestamp(),
+  `status` enum('active','dropped','exchanged') NOT NULL DEFAULT 'active'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `book_offers`
+--
+
+INSERT INTO `book_offers` (`id`, `book_id`, `user_id`, `desired_book_id`, `details`, `timestamp`, `status`) VALUES
+(41, 1, 4, NULL, '12343546', '2025-04-04 22:37:58', 'dropped'),
+(46, 2, 1, NULL, 'aaaaaaaaaa', '2025-05-05 17:14:14', 'dropped'),
+(47, 2, 1, NULL, 'abood book now', '2025-05-05 17:19:00', 'dropped'),
+(48, 1, 1, NULL, 'abood book', '2025-05-05 17:58:22', 'dropped'),
+(49, 2, 1, NULL, 'abood is testing', '2025-05-05 17:59:40', 'dropped'),
+(50, 2, 1, NULL, 'this is abood book', '2025-05-06 09:53:44', 'dropped'),
+(51, 1, 4, NULL, 'ad', '2025-05-06 09:56:00', 'dropped'),
+(52, 2, 4, NULL, 'aaa', '2025-05-06 09:56:11', 'dropped'),
+(53, 2, 1, NULL, 'abood book', '2025-05-06 20:31:39', 'dropped'),
+(54, 2, 1, NULL, 'aaaaaaaaaa', '2025-05-06 22:20:20', 'dropped'),
+(55, 1, 1, NULL, 'gggggggg', '2025-05-06 22:28:46', 'dropped'),
+(56, 1, 4, NULL, 'aaaaaaaaa', '2025-05-06 22:31:02', 'dropped'),
+(57, 2, 4, NULL, 'sddfdsa', '2025-05-06 22:41:22', 'dropped'),
+(58, 2, 4, NULL, 'لا لا لا', '2025-05-06 22:53:17', 'dropped'),
+(59, 2, 4, NULL, 'شششششششششش', '2025-05-06 23:02:27', 'dropped'),
+(60, 2, 4, NULL, 'سيبئ', '2025-05-06 23:08:09', 'dropped'),
+(61, 1, 4, NULL, 'sfdag', '2025-05-06 23:31:43', 'dropped'),
+(62, 2, 4, NULL, 'aaaa', '2025-05-07 13:48:40', 'dropped'),
+(63, 1, 4, NULL, 'aaaaaaaaaaaaaaaaaaaaaa', '2025-05-09 16:03:00', 'dropped'),
+(64, 1, 4, NULL, 'a', '2025-05-09 16:05:50', 'dropped'),
+(65, 2, 4, NULL, 'bbbbbb', '2025-05-09 16:52:39', 'dropped'),
+(66, 1, 1, NULL, '111111111', '2025-05-09 16:53:47', 'dropped'),
+(67, 2, 1, NULL, 'AAAAAAA', '2025-05-09 17:10:03', 'dropped'),
+(68, 1, 1, NULL, 'afg', '2025-05-09 17:50:56', 'dropped'),
+(69, 2, 1, NULL, 'sadfg', '2025-05-09 17:57:22', 'dropped'),
+(70, 2, 4, NULL, 'sde', '2025-05-09 18:00:08', 'dropped'),
+(71, 1, 1, NULL, 'aaaaa', '2025-05-09 18:04:32', 'dropped'),
+(72, 2, 1, NULL, 'ggggggggg', '2025-05-09 20:21:05', 'dropped'),
+(73, 2, 1, NULL, 'agfdsg', '2025-05-09 20:39:57', 'dropped'),
+(74, 2, 1, NULL, 'saaaaaaa', '2025-05-09 20:43:26', 'exchanged'),
+(75, 1, 3, NULL, 'aaaaaaaagffsdah', '2025-05-09 20:55:13', 'exchanged'),
+(76, 1, 1, NULL, 'aaaaaaaaaaaa', '2025-05-10 15:24:16', 'dropped'),
+(77, 1, 1, NULL, 'ghhgggggggg', '2025-05-10 15:26:19', 'dropped'),
+(78, 2, 1, NULL, 'aaaaaaaaa', '2025-05-10 15:31:21', 'dropped'),
+(79, 2, 1, NULL, 'gf', '2025-05-10 17:23:42', 'dropped'),
+(80, 2, 4, NULL, 'ش', '2025-05-10 17:58:01', 'dropped'),
+(81, 2, 1, NULL, 'ش', '2025-05-10 18:03:21', 'dropped'),
+(93, 1, 1, NULL, 'gggg', '2025-05-11 10:10:46', 'dropped'),
+(94, 2, 1, NULL, 'this', '2025-05-11 10:16:32', 'dropped'),
+(95, 1, 1, NULL, '1', '2025-05-11 10:19:43', 'exchanged'),
+(96, 2, 1, NULL, 'شششششششش', '2025-05-11 17:54:51', 'dropped'),
+(97, 1, 1, NULL, 'a', '2025-05-11 22:23:54', 'dropped'),
+(98, 2, 1, NULL, 'a', '2025-05-11 22:24:29', 'dropped'),
+(101, 1, 1, NULL, '131', '2025-05-12 17:00:14', 'dropped'),
+(102, 2, 1, NULL, 'asdf', '2025-05-12 17:00:33', 'dropped'),
+(103, 1, 1, NULL, 'a', '2025-05-12 17:02:54', 'dropped'),
+(104, 2, 1, NULL, 'a', '2025-05-12 17:03:06', 'dropped'),
+(105, 2, 1, NULL, 'dfd', '2025-05-12 17:04:07', 'dropped'),
+(106, 2, 1, NULL, 'nnnnnnnnnnnn', '2025-05-12 17:05:46', 'dropped'),
+(107, 2, 1, NULL, 'شسباسشيبا', '2025-05-12 17:44:58', 'dropped'),
+(110, 2, 1, 1, 'بجرب قاعد', '2025-05-12 18:59:04', 'dropped'),
+(111, 2, 1, NULL, 'شششششششششششششششش', '2025-05-12 20:46:44', 'dropped'),
+(112, 2, 1, 1, 'بجرررررررررب', '2025-05-12 20:52:48', 'dropped'),
+(113, 2, 1, NULL, 'شسلبيلتا', '2025-05-12 21:08:01', 'dropped'),
+(114, 2, 1, NULL, 'سشبلسيشبل', '2025-05-12 21:57:09', 'dropped'),
+(115, 2, 1, 1, 'انا عبدالله بدي اعطي مبادئ تسويق وبدي تخصص mis', '2025-05-12 22:28:47', 'dropped'),
+(116, 2, 7, NULL, 'book ', '2025-05-12 22:55:20', 'exchanged'),
+(117, 1, 3, NULL, 'شششششششششششش', '2025-05-12 22:58:15', 'exchanged'),
+(118, 2, 1, NULL, 'aaaaaaaa', '2025-05-13 10:36:23', 'dropped'),
+(119, 2, 4, NULL, 'aaaaaa', '2025-05-13 11:00:05', 'dropped'),
+(120, 1, 1, 2, 'cvsdsfg', '2025-05-13 11:31:01', 'dropped'),
+(121, 2, 1, NULL, 'safgsaf', '2025-05-13 11:36:31', 'exchanged'),
+(122, 2, 1, NULL, 'a', '2025-05-13 11:40:36', 'dropped'),
+(123, 2, 1, 1, 'sdgfhfsdg', '2025-05-13 11:52:48', 'dropped'),
+(124, 2, 1, 1, 'book ', '2025-05-13 11:57:59', 'dropped'),
+(125, 1, 1, 2, 'يا رب', '2025-05-13 12:01:56', 'exchanged'),
+(126, 1, 1, 2, 'اميزنق', '2025-05-13 12:19:38', 'dropped'),
+(127, 2, 3, NULL, 'شششششششش', '2025-05-13 12:22:02', 'dropped'),
+(128, 2, 3, NULL, 'aaaaaaaaa', '2025-05-13 17:11:21', 'dropped'),
+(129, 2, 5, 1, 'بدي اجرب يخوان', '2025-05-13 18:02:23', 'dropped'),
+(130, 1, 5, 2, 'book ', '2025-05-13 18:02:50', 'dropped'),
+(131, 2, 5, NULL, 'شششششششش', '2025-05-13 18:19:26', 'exchanged'),
+(132, 2, 5, NULL, 'ششششششش', '2025-05-13 22:32:39', 'exchanged'),
+(133, 1, 7, NULL, 'كتاب مناصير', '2025-05-13 22:50:31', 'exchanged'),
+(134, 1, 3, 2, 'انا عماد وبدي مين يبدل', '2025-05-13 23:00:55', 'exchanged'),
+(135, 1, 7, 2, 'الو', '2025-05-13 23:04:56', 'exchanged'),
+(136, 2, 8, NULL, 'هي كتابي علي', '2025-05-13 23:32:06', 'exchanged'),
+(137, 2, 1, NULL, 'كتاب عبدالله الشمال', '2025-05-13 23:33:17', 'exchanged'),
+(138, 1, 1, NULL, 'كتاب عبدالله اليمين', '2025-05-13 23:33:25', 'exchanged'),
+(139, 2, 1, 1, 'jdskajf;', '2025-05-14 19:20:18', 'exchanged'),
+(140, 2, 1, NULL, 'عندي هاظ الكتاب ما بدي اياه', '2025-05-15 23:41:17', 'exchanged'),
+(141, 2, 1, NULL, 'ش', '2025-05-15 23:42:14', 'exchanged'),
+(142, 2, 7, 1, 'سلايدات ميد', '2025-05-15 23:44:45', 'dropped'),
+(143, 2, 1, NULL, 'gfghrijrflkkjk', '2025-05-16 18:11:36', 'dropped'),
+(144, 1, 4, NULL, 'عندي مادة الميد للتحليل بدي اعطيها ما بدي اياها', '2025-05-17 13:30:36', 'dropped'),
+(145, 1, 7, NULL, 'عندي تيست بانك فاينل تحليل انظمه ما بدي اياه مطبوع', '2025-05-17 13:31:07', 'exchanged'),
+(146, 2, 5, NULL, 'عندي ملخص مبادئ تسويق', '2025-05-17 14:24:55', 'dropped'),
+(147, 7, 1, 1, 'عندي كتاب ادارة اعمال الاصلي', '2025-05-17 14:26:59', 'dropped'),
+(148, 7, 1, 1, 'عندي كتاب ادارة اعمال الاصلي', '2025-05-17 14:27:53', 'dropped'),
+(149, 3, 1, 4, 'ش', '2025-05-17 15:51:28', 'exchanged'),
+(150, 2, 3, NULL, 'ض', '2025-05-17 15:54:26', 'dropped'),
+(151, 3, 3, 1, '1', '2025-05-17 15:56:42', 'dropped'),
+(152, 5, 3, 6, 'book ', '2025-05-17 16:04:44', 'dropped'),
+(153, 3, 1, 5, 'hhhh', '2025-05-18 10:10:17', 'exchanged'),
+(154, 1, 1, NULL, '1', '2025-05-18 10:18:31', 'exchanged'),
+(155, 1, 7, NULL, '2', '2025-05-18 10:18:41', 'exchanged'),
+(156, 5, 1, 1, 'احتاج للتحليل عندي سلايدات اقتصاد جزئي ميد', '2025-05-18 19:08:48', 'dropped'),
+(157, 2, 5, NULL, 'عندي ملخص مبادئ تسويق لكل المادة ما بدي اياه', '2025-05-18 20:18:57', 'exchanged'),
+(158, 3, 5, NULL, 'aaaaaaaaaa', '2025-05-20 22:37:11', 'exchanged'),
+(159, 2, 4, NULL, 'يييييييييييييييي', '2025-05-21 14:52:39', 'exchanged'),
+(160, 5, 4, 6, 'سثيبال', '2025-05-21 14:53:03', 'exchanged'),
+(161, 3, 4, NULL, '1', '2025-05-21 14:53:57', 'exchanged'),
+(162, 2, 4, NULL, 'sssssssss', '2025-05-21 15:06:05', 'exchanged'),
+(163, 2, 1, NULL, 'aaaaaaaaaaaa', '2025-05-23 14:51:51', 'exchanged'),
+(164, 3, 1, NULL, 'ششششششششش', '2025-05-23 15:12:36', 'exchanged'),
+(165, 3, 3, NULL, 'ششششششششش', '2025-05-23 15:17:24', 'exchanged'),
+(166, 7, 1, NULL, 'شششششششش', '2025-05-23 15:20:09', 'exchanged'),
+(167, 4, 4, NULL, 'سيبسي', '2025-05-23 15:22:07', 'exchanged'),
+(168, 5, 3, NULL, 'ششششششششش', '2025-05-23 15:35:43', 'exchanged'),
+(169, 4, 5, 6, 'شششششششششش', '2025-05-23 15:41:51', 'exchanged'),
+(170, 4, 1, NULL, 'شششششششششششششششش', '2025-05-23 15:43:12', 'exchanged'),
+(171, 5, 1, NULL, 'aaaa', '2025-05-23 17:15:22', 'dropped'),
+(172, 5, 7, NULL, '1111111', '2025-05-23 17:36:46', 'exchanged'),
+(173, 7, 1, 5, 'aaaa', '2025-05-23 18:36:20', 'dropped'),
+(174, 5, 1, 3, 'aaaaaaaa', '2025-05-23 18:39:11', 'dropped'),
+(175, 3, 1, 5, 'aaaaaaaa', '2025-05-23 18:40:47', 'dropped'),
+(176, 4, 1, 3, 'aaaaaaaaaaaa', '2025-05-23 18:42:36', 'dropped'),
+(177, 4, 1, NULL, 'aaaaaaa', '2025-05-23 18:50:10', 'dropped'),
+(178, 7, 1, NULL, 'qqqqqqqq', '2025-05-23 18:50:28', 'dropped'),
+(179, 3, 1, NULL, 'qqqqqqqqqq', '2025-05-23 18:51:18', 'dropped'),
+(180, 5, 1, 7, 'aaaaaaaaaaa', '2025-05-23 18:51:54', 'dropped'),
+(181, 4, 1, NULL, 'My name is abood', '2025-05-23 18:53:07', 'dropped'),
+(182, 4, 1, NULL, 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', '2025-05-23 18:58:47', 'dropped'),
+(183, 7, 1, NULL, 'aaaaaaaaa', '2025-05-23 19:08:15', 'dropped'),
+(184, 2, 1, NULL, 'ssssssssssssss', '2025-05-23 19:10:19', 'dropped'),
+(185, 6, 1, NULL, 'SSSSSSSSSSSSSS', '2025-05-23 19:14:47', 'dropped');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `book_requests`
+--
+
+CREATE TABLE `book_requests` (
+  `id` int(11) NOT NULL,
+  `offer_id` int(11) DEFAULT NULL,
+  `requester_id` int(11) DEFAULT NULL,
+  `status` enum('pending','accepted','rejected','canceled') NOT NULL DEFAULT 'pending',
+  `timestamp` datetime DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `book_requests`
+--
+
+INSERT INTO `book_requests` (`id`, `offer_id`, `requester_id`, `status`, `timestamp`) VALUES
+(26, 41, 1, 'accepted', '2025-05-04 22:38:08'),
+(27, 41, 1, 'rejected', '2025-05-04 22:58:23'),
+(29, 46, 4, 'rejected', '2025-05-05 17:14:28'),
+(31, 47, 4, 'canceled', '2025-05-05 17:45:24'),
+(32, 47, 4, 'canceled', '2025-05-05 17:45:42'),
+(33, 47, 4, 'rejected', '2025-05-05 17:45:51'),
+(34, 47, 4, 'rejected', '2025-05-05 17:53:06'),
+(35, 49, 4, 'canceled', '2025-05-05 18:00:13'),
+(36, 49, 4, 'canceled', '2025-05-05 18:01:41'),
+(37, 49, 4, 'canceled', '2025-05-05 18:02:05'),
+(38, 49, 4, 'canceled', '2025-05-05 18:02:10'),
+(39, 49, 4, 'canceled', '2025-05-05 18:02:47'),
+(40, 49, 4, 'rejected', '2025-05-05 18:05:14'),
+(41, 50, 4, 'rejected', '2025-05-06 09:56:27'),
+(42, 53, 4, 'canceled', '2025-05-06 20:32:19'),
+(43, 53, 4, 'rejected', '2025-05-06 20:32:24'),
+(44, 54, 4, 'accepted', '2025-05-06 22:20:30'),
+(45, 55, 4, 'accepted', '2025-05-06 22:28:55'),
+(46, 56, 1, 'accepted', '2025-05-06 22:31:46'),
+(47, 57, 1, 'accepted', '2025-05-06 22:41:35'),
+(48, 58, 1, 'accepted', '2025-05-06 22:53:24'),
+(49, 59, 1, 'accepted', '2025-05-06 23:02:40'),
+(50, 60, 1, 'accepted', '2025-05-06 23:08:16'),
+(51, 60, 1, 'accepted', '2025-05-06 23:16:24'),
+(52, 61, 1, 'accepted', '2025-05-06 23:32:02'),
+(53, 61, 1, 'accepted', '2025-05-07 13:46:36'),
+(54, 62, 1, 'accepted', '2025-05-07 13:49:06'),
+(55, 62, 1, 'accepted', '2025-05-07 14:10:42'),
+(56, 62, 1, 'accepted', '2025-05-07 14:31:06'),
+(57, 62, 1, 'accepted', '2025-05-07 16:21:24'),
+(58, 62, 1, 'accepted', '2025-05-08 11:14:55'),
+(59, 62, 1, 'rejected', '2025-05-08 11:17:25'),
+(60, 62, 7, 'accepted', '2025-05-08 11:17:41'),
+(61, 62, 1, 'accepted', '2025-05-08 11:25:21'),
+(62, 62, 7, 'rejected', '2025-05-08 11:26:14'),
+(63, 62, 7, 'accepted', '2025-05-08 11:31:16'),
+(64, 62, 1, 'rejected', '2025-05-09 15:57:11'),
+(65, 62, 7, 'accepted', '2025-05-09 15:57:26'),
+(66, 63, 1, 'accepted', '2025-05-09 16:03:09'),
+(67, 63, 7, 'accepted', '2025-05-09 16:03:14'),
+(68, 63, 5, 'accepted', '2025-05-09 16:03:23'),
+(69, 63, 3, 'accepted', '2025-05-09 16:03:36'),
+(70, 64, 7, 'accepted', '2025-05-09 16:05:57'),
+(71, 64, 7, 'accepted', '2025-05-09 16:09:03'),
+(72, 65, 1, 'accepted', '2025-05-09 16:52:51'),
+(73, 66, 7, 'accepted', '2025-05-09 16:53:55'),
+(74, 66, 7, 'accepted', '2025-05-09 16:54:39'),
+(75, 66, 4, 'accepted', '2025-05-09 16:59:17'),
+(76, 66, 4, 'rejected', '2025-05-09 17:00:58'),
+(77, 67, 5, 'rejected', '2025-05-09 17:10:10'),
+(78, 67, 4, 'accepted', '2025-05-09 17:29:24'),
+(79, 67, 4, 'accepted', '2025-05-09 17:38:23'),
+(80, 67, 4, 'accepted', '2025-05-09 17:40:23'),
+(81, 68, 4, 'accepted', '2025-05-09 17:51:10'),
+(82, 70, 7, 'accepted', '2025-05-09 18:01:23'),
+(83, 71, 4, 'rejected', '2025-05-09 20:11:59'),
+(84, 71, 7, 'rejected', '2025-05-09 20:12:06'),
+(85, 71, 5, 'accepted', '2025-05-09 20:12:17'),
+(86, 72, 4, 'rejected', '2025-05-09 20:21:38'),
+(87, 72, 7, 'rejected', '2025-05-09 20:21:50'),
+(88, 72, 5, 'accepted', '2025-05-09 20:21:59'),
+(89, 73, 7, 'accepted', '2025-05-09 20:40:09'),
+(90, 74, 7, 'accepted', '2025-05-09 20:43:31'),
+(91, 75, 5, 'accepted', '2025-05-09 20:55:19'),
+(92, 76, 7, 'accepted', '2025-05-10 15:24:31'),
+(93, 77, 3, 'accepted', '2025-05-10 15:26:33'),
+(94, 78, 4, 'accepted', '2025-05-10 15:31:30'),
+(95, 78, 4, 'accepted', '2025-05-10 17:03:35'),
+(96, 78, 7, 'accepted', '2025-05-10 17:10:08'),
+(97, 78, 7, 'accepted', '2025-05-10 17:15:51'),
+(98, 78, 7, 'accepted', '2025-05-10 17:20:38'),
+(99, 78, 7, 'accepted', '2025-05-10 17:23:04'),
+(100, 79, 7, 'accepted', '2025-05-10 17:26:37'),
+(101, 79, 4, 'accepted', '2025-05-10 17:29:38'),
+(102, 81, 3, 'canceled', '2025-05-10 22:37:37'),
+(103, 81, 3, 'accepted', '2025-05-10 22:39:08'),
+(104, 94, 4, 'accepted', '2025-05-11 10:17:36'),
+(105, 95, 4, 'accepted', '2025-05-11 10:20:29'),
+(106, 95, 5, 'rejected', '2025-05-11 10:20:40'),
+(107, 95, 3, 'accepted', '2025-05-11 17:51:12'),
+(109, 116, 3, 'accepted', '2025-05-12 22:55:36'),
+(110, 117, 5, 'accepted', '2025-05-12 22:58:22'),
+(115, 121, 4, 'accepted', '2025-05-13 11:36:39'),
+(120, 125, 4, 'accepted', '2025-05-13 12:18:23'),
+(121, 126, 3, 'rejected', '2025-05-13 12:21:25'),
+(122, 127, 1, 'rejected', '2025-05-13 12:22:08'),
+(123, 126, 3, 'canceled', '2025-05-13 17:07:34'),
+(124, 126, 3, 'canceled', '2025-05-13 17:08:28'),
+(125, 128, 7, 'canceled', '2025-05-13 17:11:27'),
+(126, 126, 5, 'accepted', '2025-05-13 17:15:33'),
+(127, 126, 5, 'accepted', '2025-05-13 17:20:33'),
+(128, 126, 5, 'accepted', '2025-05-13 17:20:58'),
+(129, 126, 5, 'rejected', '2025-05-13 17:24:01'),
+(130, 126, 7, 'rejected', '2025-05-13 17:27:43'),
+(131, 126, 7, 'rejected', '2025-05-13 17:52:34'),
+(132, 130, 3, 'rejected', '2025-05-13 18:03:00'),
+(133, 130, 3, 'canceled', '2025-05-13 18:06:31'),
+(134, 131, 7, 'rejected', '2025-05-13 18:19:33'),
+(135, 131, 7, 'rejected', '2025-05-13 18:23:01'),
+(136, 131, 7, 'rejected', '2025-05-13 18:23:54'),
+(137, 131, 7, 'rejected', '2025-05-13 18:27:18'),
+(138, 131, 4, 'accepted', '2025-05-13 18:52:34'),
+(139, 132, 3, 'accepted', '2025-05-13 22:48:39'),
+(140, 133, 1, 'rejected', '2025-05-13 22:50:39'),
+(141, 133, 3, 'accepted', '2025-05-13 22:50:46'),
+(142, 134, 1, 'accepted', '2025-05-13 23:01:07'),
+(143, 134, 5, 'rejected', '2025-05-13 23:01:14'),
+(144, 135, 1, 'accepted', '2025-05-13 23:05:03'),
+(145, 135, 5, 'rejected', '2025-05-13 23:05:13'),
+(146, 136, 2, 'accepted', '2025-05-13 23:32:25'),
+(147, 138, 8, 'accepted', '2025-05-13 23:33:46'),
+(148, 137, 2, 'accepted', '2025-05-13 23:33:59'),
+(149, 139, 4, 'canceled', '2025-05-14 19:20:44'),
+(150, 139, 4, 'accepted', '2025-05-14 19:22:28'),
+(151, 140, 7, 'accepted', '2025-05-15 23:41:35'),
+(152, 141, 7, 'rejected', '2025-05-15 23:43:23'),
+(153, 141, 5, 'accepted', '2025-05-15 23:43:30'),
+(154, 145, 5, 'accepted', '2025-05-17 14:25:52'),
+(155, 149, 3, 'rejected', '2025-05-17 15:51:35'),
+(156, 149, 5, 'accepted', '2025-05-17 15:51:52'),
+(157, 152, 1, 'rejected', '2025-05-17 16:04:51'),
+(158, 152, 5, 'rejected', '2025-05-17 16:05:04'),
+(159, 152, 1, 'rejected', '2025-05-17 16:06:07'),
+(160, 153, 4, 'accepted', '2025-05-18 10:11:37'),
+(161, 155, 4, 'rejected', '2025-05-18 10:18:53'),
+(162, 154, 4, 'accepted', '2025-05-18 10:18:55'),
+(163, 157, 1, 'rejected', '2025-05-20 22:06:27'),
+(164, 155, 5, 'accepted', '2025-05-20 22:15:08'),
+(165, 157, 7, 'accepted', '2025-05-20 22:33:05'),
+(166, 158, 4, 'accepted', '2025-05-20 22:37:21'),
+(167, 160, 3, 'accepted', '2025-05-21 14:53:10'),
+(168, 159, 3, 'accepted', '2025-05-21 14:53:12'),
+(169, 161, 3, 'accepted', '2025-05-21 14:54:18'),
+(170, 162, 7, 'accepted', '2025-05-21 15:06:11'),
+(171, 163, 3, 'accepted', '2025-05-23 14:52:06'),
+(172, 164, 5, 'accepted', '2025-05-23 15:12:43'),
+(173, 165, 7, 'accepted', '2025-05-23 15:17:37'),
+(174, 166, 4, 'accepted', '2025-05-23 15:20:14'),
+(175, 167, 3, 'accepted', '2025-05-23 15:22:13'),
+(176, 168, 5, 'accepted', '2025-05-23 15:35:48'),
+(177, 169, 7, 'accepted', '2025-05-23 15:41:57'),
+(178, 170, 4, 'rejected', '2025-05-23 15:43:22'),
+(179, 170, 7, 'rejected', '2025-05-23 15:43:31'),
+(180, 170, 3, 'rejected', '2025-05-23 15:43:38'),
+(181, 170, 5, 'accepted', '2025-05-23 15:43:52'),
+(182, 171, 7, 'rejected', '2025-05-23 17:15:29'),
+(183, 171, 7, 'rejected', '2025-05-23 17:28:20'),
+(184, 172, 3, 'rejected', '2025-05-23 18:18:19'),
+(185, 172, 5, 'accepted', '2025-05-23 18:31:28'),
+(186, 171, 5, 'canceled', '2025-05-23 18:32:04'),
+(187, 181, 5, 'rejected', '2025-05-23 18:53:39'),
+(188, 182, 3, 'rejected', '2025-05-23 19:03:36'),
+(189, 183, 7, 'pending', '2025-05-23 19:08:21'),
+(190, 184, 3, 'pending', '2025-05-23 19:10:26'),
+(191, 185, 5, 'rejected', '2025-05-23 19:14:55');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `conversations`
+--
+
+CREATE TABLE `conversations` (
+  `id` int(11) NOT NULL,
+  `user1_id` int(11) NOT NULL,
+  `user2_id` int(11) NOT NULL,
+  `related_request_id` int(11) DEFAULT NULL,
+  `created_at` datetime NOT NULL DEFAULT current_timestamp(),
+  `last_message_at` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `conversations`
+--
+
+INSERT INTO `conversations` (`id`, `user1_id`, `user2_id`, `related_request_id`, `created_at`, `last_message_at`) VALUES
+(1, 5, 7, 185, '2025-05-20 22:32:49', '2025-05-23 15:42:30'),
+(2, 4, 5, 166, '2025-05-20 22:37:33', '2025-05-20 22:50:02'),
+(3, 3, 4, 175, '2025-05-21 14:53:20', '2025-05-23 15:32:22'),
+(4, 4, 7, 170, '2025-05-21 15:06:18', '2025-05-21 15:06:20'),
+(5, 1, 3, 171, '2025-05-23 14:52:13', '2025-05-23 15:12:00'),
+(6, 1, 5, 181, '2025-05-23 15:12:50', '2025-05-23 15:44:41'),
+(7, 3, 7, 173, '2025-05-23 15:17:43', '2025-05-23 16:14:54'),
+(8, 1, 4, 174, '2025-05-23 15:20:22', '2025-05-23 15:20:27'),
+(9, 3, 5, 176, '2025-05-23 15:36:02', '2025-05-23 15:41:18');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `courses`
+--
+
+CREATE TABLE `courses` (
+  `id` int(11) NOT NULL,
+  `department_id` int(11) DEFAULT NULL,
+  `course_name` varchar(255) DEFAULT NULL,
+  `course_link` text DEFAULT NULL,
+  `course_description` text DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `courses`
+--
+
+INSERT INTO `courses` (`id`, `department_id`, `course_name`, `course_link`, `course_description`) VALUES
+(1, 2, 'Fundamentals of Digital Marketing', 'https://skillshop.exceedlms.com/student/path/29372-fundamentals-of-digital-marketing', 'Discover the new Digital Marketing Fundamentals course – a self-paced program by Google covering 17 expert-designed modules. Learn key topics like AI tools, video marketing, and more through real-world examples and practical exercises to grow your business or career.'),
+(2, 7, 'Quality Improvement and Management', 'https://www.coursera.org/learn/quality-improvement-management', 'Learn the importance of quality improvement, explore ISO 9001 benefits and requirements, and translate customer needs into practical actions using Bloom’s Taxonomy.'),
+(3, 1, 'C# FOR BEGINNERS', 'https://www.youtube.com/watch?v=GhQdlIFylQ8', 'This course will give you a full introduction into all of the core concepts in C#.'),
+(4, 1, 'HTML Front End', 'https://www.mygreatlearning.com/academy/learn-for-free/courses/html-tutorial-for-beginners', 'HTML is the core of web development. Start by learning its basics—features, editors, and comments—then progress to key concepts like the HTML skeleton, elements, and more, building a strong front-end foundation.'),
+(5, 4, 'Managerial Accounting', 'https://alison.com/course/management-accounting', 'Learn management accounting to create and manage value, forecast for budgets, explore budgeting theory, control performance, apply linear programming, and handle risk in decisions.'),
+(6, 4, 'Cost Accounting', 'https://alison.com/course/diploma-in-cost-accounting', 'Explore financial management and cost accounting basics—cost types, marginal cost functions, budgetary control, and variance formulas—all in a free course to boost your accounting skills.'),
+(7, 1, 'JavaScript Crash Course For Beginners', 'https://www.youtube.com/watch?v=hdI2bqOjy3c', 'In this Traversy Media YouTube course, you will learn about JavaScript basics including conditions, loops, functions, objects, arrays, and ES6.'),
+(8, 5, 'Managerial Economics', 'https://alison.com/course/diploma-in-managerial-economics', 'Master managerial economics from basics to optimization. Learn consumer behavior, indifference curves, and demand—all in this free online course.'),
+(9, 5, 'Principles of Economics: Macroeconomics - The Big Picture', 'https://www.coursera.org/learn/principles-of-economics-macroeconomics', 'Through course lectures, quizzes, discussions, and problem sets, my hope is that you\'ll be able to digest economic news with a more discerning viewpoint, and have a more informed view about the cost and benefits of economic policy.'),
+(10, 6, 'Investment Risk Management', 'https://www.coursera.org/learn/investment-risk-management', 'Learn to measure risk vs. reward using the Treynor Ratio and calculate portfolio value at risk. Basic financial risk knowledge is required. Best for North America learners; not investment advice.'),
+(11, 7, 'ادارة مشاريع', 'https://www.studyshoot.com/top/free-management-courses/', 'أفضل الشركات العالمية مثل Google وIBM تقدم دورات إدارة مجانية عبر الإنترنت للجميع دون شروط مسبقة، لتعلم مهارات التخطيط والتنظيم والإشراف على المشاريع. في نهاية كل دورة، يحصل المتدربون على شهادات احترافية معتمدة تساعدهم في التوظيف أو بدء مشاريعهم الخاصة.'),
+(13, 7, 'Marketing Channels Management', 'https://www.coursera.org/learn/channel-management-retailing', 'Learn how to design and manage distribution channels, understand key players and conflict resolution. Explore retail strategies, competitive advantages, growth opportunities, entry methods, and the role of online presence in future retail trends.'),
+(14, 2, 'Pricing Policies', 'https://www.coursera.org/learn/pricing-strategy', 'Understand pricing strategies and how psychology affects perceived value. Apply price discrimination through customer traits, quantity, bundling, and versions. Measure willingness to pay using surveys and data. Calculate price elasticity and determine the optimal price.'),
+(15, 3, 'Financial Markets', 'https://www.coursera.org/learn/financial-markets-global', 'Introduction to risk management and behavioral finance principles to understand the real-world functioning of securities, insurance, and banking industries.  The ultimate goal of this course is using such industries effectively and towards a better society.'),
+(16, 3, 'Python and Statistics for Financial Analysis', 'https://www.coursera.org/learn/python-statistics-financial-analysis', ' Due to python’s simplicity and high readability, it is gaining its importance in the financial industry.  The course combines both python coding and statistical concepts and applies into analyzing financial data, such as stock data.'),
+(17, 3, 'Private Equity and Venture Capital', 'https://www.coursera.org/learn/private-equity', 'Over the course, students will be provided with a deep understanding of the mechanism underpinning the creation and/or development of a firm and the financial support it can get from the financial system through venture capital investment.'),
+(18, 5, 'Narrative Economics', 'https://www.coursera.org/learn/narrative-economics', 'This course, Narrative Economics, is relatively short and proposes a simple concept: we need to incorporate the contagion of narratives into our economic theory. '),
+(19, 2, 'Brand Management: Aligning Business, Brand and Behaviour', 'https://www.coursera.org/learn/brand', 'The aim of the course is to change the conception of brands as being an organisation\'s visual identity (e.g., logo) and image (customers\' brand associations) to an experience along \"moments-that-matter\" along the customer journey and, therefore, delivered by people across the entire organisation.'),
+(20, 4, 'Financial Accounting: Foundations', 'https://www.coursera.org/learn/financial-accounting-basics', 'In this course, you will learn the foundations of financial accounting information. You will start your journey with a general overview of what financial accounting information is and the main financial statements'),
+(21, 6, 'Advanced Public Sector Strategy and Leadership Essentials', 'https://www.educations.com/institutions/london-business-training-and-consulting/advanced-public-sector-strategy-and-leadership-essentials?fl=1', 'The Advanced Public Sector Strategy and Leadership Essentials program equips students with essential skills for strategic thinking and dynamic leadership in the public sector.'),
+(22, 6, 'Online Microcredentials in Public Administration', 'https://www.educations.com/institutions/university-of-birmingham-online/online-microcredentials-in-public-administration?fl=2', 'The Online Microcredentials in Public Administration offer a flexible way to enhance your skills in public service. You can tailor your learning to your personal and professional goals while studying at your own pace. ');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `departments`
+--
+
+CREATE TABLE `departments` (
+  `id` int(11) NOT NULL,
+  `department_name` varchar(100) NOT NULL,
+  `description` text DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `departments`
+--
+
+INSERT INTO `departments` (`id`, `department_name`, `description`) VALUES
+(1, 'MIS', NULL),
+(2, 'Marketing', NULL),
+(3, 'Finance', NULL),
+(4, 'Accounting', NULL),
+(5, 'Business Economics', NULL),
+(6, 'Public Administration', NULL),
+(7, 'Business Adminstration', NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `messages`
+--
+
+CREATE TABLE `messages` (
+  `id` int(11) NOT NULL,
+  `conversation_id` int(11) NOT NULL,
+  `sender_id` int(11) NOT NULL,
+  `content` text NOT NULL,
+  `created_at` datetime NOT NULL DEFAULT current_timestamp(),
+  `edited_at` datetime DEFAULT NULL,
+  `is_deleted` tinyint(1) NOT NULL DEFAULT 0,
+  `deleted_at` datetime DEFAULT NULL,
+  `deleted_by` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `messages`
+--
+
+INSERT INTO `messages` (`id`, `conversation_id`, `sender_id`, `content`, `created_at`, `edited_at`, `is_deleted`, `deleted_at`, `deleted_by`) VALUES
+(1, 2, 5, 'مرحبا يغالي', '2025-05-20 22:37:41', NULL, 0, NULL, NULL),
+(2, 2, 4, 'هلا', '2025-05-20 22:43:16', NULL, 0, NULL, NULL),
+(3, 2, 4, 'ترا زبط اذا ملاحظ', '2025-05-20 22:45:56', NULL, 0, NULL, NULL),
+(4, 2, 4, 'وزبط الانتر', '2025-05-20 22:47:16', NULL, 0, NULL, NULL),
+(5, 2, 4, 'هاي الرسالة من  احمد قضاه ل لين', '2025-05-20 22:47:37', NULL, 0, NULL, NULL),
+(6, 2, 4, 'ششششششششششش', '2025-05-20 22:49:23', NULL, 0, NULL, NULL),
+(7, 2, 4, 'ششش', '2025-05-20 22:49:41', NULL, 0, NULL, NULL),
+(8, 2, 4, 'ششش', '2025-05-20 22:50:02', NULL, 0, NULL, NULL),
+(9, 4, 4, 'aaaaaaaaaaaaaaaa', '2025-05-21 15:06:20', NULL, 0, NULL, NULL),
+(10, 5, 1, 'مرحبا من عبدالله لعماد', '2025-05-23 14:52:22', NULL, 0, NULL, NULL),
+(11, 5, 1, 'خلينا نجرب هسا', '2025-05-23 14:52:46', NULL, 0, NULL, NULL),
+(12, 5, 1, 'خلينا نجرب هسا', '2025-05-23 14:52:49', NULL, 0, NULL, NULL),
+(13, 5, 3, 'مرحباا', '2025-05-23 14:53:44', NULL, 0, NULL, NULL),
+(14, 5, 3, 'س', '2025-05-23 14:58:06', NULL, 0, NULL, NULL),
+(15, 5, 3, 'اوك مشا الحال', '2025-05-23 15:00:04', NULL, 0, NULL, NULL),
+(16, 5, 3, 'اوك مشا الحال', '2025-05-23 15:00:15', NULL, 0, NULL, NULL),
+(17, 5, 3, 'ششششش', '2025-05-23 15:02:09', NULL, 0, NULL, NULL),
+(18, 5, 3, 'تمام الوضع حاسه', '2025-05-23 15:02:16', NULL, 0, NULL, NULL),
+(19, 5, 3, 'تست ؟', '2025-05-23 15:05:53', NULL, 0, NULL, NULL),
+(20, 5, 3, 'من عماد لعبدالله', '2025-05-23 15:07:00', NULL, 0, NULL, NULL),
+(21, 5, 3, 'مره ثانيه', '2025-05-23 15:12:00', NULL, 0, NULL, NULL),
+(22, 6, 1, 'اوك من عبدالله ل لين', '2025-05-23 15:12:55', NULL, 0, NULL, NULL),
+(23, 7, 3, 'كيف يا مناصير انا عماد', '2025-05-23 15:17:52', '2025-05-23 16:11:39', 0, NULL, NULL),
+(24, 8, 1, 'هي الكتاب يا احمد', '2025-05-23 15:20:27', NULL, 0, NULL, NULL),
+(25, 3, 4, 'شششششششششششش', '2025-05-23 15:22:22', NULL, 0, NULL, NULL),
+(26, 3, 4, 'يلا نجرب', '2025-05-23 15:32:22', NULL, 0, NULL, NULL),
+(27, 9, 3, 'ششششششششششش', '2025-05-23 15:36:04', NULL, 0, NULL, NULL),
+(28, 9, 5, 'كأنه زبط', '2025-05-23 15:40:59', NULL, 0, NULL, NULL),
+(29, 9, 3, 'انا عماد ببعث ل لين', '2025-05-23 15:41:18', NULL, 0, NULL, NULL),
+(30, 1, 5, 'مناصير انا لين هات كتاب', '2025-05-23 15:42:09', NULL, 0, NULL, NULL),
+(31, 1, 7, 'وانا مناصير هي كتابي يا لين', '2025-05-23 15:42:30', NULL, 0, NULL, NULL),
+(32, 6, 1, 'لين هي قبلت الطلب تبعك بدي اشوف شو انبعث للثانيين', '2025-05-23 15:44:41', NULL, 0, NULL, NULL),
+(33, 7, 7, 'مرحبا هاي من احمد قضاه ل عماد', '2025-05-23 15:52:57', NULL, 0, NULL, NULL),
+(34, 7, 3, 'حلو حلو هاي من عماد لمناصير', '2025-05-23 15:53:44', NULL, 0, NULL, NULL),
+(35, 7, 7, 'رائع', '2025-05-23 15:55:09', NULL, 0, NULL, NULL),
+(36, 7, 7, 'رائع من احمد مناصير لعماد', '2025-05-23 15:55:42', NULL, 0, NULL, NULL),
+(37, 7, 3, 'ببشيس', '2025-05-23 16:09:37', NULL, 1, '2025-05-23 16:09:40', 3),
+(38, 7, 3, 'هاي بدي اجرب اعدل', '2025-05-23 16:11:46', '2025-05-23 16:11:52', 0, NULL, NULL),
+(39, 7, 3, 'واحذف', '2025-05-23 16:11:59', NULL, 1, '2025-05-23 16:12:02', 3),
+(40, 7, 7, 'هاي معدله 1', '2025-05-23 16:14:54', '2025-05-23 16:15:02', 0, NULL, NULL);
+
+--
+-- Triggers `messages`
+--
+DELIMITER $$
+CREATE TRIGGER `trg_update_last_message` AFTER INSERT ON `messages` FOR EACH ROW BEGIN
+  UPDATE conversations
+     SET last_message_at = NEW.created_at
+   WHERE id = NEW.conversation_id;
+END
+$$
+DELIMITER ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `message_edits`
+--
+
+CREATE TABLE `message_edits` (
+  `id` int(11) NOT NULL,
+  `message_id` int(11) NOT NULL,
+  `editor_id` int(11) NOT NULL,
+  `old_content` text NOT NULL,
+  `edited_at` datetime NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `message_edits`
+--
+
+INSERT INTO `message_edits` (`id`, `message_id`, `editor_id`, `old_content`, `edited_at`) VALUES
+(1, 23, 3, 'كيفك يا مناصير انا عماد', '2025-05-23 16:09:27'),
+(2, 23, 3, 'يفك يا مناصير انا عماد', '2025-05-23 16:11:39'),
+(3, 38, 3, 'هاي بدي اجرب', '2025-05-23 16:11:52'),
+(4, 40, 7, 'هاي معدله', '2025-05-23 16:15:02');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `notifications`
+--
+
+CREATE TABLE `notifications` (
+  `id` int(11) NOT NULL,
+  `user_id` int(11) DEFAULT NULL,
+  `receiver_id` int(11) DEFAULT NULL,
+  `action_id` int(11) DEFAULT NULL,
+  `conversation_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `type` varchar(100) DEFAULT NULL,
+  `message` text DEFAULT NULL,
+  `is_read` tinyint(1) DEFAULT 0,
+  `is_deleted` tinyint(1) NOT NULL DEFAULT 0,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `notifications`
+--
+
+INSERT INTO `notifications` (`id`, `user_id`, `receiver_id`, `action_id`, `conversation_id`, `type`, `message`, `is_read`, `is_deleted`, `created_at`) VALUES
+(28, 4, 1, NULL, NULL, 'request_rejected', 'Ahmad rejected your book request.', 1, 1, '2025-05-04 19:27:48'),
+(30, 4, 1, NULL, NULL, 'request_rejected', 'Ahmad rejected your book request.', 1, 1, '2025-05-04 19:38:26'),
+(32, 4, 1, NULL, NULL, 'request_rejected', 'Ahmad rejected your book request.', 1, 1, '2025-05-04 19:59:01'),
+(35, 1, 4, NULL, NULL, 'request_rejected', 'Abood rejected your book request.', 1, 1, '2025-05-05 14:14:57'),
+(37, 4, 1, 31, NULL, 'book_request', 'Ahmad Qudah has requested your book', 1, 1, '2025-05-05 14:45:24'),
+(38, 4, 1, 32, NULL, 'book_request', 'Ahmad Qudah has requested your book', 1, 1, '2025-05-05 14:45:42'),
+(40, 1, 4, NULL, NULL, 'request_rejected', 'Abood rejected your book request.', 1, 1, '2025-05-05 14:50:24'),
+(42, 1, 4, NULL, NULL, 'request_rejected', 'Abood rejected your book request.', 1, 1, '2025-05-05 14:54:36'),
+(43, 1, 4, NULL, NULL, 'request_rejected', 'Abood rejected your book request.', 1, 1, '2025-05-05 14:54:36'),
+(44, 4, 1, 35, NULL, 'book_request', 'Ahmad Qudah has requested your book', 1, 1, '2025-05-05 15:00:13'),
+(45, 4, 1, 36, NULL, 'book_request', 'Ahmad Qudah has requested your book', 1, 1, '2025-05-05 15:01:41'),
+(46, 4, 1, 37, NULL, 'book_request', 'Ahmad Qudah has requested your book', 1, 1, '2025-05-05 15:02:05'),
+(47, 4, 1, 38, NULL, 'book_request', 'Ahmad Qudah has requested your book', 1, 1, '2025-05-05 15:02:10'),
+(48, 4, 1, 39, NULL, 'book_request', 'Ahmad Qudah has requested your book', 1, 1, '2025-05-05 15:02:47'),
+(50, 1, 4, NULL, NULL, 'request_rejected', 'Abood rejected your book request.', 1, 1, '2025-05-05 15:05:35'),
+(51, 1, 4, NULL, NULL, 'request_rejected', 'Abood rejected your book request.', 1, 1, '2025-05-05 15:05:35'),
+(53, 1, 4, NULL, NULL, 'request_rejected', 'Abood rejected your book request.', 1, 1, '2025-05-06 06:56:58'),
+(54, 1, 4, NULL, NULL, 'request_rejected', 'Abood rejected your book request.', 1, 1, '2025-05-06 06:56:58'),
+(55, 4, 1, 42, NULL, 'book_request', 'Ahmad Qudah has requested your book', 1, 1, '2025-05-06 17:32:19'),
+(57, 1, 4, NULL, NULL, 'request_rejected', 'Abood rejected your book request.', 1, 1, '2025-05-06 17:32:45'),
+(58, 4, 1, 44, NULL, 'book_request', 'Ahmad Qudah has requested your book', 1, 1, '2025-05-06 19:20:30'),
+(59, 1, 4, 44, NULL, 'request_accepted', 'Abood accepted your request.', 1, 1, '2025-05-06 19:20:40'),
+(60, 4, 1, 45, NULL, 'book_request', 'Ahmad Qudah has requested your book', 1, 1, '2025-05-06 19:28:55'),
+(61, 1, 4, 45, NULL, 'request_accepted', 'Abood accepted your request.', 1, 1, '2025-05-06 19:29:07'),
+(62, 1, 4, 46, NULL, 'book_request', 'Abood Qudah has requested your book', 1, 1, '2025-05-06 19:31:46'),
+(63, 4, 1, 46, NULL, 'request_accepted', 'Ahmad accepted your request.', 1, 1, '2025-05-06 19:31:54'),
+(64, 1, 4, 47, NULL, 'book_request', 'Abood Qudah has requested your book', 1, 1, '2025-05-06 19:41:35'),
+(65, 4, 1, 47, NULL, 'request_accepted', 'Ahmad accepted your request.', 1, 1, '2025-05-06 19:44:15'),
+(66, 1, 4, 48, NULL, 'book_request', 'Abood Qudah has requested your book', 1, 1, '2025-05-06 19:53:24'),
+(67, 4, 1, 48, NULL, 'request_accepted', 'Ahmad accepted your request.', 1, 1, '2025-05-06 19:53:32'),
+(68, 1, 4, 49, NULL, 'book_request', 'Abood Qudah has requested your book', 1, 1, '2025-05-06 20:02:40'),
+(69, 4, 1, 49, NULL, 'request_accepted', 'Ahmad accepted your request.', 1, 1, '2025-05-06 20:02:52'),
+(70, 1, 4, 50, NULL, 'book_request', 'Abood Qudah has requested your book', 1, 1, '2025-05-06 20:08:16'),
+(71, 4, 1, 50, NULL, 'request_accepted', 'Ahmad accepted your request.', 1, 1, '2025-05-06 20:08:28'),
+(72, 1, 4, 51, NULL, 'book_request', 'Abood Qudah has requested your book', 1, 1, '2025-05-06 20:16:24'),
+(73, 4, 1, 51, NULL, 'request_accepted', 'Ahmad accepted your request.', 1, 1, '2025-05-06 20:16:45'),
+(74, 1, 4, 52, NULL, 'book_request', 'Abood Qudah has requested your book', 1, 1, '2025-05-06 20:32:02'),
+(75, 4, 1, 52, NULL, 'request_accepted', 'Ahmad accepted your request.', 1, 1, '2025-05-06 20:32:10'),
+(77, 4, 1, 52, NULL, 'new_message', 'Ahmad sent you a message.', 1, 1, '2025-05-06 20:35:43'),
+(78, 4, 1, 52, NULL, 'new_message', 'Ahmad sent you a message.', 1, 1, '2025-05-06 20:35:46'),
+(79, 4, 1, 52, NULL, 'new_message', 'Ahmad sent you a message.', 1, 1, '2025-05-06 20:35:52'),
+(80, 1, 4, 52, NULL, 'new_message', 'Abood sent you a message.', 1, 1, '2025-05-06 20:36:16'),
+(81, 1, 4, 52, NULL, 'new_message', 'Abood sent you a message.', 1, 1, '2025-05-06 20:36:25'),
+(82, 1, 4, 52, NULL, 'new_message', 'Abood sent you a message.', 1, 1, '2025-05-06 20:36:30'),
+(83, 1, 4, 53, NULL, 'book_request', 'Abood Qudah has requested your book', 1, 1, '2025-05-07 10:46:36'),
+(84, 4, 1, 53, NULL, 'request_accepted', 'Ahmad accepted your request.', 1, 1, '2025-05-07 10:48:13'),
+(85, 1, 4, 54, NULL, 'book_request', 'Abood Qudah has requested your book', 1, 1, '2025-05-07 10:49:06'),
+(86, 4, 1, 54, NULL, 'request_accepted', 'Ahmad accepted your request.', 1, 1, '2025-05-07 10:49:14'),
+(87, 4, 1, 54, NULL, 'new_message', 'Ahmad sent you a message.', 1, 1, '2025-05-07 10:49:24'),
+(88, 1, 4, 55, NULL, 'book_request', 'Abood Qudah has requested your book', 1, 1, '2025-05-07 11:10:42'),
+(89, 4, 1, 52, NULL, 'new_message', 'Ahmad sent you a message.', 1, 1, '2025-05-07 11:14:28'),
+(90, 4, 1, 55, NULL, 'request_accepted', 'Ahmad accepted your request.', 1, 1, '2025-05-07 11:14:37'),
+(91, 4, 1, 55, NULL, 'new_message', 'Ahmad sent you a message.', 1, 1, '2025-05-07 11:14:40'),
+(92, 1, 4, 56, NULL, 'book_request', 'Abood Qudah has requested your book', 1, 1, '2025-05-07 11:31:06'),
+(93, 4, 1, 56, NULL, 'request_accepted', 'Ahmad accepted your request.', 1, 1, '2025-05-07 11:31:40'),
+(94, 4, 1, 56, NULL, 'new_message', 'Ahmad sent you a message.', 1, 1, '2025-05-07 11:31:42'),
+(95, 1, 4, 56, NULL, 'new_message', 'Abood sent you a message.', 1, 1, '2025-05-07 11:51:31'),
+(96, 1, 4, 55, NULL, 'new_message', 'Abood sent you a message.', 1, 1, '2025-05-07 12:20:47'),
+(97, 1, 4, 55, NULL, 'new_message', 'Abood sent you a message.', 1, 1, '2025-05-07 12:21:14'),
+(98, 4, 1, 55, NULL, 'new_message', 'Ahmad sent you a message.', 1, 1, '2025-05-07 12:21:44'),
+(99, 4, 1, 55, NULL, 'new_message', 'Ahmad sent you a message.', 1, 1, '2025-05-07 12:21:46'),
+(100, 4, 1, 55, NULL, 'new_message', 'Ahmad sent you a message.', 1, 1, '2025-05-07 12:21:48'),
+(101, 1, 4, 55, NULL, 'new_message', 'Abood sent you a message.', 1, 1, '2025-05-07 12:22:24'),
+(102, 1, 4, 55, NULL, 'new_message', 'Abood sent you a message.', 1, 1, '2025-05-07 12:23:21'),
+(103, 1, 4, 57, NULL, 'book_request', 'Abood Qudah has requested your book', 1, 1, '2025-05-07 13:21:24'),
+(104, 4, 1, 57, NULL, 'request_accepted', 'Ahmad accepted your request.', 1, 1, '2025-05-07 13:21:39'),
+(105, 4, 1, 57, NULL, 'new_message', 'Ahmad sent you a message.', 1, 1, '2025-05-07 13:21:51'),
+(106, 1, 4, 57, NULL, 'new_message', 'Abood sent you a message.', 1, 1, '2025-05-07 13:22:24'),
+(107, 1, 4, 58, NULL, 'book_request', 'Abood Qudah has requested your book', 1, 1, '2025-05-08 08:14:55'),
+(108, 4, 1, 58, NULL, 'request_accepted', 'Ahmad accepted your request.', 1, 1, '2025-05-08 08:15:10'),
+(109, 4, 1, 58, NULL, 'new_message', 'Ahmad sent you a message.', 1, 1, '2025-05-08 08:15:13'),
+(111, 7, 4, 60, NULL, 'book_request', 'Ahmad Manaseer has requested your book', 1, 1, '2025-05-08 08:17:41'),
+(112, 4, 7, 60, NULL, 'request_accepted', 'Ahmad accepted your request.', 1, 1, '2025-05-08 08:17:56'),
+(113, 4, 1, NULL, NULL, 'request_rejected', 'Ahmad rejected your book request.', 1, 1, '2025-05-08 08:25:03'),
+(114, 4, 1, NULL, NULL, 'request_rejected', 'Ahmad rejected your book request.', 1, 1, '2025-05-08 08:25:03'),
+(115, 1, 4, 61, NULL, 'book_request', 'Abood Qudah has requested your book', 1, 1, '2025-05-08 08:25:21'),
+(116, 7, 4, 62, NULL, 'book_request', 'Ahmad Manaseer has requested your book', 1, 1, '2025-05-08 08:26:14'),
+(117, 4, 7, 62, NULL, 'book_taken', 'Ahmad gave this book to someone else.', 1, 1, '2025-05-08 08:26:28'),
+(118, 4, 1, 61, NULL, 'request_accepted', 'Ahmad accepted your request.', 1, 1, '2025-05-08 08:26:28'),
+(119, 4, 1, 61, NULL, 'new_message', 'Ahmad sent you a message.', 1, 1, '2025-05-08 08:26:38'),
+(120, 4, 1, 61, NULL, 'new_message', 'Ahmad sent you a message.', 1, 1, '2025-05-08 08:26:45'),
+(121, 7, 4, 63, NULL, 'book_request', 'Ahmad Manaseer has requested your book', 1, 1, '2025-05-08 08:31:16'),
+(122, 4, 7, 63, NULL, 'request_accepted', 'Ahmad accepted your request.', 1, 1, '2025-05-08 08:31:28'),
+(123, 4, 7, 63, NULL, 'new_message', 'Ahmad sent you a message.', 1, 1, '2025-05-08 08:31:30'),
+(124, 1, 4, 64, NULL, 'book_request', 'Abood Qudah has requested your book', 1, 1, '2025-05-09 12:57:11'),
+(125, 7, 4, 65, NULL, 'book_request', 'Ahmad Manaseer has requested your book', 1, 1, '2025-05-09 12:57:26'),
+(126, 4, 1, 62, NULL, 'book_taken', 'Ahmad gave this book to someone else.', 1, 1, '2025-05-09 12:57:41'),
+(127, 4, 7, 65, NULL, 'request_accepted', 'Ahmad accepted your request.', 1, 1, '2025-05-09 12:57:41'),
+(128, 4, 7, 65, NULL, 'new_message', 'Ahmad sent you a message.', 1, 1, '2025-05-09 12:57:44'),
+(129, 1, 4, 66, NULL, 'book_request', 'Abood Qudah has requested your book', 1, 1, '2025-05-09 13:03:09'),
+(130, 7, 4, 67, NULL, 'book_request', 'Ahmad Manaseer has requested your book', 1, 1, '2025-05-09 13:03:14'),
+(131, 5, 4, 68, NULL, 'book_request', 'Leen Ghanem has requested your book', 1, 1, '2025-05-09 13:03:23'),
+(132, 3, 4, 69, NULL, 'book_request', 'Emad Qudah has requested your book', 1, 1, '2025-05-09 13:03:36'),
+(133, 7, 4, 70, NULL, 'book_request', 'Ahmad Manaseer has requested your book', 1, 1, '2025-05-09 13:05:57'),
+(134, 7, 4, 71, NULL, 'book_request', 'Ahmad Manaseer has requested your book', 1, 1, '2025-05-09 13:09:03'),
+(135, 1, 4, 72, NULL, 'book_request', 'Abood Qudah has requested your book', 1, 1, '2025-05-09 13:52:51'),
+(136, 7, 1, 73, NULL, 'book_request', 'Ahmad Manaseer has requested your book', 1, 1, '2025-05-09 13:53:55'),
+(137, 7, 1, 74, NULL, 'book_request', 'Ahmad Manaseer has requested your book', 1, 1, '2025-05-09 13:54:39'),
+(138, 4, 1, 75, NULL, 'book_request', 'Ahmad Qudah has requested your book', 1, 1, '2025-05-09 13:59:17'),
+(140, 1, 4, NULL, NULL, 'request_rejected', 'Abood rejected your book request.', 1, 1, '2025-05-09 14:09:41'),
+(142, 1, 5, NULL, NULL, 'request_rejected', 'Abood rejected your book request.', 1, 1, '2025-05-09 14:29:03'),
+(143, 4, 1, 78, NULL, 'book_request', 'Ahmad Qudah has requested your book', 1, 1, '2025-05-09 14:29:24'),
+(144, 1, 4, 78, NULL, 'request_accepted', 'Abood accepted your request.', 1, 1, '2025-05-09 14:33:37'),
+(145, 4, 1, 79, NULL, 'book_request', 'Ahmad Qudah has requested your book', 1, 1, '2025-05-09 14:38:23'),
+(146, 1, 4, 79, NULL, 'request_accepted', 'Abood accepted your request.', 1, 1, '2025-05-09 14:38:35'),
+(147, 1, 4, 79, NULL, 'new_message', 'Abood sent you a message.', 1, 1, '2025-05-09 14:38:39'),
+(148, 4, 1, 80, NULL, 'book_request', 'Ahmad Qudah has requested your book', 1, 1, '2025-05-09 14:40:23'),
+(149, 1, 4, 80, NULL, 'request_accepted', 'Abood accepted your request.', 1, 1, '2025-05-09 14:40:30'),
+(150, 1, 4, 80, NULL, 'new_message', 'Abood sent you a message.', 1, 1, '2025-05-09 14:45:00'),
+(151, 4, 1, 80, NULL, 'new_message', 'Ahmad sent you a message.', 1, 1, '2025-05-09 14:45:18'),
+(152, 1, 4, 80, NULL, 'new_message', 'Abood sent you a message.', 1, 1, '2025-05-09 14:45:40'),
+(153, 4, 1, 81, NULL, 'book_request', 'Ahmad Qudah has requested your book', 1, 1, '2025-05-09 14:51:10'),
+(154, 1, 4, 81, NULL, 'request_accepted', 'Abood accepted your request.', 1, 1, '2025-05-09 14:51:24'),
+(155, 1, 4, 81, NULL, 'new_message', 'Abood sent you a message.', 1, 1, '2025-05-09 14:51:26'),
+(156, 7, 4, 82, NULL, 'book_request', 'Ahmad Manaseer has requested your book', 1, 1, '2025-05-09 15:01:23'),
+(157, 4, 7, 82, NULL, 'request_accepted', 'Ahmad accepted your request.', 1, 1, '2025-05-09 15:01:55'),
+(158, 4, 7, 82, NULL, 'new_message', 'Ahmad sent you a message.', 1, 1, '2025-05-09 15:01:58'),
+(159, 4, 1, 83, NULL, 'book_request', 'Ahmad Qudah has requested your book', 1, 1, '2025-05-09 17:11:59'),
+(160, 7, 1, 84, NULL, 'book_request', 'Ahmad Manaseer has requested your book', 1, 1, '2025-05-09 17:12:06'),
+(161, 5, 1, 85, NULL, 'book_request', 'Leen Ghanem has requested your book', 1, 1, '2025-05-09 17:12:17'),
+(162, 1, 4, 71, NULL, 'book_taken', 'Abood gave this book to someone else.', 1, 1, '2025-05-09 17:12:47'),
+(163, 1, 7, 71, NULL, 'book_taken', 'Abood gave this book to someone else.', 1, 1, '2025-05-09 17:12:47'),
+(164, 1, 5, 85, NULL, 'request_accepted', 'Abood accepted your request.', 1, 1, '2025-05-09 17:12:47'),
+(165, 1, 5, 85, NULL, 'new_message', 'Abood sent you a message.', 1, 1, '2025-05-09 17:13:05'),
+(166, 5, 1, 85, NULL, 'new_message', 'Leen sent you a message.', 1, 1, '2025-05-09 17:13:41'),
+(167, 1, 5, 85, NULL, 'new_message', 'Abood sent you a message.', 1, 1, '2025-05-09 17:14:01'),
+(168, 4, 1, 86, NULL, 'book_request', 'Ahmad Qudah has requested your book', 1, 1, '2025-05-09 17:21:38'),
+(169, 7, 1, 87, NULL, 'book_request', 'Ahmad Manaseer has requested your book', 1, 1, '2025-05-09 17:21:50'),
+(170, 5, 1, 88, NULL, 'book_request', 'Leen Ghanem has requested your book', 1, 1, '2025-05-09 17:21:59'),
+(171, 1, 4, 72, NULL, 'book_taken', 'Abood gave this book to someone else.', 1, 1, '2025-05-09 17:22:10'),
+(172, 1, 7, 72, NULL, 'book_taken', 'Abood gave this book to someone else.', 1, 1, '2025-05-09 17:22:10'),
+(173, 1, 5, 88, NULL, 'request_accepted', 'Abood accepted your request.', 1, 1, '2025-05-09 17:22:10'),
+(174, 1, 5, 88, NULL, 'new_message', 'Abood sent you a message.', 1, 1, '2025-05-09 17:22:19'),
+(175, 5, 1, 88, NULL, 'new_message', 'Leen sent you a message.', 1, 1, '2025-05-09 17:22:38'),
+(176, 1, 5, 88, NULL, 'new_message', 'Abood sent you a message.', 1, 1, '2025-05-09 17:22:52'),
+(177, 7, 1, 89, NULL, 'book_request', 'Ahmad Manaseer has requested your book', 1, 1, '2025-05-09 17:40:09'),
+(178, 1, 7, 89, NULL, 'request_accepted', 'Abood accepted your request.', 1, 1, '2025-05-09 17:40:37'),
+(179, 1, 7, 89, NULL, 'new_message', 'Abood sent you a message.', 1, 1, '2025-05-09 17:40:47'),
+(180, 7, 1, 90, NULL, 'book_request', 'Ahmad Manaseer has requested your book', 1, 1, '2025-05-09 17:43:31'),
+(181, 1, 7, 90, NULL, 'request_accepted', 'Abood accepted your request.', 1, 1, '2025-05-09 17:43:37'),
+(182, 1, 7, 90, NULL, 'new_message', 'Abood sent you a message.', 1, 1, '2025-05-09 17:43:39'),
+(183, 5, 3, 91, NULL, 'book_request', 'Leen Ghanem has requested your book', 1, 1, '2025-05-09 17:55:19'),
+(184, 3, 5, 91, NULL, 'request_accepted', 'Emad accepted your request.', 1, 1, '2025-05-09 17:55:27'),
+(185, 3, 5, 91, NULL, 'new_message', 'Emad sent you a message.', 1, 1, '2025-05-09 17:55:29'),
+(186, 3, 5, 91, NULL, 'new_message', 'Emad sent you a message.', 1, 1, '2025-05-09 18:03:01'),
+(187, 3, 5, 91, NULL, 'new_message', 'Emad sent you a message.', 1, 1, '2025-05-09 18:03:02'),
+(188, 3, 5, 91, NULL, 'new_message', 'Emad sent you a message.', 1, 1, '2025-05-09 18:03:10'),
+(189, 3, 5, 91, NULL, 'new_message', 'Emad sent you a message.', 1, 1, '2025-05-09 18:03:13'),
+(190, 5, 3, 91, NULL, 'new_message', 'Leen sent you a message.', 1, 1, '2025-05-09 18:03:33'),
+(191, 5, 3, 91, NULL, 'new_message', 'Leen sent you a message.', 1, 1, '2025-05-09 18:03:35'),
+(192, 5, 3, 91, NULL, 'new_message', 'Leen sent you a message.', 1, 1, '2025-05-09 18:03:37'),
+(193, 5, 3, 91, NULL, 'new_message', 'Leen sent you a message.', 1, 1, '2025-05-09 18:29:43'),
+(194, 5, 3, 91, NULL, 'new_message', 'Leen sent you a message.', 1, 1, '2025-05-09 18:29:45'),
+(195, 5, 1, 88, NULL, 'new_message', 'Leen sent you a message.', 1, 1, '2025-05-09 18:33:48'),
+(196, 5, 1, 88, NULL, 'new_message', 'Leen sent you a message.', 1, 1, '2025-05-09 18:33:51'),
+(197, 5, 1, 88, NULL, 'new_message', 'Leen sent you a message.', 1, 1, '2025-05-09 18:33:52'),
+(198, 5, 1, 88, NULL, 'new_message', 'Leen sent you a message.', 1, 1, '2025-05-09 18:33:54'),
+(199, 5, 1, 88, NULL, 'new_message', 'Leen sent you a message.', 1, 1, '2025-05-09 18:33:55'),
+(200, 1, 5, 88, NULL, 'new_message', 'Abood sent you a message.', 1, 1, '2025-05-09 18:42:38'),
+(201, 1, 5, 88, NULL, 'new_message', 'Abood sent you a message.', 1, 1, '2025-05-09 18:47:35'),
+(202, 1, 5, 88, NULL, 'new_message', 'Abood sent you a message.', 1, 1, '2025-05-09 18:47:38'),
+(203, 1, 5, 88, NULL, 'new_message', 'Abood sent you a message.', 1, 1, '2025-05-09 18:47:39'),
+(204, 1, 5, 88, NULL, 'new_message', 'Abood sent you a message.', 1, 1, '2025-05-09 18:50:24'),
+(205, 1, 5, 88, NULL, 'new_message', 'Abood sent you a message.', 1, 1, '2025-05-09 18:50:28'),
+(206, 1, 5, 88, NULL, 'new_message', 'Abood sent you a message.', 1, 1, '2025-05-09 18:50:33'),
+(207, 1, 5, 88, NULL, 'new_message', 'Abood sent you a message.', 1, 1, '2025-05-09 18:50:36'),
+(208, 1, 5, 88, NULL, 'new_message', 'Abood sent you a message.', 1, 1, '2025-05-09 18:51:06'),
+(209, 1, 5, 88, NULL, 'new_message', 'Abood sent you a message.', 1, 1, '2025-05-09 19:05:57'),
+(210, 1, 5, 88, NULL, 'new_message', 'Abood sent you a message.', 1, 1, '2025-05-09 19:05:58'),
+(211, 1, 5, 88, NULL, 'new_message', 'Abood sent you a message.', 1, 1, '2025-05-09 19:06:01'),
+(212, 1, 5, 88, NULL, 'new_message', 'Abood sent you a message.', 1, 1, '2025-05-09 19:10:26'),
+(213, 1, 5, 88, NULL, 'new_message', 'Abood sent you a message.', 1, 1, '2025-05-09 19:17:30'),
+(214, 1, 5, 88, NULL, 'new_message', 'Abood sent you a message.', 1, 1, '2025-05-09 19:23:36'),
+(215, 1, 5, 88, NULL, 'new_message', 'Abood sent you a message.', 1, 1, '2025-05-09 19:23:43'),
+(216, 1, 5, 88, NULL, 'new_message', 'Abood sent you a message.', 1, 1, '2025-05-09 19:24:46'),
+(217, 1, 5, 88, NULL, 'new_message', 'Abood sent you a message.', 1, 1, '2025-05-09 19:24:50'),
+(218, 1, 5, 88, NULL, 'new_message', 'Abood sent you a message.', 1, 1, '2025-05-09 19:27:08'),
+(219, 1, 5, 88, NULL, 'new_message', 'Abood sent you a message.', 1, 1, '2025-05-09 19:27:13'),
+(220, 1, 5, 88, NULL, 'new_message', 'Abood sent you a message.', 1, 1, '2025-05-09 21:19:14'),
+(221, 1, 5, 88, NULL, 'new_message', 'Abood sent you a message.', 1, 1, '2025-05-09 21:35:14'),
+(222, 1, 5, 88, NULL, 'new_message', 'Abood sent you a message.', 1, 1, '2025-05-09 21:35:18'),
+(223, 1, 5, 88, NULL, 'new_message', 'Abood sent you a message.', 1, 1, '2025-05-09 21:35:20'),
+(224, 1, 5, 88, NULL, 'new_message', 'Abood sent you a message.', 1, 1, '2025-05-09 21:35:47'),
+(225, 1, 5, 88, NULL, 'new_message', 'Abood sent you a message.', 1, 1, '2025-05-09 21:37:56'),
+(226, 1, 5, 88, NULL, 'new_message', 'Abood sent you a message.', 1, 1, '2025-05-09 21:39:37'),
+(227, 1, 5, 88, NULL, 'new_message', 'Abood sent you a message.', 1, 1, '2025-05-09 21:40:51'),
+(228, 1, 5, 88, NULL, 'new_message', 'Abood sent you a message.', 1, 1, '2025-05-09 21:40:54'),
+(229, 1, 5, 88, NULL, 'new_message', 'Abood sent you a message.', 1, 1, '2025-05-10 11:56:02'),
+(230, 1, 5, 88, NULL, 'new_message', 'Abood sent you a message.', 1, 1, '2025-05-10 11:58:02'),
+(231, 1, 5, 88, NULL, 'new_message', 'Abood sent you a message.', 1, 1, '2025-05-10 12:01:06'),
+(232, 1, 5, 88, NULL, 'new_message', 'Abood sent you a message.', 1, 1, '2025-05-10 12:01:10'),
+(233, 1, 5, 88, NULL, 'new_message', 'Abood sent you a message.', 1, 1, '2025-05-10 12:02:46'),
+(234, 1, 5, 88, NULL, 'new_message', 'Abood sent you a message.', 1, 1, '2025-05-10 12:07:17'),
+(235, 1, 5, 88, NULL, 'new_message', 'Abood sent you a message.', 1, 1, '2025-05-10 12:09:31'),
+(236, 1, 5, 88, NULL, 'new_message', 'Abood sent you a message.', 1, 1, '2025-05-10 12:13:48'),
+(237, 1, 5, 88, NULL, 'new_message', 'Abood sent you a message.', 1, 1, '2025-05-10 12:16:13'),
+(238, 7, 1, 92, NULL, 'book_request', 'Ahmad Manaseer has requested your book', 1, 1, '2025-05-10 12:24:31'),
+(239, 1, 7, 92, NULL, 'request_accepted', 'Abood accepted your request.', 1, 1, '2025-05-10 12:24:40'),
+(240, 3, 1, 93, NULL, 'book_request', 'Emad Qudah has requested your book', 1, 1, '2025-05-10 12:26:33'),
+(241, 1, 3, 93, NULL, 'request_accepted', 'Abood accepted your request.', 1, 1, '2025-05-10 12:26:55'),
+(242, 4, 1, 94, NULL, 'book_request', 'Ahmad Qudah has requested your book', 1, 1, '2025-05-10 12:31:30'),
+(243, 1, 4, 94, NULL, 'request_accepted', 'Abood accepted your request.', 1, 1, '2025-05-10 12:31:37'),
+(244, 4, 1, 95, NULL, 'book_request', 'Ahmad Qudah has requested your book', 1, 1, '2025-05-10 14:03:35'),
+(245, 1, 4, 95, NULL, 'request_accepted', 'Abood accepted your request.', 1, 1, '2025-05-10 14:04:01'),
+(246, 7, 1, 96, NULL, 'book_request', 'Ahmad Manaseer has requested your book', 1, 1, '2025-05-10 14:10:08'),
+(247, 1, 7, 96, NULL, 'request_accepted', 'Abood accepted your request.', 1, 1, '2025-05-10 14:10:18'),
+(248, 7, 1, 97, NULL, 'book_request', 'Ahmad Manaseer has requested your book', 1, 1, '2025-05-10 14:15:51'),
+(249, 1, 7, 97, NULL, 'request_accepted', 'Abood accepted your request.', 1, 1, '2025-05-10 14:15:58'),
+(250, 7, 1, 98, NULL, 'book_request', 'Ahmad Manaseer has requested your book', 1, 1, '2025-05-10 14:20:38'),
+(251, 1, 7, 98, NULL, 'request_accepted', 'Abood accepted your request.', 1, 1, '2025-05-10 14:20:46'),
+(252, 7, 1, 99, NULL, 'book_request', 'Ahmad Manaseer has requested your book', 1, 1, '2025-05-10 14:23:04'),
+(253, 1, 7, 99, NULL, 'request_accepted', 'Abood accepted your request.', 1, 1, '2025-05-10 14:24:10'),
+(254, 7, 1, 100, NULL, 'book_request', 'Ahmad Manaseer has requested your book', 1, 1, '2025-05-10 14:26:37'),
+(255, 1, 7, 100, NULL, 'request_accepted', 'Abood accepted your request.', 1, 1, '2025-05-10 14:26:47'),
+(256, 4, 1, 101, NULL, 'book_request', 'Ahmad Qudah has requested your book', 1, 1, '2025-05-10 14:29:38'),
+(257, 1, 4, 101, NULL, 'request_accepted', 'Abood accepted your request.', 1, 1, '2025-05-10 14:29:47'),
+(258, 1, 4, 101, NULL, 'new_message', 'Abood sent you a message.', 1, 1, '2025-05-10 14:29:52'),
+(259, 1, 4, 101, NULL, 'new_message', 'Abood sent you a message.', 1, 1, '2025-05-10 14:29:56'),
+(260, 1, 4, 101, NULL, 'new_message', 'Abood sent you a message.', 1, 1, '2025-05-10 14:29:59'),
+(261, 1, 4, 101, NULL, 'new_message', 'Abood sent you a message.', 1, 1, '2025-05-10 14:34:40'),
+(262, 1, 4, 101, NULL, 'new_message', 'Abood sent you a message.', 1, 1, '2025-05-10 14:34:41'),
+(263, 1, 4, 101, NULL, 'new_message', 'Abood sent you a message.', 1, 1, '2025-05-10 14:34:44'),
+(264, 1, 4, 101, NULL, 'new_message', 'Abood sent you a message.', 1, 1, '2025-05-10 14:35:15'),
+(265, 1, 4, 101, NULL, 'new_message', 'Abood sent you a message.', 1, 1, '2025-05-10 14:35:23'),
+(266, 1, 4, 101, NULL, 'new_message', 'Abood sent you a message.', 1, 1, '2025-05-10 14:35:38'),
+(267, 1, 4, 101, NULL, 'new_message', 'Abood sent you a message.', 1, 1, '2025-05-10 14:35:40'),
+(268, 4, 1, 101, NULL, 'new_message', 'Ahmad sent you a message.', 1, 1, '2025-05-10 14:36:16'),
+(269, 1, 3, 93, NULL, 'new_message', 'Abood sent you a message.', 1, 1, '2025-05-10 16:20:11'),
+(270, 3, 1, 93, NULL, 'new_message', 'Emad sent you a message.', 1, 1, '2025-05-10 16:20:22'),
+(271, 3, 1, 102, NULL, 'book_request', 'Emad Qudah has requested your book', 1, 1, '2025-05-10 19:37:37'),
+(272, 3, 1, 103, NULL, 'book_request', 'Emad Qudah has requested your book', 1, 1, '2025-05-10 19:39:08'),
+(273, 1, 3, 103, NULL, 'request_accepted', 'Abood accepted your request.', 1, 1, '2025-05-10 19:39:58'),
+(274, 1, 3, 93, NULL, 'new_message', 'Abood sent you a message.', 1, 1, '2025-05-10 19:40:12'),
+(275, 1, 3, 93, NULL, 'new_message', 'Abood sent you a message.', 1, 1, '2025-05-10 19:40:27'),
+(276, 3, 1, 93, NULL, 'new_message', 'Emad sent you a message.', 1, 1, '2025-05-10 19:41:55'),
+(277, 3, 1, 93, NULL, 'new_message', 'Emad sent you a message.', 1, 1, '2025-05-10 19:43:17'),
+(278, 1, 3, 93, NULL, 'new_message', 'Abood sent you a message.', 1, 1, '2025-05-10 19:43:32'),
+(279, 4, 1, 104, NULL, 'book_request', 'Ahmad Qudah has requested your book', 1, 1, '2025-05-11 07:17:36'),
+(280, 1, 4, 104, NULL, 'request_accepted', 'Abood accepted your request.', 1, 1, '2025-05-11 07:17:56'),
+(281, 1, 4, 104, NULL, 'new_message', 'Abood sent you a message.', 1, 1, '2025-05-11 07:18:04'),
+(282, 4, 1, 105, NULL, 'book_request', 'Ahmad Qudah has requested your book', 1, 1, '2025-05-11 07:20:29'),
+(283, 5, 1, 106, NULL, 'book_request', 'Leen Ghanem has requested your book', 1, 1, '2025-05-11 07:20:40'),
+(284, 1, 5, 95, NULL, 'book_taken', 'Abood gave this book to someone else.', 1, 1, '2025-05-11 07:20:53'),
+(285, 1, 4, 105, NULL, 'request_accepted', 'Abood accepted your request.', 1, 1, '2025-05-11 07:20:53'),
+(286, 3, 1, 107, NULL, 'book_request', 'Emad Qudah has requested your book', 1, 1, '2025-05-11 14:51:12'),
+(287, 1, 3, 107, NULL, 'request_accepted', 'Abood accepted your request.', 1, 1, '2025-05-11 14:51:22'),
+(288, 1, 3, 107, NULL, 'new_message', 'Abood sent you a message.', 1, 1, '2025-05-11 14:51:50'),
+(289, 1, 3, 107, NULL, 'new_message', 'Abood sent you a message.', 1, 1, '2025-05-11 15:05:15'),
+(290, 1, 3, 107, NULL, 'new_message', 'Abood sent you a message.', 1, 1, '2025-05-11 15:16:47'),
+(291, 3, 1, 107, NULL, 'new_message', 'Emad sent you a message.', 1, 1, '2025-05-11 15:23:06'),
+(292, 3, 1, 107, NULL, 'new_message', 'Emad sent you a message.', 1, 1, '2025-05-11 15:28:05'),
+(293, 1, 3, 107, NULL, 'new_message', 'Abood sent you a message.', 1, 1, '2025-05-11 19:48:46'),
+(294, 3, 7, 109, NULL, 'book_request', 'Emad Qudah has requested your book', 1, 1, '2025-05-12 19:55:36'),
+(295, 7, 3, 109, NULL, 'request_accepted', 'Ahmad accepted your request.', 1, 1, '2025-05-12 19:55:57'),
+(296, 7, 3, 97, NULL, 'new_message', 'Ahmad sent you a message.', 1, 1, '2025-05-12 19:56:11'),
+(297, 7, 1, 97, NULL, 'new_message', 'Ahmad sent you a message.', 1, 1, '2025-05-12 19:56:20'),
+(298, 5, 3, 110, NULL, 'book_request', 'Leen Ghanem has requested your book', 1, 1, '2025-05-12 19:58:22'),
+(299, 3, 5, 110, NULL, 'request_accepted', 'Emad accepted your request.', 1, 1, '2025-05-12 19:58:31'),
+(300, 3, 5, 110, NULL, 'new_message', 'Emad sent you a message.', 1, 1, '2025-05-12 19:58:35'),
+(301, 5, 3, 110, NULL, 'new_message', 'Leen sent you a message.', 1, 1, '2025-05-12 19:58:53'),
+(302, 4, 1, 115, NULL, 'book_request', 'Ahmad Qudah has requested your book', 1, 1, '2025-05-13 08:36:39'),
+(303, 1, 4, 115, NULL, 'request_accepted', 'Abood accepted your request.', 1, 1, '2025-05-13 08:36:48'),
+(304, 1, 4, 115, NULL, 'new_message', 'Abood sent you a message.', 1, 1, '2025-05-13 08:36:50'),
+(305, 4, 1, 115, NULL, 'new_message', 'Ahmad sent you a message.', 1, 1, '2025-05-13 08:36:59'),
+(307, NULL, 1, 120, NULL, 'swap_request', 'Ahmad Qudah wants to swap “Business Research Me” for “Principles of Marketing”', 1, 1, '2025-05-13 09:18:23'),
+(308, 1, 4, 120, NULL, 'request_accepted', 'Abood accepted your request.', 1, 1, '2025-05-13 09:18:47'),
+(309, 1, 4, 120, NULL, 'new_message', 'Abood sent you a message.', 1, 1, '2025-05-13 09:18:56'),
+(310, NULL, 1, 121, NULL, 'swap_request', 'Emad Qudah wants to swap “Business Research Me” for “Principles of Marketing”', 1, 1, '2025-05-13 09:21:25'),
+(311, 1, 3, NULL, NULL, 'request_rejected', 'Abood rejected your book request.', 1, 1, '2025-05-13 09:21:33'),
+(312, 1, 3, NULL, NULL, 'request_rejected', 'Abood rejected your book request.', 1, 1, '2025-05-13 09:21:33'),
+(314, 3, 1, NULL, NULL, 'request_rejected', 'Emad rejected your book request.', 1, 1, '2025-05-13 09:22:17'),
+(315, 3, 1, NULL, NULL, 'request_rejected', 'Emad rejected your book request.', 1, 1, '2025-05-13 09:22:17'),
+(316, NULL, 1, 123, NULL, 'swap_request', 'Emad Qudah wants to swap “Business Research Me” for “Principles of Marketing”', 1, 1, '2025-05-13 14:07:34'),
+(317, NULL, 1, 124, NULL, 'swap_request', 'Emad Qudah wants to swap “Business Research Me” for “Principles of Marketing”', 1, 1, '2025-05-13 14:08:28'),
+(318, 7, 3, 125, NULL, 'book_request', 'Ahmad Manaseer has requested your book', 1, 1, '2025-05-13 14:11:27'),
+(319, NULL, 1, 126, NULL, 'swap_request', 'Leen Ghanem wants to swap “Business Research Me” for “Principles of Marketing”', 1, 1, '2025-05-13 14:15:33'),
+(320, NULL, 1, 127, NULL, 'swap_request', 'Leen Ghanem wants to swap “Business Research Me” for “Principles of Marketing”', 1, 1, '2025-05-13 14:20:33'),
+(321, NULL, 1, 128, NULL, 'swap_request', 'Leen Ghanem wants to swap “Business Research Me” for “Principles of Marketing”', 1, 1, '2025-05-13 14:20:58'),
+(322, NULL, 1, 129, NULL, 'swap_request', 'Leen Ghanem wants to swap “Business Research Me” for “Principles of Marketing”', 1, 1, '2025-05-13 14:24:01'),
+(323, NULL, 1, 130, NULL, 'swap_request', 'Ahmad Manaseer wants to swap “Business Research Me” for “Principles of Marketing”', 1, 1, '2025-05-13 14:27:43'),
+(324, NULL, 1, 131, NULL, 'swap_request', 'Ahmad Manaseer wants to swap “Business Research Me” for “مبادئ تسويق”', 1, 1, '2025-05-13 14:52:34'),
+(325, 1, 5, NULL, NULL, 'request_rejected', 'Abood rejected your book request.', 1, 1, '2025-05-13 14:53:25'),
+(326, 1, 5, NULL, NULL, 'request_rejected', 'Abood rejected your book request.', 1, 1, '2025-05-13 14:53:25'),
+(327, NULL, 5, 132, NULL, 'swap_request', 'Emad Qudah wants to swap “Business Research Me” for “مبادئ تسويق”', 1, 1, '2025-05-13 15:03:00'),
+(328, NULL, 5, 133, NULL, 'swap_request', 'Emad Qudah wants to swap “Business Research Me” for “مبادئ تسويق”', 1, 1, '2025-05-13 15:06:31'),
+(330, 5, 7, NULL, NULL, 'request_rejected', 'Leen rejected your book request.', 1, 1, '2025-05-13 15:19:49'),
+(331, 5, 7, NULL, NULL, 'request_rejected', 'Leen rejected your book request.', 1, 1, '2025-05-13 15:19:49'),
+(333, 5, 7, 135, NULL, 'request_rejected', 'Leen rejected your book request.', 1, 1, '2025-05-13 15:23:09'),
+(334, 5, 7, 135, NULL, 'request_rejected', 'Leen rejected your book request.', 1, 1, '2025-05-13 15:23:09'),
+(336, NULL, 7, NULL, NULL, 'request_rejected', 'Leen rejected your book request.', 1, 1, '2025-05-13 15:24:02'),
+(337, NULL, 7, NULL, NULL, 'request_rejected', 'Leen rejected your book request.', 1, 1, '2025-05-13 15:24:02'),
+(339, 5, 7, NULL, NULL, 'request_rejected', 'Leen rejected your book request.', 1, 1, '2025-05-13 15:27:29'),
+(340, 5, 7, NULL, NULL, 'request_rejected', 'Leen rejected your book request.', 1, 1, '2025-05-13 15:27:30'),
+(341, 4, 5, 138, NULL, 'book_request', 'Ahmad Qudah has requested your book', 1, 1, '2025-05-13 15:52:34'),
+(342, 5, 4, 138, NULL, 'request_accepted', 'Leen accepted your request.', 1, 1, '2025-05-13 15:52:42'),
+(343, 4, 5, 138, NULL, 'new_message', 'Ahmad sent you a message.', 1, 1, '2025-05-13 19:33:02'),
+(344, 4, 5, 138, NULL, 'new_message', 'Ahmad sent you a message.', 1, 1, '2025-05-13 19:33:51'),
+(345, 5, 4, 138, NULL, 'new_message', 'Leen sent you a message.', 1, 1, '2025-05-13 19:34:10'),
+(346, 4, 5, 138, NULL, 'new_message', 'Ahmad sent you a message.', 1, 1, '2025-05-13 19:34:37'),
+(347, 5, 4, 138, NULL, 'new_message', 'Leen sent you a message.', 1, 1, '2025-05-13 19:39:26'),
+(348, 5, 4, 138, NULL, 'new_message', 'Leen sent you a message.', 1, 1, '2025-05-13 19:39:29'),
+(349, 5, 4, 138, NULL, 'new_message', 'Leen sent you a message.', 1, 1, '2025-05-13 19:39:32'),
+(350, 5, 4, 138, NULL, 'new_message', 'Leen sent you a message.', 1, 1, '2025-05-13 19:39:37'),
+(351, 4, 5, 138, NULL, 'new_message', 'Ahmad sent you a message.', 1, 1, '2025-05-13 19:40:26'),
+(352, 5, 4, 138, NULL, 'new_message', 'Leen sent you a message.', 1, 1, '2025-05-13 19:47:22'),
+(353, 4, 5, 138, NULL, 'new_message', 'Ahmad sent you a message.', 1, 1, '2025-05-13 19:47:38'),
+(354, 3, 5, 139, NULL, 'book_request', 'Emad Qudah has requested your book', 1, 1, '2025-05-13 19:48:39'),
+(355, 5, 3, 139, NULL, 'request_accepted', 'Leen accepted your request.', 1, 1, '2025-05-13 19:48:56'),
+(356, 5, 3, 138, NULL, 'new_message', 'Leen sent you a message.', 1, 1, '2025-05-13 19:49:20'),
+(357, 1, 7, 140, NULL, 'book_request', 'Abood Qudah has requested your book', 1, 1, '2025-05-13 19:50:39'),
+(358, 3, 7, 141, NULL, 'book_request', 'Emad Qudah has requested your book', 1, 1, '2025-05-13 19:50:46'),
+(359, 7, 1, 133, NULL, 'book_taken', 'Ahmad gave this book to someone else.', 1, 1, '2025-05-13 19:50:56'),
+(360, 7, 3, 141, NULL, 'request_accepted', 'Ahmad accepted your request.', 1, 1, '2025-05-13 19:50:56'),
+(361, 7, 3, 141, NULL, 'new_message', 'Ahmad sent you a message.', 1, 1, '2025-05-13 19:51:08'),
+(362, 3, 7, 141, NULL, 'new_message', 'Emad sent you a message.', 1, 1, '2025-05-13 19:51:41'),
+(363, NULL, 3, 142, NULL, 'swap_request', 'Abood Qudah wants to swap “Business Research Me” for “مبادئ تسويق”', 1, 1, '2025-05-13 20:01:07'),
+(364, NULL, 3, 143, NULL, 'swap_request', 'Leen Ghanem wants to swap “Business Research Me” for “مبادئ تسويق”', 1, 1, '2025-05-13 20:01:14'),
+(365, 3, 5, 134, NULL, 'book_taken', 'Emad gave this book to someone else.', 1, 1, '2025-05-13 20:01:31'),
+(366, 3, 1, 142, NULL, 'request_accepted', 'Emad accepted your request.', 1, 1, '2025-05-13 20:01:31'),
+(367, 3, 1, 141, NULL, 'new_message', 'Emad sent you a message.', 1, 1, '2025-05-13 20:01:39'),
+(368, 1, 3, 142, NULL, 'new_message', 'Abood sent you a message.', 1, 1, '2025-05-13 20:02:00'),
+(369, 1, 3, 142, NULL, 'new_message', 'Abood sent you a message.', 1, 1, '2025-05-13 20:02:12'),
+(370, 3, 1, 141, NULL, 'new_message', 'Emad sent you a message.', 1, 1, '2025-05-13 20:03:35'),
+(371, 3, 7, 141, NULL, 'new_message', 'Emad sent you a message.', 1, 1, '2025-05-13 20:03:50'),
+(372, 3, 7, 141, NULL, 'new_message', 'Emad sent you a message.', 1, 1, '2025-05-13 20:03:55'),
+(373, 3, 7, 141, NULL, 'new_message', 'Emad sent you a message.', 1, 1, '2025-05-13 20:03:56'),
+(374, NULL, 7, 144, NULL, 'swap_request', 'Abood Qudah wants to swap “Business Research Me” for “مبادئ تسويق”', 1, 1, '2025-05-13 20:05:03'),
+(375, NULL, 7, 145, NULL, 'swap_request', 'Leen Ghanem wants to swap “Business Research Me” for “مبادئ تسويق”', 1, 1, '2025-05-13 20:05:13'),
+(376, 7, 5, 135, NULL, 'book_taken', 'Ahmad gave this book to someone else.', 1, 1, '2025-05-13 20:05:21'),
+(377, 7, 1, 144, NULL, 'request_accepted', 'Ahmad accepted your request.', 1, 1, '2025-05-13 20:05:21'),
+(378, 3, 5, 141, NULL, 'new_message', 'Emad sent you a message.', 1, 1, '2025-05-13 20:12:28'),
+(379, 5, 4, 138, NULL, 'new_message', 'Leen sent you a message.', 1, 1, '2025-05-13 20:17:16'),
+(380, 2, 8, 146, NULL, 'book_request', 'Jane Doe has requested your book', 1, 0, '2025-05-13 20:32:25'),
+(381, 8, 2, 146, NULL, 'request_accepted', 'ali accepted your request.', 1, 0, '2025-05-13 20:32:35'),
+(382, 8, 2, 146, NULL, 'new_message', 'ali sent you a message.', 1, 0, '2025-05-13 20:32:42'),
+(383, 8, 1, 147, NULL, 'book_request', 'ali sami has requested your book', 1, 1, '2025-05-13 20:33:46'),
+(384, 2, 1, 148, NULL, 'book_request', 'Jane Doe has requested your book', 1, 1, '2025-05-13 20:33:59'),
+(385, 1, 2, 148, NULL, 'request_accepted', 'Abood accepted your request.', 1, 0, '2025-05-13 20:34:11'),
+(386, 1, 2, 144, NULL, 'new_message', 'Abood sent you a message.', 1, 0, '2025-05-13 20:34:25'),
+(387, 1, 8, 147, NULL, 'request_accepted', 'Abood accepted your request.', 0, 0, '2025-05-13 20:34:34'),
+(388, 5, 1, 138, NULL, 'new_message', 'Leen sent you a message.', 1, 1, '2025-05-13 20:39:41'),
+(389, 4, 5, 138, NULL, 'new_message', 'Ahmad sent you a message.', 1, 1, '2025-05-13 20:40:45'),
+(390, NULL, 1, 149, NULL, 'swap_request', 'Ahmad Qudah wants to swap “مبادئ تسويق” for “Business Research Me”', 1, 1, '2025-05-14 16:20:44'),
+(391, NULL, 1, 150, NULL, 'swap_request', 'Ahmad Qudah wants to swap “مبادئ تسويق” for “Business Research Me”', 1, 1, '2025-05-14 16:22:28'),
+(392, 1, 4, 150, NULL, 'request_accepted', 'Abood accepted your request.', 1, 1, '2025-05-14 16:22:40'),
+(393, 7, 1, 151, NULL, 'book_request', 'Ahmad Manaseer has requested your book', 1, 1, '2025-05-15 20:41:35'),
+(394, 1, 7, 151, NULL, 'request_accepted', 'Abood accepted your request.', 1, 1, '2025-05-15 20:41:46'),
+(395, 7, 1, 152, NULL, 'book_request', 'Ahmad Manaseer has requested your book', 1, 1, '2025-05-15 20:43:23'),
+(396, 5, 1, 153, NULL, 'book_request', 'Leen Ghanem has requested your book', 1, 1, '2025-05-15 20:43:30'),
+(397, 1, 7, 141, NULL, 'book_taken', 'Abood gave this book to someone else.', 1, 1, '2025-05-15 20:43:40'),
+(398, 1, 5, 153, NULL, 'request_accepted', 'Abood accepted your request.', 1, 1, '2025-05-15 20:43:40'),
+(399, 4, 5, 138, NULL, 'new_message', 'Ahmad sent you a message.', 1, 1, '2025-05-17 10:26:12'),
+(400, 5, 7, 154, NULL, 'book_request', 'Leen Ghanem has requested your book', 1, 0, '2025-05-17 11:25:52'),
+(401, 7, 5, 154, NULL, 'request_accepted', 'Ahmad accepted your request.', 1, 1, '2025-05-17 11:30:12'),
+(402, 7, 5, 154, NULL, 'new_message', 'Ahmad sent you a message.', 1, 1, '2025-05-17 11:30:33'),
+(403, NULL, 1, 155, NULL, 'swap_request', 'Emad Qudah wants to swap “مبادئ ادارة مالية” for “مبادئ محاسبة 1”', 1, 1, '2025-05-17 12:51:35'),
+(404, NULL, 1, 156, NULL, 'swap_request', 'Leen Ghanem wants to swap “مبادئ ادارة مالية” for “مبادئ محاسبة 1”', 1, 1, '2025-05-17 12:51:52'),
+(405, 1, 3, 149, NULL, 'book_taken', 'Abood gave this book to someone else.', 1, 1, '2025-05-17 12:52:09'),
+(406, 1, 5, 156, NULL, 'request_accepted', 'Abood accepted your request.', 1, 1, '2025-05-17 12:52:09'),
+(407, NULL, 3, 157, NULL, 'swap_request', 'Abood Qudah wants to swap “مبادئ الاقتصاد الجزئي” for “ادارة عامة حديثة”', 1, 1, '2025-05-17 13:04:51'),
+(408, NULL, 3, 158, NULL, 'swap_request', 'Leen Ghanem wants to swap “مبادئ الاقتصاد الجزئي” for “ادارة عامة حديثة”', 1, 1, '2025-05-17 13:05:04'),
+(409, 3, 5, NULL, NULL, 'request_rejected', 'Emad rejected your book request.', 1, 1, '2025-05-17 13:05:15'),
+(410, 3, 5, NULL, NULL, 'request_rejected', 'Emad rejected your book request.', 1, 1, '2025-05-17 13:05:15'),
+(411, 3, 1, NULL, NULL, 'request_rejected', 'Emad rejected your book request.', 1, 1, '2025-05-17 13:05:20'),
+(412, 3, 1, NULL, NULL, 'request_rejected', 'Emad rejected your book request.', 1, 1, '2025-05-17 13:05:20'),
+(413, NULL, 3, 159, NULL, 'swap_request', 'Abood Qudah wants to swap “مبادئ الاقتصاد الجزئي” for “ادارة عامة حديثة”', 1, 1, '2025-05-17 13:06:07'),
+(414, 3, 1, NULL, NULL, 'request_rejected', 'Emad rejected your book request.', 1, 1, '2025-05-17 13:07:02'),
+(415, 3, 1, NULL, NULL, 'request_rejected', 'Emad rejected your book request.', 1, 1, '2025-05-17 13:07:02'),
+(416, NULL, 1, 160, NULL, 'swap_request', 'Ahmad Qudah wants to swap “مبادئ ادارة مالية” for “مبادئ الاقتصاد الجزئي”', 1, 1, '2025-05-18 07:11:37'),
+(417, 1, 4, 160, NULL, 'request_accepted', 'Abood accepted your request.', 1, 1, '2025-05-18 07:11:52'),
+(418, 4, 7, 161, NULL, 'book_request', 'Ahmad Qudah has requested your book', 1, 1, '2025-05-18 07:18:53'),
+(419, 4, 1, 162, NULL, 'book_request', 'Ahmad Qudah has requested your book', 1, 1, '2025-05-18 07:18:55'),
+(421, 5, 1, NULL, NULL, 'request_rejected', 'Leen rejected your book request.', 1, 1, '2025-05-20 19:15:03'),
+(422, 5, 7, 164, NULL, 'book_request', 'Leen Ghanem has requested your book', 1, 0, '2025-05-20 19:15:08'),
+(423, 7, 4, 155, NULL, 'book_taken', 'Ahmad gave this book to someone else.', 1, 1, '2025-05-20 19:32:49'),
+(424, 7, 5, 164, NULL, 'request_accepted', 'Ahmad accepted your request.', 1, 1, '2025-05-20 19:32:49'),
+(425, 7, 5, 165, NULL, 'book_request', 'Ahmad Manaseer has requested your book', 1, 1, '2025-05-20 19:33:05'),
+(426, 5, 7, 165, NULL, 'request_accepted', 'Leen accepted your request.', 1, 0, '2025-05-20 19:33:13'),
+(427, 4, 5, 166, NULL, 'book_request', 'Ahmad Qudah has requested your book', 1, 1, '2025-05-20 19:37:21'),
+(428, 5, 4, 166, NULL, 'request_accepted', 'Leen accepted your request.', 1, 1, '2025-05-20 19:37:33'),
+(431, NULL, 4, 167, NULL, 'swap_request', 'Emad Qudah wants to swap “مبادئ الاقتصاد الجزئي” for “ادارة عامة حديثة”', 1, 1, '2025-05-21 11:53:10'),
+(432, 3, 4, 168, NULL, 'book_request', 'Emad Qudah has requested your book', 1, 1, '2025-05-21 11:53:12'),
+(433, 4, 3, 168, NULL, 'request_accepted', ' accepted your request.', 1, 1, '2025-05-21 11:53:20'),
+(434, 4, 3, 167, NULL, 'request_accepted', ' accepted your request.', 1, 1, '2025-05-21 11:53:27'),
+(435, 3, 4, 169, NULL, 'book_request', 'Emad Qudah has requested your book', 1, 1, '2025-05-21 11:54:18'),
+(436, 4, 3, 169, NULL, 'request_accepted', ' accepted your request.', 1, 1, '2025-05-21 11:57:42'),
+(437, 7, 4, 170, NULL, 'book_request', 'Ahmad Manaseer has requested your book', 1, 1, '2025-05-21 12:06:11'),
+(438, 4, 7, 170, NULL, 'request_accepted', 'Ahmad accepted your request.', 1, 0, '2025-05-21 12:06:18'),
+(439, 3, 1, 171, NULL, 'book_request', 'Emad Qudah has requested your book', 1, 1, '2025-05-23 11:52:06'),
+(440, 1, 3, 171, NULL, 'request_accepted', 'Abood accepted your request.', 1, 0, '2025-05-23 11:52:13'),
+(452, 5, 1, 172, NULL, 'book_request', 'Leen Ghanem has requested your book', 1, 1, '2025-05-23 12:12:43'),
+(453, 1, 5, 172, NULL, 'request_accepted', 'Abood accepted your request.', 1, 0, '2025-05-23 12:12:50'),
+(455, 7, 3, 173, NULL, 'book_request', 'Ahmad Manaseer has requested your book', 1, 0, '2025-05-23 12:17:37'),
+(456, 3, 7, 173, NULL, 'request_accepted', 'Emad accepted your request.', 1, 0, '2025-05-23 12:17:43'),
+(458, 4, 1, 174, NULL, 'book_request', 'Ahmad Qudah has requested your book', 1, 1, '2025-05-23 12:20:14'),
+(459, 1, 4, 174, NULL, 'request_accepted', 'Abood accepted your request.', 1, 1, '2025-05-23 12:20:22'),
+(461, 3, 4, 175, NULL, 'book_request', 'Emad Qudah has requested your book', 1, 1, '2025-05-23 12:22:13'),
+(462, 4, 3, 175, NULL, 'request_accepted', 'Ahmad accepted your request.', 1, 0, '2025-05-23 12:22:20'),
+(465, 4, 3, NULL, 3, 'message', 'Ahmad Qudah sent you a message.', 1, 0, '2025-05-23 12:32:22'),
+(466, 5, 3, 176, NULL, 'book_request', 'Leen Ghanem has requested your book', 1, 0, '2025-05-23 12:35:48'),
+(467, 3, 5, 176, NULL, 'request_accepted', 'Emad accepted your request.', 1, 0, '2025-05-23 12:36:02'),
+(468, 3, 5, NULL, 9, 'message', 'Emad Qudah sent you a message.', 1, 0, '2025-05-23 12:36:04'),
+(469, 5, 3, NULL, 9, 'message', 'Leen Ghanem sent you a message.', 1, 0, '2025-05-23 12:40:59'),
+(470, 3, 5, NULL, 9, 'message', 'Emad Qudah sent you a message.', 1, 0, '2025-05-23 12:41:18'),
+(471, NULL, 5, 177, NULL, 'swap_request', 'Ahmad Manaseer wants to swap “مبادئ محاسبة 1” for “ادارة عامة حديثة”', 1, 0, '2025-05-23 12:41:57'),
+(472, 5, 7, 177, NULL, 'request_accepted', 'Leen accepted your request.', 1, 0, '2025-05-23 12:42:04'),
+(473, 5, 7, NULL, 1, 'message', 'Leen Ghanem sent you a message.', 1, 0, '2025-05-23 12:42:09'),
+(474, 7, 5, NULL, 1, 'message', 'Ahmad Manaseer sent you a message.', 1, 0, '2025-05-23 12:42:30'),
+(476, 7, 1, 179, NULL, 'book_request', 'Ahmad Manaseer has requested your book', 1, 1, '2025-05-23 12:43:31'),
+(477, 3, 1, 180, NULL, 'book_request', 'Emad Qudah has requested your book', 1, 1, '2025-05-23 12:43:38'),
+(478, 5, 1, 181, NULL, 'book_request', 'Leen Ghanem has requested your book', 1, 1, '2025-05-23 12:43:52'),
+(479, 1, 4, NULL, NULL, 'request_rejected', 'Abood rejected your book request.', 1, 1, '2025-05-23 12:44:04'),
+(480, 1, 4, NULL, NULL, 'request_rejected', 'Abood rejected your book request.', 1, 1, '2025-05-23 12:44:04'),
+(481, 1, 7, 170, NULL, 'book_taken', 'Abood gave this book to someone else.', 1, 0, '2025-05-23 12:44:27'),
+(482, 1, 3, 170, NULL, 'book_taken', 'Abood gave this book to someone else.', 1, 0, '2025-05-23 12:44:27'),
+(483, 1, 5, 181, NULL, 'request_accepted', 'Abood accepted your request.', 1, 0, '2025-05-23 12:44:27'),
+(484, 1, 5, NULL, 6, 'message', 'Abood Qudah sent you a message.', 1, 0, '2025-05-23 12:44:41'),
+(485, 7, 3, NULL, 7, 'message', 'Ahmad Manaseer sent you a message.', 1, 0, '2025-05-23 12:52:57'),
+(486, 3, 7, NULL, 7, 'message', 'Emad Qudah sent you a message.', 1, 0, '2025-05-23 12:53:44'),
+(487, 7, 3, NULL, 7, 'message', 'Ahmad Manaseer sent you a message.', 1, 0, '2025-05-23 12:55:09'),
+(488, 7, 3, NULL, 7, 'message', 'Ahmad Manaseer sent you a message.', 1, 0, '2025-05-23 12:55:42'),
+(489, 3, 7, NULL, 7, 'message', 'Emad Qudah sent you a message.', 1, 0, '2025-05-23 13:09:37'),
+(490, 3, 7, NULL, 7, 'message', 'Emad Qudah sent you a message.', 1, 0, '2025-05-23 13:11:46'),
+(491, 3, 7, NULL, 7, 'message', 'Emad Qudah sent you a message.', 1, 0, '2025-05-23 13:11:59'),
+(492, 7, 3, NULL, 7, 'message', 'Ahmad Manaseer sent you a message.', 1, 0, '2025-05-23 13:14:54'),
+(495, 1, 7, NULL, NULL, 'request_rejected', 'Abood rejected your book request.', 1, 0, '2025-05-23 14:28:29'),
+(496, 1, 7, NULL, NULL, 'request_rejected', 'Abood rejected your book request.', 1, 0, '2025-05-23 14:28:30'),
+(497, 3, 7, 184, NULL, 'book_request', 'Emad Qudah has requested your book', 1, 1, '2025-05-23 15:18:19'),
+(498, 5, 7, 185, NULL, 'book_request', 'Leen Ghanem has requested your book', 1, 0, '2025-05-23 15:31:28'),
+(499, 7, 3, 172, NULL, 'book_taken', 'Ahmad gave this book to someone else.', 1, 0, '2025-05-23 15:31:44'),
+(500, 7, 5, 185, NULL, 'request_accepted', 'Ahmad accepted your request.', 1, 0, '2025-05-23 15:31:44'),
+(501, 5, 1, 186, NULL, 'book_request', 'Leen Ghanem has requested your book', 1, 1, '2025-05-23 15:32:04'),
+(504, 1, 3, NULL, NULL, 'request_rejected', 'Abood rejected your book request.', 0, 0, '2025-05-23 16:03:57'),
+(505, 1, 3, NULL, NULL, 'request_rejected', 'Abood rejected your book request.', 0, 0, '2025-05-23 16:03:57'),
+(506, 1, 5, NULL, NULL, 'request_rejected', 'Abood rejected your book request.', 1, 0, '2025-05-23 16:03:59'),
+(507, 1, 5, NULL, NULL, 'request_rejected', 'Abood rejected your book request.', 1, 0, '2025-05-23 16:03:59'),
+(508, 7, 1, 189, NULL, 'book_request', 'Ahmad Manaseer has requested your book', 1, 1, '2025-05-23 16:08:21'),
+(509, 3, 1, 190, NULL, 'book_request', 'Emad Qudah has requested your book', 1, 1, '2025-05-23 16:10:26'),
+(511, 1, 5, NULL, NULL, 'request_rejected', 'Abood rejected your book request.', 0, 0, '2025-05-23 16:15:39'),
+(512, 1, 5, NULL, NULL, 'request_rejected', 'Abood rejected your book request.', 0, 0, '2025-05-23 16:15:39');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `users`
+--
+
+CREATE TABLE `users` (
+  `id` int(11) NOT NULL,
+  `first_name` varchar(100) DEFAULT NULL,
+  `last_name` varchar(100) DEFAULT NULL,
+  `avatar_url` varchar(255) DEFAULT NULL,
+  `email` varchar(255) DEFAULT NULL,
+  `phone` varchar(20) DEFAULT NULL,
+  `password` varchar(255) DEFAULT NULL,
+  `role` enum('user','super_admin') DEFAULT 'user',
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `is_blocked` tinyint(1) NOT NULL DEFAULT 0
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id`, `first_name`, `last_name`, `avatar_url`, `email`, `phone`, `password`, `role`, `created_at`, `is_blocked`) VALUES
+(1, 'Abood', 'Qudah', NULL, 'abood.qudah@gmail.com', '0790000000', '1', 'super_admin', '2025-04-18 12:34:27', 0),
+(2, 'Jane', 'Doe', NULL, 'jane.doe@example.com', '0781234567', '1', 'user', '2025-04-18 12:34:27', 0),
+(3, 'Emad', 'Qudah', NULL, 'Emad.qudah@gmail.com', '0781245789', '1', 'user', '2025-04-18 18:44:48', 0),
+(4, 'Ahmad', 'Qudah', NULL, 'ahmad.qudah@gmail.com', '0791197936', '1', 'super_admin', '2025-04-18 20:05:12', 0),
+(5, 'Leen', 'Ghanem', NULL, 'leen.ghanem@gmail.com', '0781543219', '1', 'super_admin', '2025-04-19 12:00:23', 0),
+(7, 'Ahmad', 'Manaseer', NULL, 'manaser.ahmad@gmail.com', '0787701415', '1', 'user', '2025-04-19 18:49:40', 0),
+(8, 'ali', 'sami', NULL, 'ali.qudah@gmail.com', '0787745136', '1', 'user', '2025-05-06 19:42:36', 0),
+(10, 'Hazar', 'Hmoud', NULL, 'HazarHmoud@gmail.com', '0789543124', '11', 'user', '2025-05-14 20:01:37', 0);
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `academic_staff`
+--
+ALTER TABLE `academic_staff`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `department_id` (`department_id`);
+
+--
+-- Indexes for table `books`
+--
+ALTER TABLE `books`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `department_id` (`department_id`);
+
+--
+-- Indexes for table `book_exchange`
+--
+ALTER TABLE `book_exchange`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `department_id` (`department_id`);
+
+--
+-- Indexes for table `book_offers`
+--
+ALTER TABLE `book_offers`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `book_id` (`book_id`),
+  ADD KEY `user_id` (`user_id`),
+  ADD KEY `desired_book_id` (`desired_book_id`);
+
+--
+-- Indexes for table `book_requests`
+--
+ALTER TABLE `book_requests`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `offer_id` (`offer_id`),
+  ADD KEY `requester_id` (`requester_id`);
+
+--
+-- Indexes for table `conversations`
+--
+ALTER TABLE `conversations`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `uq_pair` (`user1_id`,`user2_id`),
+  ADD KEY `fk_conv_user2` (`user2_id`),
+  ADD KEY `fk_conv_request` (`related_request_id`);
+
+--
+-- Indexes for table `courses`
+--
+ALTER TABLE `courses`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `department_id` (`department_id`);
+
+--
+-- Indexes for table `departments`
+--
+ALTER TABLE `departments`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `messages`
+--
+ALTER TABLE `messages`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `idx_conv` (`conversation_id`),
+  ADD KEY `fk_msg_sender` (`sender_id`),
+  ADD KEY `fk_msg_deleted_by` (`deleted_by`);
+
+--
+-- Indexes for table `message_edits`
+--
+ALTER TABLE `message_edits`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `idx_msgid` (`message_id`),
+  ADD KEY `fk_me_editor` (`editor_id`);
+
+--
+-- Indexes for table `notifications`
+--
+ALTER TABLE `notifications`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `user_id` (`user_id`),
+  ADD KEY `receiver_id` (`receiver_id`),
+  ADD KEY `action_id` (`action_id`),
+  ADD KEY `idx_notifications_conv` (`conversation_id`);
+
+--
+-- Indexes for table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `email` (`email`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `academic_staff`
+--
+ALTER TABLE `academic_staff`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=110;
+
+--
+-- AUTO_INCREMENT for table `books`
+--
+ALTER TABLE `books`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=224;
+
+--
+-- AUTO_INCREMENT for table `book_exchange`
+--
+ALTER TABLE `book_exchange`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=289;
+
+--
+-- AUTO_INCREMENT for table `book_offers`
+--
+ALTER TABLE `book_offers`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=186;
+
+--
+-- AUTO_INCREMENT for table `book_requests`
+--
+ALTER TABLE `book_requests`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=192;
+
+--
+-- AUTO_INCREMENT for table `conversations`
+--
+ALTER TABLE `conversations`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
+-- AUTO_INCREMENT for table `courses`
+--
+ALTER TABLE `courses`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+
+--
+-- AUTO_INCREMENT for table `departments`
+--
+ALTER TABLE `departments`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT for table `messages`
+--
+ALTER TABLE `messages`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+
+--
+-- AUTO_INCREMENT for table `message_edits`
+--
+ALTER TABLE `message_edits`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `notifications`
+--
+ALTER TABLE `notifications`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=513;
+
+--
+-- AUTO_INCREMENT for table `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `academic_staff`
+--
+ALTER TABLE `academic_staff`
+  ADD CONSTRAINT `academic_staff_ibfk_1` FOREIGN KEY (`department_id`) REFERENCES `departments` (`id`);
+
+--
+-- Constraints for table `books`
+--
+ALTER TABLE `books`
+  ADD CONSTRAINT `books_ibfk_1` FOREIGN KEY (`department_id`) REFERENCES `departments` (`id`);
+
+--
+-- Constraints for table `book_exchange`
+--
+ALTER TABLE `book_exchange`
+  ADD CONSTRAINT `book_exchange_ibfk_1` FOREIGN KEY (`department_id`) REFERENCES `departments` (`id`);
+
+--
+-- Constraints for table `book_offers`
+--
+ALTER TABLE `book_offers`
+  ADD CONSTRAINT `book_offers_ibfk_1` FOREIGN KEY (`book_id`) REFERENCES `book_exchange` (`id`),
+  ADD CONSTRAINT `book_offers_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`),
+  ADD CONSTRAINT `book_offers_ibfk_3` FOREIGN KEY (`desired_book_id`) REFERENCES `book_exchange` (`id`);
+
+--
+-- Constraints for table `book_requests`
+--
+ALTER TABLE `book_requests`
+  ADD CONSTRAINT `book_requests_ibfk_1` FOREIGN KEY (`offer_id`) REFERENCES `book_offers` (`id`),
+  ADD CONSTRAINT `book_requests_ibfk_2` FOREIGN KEY (`requester_id`) REFERENCES `users` (`id`);
+
+--
+-- Constraints for table `conversations`
+--
+ALTER TABLE `conversations`
+  ADD CONSTRAINT `fk_conv_request` FOREIGN KEY (`related_request_id`) REFERENCES `book_requests` (`id`) ON DELETE SET NULL ON UPDATE CASCADE,
+  ADD CONSTRAINT `fk_conv_user1` FOREIGN KEY (`user1_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `fk_conv_user2` FOREIGN KEY (`user2_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `courses`
+--
+ALTER TABLE `courses`
+  ADD CONSTRAINT `courses_ibfk_1` FOREIGN KEY (`department_id`) REFERENCES `departments` (`id`);
+
+--
+-- Constraints for table `messages`
+--
+ALTER TABLE `messages`
+  ADD CONSTRAINT `fk_msg_conv` FOREIGN KEY (`conversation_id`) REFERENCES `conversations` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `fk_msg_deleted_by` FOREIGN KEY (`deleted_by`) REFERENCES `users` (`id`) ON DELETE SET NULL ON UPDATE CASCADE,
+  ADD CONSTRAINT `fk_msg_sender` FOREIGN KEY (`sender_id`) REFERENCES `users` (`id`) ON UPDATE CASCADE;
+
+--
+-- Constraints for table `message_edits`
+--
+ALTER TABLE `message_edits`
+  ADD CONSTRAINT `fk_me_editor` FOREIGN KEY (`editor_id`) REFERENCES `users` (`id`) ON UPDATE CASCADE,
+  ADD CONSTRAINT `fk_me_msg` FOREIGN KEY (`message_id`) REFERENCES `messages` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `notifications`
+--
+ALTER TABLE `notifications`
+  ADD CONSTRAINT `notifications_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`),
+  ADD CONSTRAINT `notifications_ibfk_2` FOREIGN KEY (`receiver_id`) REFERENCES `users` (`id`),
+  ADD CONSTRAINT `notifications_ibfk_3` FOREIGN KEY (`action_id`) REFERENCES `book_requests` (`id`);
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
